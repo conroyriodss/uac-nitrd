@@ -75,6 +75,7 @@ for i, r in enumerate(load_project_refs(a.fixture)):
     p = CODES[i %% len(CODES)]
     rows.append((str(r.appl_id), p, "true" if p == "AI" or i %% 2 else "false", "AW" if p == "ACNS" and i %% 2 else ""))
 (a.out_dir / "proposals.csv").write_text("appl_id,primary_pca,ai_relevant,sub_pca\\n" + "".join(",".join(x) + "\\n" for x in rows))
+(a.out_dir / "explanations.jsonl").write_text("".join('{"appl_id": %%s, "primary_pca": "%%s"}\\n' %% (x[0], x[1]) for x in rows))
 ''' % (CODES,)
 
 

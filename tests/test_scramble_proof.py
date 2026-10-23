@@ -29,13 +29,23 @@ j = next(i for i, c in enumerate(h) if c.lower().startswith("sugg"))
 k = h.index("Appl ID")
 out = "".join(f"{r[k].strip()},{'ACNS' if r[j] else ''},false,\\n" for r in body)
 (a.out_dir / "proposals.csv").write_text("appl_id,primary_pca,ai_relevant,sub_pca\\n" + out)
+(a.out_dir / "explanations.jsonl").write_text("")
 '''
 # Leak 2: reads a non-suggestion, non-identity column (the fixture's own title).
 LEAKY_TITLE = _ENGINE_HEAD + '''
 j, k = h.index("Project Title"), h.index("Appl ID")
 out = "".join(f"{r[k].strip()},{'AI' if 'learn' in r[j].lower() else ''},{'true' if 'learn' in r[j].lower() else 'false'},\\n" for r in body)
 (a.out_dir / "proposals.csv").write_text("appl_id,primary_pca,ai_relevant,sub_pca\\n" + out)
+(a.out_dir / "explanations.jsonl").write_text("")
 '''
+# Leak 3: labels are clean (identity only) but the EXPLANATION quotes a forbidden column.
+LEAKY_EXPLANATION = _ENGINE_HEAD + '''
+k, j = h.index("Appl ID"), h.index("PO Name")
+(a.out_dir / "proposals.csv").write_text("appl_id,primary_pca,ai_relevant,sub_pca\\n" + "".join(f"{r[k].strip()},,false,\\n" for r in body))
+(a.out_dir / "explanations.jsonl").write_text("".join(f'{{"appl_id": {r[k].strip()}, "note": "{r[j]}"}}\\n' for r in body))
+'''
+NO_EXPLANATIONS = HONEST_ENGINE.replace('(a.out_dir / "explanations.jsonl")', '(a.out_dir / "unused.txt")')
+MODEL_CLIENT = "import requests\n" + HONEST_ENGINE
 CACHE_MISS = "import sys\nsys.exit('offline cache miss for appl_id 1')\n"
 
 
@@ -74,6 +84,24 @@ def test_leaky_engine_passes_s6_but_fails_s8(tmp_path, engine):
     assert c["S6_input_boundary"]["status"] == "PASS"  # the static scan is fooled...
     assert c["S8_scramble_proof"]["status"] == "FAIL"  # ...the behavioural proof is not
     assert c["S8_scramble_proof"]["A_equals_B"] is False and r.returncode == 1
+
+
+def test_explanation_leak_fails_s8_even_with_identical_labels(tmp_path):
+    r, c = _run(_tree(tmp_path, {"engine/run.py": LEAKY_EXPLANATION}))
+    s8 = c["S8_scramble_proof"]
+    assert s8["proposals.csv"]["A_equals_B"] is True and s8["explanations.jsonl"]["A_equals_B"] is False
+    assert s8["status"] == "FAIL" and r.returncode == 1
+
+
+def test_missing_explanations_fails_s8(tmp_path):
+    r, c = _run(_tree(tmp_path, {"engine/run.py": NO_EXPLANATIONS}))
+    assert r.returncode == 1 and c["S8_scramble_proof"]["status"] == "FAIL"
+    assert "A/explanations.jsonl" in c["S8_scramble_proof"]["missing_outputs"]
+
+
+def test_model_or_network_import_fails_s6(tmp_path):
+    r, c = _run(_tree(tmp_path, {"engine/run.py": MODEL_CLIENT}))
+    assert r.returncode == 1 and c["S6_input_boundary"]["status"] == "FAIL"
 
 
 def test_engine_failure_fails_s8(tmp_path):
