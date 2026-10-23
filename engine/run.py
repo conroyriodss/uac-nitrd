@@ -28,6 +28,7 @@ from engine.inputs import load_project_refs  # noqa: E402
 
 # --------------------------------------------------------------------------- constants
 SCOPE_PATH = ROOT / "scope" / "nitrd_pca_scopes_fy2025.v1.json"
+SYNONYMS_PATH = ROOT / "engine" / "synonyms.json"
 CACHE_PATH = ROOT / "cache" / "reporter" / "reporter_text.v1.jsonl"
 PCA_CODES = ("ACNS", "AI", "CHuman", "CNPS", "CSP", "EdW", "EHCS", "ENIT", "HCIA", "IRAS", "LSDMA", "SPSQ")
 AW = "AW"
@@ -136,6 +137,43 @@ def _build_vocabulary(scopes: list[dict], guidance: dict) -> dict:
         vocab[AW] = aw_terms
 
     return vocab
+
+
+def _load_synonyms(syn_path: Path, vocab: dict[str, dict[str, tuple[float, str]]]) -> int:
+    """Merge synonyms.json into the vocabulary. Returns count of terms added."""
+    if not syn_path.exists():
+        return 0
+    data = json.loads(syn_path.read_text(encoding="utf-8"))
+    added = 0
+    for entry in data.get("synonyms", []):
+        if "comment" in entry:
+            continue
+        term = entry["term"].strip().lower()
+        pca = entry["pca"].strip()
+        src = f"synonym: {entry['expands'][:60]} ({entry['source']})"
+        # Normalise the synonym term the same way as scope text
+        norm = _normalise(term)
+        if not norm:
+            continue
+        target = vocab.setdefault(pca, {})
+        # Add normalised single-word and multi-word forms
+        if len(norm) == 1:
+            if norm[0] not in target:
+                target[norm[0]] = (1.0, src)
+                added += 1
+        else:
+            joined = " ".join(norm)
+            if joined not in target:
+                target[joined] = (1.0, src)
+                added += 1
+            # also add sub-phrases if the synonym is 3+ words
+            for n in range(2, len(norm)):
+                for ng in _ngrams(norm, n):
+                    j = " ".join(ng)
+                    if j not in target:
+                        target[j] = (1.0, src)
+                        added += 1
+    return added
 
 
 # --------------------------------------------------------------------------- scoring
@@ -259,6 +297,7 @@ def main(argv=None) -> int:
     ap.add_argument("--out-dir", type=Path, required=True)
     ap.add_argument("--offline", action="store_true", required=True)
     ap.add_argument("--scope", type=Path, default=SCOPE_PATH)
+    ap.add_argument("--synonyms", type=Path, default=SYNONYMS_PATH)
     ap.add_argument("--cache", type=Path, default=CACHE_PATH)
     a = ap.parse_args(argv)
 
@@ -267,6 +306,28 @@ def main(argv=None) -> int:
     scope_data = json.loads(a.scope.read_text(encoding="utf-8"))
     scope_sha = hashlib.sha256(a.scope.read_bytes()).hexdigest()
     vocab = _build_vocabulary(scope_data["scopes"], scope_data.get("cross_pca_guidance", {}))
+
+    # Load synonyms (before IDF is applied to synonym terms)
+    syn_sha = ""
+    syn_added = 0
+    if a.synonyms.exists():
+        syn_sha = hashlib.sha256(a.synonyms.read_bytes()).hexdigest()
+        syn_added = _load_synonyms(a.synonyms, vocab)
+        # Apply IDF + phrase bonus to newly-added synonym terms
+        all_terms: set[str] = set()
+        for code in list(PCA_CODES) + [AW]:
+            all_terms.update(vocab.get(code, {}))
+        doc_freq: Counter = Counter()
+        for t in all_terms:
+            doc_freq[t] = sum(1 for c in list(PCA_CODES) + [AW] if t in vocab.get(c, {}))
+        n_docs = len(PCA_CODES)
+        for code in list(PCA_CODES) + [AW]:
+            for t, (w, src) in list(vocab.get(code, {}).items()):
+                if src.startswith("synonym:"):
+                    idf = math.log(n_docs / max(doc_freq[t], 1))
+                    is_phrase = " " in t
+                    vocab[code][t] = (w * idf * (PHRASE_BONUS if is_phrase else 1.0), src)
+        print(f"Synonyms: {syn_added} terms added from {a.synonyms.name} (SHA {syn_sha[:12]})")
 
     # Load cache
     cache: dict[int, dict] = {}
@@ -302,7 +363,8 @@ def main(argv=None) -> int:
 
     # Write meta
     write_meta(csv_path, scope_set=scope_data["scope_set_id"], scope_sha256=scope_sha,
-               text_source="committed RePORTER text cache (cache/reporter/reporter_text.v1.jsonl)")
+               text_source="committed RePORTER text cache (cache/reporter/reporter_text.v1.jsonl)",
+               synonyms_sha256=syn_sha, synonyms_added=syn_added)
 
     # Summary
     by_pca = Counter(p["primary_pca"] for p in proposals if p["primary_pca"])
