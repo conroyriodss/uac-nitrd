@@ -1,0 +1,208 @@
+{
+  "schema": "uac-nitrd/subcategory-scope/v1",
+  "scope_set_id": "nitrd-pca-fy2025",
+  "version": 1,
+  "fiscal_year": 2025,
+  "source": {
+    "publisher": "NITRD National Coordination Office",
+    "title": "FY2025 NITRD Program Component Areas (PCAs)",
+    "url": "https://www.nitrd.gov/program-component-areas/nitrd-pcas-2025/",
+    "retrieved_at_utc": "2026-10-23T20:27:56Z",
+    "snapshot_file": "scope/sources/nitrd-pcas-2025.html",
+    "snapshot_sha256": "89d7aa0c0ddf3cc883aeefa092f5d8bfb2644ea03c6550729973d5584367c5b7",
+    "text_policy": "scope_text is verbatim NITRD wording (whitespace-joined lines); no paraphrase"
+  },
+  "scopes": [
+    {
+      "code": "ACNS",
+      "label": "Advanced Communication Networks and Systems",
+      "kind": "pca",
+      "standard_pca": true,
+      "selectable": true,
+      "parent": null,
+      "uac_suggestion_value": "ACNS",
+      "budget_crosscut_code": "ACNS",
+      "scope_text": "ACNS R&D advances and validates communication networks and systems, including wireless, optical, or quantum communication technologies and services; this includes R&D in networking architectures, programmability, security, measurement, performance, robustness, resilience, and interoperability, along with techniques for advancing spectrum efficiency.",
+      "annotations": []
+    },
+    {
+      "code": "AI",
+      "label": "Artificial Intelligence",
+      "kind": "pca",
+      "standard_pca": true,
+      "selectable": true,
+      "parent": null,
+      "uac_suggestion_value": "AI",
+      "budget_crosscut_code": "AI",
+      "scope_text": "AI R&D advances responsible research in AI and associated AI topics; this includes research directly related to AI into: fundamental AI approaches; developing more effective human-AI collaboration; addressing ethical, legal, and societal implications; ensuring safety and security; developing training datasets and testing environments; and evaluating AI systems and creating standards and benchmarks.",
+      "annotations": [
+        "footnoted (see cross_pca_guidance)"
+      ]
+    },
+    {
+      "code": "CHuman",
+      "label": "Computing-Enabled Human Interaction, Communication, and Augmentation",
+      "kind": "pca",
+      "standard_pca": true,
+      "selectable": true,
+      "parent": null,
+      "uac_suggestion_value": "CHuman",
+      "budget_crosscut_code": "CHuman",
+      "scope_text": "CHuman R&D advances the ability of individuals to interact with one another and with computing, communication, and information technologies; this includes R&D of human-to-human and human-to-machine interactions and collaborations, and the impacts on society.",
+      "annotations": []
+    },
+    {
+      "code": "CNPS",
+      "label": "Computing-Enabled Networked Physical Systems",
+      "kind": "pca",
+      "standard_pca": true,
+      "selectable": true,
+      "parent": null,
+      "uac_suggestion_value": "CNPS",
+      "budget_crosscut_code": "CNPS",
+      "scope_text": "CNPS R&D advances systems that are complex, highly-reliable, real-time, networked, and/or hybrid; this includes R&D in cyber-physical systems and the Internet of Things.",
+      "annotations": []
+    },
+    {
+      "code": "CSP",
+      "label": "Cyber Security and Privacy",
+      "kind": "pca",
+      "standard_pca": true,
+      "selectable": true,
+      "parent": null,
+      "uac_suggestion_value": "CSP",
+      "budget_crosscut_code": "CSP",
+      "scope_text": "CSP R&D advances the security, resilience, trustworthiness, and privacy of computing, communication, and information technologies; this includes R&D on how human behavior and usability interact with technical aspects of cybersecurity and privacy.",
+      "annotations": []
+    },
+    {
+      "code": "EdW",
+      "label": "Education and Workforce",
+      "kind": "pca",
+      "standard_pca": true,
+      "selectable": true,
+      "parent": null,
+      "uac_suggestion_value": "EdW",
+      "budget_crosscut_code": "EdW",
+      "scope_text": "EdW R&D advances the use of computing, communication, and information technologies to enhance education and workforce training at all levels; this includes the recruitment, preparation, and retention of a diverse population of researchers, entrepreneurs, and users; and support for learning, teaching, assessment, standards, and virtual education and training.",
+      "annotations": []
+    },
+    {
+      "code": "EHCS",
+      "label": "Enabling R&D for High-Capability Computing Systems",
+      "kind": "pca",
+      "standard_pca": true,
+      "selectable": true,
+      "parent": null,
+      "uac_suggestion_value": "EHCS",
+      "budget_crosscut_code": "EHCS",
+      "scope_text": "EHCS R&D advances and translates new approaches in high-capability computing; this includes R&D in novel computing paradigms, hardware, algorithms, software, and data analytics that enable extreme data- and computation-intensive workloads while addressing challenges such as system performance, reliability, trust, transparency, energy efficiency, and other methods.",
+      "annotations": []
+    },
+    {
+      "code": "ENIT",
+      "label": "Electronics for Networking and Information Technology",
+      "kind": "pca",
+      "standard_pca": true,
+      "selectable": true,
+      "parent": null,
+      "uac_suggestion_value": "ENIT",
+      "budget_crosscut_code": "ENIT",
+      "scope_text": "ENIT R&D advances micro- and nanoelectronics design, architecture, validation, and testing across the networking and information technology hardware design stack; this includes methodologies for scalable and energy-efficient systems, silicon and/or non-silicon technologies, and implementations in computing and communication architectures.",
+      "annotations": [
+        "new in FY2022"
+      ]
+    },
+    {
+      "code": "HCIA",
+      "label": "High-Capability Computing Infrastructure and Applications",
+      "kind": "pca",
+      "standard_pca": true,
+      "selectable": true,
+      "parent": null,
+      "uac_suggestion_value": "HCIA",
+      "budget_crosscut_code": "HCIA",
+      "scope_text": "HCIA provides high-capability computing systems, application software, and infrastructure; this includes computing, software and services, communications, storage, and data infrastructure, coordination services, and other necessary resources for the effective use of high-capability computing.",
+      "annotations": []
+    },
+    {
+      "code": "IRAS",
+      "label": "Intelligent Robotics and Autonomous Systems",
+      "kind": "pca",
+      "standard_pca": true,
+      "selectable": true,
+      "parent": null,
+      "uac_suggestion_value": "IRAS",
+      "budget_crosscut_code": "IRAS",
+      "scope_text": "IRAS R&D advances intelligent robotic systems that are increasingly autonomous; this includes R&D in robotics hardware and software design and application, machine perception, cognition and adaptation, mobility and manipulation, safe human-robot interaction, and distributed and networked robotics.",
+      "annotations": []
+    },
+    {
+      "code": "LSDMA",
+      "label": "Large-Scale Data Management and Analysis",
+      "kind": "pca",
+      "standard_pca": true,
+      "selectable": true,
+      "parent": null,
+      "uac_suggestion_value": "LSDMA",
+      "budget_crosscut_code": "LSDMA",
+      "scope_text": "LSDMA R&D advances the ecosystem needed for extraction of knowledge and insights from data; this includes R&D in the capture, curation, provenance, privacy preservation, management, governance, access, analysis, reusability, and presentation of large-scale and diverse data.",
+      "annotations": []
+    },
+    {
+      "code": "SPSQ",
+      "label": "Software Productivity, Sustainability, and Quality",
+      "kind": "pca",
+      "standard_pca": true,
+      "selectable": true,
+      "parent": null,
+      "uac_suggestion_value": "SPSQ",
+      "budget_crosscut_code": "SPSQ",
+      "scope_text": "SPSQ R&D advances timely and affordable development and sustainability of low-defect, low-vulnerability software; this includes R&D to improve software development productivity, quality, measurement, assurance, and adaptability while also providing essential characteristics such as security, privacy, usability, and reliability.",
+      "annotations": []
+    },
+    {
+      "code": "AW",
+      "label": "Advanced Wireless R&D",
+      "kind": "sub_pca",
+      "standard_pca": false,
+      "selectable": true,
+      "parent": "ACNS",
+      "uac_suggestion_value": "Advanced Wireless R&D",
+      "budget_crosscut_code": null,
+      "scope_text": "Advanced Wireless R&D includes Federal spectrum-related R&D investments that promote efficient use of wireless spectrum through advanced technologies and systems.",
+      "annotations": [
+        "[Sub-PCA] of ACNS on the NITRD page"
+      ],
+      "rollup": {
+        "status": "UNRESOLVED",
+        "sourced_facts": [
+          "NITRD lists Advanced Wireless R&D as a [Sub-PCA] inside the ACNS definition (this page).",
+          "The NITRD budget crosscut (context/NITRD_Budget_Tables.csv) has no Advanced Wireless line in any FY.",
+          "The RCDC NITRD exports reviewed at gate 0b have no Advanced Wireless category.",
+          "The UAC fixture offers 'Advanced Wireless R&D' as a suggestion value alongside the 12 PCA codes."
+        ],
+        "open_question": "Whether an Advanced Wireless assignment also counts toward ACNS (nested roll-up) or is a separate breakout; not stated in any source in hand.",
+        "rule_until_resolved": "Do not add AW dollars into ACNS totals or subtract them out; report AW separately."
+      }
+    }
+  ],
+  "cross_pca_guidance": {
+    "ai_definition": {
+      "text": "The term “artificial intelligence” or “AI” has the meaning set forth in 15 U.S.C. 9401(3):  a machine-based system that can, for a given set of human-defined objectives, make predictions, recommendations, or decisions influencing real or virtual environments.  Artificial intelligence systems use machine- and human-based inputs to perceive real and virtual environments; abstract such perceptions into models through analysis in an automated manner; and use model inference to formulate options for information or action.",
+      "items": [],
+      "cited": "https://www.congress.gov/116/crpt/hrpt617/CRPT-116hrpt617.pdf#page=1210"
+    },
+    "ai_cross_pca": {
+      "text": "Please note that we understand R&D in AI will intersect with multiple PCAs. For example:",
+      "items": [
+        "R&D on general methods for machine vision would fall under AI, while R&D on robots, even if the robots employ machine vision, would fall under IRAS. Note that R&D on intelligent autonomous systems that exist only in cyberspace, with no physical embodiment, would be reported under AI.",
+        "R&D on algorithms for computational linguistics would fall under AI, while R&D on the broad problem of human-machine interaction, even if it contains an element of natural language processing, would fall under CHuman.",
+        "R&D on the cybersecurity challenges unique to AI, such as the ability to exploit flaws in an AI system’s goals would fall under AI, whereas AI supporting cybersecurity research would fall under CSP.",
+        "R&D on special neuromorphic computing architectures or chips optimized for neural nets would fall under AI, whereas general research in neuromorphic computing would fall under EHCS.",
+        "R&D that is primarily machine learning would fall under AI, while R&D on the larger data management and analysis ecosystem, even if it contains an element of machine learning, would fall under LSDMA.",
+        "Agencies should consider these examples and report an activity under the PCA that is most specific to that activity."
+      ]
+    }
+  }
+}

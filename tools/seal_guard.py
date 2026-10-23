@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Entry 2 held-out seal guard (build-sweep gate).
+"""UAC NITRD held-out seal guard (build-sweep gate).
 
 Fails the build if the sealed held-out answer key (RCDC "File A", and the related
 RCDC exports B and C) or any path to it appears anywhere in the buildable tree.

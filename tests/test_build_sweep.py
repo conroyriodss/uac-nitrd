@@ -1,4 +1,4 @@
-"""Model-free tests for the Entry 2 build sweep. None of them read the held-out key."""
+"""Model-free tests for the UAC NITRD build sweep. None of them read the held-out key."""
 import csv
 import shutil
 import subprocess

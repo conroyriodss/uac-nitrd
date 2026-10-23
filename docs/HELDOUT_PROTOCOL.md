@@ -1,4 +1,4 @@
-# Entry 2 held-out evaluation protocol (sealed answer key)
+# UAC NITRD held-out evaluation protocol (sealed answer key)
 
 This file goes into the evaluation doc as written. It identifies the held-out set
 by digest only. It deliberately contains no storage path, no file name and no
@@ -10,7 +10,7 @@ category labels from the sealed material, so it passes the seal guard.
 | --- | --- |
 | Seal ID | `entry2-heldout-2026-10-23T19:18:20Z` |
 | Sealed at (UTC) | 2026-10-23T19:18:20Z |
-| Sealed by | conroyri@nih.gov, at the user's instruction (Entry 2, week-1 gate 0c) |
+| Sealed by | conroyri@nih.gov, at the user's instruction (week-1 gate 0c) |
 | Source | RCDC Trend Analysis Project Listing export "File A" (all NITRD AI subcategories), created by RCDC 2026-07-07 |
 | Selection | File A rows with FY = 2025 whose Appl ID is in the UAC fixture (480 Appl IDs) |
 | Held-out set | **214 projects, 240 rows** (some projects have more than one funding row) |
@@ -21,7 +21,11 @@ category labels from the sealed material, so it passes the seal guard.
 | Serialization | header + rows sorted by (Appl ID as int, Category, CAN, FY Reported $, Project Number); CSV minimal quoting; LF; UTF-8 without BOM; cell text unmodified |
 
 The storage location is recorded in the seal manifest stored with the sealed files
-and in the project's Entry 2 notes, not in the repo.
+and in the project notes, not in the repo.
+
+Identifiers fixed at sealing keep their original `entry2` prefix: the seal ID, the
+rule ID, and the volume and folder names. They are immutable references in the seal
+log, and renaming them would break the audit trail.
 
 ## Off-limits to the build
 
