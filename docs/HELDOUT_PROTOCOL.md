@@ -181,10 +181,16 @@ is reported. None is worked around.
   SME review" label, with `official_uac_method` false and `suggestion_columns_read`
   false. X measures agreement with NIH's final coding. It does not certify that the
   method is the official one.
+* S8: scramble proof, the behavioural proof of input boundary 1. The full engine
+  runs offline on the real fixture and on a copy with the suggestion columns and every
+  other non-identity column replaced by fresh random values. The two proposals files
+  must be byte-identical, and the frozen file must equal the real-fixture run.
+  Required: there is no freeze without S8 green. It runs in CI whenever the engine
+  exists.
 
 It never reads the key. On a PASS, it prints the proposals SHA-256, which is tagged
 and logged before the reveal. During the build, the same sweep without `--freeze`
-runs S1, S2 and S6, and records S3-S5 and S7 as NOT_RUN until a proposals file exists.
+runs S1, S2, S6 and (once the engine exists) S8, and records S3-S5 and S7 as NOT_RUN until a proposals file exists.
 
 **Scorer verification (synthetic data only, 2026-10-23):** a 6-project fabricated
 key (IDs 90000001-6) gave strict 2/6, PCA-only 3/6, and the expected miss lists. All

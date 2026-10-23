@@ -60,11 +60,30 @@ def test_freeze_requires_proposals(tmp_path):
     assert _sweep(_tree(tmp_path), freeze=True).returncode == 1
 
 
+# A stand-in engine that obeys the contract and uses identity columns only. It reproduces
+# _synthetic() exactly, so its output equals the synthetic frozen proposals.
+HONEST_ENGINE = '''
+import argparse, sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from engine.inputs import load_project_refs
+CODES = %r
+ap = argparse.ArgumentParser(); ap.add_argument("--fixture", type=Path); ap.add_argument("--out-dir", type=Path)
+ap.add_argument("--offline", action="store_true"); a = ap.parse_args()
+rows = []
+for i, r in enumerate(load_project_refs(a.fixture)):
+    p = CODES[i %% len(CODES)]
+    rows.append((str(r.appl_id), p, "true" if p == "AI" or i %% 2 else "false", "AW" if p == "ACNS" and i %% 2 else ""))
+(a.out_dir / "proposals.csv").write_text("appl_id,primary_pca,ai_relevant,sub_pca\\n" + "".join(",".join(x) + "\\n" for x in rows))
+''' % (CODES,)
+
+
 def _meta_ok():
     sys.path.insert(0, str(ROOT))
     from engine import OUTPUT_LABEL
     return {"proposals/proposals.meta.json": json.dumps(
-        {"label": OUTPUT_LABEL, "official_uac_method": False, "suggestion_columns_read": False})}
+                {"label": OUTPUT_LABEL, "official_uac_method": False, "suggestion_columns_read": False}),
+            "engine/run.py": HONEST_ENGINE}
 
 
 def test_freeze_passes_on_valid_complete_proposals(tmp_path):

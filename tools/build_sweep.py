@@ -19,11 +19,21 @@ Checks, in order; any failure fails the sweep:
                      Runs in every mode.
   S7 output label    proposals/proposals.meta.json must carry the fixed assist-proposal
                      label, official_uac_method=false and suggestion_columns_read=false.
+  S8 scramble proof  the behavioural proof of input boundary 1, which S6 (static) cannot give.
+                     Run the full engine offline on the real fixture -> proposals_A, and on a
+                     copy whose suggestion columns and ALL other non-identity columns hold
+                     fresh random values -> proposals_B. Fail unless A == B byte for byte.
+                     At --freeze, also fail unless proposals/proposals.csv == A, so the frozen
+                     file is what the engine actually produces.
+                     Engine contract: python engine/run.py --fixture F --out-dir D --offline
+                     writes D/proposals.csv using only committed caches (no network, no live
+                     model call; a cache miss must exit non-zero).
+                     Runs whenever engine/run.py exists; with --freeze a missing engine FAILs.
 
 Modes:
-  default   S1 + S2 + S6. If there is no proposals file yet, S3-S5 and S7 are NOT_RUN (normal
-            during the build).
-  --freeze  S1-S7 are all required; a missing proposals file is a FAIL. On a PASS, the record
+  default   S1 + S2 + S6, and S8 once engine/run.py exists. If there is no proposals file yet,
+            S3-S5 and S7 are NOT_RUN (normal during the build).
+  --freeze  S1-S8 are all required; a missing proposals file is a FAIL. On a PASS, the record
             gives the proposals SHA-256 to tag and log BEFORE the reveal.
 Exit: 0 = PASS, 1 = a check failed, 2 = configuration error (fails closed).
 
@@ -37,8 +47,11 @@ import csv
 import hashlib
 import ast
 import json
+import os
 import re
+import secrets
 import subprocess
+import tempfile
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -107,8 +120,10 @@ def main(argv=None) -> int:
     checks["S2_seal_guard"] = {"status": "PASS" if g.returncode == 0 else "FAIL", "exit": g.returncode,
                                "summary": (g.stdout.strip().splitlines() or [g.stderr.strip()])[-1]}
 
-    # S6 input boundary (every mode)
+    # S6 input boundary (every mode); S8 behavioural scramble proof (whenever the engine exists)
     checks["S6_input_boundary"] = _input_boundary(a.tree, a.freeze)
+    checks["S8_scramble_proof"] = _scramble_proof(a.tree, a.fixture, a.freeze,
+                                                  a.proposals if a.freeze else None)
 
     # S3 / S4 / S5 / S7 proposals
     if not a.proposals or not a.proposals.is_file():
@@ -164,6 +179,64 @@ def _input_boundary(tree: Path, freeze: bool) -> dict:
     if tuple(allowed or ()) != ENGINE_ALLOWED_COLUMNS:
         hits.append(f"engine/inputs.py ALLOWED_COLUMNS={allowed!r}, expected {ENGINE_ALLOWED_COLUMNS!r}")
     return {"status": "FAIL" if hits else "PASS", "violations": hits[:20]}
+
+
+def _scramble_fixture(src: Path, dst: Path, seed: int) -> dict:
+    """Copy src to dst, replacing every non-identity cell with a random token."""
+    import random
+    rng = random.Random(seed)
+    with src.open(newline="", encoding="utf-8-sig") as f:
+        rows = list(csv.reader(f))
+    header, body = rows[0], rows[1:]
+    keep = [h in ENGINE_ALLOWED_COLUMNS for h in header]
+    if sum(keep) != len(ENGINE_ALLOWED_COLUMNS):
+        _cfg(f"fixture header lacks identity columns {ENGINE_ALLOWED_COLUMNS}")
+    out, changed = [header], 0
+    for r in body:
+        nr = [v if k else f"SCRAMBLED-{rng.getrandbits(48):012x}" for v, k in zip(r, keep)]
+        changed += sum(1 for v, w in zip(r, nr) if v != w)
+        out.append(nr)
+    with dst.open("w", newline="", encoding="utf-8") as f:
+        csv.writer(f, lineterminator="\n").writerows(out)
+    return {"scrambled_columns": [h for h, k in zip(header, keep) if not k], "cells_changed": changed}
+
+
+def _run_engine(tree: Path, fixture: Path, out_dir: Path) -> tuple[int, str]:
+    env = {**os.environ, "PYTHONHASHSEED": "0", "PYTHONDONTWRITEBYTECODE": "1"}
+    r = subprocess.run([sys.executable, str(tree / "engine" / "run.py"), "--fixture", str(fixture),
+                        "--out-dir", str(out_dir), "--offline"], cwd=str(tree), env=env,
+                       capture_output=True, text=True, timeout=3600)
+    return r.returncode, (r.stderr.strip().splitlines() or [""])[-1]
+
+
+def _scramble_proof(tree: Path, fixture: Path, freeze: bool, frozen: Path | None) -> dict:
+    if not (tree / "engine" / "run.py").is_file():
+        return {"status": "FAIL" if freeze else "NOT_RUN",
+                "detail": "no engine/run.py" + (" (required with --freeze)" if freeze else " yet")}
+    seed = secrets.randbits(32)  # fresh each run, recorded for replay
+    with tempfile.TemporaryDirectory() as td:
+        td = Path(td)
+        (td / "A").mkdir(); (td / "B").mkdir()
+        scr = td / "fixture_scrambled.csv"
+        info = _scramble_fixture(fixture, scr, seed)
+        rc_a, err_a = _run_engine(tree, fixture, td / "A")
+        rc_b, err_b = _run_engine(tree, scr, td / "B")
+        pa, pb = td / "A" / "proposals.csv", td / "B" / "proposals.csv"
+        res = {"seed": seed, **info, "engine_exit_A": rc_a, "engine_exit_B": rc_b}
+        if rc_a or rc_b or not pa.is_file() or not pb.is_file():
+            return {"status": "FAIL", **res, "detail": f"engine run failed: A={err_a!r} B={err_b!r}"}
+        a_bytes, b_bytes = pa.read_bytes(), pb.read_bytes()
+        res.update(sha256_A=hashlib.sha256(a_bytes).hexdigest(), sha256_B=hashlib.sha256(b_bytes).hexdigest(),
+                   A_equals_B=a_bytes == b_bytes)
+        if a_bytes != b_bytes:
+            la, lb = a_bytes.decode(errors="replace").splitlines(), b_bytes.decode(errors="replace").splitlines()
+            res["rows_differing"] = sum(1 for x, y in zip(la, lb) if x != y) + abs(len(la) - len(lb))
+            res["detail"] = "engine output depends on a column it must not read"
+        ok = a_bytes == b_bytes
+        if frozen is not None:
+            res["frozen_equals_A"] = frozen.is_file() and frozen.read_bytes() == a_bytes
+            ok = ok and res["frozen_equals_A"]
+    return {"status": "PASS" if ok else "FAIL", **res}
 
 
 def _output_label(meta: Path) -> dict:

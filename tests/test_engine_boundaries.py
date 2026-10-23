@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tests"))
 from engine import OUTPUT_LABEL, write_meta  # noqa: E402
 from engine.inputs import ALLOWED_COLUMNS, load_project_refs  # noqa: E402
-from test_build_sweep import FIXTURE, _props, _sweep, _synthetic, _tree  # noqa: E402
+from test_build_sweep import FIXTURE, HONEST_ENGINE, _props, _sweep, _synthetic, _tree  # noqa: E402
 
 
 def test_loader_exposes_identity_only():
@@ -67,7 +67,7 @@ def _freeze_with_meta(tmp_path, meta):
 
 
 def test_freeze_passes_with_engine_meta(tmp_path):
-    t = _tree(tmp_path)
+    t = _tree(tmp_path, {"engine/run.py": HONEST_ENGINE})
     csvp = t / "proposals" / "proposals.csv"
     csvp.write_text(_props(_synthetic()))
     write_meta(csvp, scope_set="nitrd-pca-fy2025 v1", scope_sha256="0" * 64, text_source="NIH RePORTER")
