@@ -20,6 +20,7 @@ exists, and none should be created.
 | `cache/reporter/` | Public RePORTER text (title, abstract, public health relevance) for the 480, with a per-project SHA-256 manifest. The engine replays it offline. See `cache/README.md`. |
 | `tools/build_reporter_cache.py` | Builds and `--verify`s the cache from RePORTER by Appl ID, applying the same fields to every project |
 | `docs/ENGINE_DESIGN.md` | Method decision: deterministic text against scope, no model, every proposal explained by the scope terms and rules that drove it |
+| `store/` | **The write surface.** A sandboxed, event-sourced UAC write store that enforces the 9 write-safety invariants: the agent proposes, an authorized coder approves against the exact project snapshot, and nothing is deleted. See `store/README.md`. |
 | `engine/` | The proposal engine. Input and output boundaries are in `engine/README.md`: it reasons from RePORTER project text, never reads the fixture's suggestion columns, and labels its output as an assist proposal for SME review |
 | `proposals/` | The engine's output; frozen as `proposals/proposals.csv` |
 | `tools/seal_guard.py` | Fails the build if the held-out key, or a path to it, enters the tree |

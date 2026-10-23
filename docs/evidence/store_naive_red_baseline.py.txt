@@ -1,0 +1,138 @@
+"""RED BASELINE: a naive, permissive store with the same API and no governance.
+
+It exists only to show that the invariant tests fail against an ungoverned store.
+The governed implementation replaces this file.
+"""
+from __future__ import annotations
+
+import json
+from dataclasses import dataclass, field
+from pathlib import Path
+
+
+class Rejected(Exception):
+    pass
+
+
+@dataclass(frozen=True)
+class Actor:
+    id: str
+    role: str
+
+
+@dataclass(frozen=True)
+class ListedProject:
+    appl_id: int
+    fy: int
+    project_num: str
+    subproj: str
+    amount: int
+    snapshot_sha: str
+
+
+@dataclass(frozen=True)
+class ParentListing:
+    crosscut: str
+    fy: int
+    projects: list
+    codes: tuple = field(default=())
+
+
+class SandboxStore:
+    def __init__(self, root, authorized_coders=(), siacb_members=()):
+        self.root = Path(root)
+        self.root.mkdir(parents=True, exist_ok=True)
+        self.listings, self.props, self.assigns, self.mrs, self.ev = {}, {}, {}, {}, []
+
+    def _log(self, **e):
+        self.ev.append(e)
+        (self.root / "events.jsonl").write_text("\n".join(json.dumps(x) for x in self.ev))
+
+    def load_listing(self, listing):
+        self.listings[(listing.crosscut, listing.fy)] = {p.appl_id: p for p in listing.projects}
+
+    def propose(self, actor, crosscut, fy, appl_id, *, primary_pca, ai_relevant, sub_pca, score, snapshot_sha, explanation):
+        pid = f"p{len(self.props)}"
+        self.props[pid] = dict(crosscut=crosscut, fy=fy, appl_id=appl_id, primary_pca=primary_pca,
+                               ai_relevant=ai_relevant, sub_pca=sub_pca, score=score, status="PENDING")
+        self._log(kind="proposed", appl_id=appl_id)
+        # naive: the proposal is written straight in as the assignment
+        self.assigns[f"a{pid}"] = dict(self.props[pid], provenance="proposal", snapshot_sha=snapshot_sha)
+        return pid
+
+    def approve(self, pid, actor, *, snapshot_sha, override=None, share=1.0):
+        a = dict(self.props[pid], **(override or {}), share=share, approved_by=actor.id, proposed=self.props[pid],
+                 snapshot_sha=snapshot_sha, provenance="approval")
+        self.assigns[f"a{pid}"] = a
+        return f"a{pid}"
+
+    def reject(self, pid, actor, reason):
+        self.props[pid]["status"] = "REJECTED"
+
+    def add_coding(self, aid, actor, sub_pca=None, tag=None):
+        if sub_pca:
+            self.assigns[aid]["sub_pca"] = sub_pca
+
+    def assignment(self, aid):
+        return self.assigns[aid]
+
+    def proposal(self, pid):
+        return self.props[pid]
+
+    def assignments(self, crosscut, fy):
+        return [a for a in self.assigns.values() if a["crosscut"] == crosscut and a["fy"] == fy]
+
+    def update_snapshot(self, crosscut, fy, appl_id, sha, actor, reason):
+        pass
+
+    def delete_assignment(self, aid):
+        self.assigns.pop(aid, None)
+
+    def flag_exclusion(self, crosscut, fy, appl_id, actor, reason):
+        for k in [k for k, a in self.assigns.items() if a["appl_id"] == appl_id]:
+            self.delete_assignment(k)  # naive: exclusion silently deletes
+        mid = f"m{len(self.mrs)}"
+        self.mrs[mid] = dict(appl_id=appl_id, status="EXCLUDED")
+        return mid
+
+    def siacb_decide(self, mid, actor, decision, note):
+        self.mrs[mid]["status"] = decision
+
+    def mr(self, mid):
+        return self.mrs[mid]
+
+    def listing_status(self, crosscut, fy, appl_id):
+        return "listed"
+
+    def history(self, crosscut, fy, appl_id):
+        return [e for e in self.ev if e.get("appl_id") == appl_id]
+
+    def rollover(self, crosscut, from_fy, to_fy, actor):
+        return {"rolled": [], "requires_coding": []}
+
+    def resolve_crosscut_tie(self, appl_id, fy, actor, winner, reason):
+        pass
+
+    def conflicts(self, fy):
+        return []
+
+    def resolve_aw_rollup(self, crosscut, fy, actor, decision, reason):
+        pass
+
+    def rejections(self):
+        return []
+
+    def rollup(self, crosscut, fy):
+        by = {}
+        lst = self.listings.get((crosscut, fy), {})
+        for a in self.assignments(crosscut, fy):
+            amt = lst[a["appl_id"]].amount * a.get("share", 1.0) if a["appl_id"] in lst else 0
+            by[a["primary_pca"]] = by.get(a["primary_pca"], 0) + amt  # naive: AW folded into ACNS, prorated
+        return {"by_pca": by, "parent_total": sum(by.values()), "aw_unresolved": {"amount": 0, "appl_ids": []},
+                "uncoded": {"amount": 0}, "listing_total": 0, "mr_pending": [], "excluded": [],
+                "acns_complete": True, "aw_resolution": None, "unresolved": [], "aw_separate": {"amount": 0},
+                "label": ""}
+
+    @classmethod
+    def replay(cls, root, authorized_coders=(), siacb_members=()):
+        return cls(Path(str(root) + "_replay"))
