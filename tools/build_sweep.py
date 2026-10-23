@@ -9,10 +9,14 @@ Checks, in order; any failure fails the sweep:
                      (unknown code, non-boolean flag, duplicate ID, AI without the flag)
   S4 coverage        proposal appl_ids == fixture Appl IDs exactly: one row for every
                      fixture project (an empty primary_pca is allowed) and no extras
+  S5 format v2       proposal-format-v2-2026-10-23 (Advanced Wireless as sub-PCA of ACNS):
+                     a sub_pca column is required, with values "" or "AW"; primary_pca is
+                     never "AW"; sub_pca=AW requires primary_pca=ACNS. This is stricter than the
+                     committed scorer, which still tolerates "AW" and scores it as a miss.
 
 Modes:
   default   S1 + S2. If there is no proposals file yet, S3/S4 are NOT_RUN (normal during the build).
-  --freeze  S1-S4 are all required; a missing proposals file is a FAIL. On a PASS, the record
+  --freeze  S1-S5 are all required; a missing proposals file is a FAIL. On a PASS, the record
             gives the proposals SHA-256 to tag and log BEFORE the reveal.
 Exit: 0 = PASS, 1 = a check failed, 2 = configuration error (fails closed).
 
@@ -31,6 +35,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 RULE_ID = "entry2-match-rule-v1-2026-10-23"
+FORMAT_ID = "proposal-format-v2-2026-10-23"
 COMMITTED = {
     # 2026-10-23 docstring-only rename (AST-identical to 9678a1bb... / bde79169...); see seal log.
     "seal_guard.py": "8dfb241754afbac0aa85a111828c1b268cc75e61e9bea74b032a3964a3ace401",
@@ -93,6 +98,7 @@ def main(argv=None) -> int:
         why = "no proposals file" + (" (required with --freeze)" if a.freeze else " yet")
         checks["S3_proposal_validation"] = {"status": st, "detail": why}
         checks["S4_coverage"] = {"status": st, "detail": why}
+        checks["S5_format_v2"] = {"status": st, "detail": why}
         return _finish(a, checks)
 
     v = subprocess.run([sys.executable, str(HERE / "score_heldout.py"), "--proposals", str(a.proposals),
@@ -112,15 +118,34 @@ def main(argv=None) -> int:
         "missing_count": len(missing), "missing_first": missing[:10],
         "extra_count": len(extra), "extra_first": extra[:10],
     }
+    checks["S5_format_v2"] = _format_v2(a.proposals)
     checks["proposals_sha256"] = _sha(a.proposals)
     return _finish(a, checks)
+
+
+def _format_v2(path: Path) -> dict:
+    with path.open(newline="", encoding="utf-8-sig") as f:
+        r = csv.DictReader(f)
+        if "sub_pca" not in (r.fieldnames or []):
+            return {"status": "FAIL", "format_id": FORMAT_ID, "detail": "missing sub_pca column"}
+        bad = []
+        for row in r:
+            pca, sub = (row.get("primary_pca") or "").strip(), (row.get("sub_pca") or "").strip()
+            why = ("primary_pca=AW (use primary_pca=ACNS, sub_pca=AW)" if pca == "AW"
+                   else f"sub_pca={sub!r} not in ('', 'AW')" if sub not in ("", "AW")
+                   else f"sub_pca=AW with primary_pca={pca!r} (must be ACNS)" if sub == "AW" and pca != "ACNS"
+                   else None)
+            if why:
+                bad.append({"appl_id": (row.get("appl_id") or "").strip(), "why": why})
+    return {"status": "FAIL" if bad else "PASS", "format_id": FORMAT_ID,
+            "violations": len(bad), "first": bad[:10]}
 
 
 def _finish(a, checks) -> int:
     statuses = [c["status"] for c in checks.values() if isinstance(c, dict) and "status" in c]
     verdict = "FAIL" if "FAIL" in statuses else "PASS"
     rec = {"at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"), "mode": "freeze" if a.freeze else "build",
-           "rule_id": RULE_ID, "verdict": verdict, "checks": checks,
+           "rule_id": RULE_ID, "format_id": FORMAT_ID, "verdict": verdict, "checks": checks,
            "note": "The sweep never reads the held-out key."}
     if a.out:
         a.out.write_text(json.dumps(rec, indent=2))
