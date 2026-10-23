@@ -77,7 +77,11 @@ proposal, sorted by `appl_id`. Each line has:
 * `rules_applied`: the cross-PCA or specificity rules that fired, each with its NITRD
   source sentence.
 * `ai_evidence`: the AI terms that set the flag, or `[]`.
-* `abstain_reason`: why no PCA was proposed, or `null`.
+* `abstain_reason`: why no PCA was proposed, or `null`. The value must start with one
+  of two fixed prefixes, which the post-reveal breakdown relies on:
+  * `no_public_text`: the RePORTER record wasn't found, or had no title or abstract.
+  * `below_threshold`: there was text, but no PCA reached the scope-match threshold.
+    The rest of the value gives the top score and the threshold.
 
 A coder can read any line and see which scope language drove the proposal. A judge
 can re-derive it in CI.
