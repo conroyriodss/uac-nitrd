@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Entry 2 held-out scorer. Match rule COMMITTED 2026-10-23, BEFORE the reveal.
+"""UAC NITRD held-out scorer. Match rule COMMITTED 2026-10-23, BEFORE the reveal.
 
 This file is the executable form of the match rule in HELDOUT_PROTOCOL.md section
 "Committed match rule". It is committed, and its SHA-256 recorded, before the key is

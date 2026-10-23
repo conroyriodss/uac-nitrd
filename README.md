@@ -1,4 +1,4 @@
-# Entry 2: UAC NITRD subcategory proposals
+# UAC NITRD subcategory proposals
 
 This repo proposes NITRD PCA codes, with an AI-relevance flag, for the projects in
 the ODSS UAC "uncoded" fixture. The proposals are judged once, after they are
@@ -15,6 +15,8 @@ exists, and none should be created.
 | --- | --- |
 | `fixtures/UAC_Uncoded_12-01-2025-updated-NIH_ODSS.csv` | Build input: 480 FY2025 projects; `suggestion_1`/`suggestion_2` hold the subcategories |
 | `context/NITRD_Budget_Tables.csv` | Context only: the NITRD budget crosscut by PCA and agency (FY2025 is a request) |
+| `scope/` | Versioned NITRD subcategory-scope objects: the 12 PCA definitions plus the Advanced Wireless sub-PCA, verbatim from nitrd.gov, with page snapshots. See `scope/README.md`. |
+| `tools/build_pca_scopes.py` | Deterministically rebuilds the scope objects from the stored snapshots |
 | `proposals/` | The engine's output; frozen as `proposals/proposals.csv` |
 | `tools/seal_guard.py` | Fails the build if the held-out key, or a path to it, enters the tree |
 | `tools/score_heldout.py` | The committed match rule (`entry2-match-rule-v1-2026-10-23`); `--validate-only` at freeze |

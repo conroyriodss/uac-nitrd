@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Entry 2 build sweep: seal guard + proposal validation. Never reads the held-out key.
+"""UAC NITRD build sweep: seal guard + proposal validation. Never reads the held-out key.
 
 Checks, in order; any failure fails the sweep:
   S1 tool integrity  seal_guard.py and score_heldout.py match their committed SHA-256
@@ -32,8 +32,9 @@ from pathlib import Path
 
 RULE_ID = "entry2-match-rule-v1-2026-10-23"
 COMMITTED = {
-    "seal_guard.py": "9678a1bb6eb6c1ae141b580c02bb459b7a550ea8efad832f98579a06764e51ec",
-    "score_heldout.py": "bde791698f0e610da59bc514d507a00e1baedcadc8375f7b0edab4dc13cb0a69",
+    # 2026-10-23 docstring-only rename (AST-identical to 9678a1bb... / bde79169...); see seal log.
+    "seal_guard.py": "8dfb241754afbac0aa85a111828c1b268cc75e61e9bea74b032a3964a3ace401",
+    "score_heldout.py": "5b9860fa882e71d5790e1959b5fcc37cdb29ab723022c2a14a3643c1eb6636d1",
 }
 HERE = Path(__file__).resolve().parent
 
