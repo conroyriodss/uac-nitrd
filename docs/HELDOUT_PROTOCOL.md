@@ -159,6 +159,32 @@ true. The denominator is fixed at 214.
 * AI-flag recall, n/214. This is recall only: the key has no AI-negative projects, so
   precision cannot be measured.
 
+**Miss breakdown (`report-breakdown-v1-2026-10-23`): reporting only.** Committed
+2026-10-23, before the engine and before the reveal. The match rule, the scorer and X
+are unchanged. `tools/report_heldout.py` reads the scorer's output, never the key. It
+splits the 214 − X misses into four disjoint counts that must add up exactly, or it
+refuses to report:
+
+* **wrong PCA** ("proposed incorrectly"), with a sub-count of `AI` proposed for a
+  "<PCA> - AI" key;
+* **right PCA, no AI flag;**
+* **abstained** ("declined to propose"). This is split by the engine's own
+  `abstain_reason` into *no public text* and *below the scope-match threshold*;
+* **AW as primary.** 0 is expected under format v2.
+
+The headline stays first and unchanged. The fixed statement reads: "Match rate:
+X/214. Of the M misses, W proposed a wrong PCA, F proposed the right PCA without the
+AI flag, and A abstained (declined to propose: T with no public text, B below the
+scope-match threshold); V proposed Advanced Wireless as primary. Abstentions are the
+engine declining where the project text does not match NITRD scope wording. They are
+reported as declines, not as incorrect proposals, and they remain misses in X."
+
+A deterministic engine that abstains on wording outside the scopes is behaving as
+designed. Both facts are stated: it missed, and it declined rather than guessed. Only
+counts are reported. No rate is derived from them, such as X over the projects
+proposed for, because that is a precision figure and the claim rules above forbid
+it.
+
 **Stop conditions:** a key SHA-256 mismatch, a project with more than one category,
 a key project count other than 214, or an unmapped label. Each one stops the run and
 is reported. None is worked around.
