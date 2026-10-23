@@ -38,14 +38,18 @@ build sweep enforces them.
 
 ## Engine contract (required by S8)
 
+* **Method:** deterministic text against scope, with no model (`docs/ENGINE_DESIGN.md`,
+  decision `engine-method-deterministic-v1-2026-10-23`).
 * **Command:** `python engine/run.py --fixture <csv> --out-dir <dir> --offline` writes
-  `<dir>/proposals.csv`.
+  `<dir>/proposals.csv` and `<dir>/explanations.jsonl`. The explanations file has one
+  line per proposal, giving the matched scope terms, the rules applied and the AI
+  evidence. S8 requires it and checks it for byte-identity too.
 * **Fixture path:** it arrives only as that argument and is read only through
   `engine.inputs.load_project_refs`.
-* **Offline means replay:** RePORTER text and any model responses come from committed
-  caches, keyed by Appl ID and prompt hash. There is no network access and no live
-  model call. A cache miss exits non-zero, which fails S8; it never falls back
-  silently.
+* **Offline means replay:** RePORTER text comes from a committed cache, keyed by Appl
+  ID, with a SHA-256 per project. The fetcher lives in `tools/`, not `engine/`. No
+  engine file may import a model client or a network library (S6). A cache miss exits
+  non-zero, which fails S8; it never falls back silently.
 * **Deterministic:** the same caches always give the same bytes. Rows are sorted by
   `appl_id`, with no timestamps and no dependence on row order.
 

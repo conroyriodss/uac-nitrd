@@ -16,18 +16,21 @@ Checks, in order; any failure fails the sweep:
   S6 input boundary  engine/ must never use the fixture's suggestion columns. No engine file
                      may name a suggestion column; only engine/inputs.py may open the
                      fixture; and its ALLOWED_COLUMNS must be exactly the identity columns.
-                     Runs in every mode.
+                     The engine is deterministic (docs/ENGINE_DESIGN.md), so no engine file may
+                     import a model client or a network library; RePORTER fetching lives in
+                     tools/, outside engine/. Runs in every mode.
   S7 output label    proposals/proposals.meta.json must carry the fixed assist-proposal
                      label, official_uac_method=false and suggestion_columns_read=false.
   S8 scramble proof  the behavioural proof of input boundary 1, which S6 (static) cannot give.
                      Run the full engine offline on the real fixture -> proposals_A, and on a
                      copy whose suggestion columns and ALL other non-identity columns hold
-                     fresh random values -> proposals_B. Fail unless A == B byte for byte.
+                     fresh random values -> proposals_B. Fail unless A == B byte for byte,
+                     for proposals.csv AND explanations.jsonl (both required).
                      At --freeze, also fail unless proposals/proposals.csv == A, so the frozen
                      file is what the engine actually produces.
                      Engine contract: python engine/run.py --fixture F --out-dir D --offline
-                     writes D/proposals.csv using only committed caches (no network, no live
-                     model call; a cache miss must exit non-zero).
+                     writes D/proposals.csv and D/explanations.jsonl from committed RePORTER text
+                     only (no network, no model; a cache miss must exit non-zero).
                      Runs whenever engine/run.py exists; with --freeze a missing engine FAILs.
 
 Modes:
@@ -61,6 +64,11 @@ FORMAT_ID = "proposal-format-v2-2026-10-23"
 ENGINE_ALLOWED_COLUMNS = ("Appl ID", "FY", "Project Number", "SubProj")
 SUGGESTION_RE = re.compile(r"suggestion[\s_\-]*\d", re.IGNORECASE)
 FIXTURE_RE = re.compile(r"UAC_Uncoded|fixtures[/\\]", re.IGNORECASE)
+ENGINE_METHOD_ID = "engine-method-deterministic-v1-2026-10-23"
+MODEL_OR_NET_RE = re.compile(
+    r"^\s*(?:import|from)\s+(?:openai|anthropic|langchain\w*|litellm|transformers|vllm|mlflow|"
+    r"databricks(?:\.sdk)?|requests|httpx|aiohttp|urllib3?|http\.client|socket)\b", re.MULTILINE)
+ENGINE_OUTPUTS = ("proposals.csv", "explanations.jsonl")
 OUTPUT_LABEL = ("ASSIST PROPOSAL FOR SME REVIEW. Not a reproduction of the official UAC method "
                 "(no UAC fingerprints exist). The 'most specific PCA' rule is NITRD's published "
                 "guidance applied to project text, not a claim of official correctness.")
@@ -170,6 +178,8 @@ def _input_boundary(tree: Path, freeze: bool) -> dict:
             hits.append(f"{rel}: names a suggestion column")
         if rel != "engine/inputs.py" and FIXTURE_RE.search(text):
             hits.append(f"{rel}: references the fixture (only engine/inputs.py may)")
+        if p.suffix == ".py" and MODEL_OR_NET_RE.search(text):
+            hits.append(f"{rel}: imports a model client or network library (engine must be deterministic/offline)")
     inp = eng / "inputs.py"
     allowed = None
     if inp.is_file():
@@ -221,18 +231,24 @@ def _scramble_proof(tree: Path, fixture: Path, freeze: bool, frozen: Path | None
         info = _scramble_fixture(fixture, scr, seed)
         rc_a, err_a = _run_engine(tree, fixture, td / "A")
         rc_b, err_b = _run_engine(tree, scr, td / "B")
-        pa, pb = td / "A" / "proposals.csv", td / "B" / "proposals.csv"
-        res = {"seed": seed, **info, "engine_exit_A": rc_a, "engine_exit_B": rc_b}
-        if rc_a or rc_b or not pa.is_file() or not pb.is_file():
-            return {"status": "FAIL", **res, "detail": f"engine run failed: A={err_a!r} B={err_b!r}"}
-        a_bytes, b_bytes = pa.read_bytes(), pb.read_bytes()
-        res.update(sha256_A=hashlib.sha256(a_bytes).hexdigest(), sha256_B=hashlib.sha256(b_bytes).hexdigest(),
-                   A_equals_B=a_bytes == b_bytes)
-        if a_bytes != b_bytes:
-            la, lb = a_bytes.decode(errors="replace").splitlines(), b_bytes.decode(errors="replace").splitlines()
-            res["rows_differing"] = sum(1 for x, y in zip(la, lb) if x != y) + abs(len(la) - len(lb))
-            res["detail"] = "engine output depends on a column it must not read"
-        ok = a_bytes == b_bytes
+        res = {"seed": seed, **info, "engine_exit_A": rc_a, "engine_exit_B": rc_b, "method_id": ENGINE_METHOD_ID}
+        missing = [f"{s}/{n}" for s in ("A", "B") for n in ENGINE_OUTPUTS if not (td / s / n).is_file()]
+        if rc_a or rc_b or missing:
+            return {"status": "FAIL", **res, "missing_outputs": missing,
+                    "detail": f"engine run failed: A={err_a!r} B={err_b!r}"}
+        ok = True
+        for n in ENGINE_OUTPUTS:
+            ab, bb = (td / "A" / n).read_bytes(), (td / "B" / n).read_bytes()
+            same = ab == bb
+            res[n] = {"sha256_A": hashlib.sha256(ab).hexdigest(), "sha256_B": hashlib.sha256(bb).hexdigest(),
+                      "A_equals_B": same}
+            if not same:
+                la, lb = ab.decode(errors="replace").splitlines(), bb.decode(errors="replace").splitlines()
+                res[n]["lines_differing"] = sum(1 for x, y in zip(la, lb) if x != y) + abs(len(la) - len(lb))
+                res["detail"] = "engine output depends on a column it must not read"
+            ok = ok and same
+        res["A_equals_B"] = ok
+        a_bytes = (td / "A" / "proposals.csv").read_bytes()
         if frozen is not None:
             res["frozen_equals_A"] = frozen.is_file() and frozen.read_bytes() == a_bytes
             ok = ok and res["frozen_equals_A"]
