@@ -17,6 +17,8 @@ exists, and none should be created.
 | `context/NITRD_Budget_Tables.csv` | Context only: the NITRD budget crosscut by PCA and agency (FY2025 is a request) |
 | `scope/` | Versioned NITRD subcategory-scope objects: the 12 PCA definitions plus the Advanced Wireless sub-PCA, verbatim from nitrd.gov, with page snapshots. See `scope/README.md`. |
 | `tools/build_pca_scopes.py` | Deterministically rebuilds the scope objects from the stored snapshots |
+| `cache/reporter/` | Public RePORTER text (title, abstract, public health relevance) for the 480, with a per-project SHA-256 manifest. The engine replays it offline. See `cache/README.md`. |
+| `tools/build_reporter_cache.py` | Builds and `--verify`s the cache from RePORTER by Appl ID, applying the same fields to every project |
 | `docs/ENGINE_DESIGN.md` | Method decision: deterministic text against scope, no model, every proposal explained by the scope terms and rules that drove it |
 | `engine/` | The proposal engine. Input and output boundaries are in `engine/README.md`: it reasons from RePORTER project text, never reads the fixture's suggestion columns, and labels its output as an assist proposal for SME review |
 | `proposals/` | The engine's output; frozen as `proposals/proposals.csv` |
