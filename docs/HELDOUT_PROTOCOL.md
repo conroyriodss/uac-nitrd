@@ -173,10 +173,18 @@ is reported. None is worked around.
   `primary_pca` is allowed) and no extra rows.
 * S5: format v2. A `sub_pca` column must be present, with values `AW` or empty;
   `primary_pca` is never `AW`; and `sub_pca` = `AW` only with `primary_pca` = `ACNS`.
+* S6: input boundary, run in every mode. No engine file may name a fixture
+  suggestion column, only `engine/inputs.py` may open the fixture, and its allow-list
+  must be exactly the identity columns. The engine reasons from public RePORTER project
+  text against the NITRD scopes; NIH's suggestions are never an input.
+* S7: output label. `proposals.meta.json` must carry the fixed "assist proposal for
+  SME review" label, with `official_uac_method` false and `suggestion_columns_read`
+  false. X measures agreement with NIH's final coding. It does not certify that the
+  method is the official one.
 
 It never reads the key. On a PASS, it prints the proposals SHA-256, which is tagged
 and logged before the reveal. During the build, the same sweep without `--freeze`
-runs S1 and S2, and records S3-S5 as NOT_RUN until a proposals file exists.
+runs S1, S2 and S6, and records S3-S5 and S7 as NOT_RUN until a proposals file exists.
 
 **Scorer verification (synthetic data only, 2026-10-23):** a 6-project fabricated
 key (IDs 90000001-6) gave strict 2/6, PCA-only 3/6, and the expected miss lists. All

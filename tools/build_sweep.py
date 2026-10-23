@@ -13,10 +13,17 @@ Checks, in order; any failure fails the sweep:
                      a sub_pca column is required, with values "" or "AW"; primary_pca is
                      never "AW"; sub_pca=AW requires primary_pca=ACNS. This is stricter than the
                      committed scorer, which still tolerates "AW" and scores it as a miss.
+  S6 input boundary  engine/ must never use the fixture's suggestion columns. No engine file
+                     may name a suggestion column; only engine/inputs.py may open the
+                     fixture; and its ALLOWED_COLUMNS must be exactly the identity columns.
+                     Runs in every mode.
+  S7 output label    proposals/proposals.meta.json must carry the fixed assist-proposal
+                     label, official_uac_method=false and suggestion_columns_read=false.
 
 Modes:
-  default   S1 + S2. If there is no proposals file yet, S3/S4 are NOT_RUN (normal during the build).
-  --freeze  S1-S5 are all required; a missing proposals file is a FAIL. On a PASS, the record
+  default   S1 + S2 + S6. If there is no proposals file yet, S3-S5 and S7 are NOT_RUN (normal
+            during the build).
+  --freeze  S1-S7 are all required; a missing proposals file is a FAIL. On a PASS, the record
             gives the proposals SHA-256 to tag and log BEFORE the reveal.
 Exit: 0 = PASS, 1 = a check failed, 2 = configuration error (fails closed).
 
@@ -28,7 +35,9 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import ast
 import json
+import re
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -36,6 +45,12 @@ from pathlib import Path
 
 RULE_ID = "entry2-match-rule-v1-2026-10-23"
 FORMAT_ID = "proposal-format-v2-2026-10-23"
+ENGINE_ALLOWED_COLUMNS = ("Appl ID", "FY", "Project Number", "SubProj")
+SUGGESTION_RE = re.compile(r"suggestion[\s_\-]*\d", re.IGNORECASE)
+FIXTURE_RE = re.compile(r"UAC_Uncoded|fixtures[/\\]", re.IGNORECASE)
+OUTPUT_LABEL = ("ASSIST PROPOSAL FOR SME REVIEW. Not a reproduction of the official UAC method "
+                "(no UAC fingerprints exist). The 'most specific PCA' rule is NITRD's published "
+                "guidance applied to project text, not a claim of official correctness.")
 COMMITTED = {
     # 2026-10-23 docstring-only rename (AST-identical to 9678a1bb... / bde79169...); see seal log.
     "seal_guard.py": "8dfb241754afbac0aa85a111828c1b268cc75e61e9bea74b032a3964a3ace401",
@@ -92,13 +107,15 @@ def main(argv=None) -> int:
     checks["S2_seal_guard"] = {"status": "PASS" if g.returncode == 0 else "FAIL", "exit": g.returncode,
                                "summary": (g.stdout.strip().splitlines() or [g.stderr.strip()])[-1]}
 
-    # S3 / S4 proposals
+    # S6 input boundary (every mode)
+    checks["S6_input_boundary"] = _input_boundary(a.tree, a.freeze)
+
+    # S3 / S4 / S5 / S7 proposals
     if not a.proposals or not a.proposals.is_file():
         st = "FAIL" if a.freeze else "NOT_RUN"
         why = "no proposals file" + (" (required with --freeze)" if a.freeze else " yet")
-        checks["S3_proposal_validation"] = {"status": st, "detail": why}
-        checks["S4_coverage"] = {"status": st, "detail": why}
-        checks["S5_format_v2"] = {"status": st, "detail": why}
+        for k in ("S3_proposal_validation", "S4_coverage", "S5_format_v2", "S7_output_label"):
+            checks[k] = {"status": st, "detail": why}
         return _finish(a, checks)
 
     v = subprocess.run([sys.executable, str(HERE / "score_heldout.py"), "--proposals", str(a.proposals),
@@ -119,8 +136,46 @@ def main(argv=None) -> int:
         "extra_count": len(extra), "extra_first": extra[:10],
     }
     checks["S5_format_v2"] = _format_v2(a.proposals)
+    checks["S7_output_label"] = _output_label(a.proposals.with_name("proposals.meta.json"))
     checks["proposals_sha256"] = _sha(a.proposals)
     return _finish(a, checks)
+
+
+def _input_boundary(tree: Path, freeze: bool) -> dict:
+    eng = tree / "engine"
+    if not eng.is_dir():
+        return {"status": "FAIL" if freeze else "NOT_RUN", "detail": "no engine/ directory"}
+    hits = []
+    for p in sorted(eng.rglob("*")):
+        if not p.is_file() or "__pycache__" in p.parts:
+            continue
+        text = p.read_bytes().decode("utf-8", errors="replace")
+        rel = p.relative_to(tree).as_posix()
+        if SUGGESTION_RE.search(text):
+            hits.append(f"{rel}: names a suggestion column")
+        if rel != "engine/inputs.py" and FIXTURE_RE.search(text):
+            hits.append(f"{rel}: references the fixture (only engine/inputs.py may)")
+    inp = eng / "inputs.py"
+    allowed = None
+    if inp.is_file():
+        for node in ast.walk(ast.parse(inp.read_text(encoding="utf-8"))):
+            if isinstance(node, ast.Assign) and any(getattr(t, "id", None) == "ALLOWED_COLUMNS" for t in node.targets):
+                allowed = ast.literal_eval(node.value)
+    if tuple(allowed or ()) != ENGINE_ALLOWED_COLUMNS:
+        hits.append(f"engine/inputs.py ALLOWED_COLUMNS={allowed!r}, expected {ENGINE_ALLOWED_COLUMNS!r}")
+    return {"status": "FAIL" if hits else "PASS", "violations": hits[:20]}
+
+
+def _output_label(meta: Path) -> dict:
+    if not meta.is_file():
+        return {"status": "FAIL", "detail": f"missing {meta.name}"}
+    try:
+        m = json.loads(meta.read_text(encoding="utf-8"))
+    except ValueError as e:
+        return {"status": "FAIL", "detail": f"{meta.name} not JSON: {e}"}
+    bad = [k for k, want in (("label", OUTPUT_LABEL), ("official_uac_method", False),
+                             ("suggestion_columns_read", False)) if m.get(k) != want]
+    return {"status": "FAIL" if bad else "PASS", "wrong_or_missing": bad}
 
 
 def _format_v2(path: Path) -> dict:

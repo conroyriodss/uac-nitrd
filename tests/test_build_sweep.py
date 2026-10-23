@@ -1,5 +1,6 @@
 """Model-free tests for the UAC NITRD build sweep. None of them read the held-out key."""
 import csv
+import json
 import shutil
 import subprocess
 import sys
@@ -59,8 +60,15 @@ def test_freeze_requires_proposals(tmp_path):
     assert _sweep(_tree(tmp_path), freeze=True).returncode == 1
 
 
+def _meta_ok():
+    sys.path.insert(0, str(ROOT))
+    from engine import OUTPUT_LABEL
+    return {"proposals/proposals.meta.json": json.dumps(
+        {"label": OUTPUT_LABEL, "official_uac_method": False, "suggestion_columns_read": False})}
+
+
 def test_freeze_passes_on_valid_complete_proposals(tmp_path):
-    r = _sweep(_tree(tmp_path), _props(_synthetic()), freeze=True)
+    r = _sweep(_tree(tmp_path, _meta_ok()), _props(_synthetic()), freeze=True)
     assert r.returncode == 0 and "FREEZE OK" in r.stdout, r.stdout + r.stderr
 
 
@@ -75,7 +83,7 @@ def test_freeze_passes_on_valid_complete_proposals(tmp_path):
     lambda rows: [(rows[0][0], "ACNS", "false", "5G")] + rows[1:],   # v2: unknown sub_pca
 ])
 def test_freeze_rejects_bad_proposals(tmp_path, mutate):
-    assert _sweep(_tree(tmp_path), _props(mutate(_synthetic())), freeze=True).returncode == 1
+    assert _sweep(_tree(tmp_path, _meta_ok()), _props(mutate(_synthetic())), freeze=True).returncode == 1
 
 
 def test_freeze_rejects_missing_sub_pca_column(tmp_path):
