@@ -4,6 +4,11 @@ This repo proposes NITRD PCA codes, with an AI-relevance flag, for the projects 
 the ODSS UAC "uncoded" fixture. The proposals are judged once, after they are
 frozen, against a held-out answer key that the build cannot see.
 
+**Canonical repo: https://github.com/conroyriodss/uac-nitrd** (the only remote).
+The Databricks working copy lives at `/Workspace/Users/conroyri@nih.gov/entry2-uac-nitrd`.
+That is a local folder path, not a second repo. No GitHub repo named `entry2-uac-nitrd`
+exists, and none should be created.
+
 ## Layout
 
 | Path | What it is |
