@@ -22,11 +22,32 @@ build sweep enforces them.
   file names a suggestion column, if any engine file other than `inputs.py`
   references the fixture, or if the allow-list changes. A test also scrambles every
   non-identity fixture column and checks that the loader's output is unchanged.
-* **Limit:** S6 is a static scan, so it can't catch, say, positional indexing into a
-  raw CSV row. The engine can't do that without opening the fixture, and only
-  `inputs.py` may open it. Once the engine exists, the scramble test is extended to
-  the whole engine: the proposals must be byte-identical with the suggestion columns
-  scrambled.
+* **S6 alone is not enough.** It is a static scan, and an engine that gets the fixture
+  path as an argument, then finds a column by prefix or by position, gets past it.
+  `tests/test_scramble_proof.py` contains two such engines.
+* **S8 is the proof (required; no freeze without it green).**
+  * **What it does:** the sweep runs the full engine offline twice. Run A uses the real
+    fixture and produces `proposals_A`. Run B uses a copy in which both suggestion
+    columns and every other non-identity column hold fresh random values (a new seed
+    each run, recorded), and produces `proposals_B`.
+  * **When it fails:** whenever `proposals_A` and `proposals_B` differ by even one
+    byte. At freeze it also fails unless the committed `proposals/proposals.csv`
+    equals `proposals_A`.
+  * **When it runs:** in every mode once `engine/run.py` exists, so CI runs it on every
+    push. With `--freeze`, a missing engine is a FAIL.
+
+## Engine contract (required by S8)
+
+* **Command:** `python engine/run.py --fixture <csv> --out-dir <dir> --offline` writes
+  `<dir>/proposals.csv`.
+* **Fixture path:** it arrives only as that argument and is read only through
+  `engine.inputs.load_project_refs`.
+* **Offline means replay:** RePORTER text and any model responses come from committed
+  caches, keyed by Appl ID and prompt hash. There is no network access and no live
+  model call. A cache miss exits non-zero, which fails S8; it never falls back
+  silently.
+* **Deterministic:** the same caches always give the same bytes. Rows are sorted by
+  `appl_id`, with no timestamps and no dependence on row order.
 
 ## 2. Output: an assist proposal for SME review
 
