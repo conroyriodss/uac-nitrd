@@ -27,10 +27,14 @@ AW is represented as `kind: sub_pca`, `parent: ACNS`, `standard_pca: false`, `se
 * **Nested under ACNS:** NITRD prints it as a `[Sub-PCA]` inside the ACNS definition, so its scope is a subset of ACNS's.
 * **Selectable:** the UAC fixture offers "Advanced Wireless R&D" as a suggestion value alongside the 12 codes.
 * **Not a standard PCA scope:** it has no line in the NITRD budget crosscut and no category in the RCDC exports.
-* **Roll-up `UNRESOLVED`:** no source in hand says whether an AW assignment also counts toward ACNS. Until that is confirmed, AW dollars are neither added into ACNS totals nor subtracted from them; AW is reported separately.
+* **Roll-up `UNRESOLVED` in the sources:** no source in hand says how AW dollars relate to ACNS totals. That is what the scope object records, and it stays open. AW dollars are neither added into ACNS totals nor subtracted from them; AW is reported separately.
+* **Project decision on assignment:** proposal format v2, below, follows NITRD's nesting, so an AW project is an ACNS project with an AW breakout. This is a format decision, not a source fact, so it lives in the protocol and not in the scope object.
 
-Scoring is unchanged. Under the committed match rule, an `AW` primary proposal on a
-held-out project is a miss, and AW has no final category to score against.
+In proposals (format v2, committed before the build), an AW project is written as
+`primary_pca=ACNS` with `sub_pca=AW`, and `primary_pca` is never `AW`. The scorer reads
+only `primary_pca` and `ai_relevant`, so the project is scored as ACNS. The reasons,
+and why the overlap with the held-out set was deliberately not checked, are in
+`docs/HELDOUT_PROTOCOL.md`.
 
 ## Versioning
 

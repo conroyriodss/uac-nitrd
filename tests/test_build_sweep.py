@@ -9,7 +9,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = ROOT / "fixtures" / "UAC_Uncoded_12-01-2025-updated-NIH_ODSS.csv"
-CODES = ["ACNS", "AI", "CHuman", "CNPS", "CSP", "EdW", "EHCS", "ENIT", "HCIA", "IRAS", "LSDMA", "SPSQ", "AW", ""]
+CODES = ["ACNS", "AI", "CHuman", "CNPS", "CSP", "EdW", "EHCS", "ENIT", "HCIA", "IRAS", "LSDMA", "SPSQ", ""]
 
 
 def _ids():
@@ -26,13 +26,16 @@ def _tree(tmp_path, extra=None):
     return t
 
 
-def _props(rows):
-    return "appl_id,primary_pca,ai_relevant\n" + "".join(f"{a},{p},{f}\n" for a, p, f in rows)
+def _props(rows, header="appl_id,primary_pca,ai_relevant,sub_pca"):
+    return header + "\n" + "".join(",".join(r) + "\n" for r in rows)
 
 
 def _synthetic():  # placeholder values only; not derived from any key
-    return [(a, CODES[i % len(CODES)], "true" if CODES[i % len(CODES)] == "AI" or i % 2 else "false")
-            for i, a in enumerate(_ids())]
+    out = []
+    for i, a in enumerate(_ids()):
+        p = CODES[i % len(CODES)]
+        out.append((a, p, "true" if p == "AI" or i % 2 else "false", "AW" if p == "ACNS" and i % 2 else ""))
+    return out
 
 
 def _sweep(t, proposals=None, freeze=False):
@@ -62,14 +65,23 @@ def test_freeze_passes_on_valid_complete_proposals(tmp_path):
 
 
 @pytest.mark.parametrize("mutate", [
-    lambda rows: [(rows[0][0], "AI", "false")] + rows[1:],           # AI without flag
-    lambda rows: [(rows[0][0], "LSN", "true")] + rows[1:],           # unknown code
+    lambda rows: [(rows[0][0], "AI", "false", "")] + rows[1:],       # AI without flag
+    lambda rows: [(rows[0][0], "LSN", "true", "")] + rows[1:],       # unknown code
     lambda rows: rows[:-1],                                           # missing project
-    lambda rows: rows + [("99999999", "ACNS", "true")],              # extra project
+    lambda rows: rows + [("99999999", "ACNS", "true", "")],          # extra project
     lambda rows: rows + [rows[0]],                                     # duplicate
+    lambda rows: [(rows[0][0], "AW", "false", "")] + rows[1:],       # v2: AW as primary
+    lambda rows: [(rows[0][0], "CHuman", "false", "AW")] + rows[1:], # v2: AW not under ACNS
+    lambda rows: [(rows[0][0], "ACNS", "false", "5G")] + rows[1:],   # v2: unknown sub_pca
 ])
 def test_freeze_rejects_bad_proposals(tmp_path, mutate):
     assert _sweep(_tree(tmp_path), _props(mutate(_synthetic())), freeze=True).returncode == 1
+
+
+def test_freeze_rejects_missing_sub_pca_column(tmp_path):
+    rows = [r[:3] for r in _synthetic()]
+    r = _sweep(_tree(tmp_path), _props(rows, "appl_id,primary_pca,ai_relevant"), freeze=True)
+    assert r.returncode == 1 and "S5_format_v2: FAIL" in r.stdout
 
 
 def test_edited_scorer_fails_integrity(tmp_path):

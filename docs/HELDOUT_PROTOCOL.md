@@ -86,9 +86,48 @@ The AI-PCA category means "primary PCA = AI". A "<PCA> - AI" category means
 AI-relevance flag on a non-AI PCA; it is not a second PCA. All 214 key projects are
 AI-relevant by construction, because that is how they entered File A.
 
-**Proposal format (frozen).** One row per project: `appl_id`, `primary_pca` (one of
-the 12 PCA codes, `AW` for Advanced Wireless, or empty), and `ai_relevant`
-(true/false). A second-ranked PCA, if the engine produces one, is not scored.
+**Proposal format (v1, superseded before the build by v2 below).** One row per
+project: `appl_id`, `primary_pca` (one of the 12 PCA codes, `AW` for Advanced
+Wireless, or empty), and `ai_relevant` (true/false). A second-ranked PCA, if the
+engine produces one, is not scored.
+
+**Proposal format v2 (`proposal-format-v2-2026-10-23`), committed 2026-10-23 before
+the engine was built and before the reveal.** Columns: `appl_id`, `primary_pca` (one
+of the 12 PCA codes, or empty; never `AW`), `ai_relevant` (true/false), and
+`sub_pca` (`AW` or empty). `sub_pca` = `AW` requires `primary_pca` = `ACNS`. The
+match rule and the scorer are unchanged: they read only `primary_pca` and
+`ai_relevant`, so an Advanced Wireless project scores as ACNS. The build sweep's S5
+enforces v2.
+
+Why v2. NITRD's FY2025 PCA definitions print Advanced Wireless R&D as a `[Sub-PCA]`
+inside the ACNS definition, so its scope is a subset of ACNS. It has no NITRD budget
+line of its own and no RCDC category, so as a primary label it can never be right.
+Modelling it as ACNS plus a breakout flag follows the public definition. The fixture
+points the same way. Its 57 Advanced Wireless suggestions are on 57 different
+projects, and no project has AW in both slots. In 55 of them the other slot holds a
+PCA code (ACNS 19, CHuman 15, AI 14, EdW 4, CNPS 3); 2 have no second suggestion. Coders
+treat AW as a tag added to a project, not as its PCA. The engine still has to pick
+the most specific PCA, as NITRD's own rule says. If it judges a project to be
+primarily CHuman with a wireless element, the proposal is CHuman with no `sub_pca`,
+because AW lives inside ACNS.
+
+What was not checked. Whether any held-out project carries an AW suggestion was not
+determined, and the decision does not depend on it:
+
+* The public hash of the sorted 214-ID list cannot answer it. A digest only confirms
+  a complete list someone already has; it cannot test single IDs, and searching the
+  subsets of 214 out of 480 is infeasible.
+* Answering it from the sealed file would leak. Being in the 214 means "finally coded
+  AI-relevant", which is half of what is scored. Even an aggregate overlap count
+  would put key-derived information into a build decision.
+* It would not change the choice. If no AW project is in the 214, v2 is chosen for
+  fidelity and X is unaffected. If some are, v2 is still preferred, because v1 makes
+  them automatic misses. The decision is v2 in both cases, so it is fixed now without
+  looking.
+
+After the reveal, the report states how many held-out projects had an AW suggestion
+and how they scored. That is reporting only; the format is not changed after the
+reveal.
 
 **Mapping.** The AI-PCA category maps to (`AI`, AI-relevant). "<PCA> - AI" maps to
 (`<PCA>`, AI-relevant), for the 11 non-AI codes. Any other label, such as the legacy
@@ -111,7 +150,8 @@ true. The denominator is fixed at 214.
   The scorer also lists these cases.
 * Proposing `<PCA>` + flag for an AI-PCA key is a miss.
 * No proposal, an empty `primary_pca`, or `AW` on a key project is a miss, listed
-  separately.
+  separately. (Under format v2, `AW` cannot appear in `primary_pca`; the scorer keeps
+  the case only as a fail-safe.)
 
 **Secondary figures**, reported only with their labels and never substituted for X:
 
@@ -131,10 +171,12 @@ is reported. None is worked around.
   flag, duplicate IDs, and `AI` with the flag false.
 * S4: there must be exactly one proposal row per fixture project (all 480; an empty
   `primary_pca` is allowed) and no extra rows.
+* S5: format v2. A `sub_pca` column must be present, with values `AW` or empty;
+  `primary_pca` is never `AW`; and `sub_pca` = `AW` only with `primary_pca` = `ACNS`.
 
 It never reads the key. On a PASS, it prints the proposals SHA-256, which is tagged
 and logged before the reveal. During the build, the same sweep without `--freeze`
-runs S1 and S2, and records S3 and S4 as NOT_RUN until a proposals file exists.
+runs S1 and S2, and records S3-S5 as NOT_RUN until a proposals file exists.
 
 **Scorer verification (synthetic data only, 2026-10-23):** a 6-project fabricated
 key (IDs 90000001-6) gave strict 2/6, PCA-only 3/6, and the expected miss lists. All
