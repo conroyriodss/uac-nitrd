@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+sweep_record*.json
+.ipynb_checkpoints/

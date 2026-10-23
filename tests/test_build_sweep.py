@@ -1,0 +1,79 @@
+"""Model-free tests for the Entry 2 build sweep. None of them read the held-out key."""
+import csv
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+import pytest
+
+ROOT = Path(__file__).resolve().parents[1]
+FIXTURE = ROOT / "fixtures" / "UAC_Uncoded_12-01-2025-updated-NIH_ODSS.csv"
+CODES = ["ACNS", "AI", "CHuman", "CNPS", "CSP", "EdW", "EHCS", "ENIT", "HCIA", "IRAS", "LSDMA", "SPSQ", "AW", ""]
+
+
+def _ids():
+    with FIXTURE.open(newline="", encoding="utf-8-sig") as f:
+        return [r["Appl ID"].strip() for r in csv.DictReader(f)]
+
+
+def _tree(tmp_path, extra=None):
+    t = tmp_path / "repo"
+    shutil.copytree(ROOT, t, ignore=shutil.ignore_patterns(".git", "__pycache__", ".pytest_cache"))
+    for rel, text in (extra or {}).items():
+        (t / rel).parent.mkdir(parents=True, exist_ok=True)
+        (t / rel).write_text(text)
+    return t
+
+
+def _props(rows):
+    return "appl_id,primary_pca,ai_relevant\n" + "".join(f"{a},{p},{f}\n" for a, p, f in rows)
+
+
+def _synthetic():  # placeholder values only; not derived from any key
+    return [(a, CODES[i % len(CODES)], "true" if CODES[i % len(CODES)] == "AI" or i % 2 else "false")
+            for i, a in enumerate(_ids())]
+
+
+def _sweep(t, proposals=None, freeze=False):
+    cmd = [sys.executable, str(t / "tools" / "build_sweep.py"), "--tree", str(t),
+           "--fixture", str(t / "fixtures" / FIXTURE.name)]
+    if proposals is not None:
+        p = t / "proposals" / "proposals.csv"
+        p.write_text(proposals)
+        cmd += ["--proposals", str(p)]
+    if freeze:
+        cmd.append("--freeze")
+    return subprocess.run(cmd, capture_output=True, text=True)
+
+
+def test_repo_tree_passes_build_mode(tmp_path):
+    r = _sweep(_tree(tmp_path))
+    assert r.returncode == 0, r.stdout + r.stderr
+
+
+def test_freeze_requires_proposals(tmp_path):
+    assert _sweep(_tree(tmp_path), freeze=True).returncode == 1
+
+
+def test_freeze_passes_on_valid_complete_proposals(tmp_path):
+    r = _sweep(_tree(tmp_path), _props(_synthetic()), freeze=True)
+    assert r.returncode == 0 and "FREEZE OK" in r.stdout, r.stdout + r.stderr
+
+
+@pytest.mark.parametrize("mutate", [
+    lambda rows: [(rows[0][0], "AI", "false")] + rows[1:],           # AI without flag
+    lambda rows: [(rows[0][0], "LSN", "true")] + rows[1:],           # unknown code
+    lambda rows: rows[:-1],                                           # missing project
+    lambda rows: rows + [("99999999", "ACNS", "true")],              # extra project
+    lambda rows: rows + [rows[0]],                                     # duplicate
+])
+def test_freeze_rejects_bad_proposals(tmp_path, mutate):
+    assert _sweep(_tree(tmp_path), _props(mutate(_synthetic())), freeze=True).returncode == 1
+
+
+def test_edited_scorer_fails_integrity(tmp_path):
+    t = _tree(tmp_path)
+    (t / "tools" / "score_heldout.py").write_text((t / "tools" / "score_heldout.py").read_text() + "\n# edit\n")
+    r = _sweep(t)
+    assert r.returncode == 1 and "S1_tool_integrity: FAIL" in r.stdout
