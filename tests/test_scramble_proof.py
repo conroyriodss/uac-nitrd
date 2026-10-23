@@ -64,9 +64,13 @@ def _run(t, freeze=False, proposals=None):
 
 
 def test_no_engine_is_not_run_in_build_and_fails_freeze(tmp_path):
-    r, c = _run(_tree(tmp_path))
+    t = _tree(tmp_path)
+    (t / "engine" / "run.py").unlink(missing_ok=True)  # explicitly remove the engine
+    r, c = _run(t)
     assert r.returncode == 0 and c["S8_scramble_proof"]["status"] == "NOT_RUN"
-    r, c = _run(_tree(tmp_path / "f"), freeze=True)
+    t2 = _tree(tmp_path / "f")
+    (t2 / "engine" / "run.py").unlink(missing_ok=True)
+    r, c = _run(t2, freeze=True)
     assert r.returncode == 1 and c["S8_scramble_proof"]["status"] == "FAIL"
 
 
