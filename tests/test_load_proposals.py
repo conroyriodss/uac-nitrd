@@ -68,7 +68,12 @@ def test_listing_covers_all_480_with_cache_snapshots(env):
     snaps = lp._snapshot_map(CACHE)
     cached = sum(1 for p in listing.projects if p.snapshot_sha == snaps.get(p.appl_id))
     assert cached == 480  # every project has a cache record (even the 2 not_found ones)
-    assert all(p.amount == 0 for p in listing.projects)  # placeholder until a permitted source
+    # amounts come from the cache's award_amount (RePORTER public field); 2 not_found have 0
+    amts = lp._cache_amounts(CACHE)
+    with_amt = sum(1 for p in listing.projects if p.amount > 0)
+    assert with_amt == len(amts)  # every found project has a real amount
+    zero = sum(1 for p in listing.projects if p.amount == 0)
+    assert zero == 2  # the 2 not_found projects
 
 
 def test_all_proposals_reach_the_store(env):

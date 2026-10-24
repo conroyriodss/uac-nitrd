@@ -15,7 +15,7 @@ from engine.inputs import load_project_refs  # noqa: E402
 FIXTURE = ROOT / "fixtures" / "UAC_Uncoded_12-01-2025-updated-NIH_ODSS.csv"
 CACHE = ROOT / "cache" / "reporter"
 ALLOWED_KEYS = {"appl_id", "status", "project_num", "fiscal_year", "title", "abstract",
-                "public_health_relevance", "specific_aims"}
+                "public_health_relevance", "specific_aims", "award_amount"}
 
 
 def _lines():
@@ -48,13 +48,14 @@ def test_cache_has_no_coder_or_category_content():
 
 def test_make_record_drops_unlisted_fields():
     raw = {"appl_id": 1, "project_title": "t", "abstract_text": "a", "phr_text": None,
-           "spending_categories_desc": "X", "terms": "<y>", "pref_terms": "z"}
+           "award_amount": 100000, "spending_categories_desc": "X", "terms": "<y>", "pref_terms": "z"}
     assert set(brc.make_record(1, raw)) == ALLOWED_KEYS
 
 
 def _fake_fetch(ids, offset):  # stands in for RePORTER; responds by Appl ID only
     res = [{"appl_id": a, "project_num": f"P{a}", "fiscal_year": 2025, "project_title": f"T{a}",
-            "abstract_text": f"A{a}" * (a % 7 + 1), "phr_text": None, "spending_categories": [9]}
+            "abstract_text": f"A{a}" * (a % 7 + 1), "phr_text": None, "award_amount": a * 100,
+             "spending_categories": [9]}
            for a in ids if a % 97]
     return {"meta": {"total": len(res)}, "results": res[offset:offset + brc.PAGE]}
 

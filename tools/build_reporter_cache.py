@@ -42,10 +42,11 @@ from engine.inputs import load_project_refs  # noqa: E402  (identity columns onl
 CACHE_VERSION = "reporter-text-v1"
 API_URL = "https://api.reporter.nih.gov/v2/projects/search"
 # Requested from RePORTER. Identity fields are used to check each record; text fields are cached.
-INCLUDE_FIELDS = ("ApplId", "ProjectNum", "FiscalYear", "ProjectTitle", "AbstractText", "PhrText")
+INCLUDE_FIELDS = ("ApplId", "ProjectNum", "FiscalYear", "ProjectTitle", "AbstractText", "PhrText", "AwardAmount")
 # Response key -> cache key. Any key not listed is dropped on receipt.
 KEEP = {"appl_id": "appl_id", "project_num": "project_num", "fiscal_year": "fiscal_year",
-        "project_title": "title", "abstract_text": "abstract", "phr_text": "public_health_relevance"}
+        "project_title": "title", "abstract_text": "abstract", "phr_text": "public_health_relevance",
+         "award_amount": "award_amount"}
 TEXT_KEYS = ("title", "abstract", "public_health_relevance", "specific_aims")
 PAGE = 500
 
@@ -86,7 +87,7 @@ def make_record(appl_id: int, raw: dict | None) -> dict:
     """One rule for all projects: keep the listed public fields, drop everything else."""
     rec = {"appl_id": appl_id, "status": "found" if raw else "not_found", "project_num": None,
            "fiscal_year": None, "title": None, "abstract": None, "public_health_relevance": None,
-           "specific_aims": None}
+           "specific_aims": None, "award_amount": None}
     if raw:
         for src, dst in KEEP.items():
             if src in raw and dst != "appl_id":
