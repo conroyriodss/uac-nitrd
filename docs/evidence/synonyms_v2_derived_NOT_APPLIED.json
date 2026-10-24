@@ -1,0 +1,1763 @@
+{
+  "schema": "uac-nitrd/scope-synonyms/v2",
+  "version": 2,
+  "derivation_id": "synonym-derivation-v2-2026-10-24",
+  "selection_method": {
+    "statement": "Mechanical: candidates and inclusion are computed by tools/derive_synonyms.py from an independent FY2024 RePORTER corpus retrieved with verbatim NITRD scope phrases (scope/synonym_seeds.v1.json). The corpus excludes the 480 fixture projects and every record sharing a core project number with them. No term was chosen by hand, and the 480 texts, fixture suggestions and held-out key were not read. Replaces v1, whose candidates came from term frequency in the 480 (withdrawn).",
+    "constants": {
+      "PRIOR": 0.5,
+      "MIN_DOCS": 20,
+      "MIN_DF_ABS": 5,
+      "MIN_DF_FRAC": 0.05,
+      "Z_MIN": 4.0,
+      "TOP_K": 12,
+      "NGRAMS": [
+        1,
+        2
+      ]
+    },
+    "corpus_jsonl_sha256": "1479af6e9954a9b8f7d725005177ee4247219aea1e54d2cb9c9ef5ab2b9bcf19",
+    "seeds_sha256": "e805b9c6e419b1f71b7eb724ecda7de2afe5b274620e762aef24c5befcee40fa",
+    "scope_sha256": "8914f4c0d7953c366bae19683ed96ca6d2cce6043c98a227544e907683b56ea9",
+    "per_pca": {
+      "ACNS": {
+        "docs": 725,
+        "synonyms": 12
+      },
+      "AI": {
+        "docs": 967,
+        "synonyms": 12
+      },
+      "CHuman": {
+        "docs": 6,
+        "skipped": "fewer than MIN_DOCS=20 docs",
+        "synonyms": 0
+      },
+      "CNPS": {
+        "docs": 10,
+        "skipped": "fewer than MIN_DOCS=20 docs",
+        "synonyms": 0
+      },
+      "CSP": {
+        "docs": 209,
+        "synonyms": 12
+      },
+      "EdW": {
+        "docs": 22,
+        "synonyms": 12
+      },
+      "EHCS": {
+        "docs": 1,
+        "skipped": "fewer than MIN_DOCS=20 docs",
+        "synonyms": 0
+      },
+      "ENIT": {
+        "docs": 116,
+        "synonyms": 12
+      },
+      "HCIA": {
+        "docs": 131,
+        "synonyms": 12
+      },
+      "IRAS": {
+        "docs": 278,
+        "synonyms": 12
+      },
+      "LSDMA": {
+        "docs": 730,
+        "synonyms": 12
+      },
+      "SPSQ": {
+        "docs": 112,
+        "synonyms": 12
+      },
+      "AW": {
+        "docs": 492,
+        "synonyms": 12
+      }
+    }
+  },
+  "provenance_policy": "Each entry's 'expands' lists the verbatim NITRD scope phrases that retrieved the documents; 'reason' gives the statistic that admitted it. SME review may flag entries with 'sme_review'; flagged entries are excluded from the AI gate.",
+  "synonyms": [
+    {
+      "term": "training",
+      "pca": "ACNS",
+      "expands": "communication networks; wireless; networking",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ACNS scope phrase (communication networks; wireless; networking) vs the FY2024 background: 394/725 vs 320/1979 docs, z=18.882.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 394,
+        "n_pca": 725,
+        "df_bg": 320,
+        "n_bg": 1979,
+        "z": 18.882
+      }
+    },
+    {
+      "term": "career",
+      "pca": "ACNS",
+      "expands": "communication networks; wireless; networking",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ACNS scope phrase (communication networks; wireless; networking) vs the FY2024 background: 306/725 vs 184/1979 docs, z=18.194.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 306,
+        "n_pca": 725,
+        "df_bg": 184,
+        "n_bg": 1979,
+        "z": 18.194
+      }
+    },
+    {
+      "term": "opportunities",
+      "pca": "ACNS",
+      "expands": "communication networks; wireless; networking",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ACNS scope phrase (communication networks; wireless; networking) vs the FY2024 background: 259/725 vs 115/1979 docs, z=17.809.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 259,
+        "n_pca": 725,
+        "df_bg": 115,
+        "n_bg": 1979,
+        "z": 17.809
+      }
+    },
+    {
+      "term": "faculty",
+      "pca": "ACNS",
+      "expands": "communication networks; wireless; networking",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ACNS scope phrase (communication networks; wireless; networking) vs the FY2024 background: 237/725 vs 81/1979 docs, z=17.583.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 237,
+        "n_pca": 725,
+        "df_bg": 81,
+        "n_bg": 1979,
+        "z": 17.583
+      }
+    },
+    {
+      "term": "trainees",
+      "pca": "ACNS",
+      "expands": "communication networks; wireless; networking",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ACNS scope phrase (communication networks; wireless; networking) vs the FY2024 background: 216/725 vs 61/1979 docs, z=16.908.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 216,
+        "n_pca": 725,
+        "df_bg": 61,
+        "n_bg": 1979,
+        "z": 16.908
+      }
+    },
+    {
+      "term": "mentoring",
+      "pca": "ACNS",
+      "expands": "communication networks; wireless; networking",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ACNS scope phrase (communication networks; wireless; networking) vs the FY2024 background: 220/725 vs 76/1979 docs, z=16.815.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 220,
+        "n_pca": 725,
+        "df_bg": 76,
+        "n_bg": 1979,
+        "z": 16.815
+      }
+    },
+    {
+      "term": "skills",
+      "pca": "ACNS",
+      "expands": "communication networks; wireless; networking",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ACNS scope phrase (communication networks; wireless; networking) vs the FY2024 background: 241/725 vs 142/1979 docs, z=15.857.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 241,
+        "n_pca": 725,
+        "df_bg": 142,
+        "n_bg": 1979,
+        "z": 15.857
+      }
+    },
+    {
+      "term": "students",
+      "pca": "ACNS",
+      "expands": "communication networks; wireless; networking",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ACNS scope phrase (communication networks; wireless; networking) vs the FY2024 background: 191/725 vs 51/1979 docs, z=15.793.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 191,
+        "n_pca": 725,
+        "df_bg": 51,
+        "n_bg": 1979,
+        "z": 15.793
+      }
+    },
+    {
+      "term": "program",
+      "pca": "ACNS",
+      "expands": "communication networks; wireless; networking",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ACNS scope phrase (communication networks; wireless; networking) vs the FY2024 background: 383/725 vs 415/1979 docs, z=15.54.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 383,
+        "n_pca": 725,
+        "df_bg": 415,
+        "n_bg": 1979,
+        "z": 15.54
+      }
+    },
+    {
+      "term": "professional",
+      "pca": "ACNS",
+      "expands": "communication networks; wireless; networking",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ACNS scope phrase (communication networks; wireless; networking) vs the FY2024 background: 182/725 vs 47/1979 docs, z=15.383.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 182,
+        "n_pca": 725,
+        "df_bg": 47,
+        "n_bg": 1979,
+        "z": 15.383
+      }
+    },
+    {
+      "term": "university",
+      "pca": "ACNS",
+      "expands": "communication networks; wireless; networking",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ACNS scope phrase (communication networks; wireless; networking) vs the FY2024 background: 242/725 vs 157/1979 docs, z=15.37.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 242,
+        "n_pca": 725,
+        "df_bg": 157,
+        "n_bg": 1979,
+        "z": 15.37
+      }
+    },
+    {
+      "term": "scientists",
+      "pca": "ACNS",
+      "expands": "communication networks; wireless; networking",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ACNS scope phrase (communication networks; wireless; networking) vs the FY2024 background: 195/725 vs 83/1979 docs, z=15.214.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 195,
+        "n_pca": 725,
+        "df_bg": 83,
+        "n_bg": 1979,
+        "z": 15.214
+      }
+    },
+    {
+      "term": "develop",
+      "pca": "AI",
+      "expands": "artificial intelligence; machine learning; machine vision; computational linguistics",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AI scope phrase (artificial intelligence; machine learning; machine vision; computational linguistics) vs the FY2024 background: 586/967 vs 622/1979 docs, z=14.813.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 586,
+        "n_pca": 967,
+        "df_bg": 622,
+        "n_bg": 1979,
+        "z": 14.813
+      }
+    },
+    {
+      "term": "algorithms",
+      "pca": "AI",
+      "expands": "artificial intelligence; machine learning; machine vision; computational linguistics",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AI scope phrase (artificial intelligence; machine learning; machine vision; computational linguistics) vs the FY2024 background: 203/967 vs 60/1979 docs, z=13.986.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 203,
+        "n_pca": 967,
+        "df_bg": 60,
+        "n_bg": 1979,
+        "z": 13.986
+      }
+    },
+    {
+      "term": "data",
+      "pca": "AI",
+      "expands": "artificial intelligence; machine learning; machine vision; computational linguistics",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AI scope phrase (artificial intelligence; machine learning; machine vision; computational linguistics) vs the FY2024 background: 687/967 vs 867/1979 docs, z=13.619.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 687,
+        "n_pca": 967,
+        "df_bg": 867,
+        "n_bg": 1979,
+        "z": 13.619
+      }
+    },
+    {
+      "term": "prediction",
+      "pca": "AI",
+      "expands": "artificial intelligence; machine learning; machine vision; computational linguistics",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AI scope phrase (artificial intelligence; machine learning; machine vision; computational linguistics) vs the FY2024 background: 195/967 vs 66/1979 docs, z=13.395.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 195,
+        "n_pca": 967,
+        "df_bg": 66,
+        "n_bg": 1979,
+        "z": 13.395
+      }
+    },
+    {
+      "term": "predict",
+      "pca": "AI",
+      "expands": "artificial intelligence; machine learning; machine vision; computational linguistics",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AI scope phrase (artificial intelligence; machine learning; machine vision; computational linguistics) vs the FY2024 background: 249/967 vs 140/1979 docs, z=13.251.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 249,
+        "n_pca": 967,
+        "df_bg": 140,
+        "n_bg": 1979,
+        "z": 13.251
+      }
+    },
+    {
+      "term": "methods",
+      "pca": "AI",
+      "expands": "artificial intelligence; machine learning; machine vision; computational linguistics",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AI scope phrase (artificial intelligence; machine learning; machine vision; computational linguistics) vs the FY2024 background: 400/967 vs 391/1979 docs, z=12.194.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 400,
+        "n_pca": 967,
+        "df_bg": 391,
+        "n_bg": 1979,
+        "z": 12.194
+      }
+    },
+    {
+      "term": "clinical",
+      "pca": "AI",
+      "expands": "artificial intelligence; machine learning; machine vision; computational linguistics",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AI scope phrase (artificial intelligence; machine learning; machine vision; computational linguistics) vs the FY2024 background: 608/967 vs 768/1979 docs, z=12.125.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 608,
+        "n_pca": 967,
+        "df_bg": 768,
+        "n_bg": 1979,
+        "z": 12.125
+      }
+    },
+    {
+      "term": "deep learning",
+      "pca": "AI",
+      "expands": "artificial intelligence; machine learning; machine vision; computational linguistics",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AI scope phrase (artificial intelligence; machine learning; machine vision; computational linguistics) vs the FY2024 background: 124/967 vs 24/1979 docs, z=10.971.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 124,
+        "n_pca": 967,
+        "df_bg": 24,
+        "n_bg": 1979,
+        "z": 10.971
+      }
+    },
+    {
+      "term": "deep",
+      "pca": "AI",
+      "expands": "artificial intelligence; machine learning; machine vision; computational linguistics",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AI scope phrase (artificial intelligence; machine learning; machine vision; computational linguistics) vs the FY2024 background: 169/967 vs 90/1979 docs, z=10.878.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 169,
+        "n_pca": 967,
+        "df_bg": 90,
+        "n_bg": 1979,
+        "z": 10.878
+      }
+    },
+    {
+      "term": "validate",
+      "pca": "AI",
+      "expands": "artificial intelligence; machine learning; machine vision; computational linguistics",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AI scope phrase (artificial intelligence; machine learning; machine vision; computational linguistics) vs the FY2024 background: 185/967 vs 119/1979 docs, z=10.464.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 185,
+        "n_pca": 967,
+        "df_bg": 119,
+        "n_bg": 1979,
+        "z": 10.464
+      }
+    },
+    {
+      "term": "imaging",
+      "pca": "AI",
+      "expands": "artificial intelligence; machine learning; machine vision; computational linguistics",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AI scope phrase (artificial intelligence; machine learning; machine vision; computational linguistics) vs the FY2024 background: 264/967 vs 232/1979 docs, z=10.349.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 264,
+        "n_pca": 967,
+        "df_bg": 232,
+        "n_bg": 1979,
+        "z": 10.349
+      }
+    },
+    {
+      "term": "tools",
+      "pca": "AI",
+      "expands": "artificial intelligence; machine learning; machine vision; computational linguistics",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AI scope phrase (artificial intelligence; machine learning; machine vision; computational linguistics) vs the FY2024 background: 275/967 vs 250/1979 docs, z=10.289.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 275,
+        "n_pca": 967,
+        "df_bg": 250,
+        "n_bg": 1979,
+        "z": 10.289
+      }
+    },
+    {
+      "term": "concerns",
+      "pca": "CSP",
+      "expands": "cybersecurity; privacy",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim CSP scope phrase (cybersecurity; privacy) vs the FY2024 background: 54/209 vs 41/1979 docs, z=12.579.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 54,
+        "n_pca": 209,
+        "df_bg": 41,
+        "n_bg": 1979,
+        "z": 12.579
+      }
+    },
+    {
+      "term": "access",
+      "pca": "CSP",
+      "expands": "cybersecurity; privacy",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim CSP scope phrase (cybersecurity; privacy) vs the FY2024 background: 80/209 vs 210/1979 docs, z=10.363.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 80,
+        "n_pca": 209,
+        "df_bg": 210,
+        "n_bg": 1979,
+        "z": 10.363
+      }
+    },
+    {
+      "term": "data sharing",
+      "pca": "CSP",
+      "expands": "cybersecurity; privacy",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim CSP scope phrase (cybersecurity; privacy) vs the FY2024 background: 37/209 vs 10/1979 docs, z=10.356.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 37,
+        "n_pca": 209,
+        "df_bg": 10,
+        "n_bg": 1979,
+        "z": 10.356
+      }
+    },
+    {
+      "term": "artificial",
+      "pca": "CSP",
+      "expands": "cybersecurity; privacy",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim CSP scope phrase (cybersecurity; privacy) vs the FY2024 background: 33/209 vs 22/1979 docs, z=9.885.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 33,
+        "n_pca": 209,
+        "df_bg": 22,
+        "n_bg": 1979,
+        "z": 9.885
+      }
+    },
+    {
+      "term": "learning",
+      "pca": "CSP",
+      "expands": "cybersecurity; privacy",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim CSP scope phrase (cybersecurity; privacy) vs the FY2024 background: 67/209 vs 168/1979 docs, z=9.673.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 67,
+        "n_pca": 209,
+        "df_bg": 168,
+        "n_bg": 1979,
+        "z": 9.673
+      }
+    },
+    {
+      "term": "digital",
+      "pca": "CSP",
+      "expands": "cybersecurity; privacy",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim CSP scope phrase (cybersecurity; privacy) vs the FY2024 background: 37/209 vs 42/1979 docs, z=9.648.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 37,
+        "n_pca": 209,
+        "df_bg": 42,
+        "n_bg": 1979,
+        "z": 9.648
+      }
+    },
+    {
+      "term": "intelligence",
+      "pca": "CSP",
+      "expands": "cybersecurity; privacy",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim CSP scope phrase (cybersecurity; privacy) vs the FY2024 background: 30/209 vs 13/1979 docs, z=9.548.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 30,
+        "n_pca": 209,
+        "df_bg": 13,
+        "n_bg": 1979,
+        "z": 9.548
+      }
+    },
+    {
+      "term": "ethical",
+      "pca": "CSP",
+      "expands": "cybersecurity; privacy",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim CSP scope phrase (cybersecurity; privacy) vs the FY2024 background: 30/209 vs 10/1979 docs, z=9.453.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 30,
+        "n_pca": 209,
+        "df_bg": 10,
+        "n_bg": 1979,
+        "z": 9.453
+      }
+    },
+    {
+      "term": "artificial intelligence",
+      "pca": "CSP",
+      "expands": "cybersecurity; privacy",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim CSP scope phrase (cybersecurity; privacy) vs the FY2024 background: 29/209 vs 12/1979 docs, z=9.377.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 29,
+        "n_pca": 209,
+        "df_bg": 12,
+        "n_bg": 1979,
+        "z": 9.377
+      }
+    },
+    {
+      "term": "secure",
+      "pca": "CSP",
+      "expands": "cybersecurity; privacy",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim CSP scope phrase (cybersecurity; privacy) vs the FY2024 background: 30/209 vs 7/1979 docs, z=9.157.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 30,
+        "n_pca": 209,
+        "df_bg": 7,
+        "n_bg": 1979,
+        "z": 9.157
+      }
+    },
+    {
+      "term": "machine learning",
+      "pca": "CSP",
+      "expands": "cybersecurity; privacy",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim CSP scope phrase (cybersecurity; privacy) vs the FY2024 background: 39/209 vs 62/1979 docs, z=8.979.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 39,
+        "n_pca": 209,
+        "df_bg": 62,
+        "n_bg": 1979,
+        "z": 8.979
+      }
+    },
+    {
+      "term": "machine",
+      "pca": "CSP",
+      "expands": "cybersecurity; privacy",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim CSP scope phrase (cybersecurity; privacy) vs the FY2024 background: 40/209 vs 67/1979 docs, z=8.924.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 40,
+        "n_pca": 209,
+        "df_bg": 67,
+        "n_bg": 1979,
+        "z": 8.924
+      }
+    },
+    {
+      "term": "organizations",
+      "pca": "EdW",
+      "expands": "workforce training; virtual education",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim EdW scope phrase (workforce training; virtual education) vs the FY2024 background: 7/22 vs 18/1979 docs, z=7.838.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 7,
+        "n_pca": 22,
+        "df_bg": 18,
+        "n_bg": 1979,
+        "z": 7.838
+      }
+    },
+    {
+      "term": "research capacity",
+      "pca": "EdW",
+      "expands": "workforce training; virtual education",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim EdW scope phrase (workforce training; virtual education) vs the FY2024 background: 5/22 vs 5/1979 docs, z=7.281.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 5,
+        "n_pca": 22,
+        "df_bg": 5,
+        "n_bg": 1979,
+        "z": 7.281
+      }
+    },
+    {
+      "term": "universities",
+      "pca": "EdW",
+      "expands": "workforce training; virtual education",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim EdW scope phrase (workforce training; virtual education) vs the FY2024 background: 5/22 vs 11/1979 docs, z=6.975.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 5,
+        "n_pca": 22,
+        "df_bg": 11,
+        "n_bg": 1979,
+        "z": 6.975
+      }
+    },
+    {
+      "term": "nationally",
+      "pca": "EdW",
+      "expands": "workforce training; virtual education",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim EdW scope phrase (workforce training; virtual education) vs the FY2024 background: 7/22 vs 49/1979 docs, z=6.283.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 7,
+        "n_pca": 22,
+        "df_bg": 49,
+        "n_bg": 1979,
+        "z": 6.283
+      }
+    },
+    {
+      "term": "accelerate",
+      "pca": "EdW",
+      "expands": "workforce training; virtual education",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim EdW scope phrase (workforce training; virtual education) vs the FY2024 background: 7/22 vs 56/1979 docs, z=6.027.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 7,
+        "n_pca": 22,
+        "df_bg": 56,
+        "n_bg": 1979,
+        "z": 6.027
+      }
+    },
+    {
+      "term": "sustainable",
+      "pca": "EdW",
+      "expands": "workforce training; virtual education",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim EdW scope phrase (workforce training; virtual education) vs the FY2024 background: 5/22 vs 26/1979 docs, z=5.969.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 5,
+        "n_pca": 22,
+        "df_bg": 26,
+        "n_bg": 1979,
+        "z": 5.969
+      }
+    },
+    {
+      "term": "strengthen",
+      "pca": "EdW",
+      "expands": "workforce training; virtual education",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim EdW scope phrase (workforce training; virtual education) vs the FY2024 background: 5/22 vs 28/1979 docs, z=5.857.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 5,
+        "n_pca": 22,
+        "df_bg": 28,
+        "n_bg": 1979,
+        "z": 5.857
+      }
+    },
+    {
+      "term": "accomplish",
+      "pca": "EdW",
+      "expands": "workforce training; virtual education",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim EdW scope phrase (workforce training; virtual education) vs the FY2024 background: 7/22 vs 62/1979 docs, z=5.826.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 7,
+        "n_pca": 22,
+        "df_bg": 62,
+        "n_bg": 1979,
+        "z": 5.826
+      }
+    },
+    {
+      "term": "capacity",
+      "pca": "EdW",
+      "expands": "workforce training; virtual education",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim EdW scope phrase (workforce training; virtual education) vs the FY2024 background: 9/22 vs 114/1979 docs, z=5.617.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 9,
+        "n_pca": 22,
+        "df_bg": 114,
+        "n_bg": 1979,
+        "z": 5.617
+      }
+    },
+    {
+      "term": "discoveries",
+      "pca": "EdW",
+      "expands": "workforce training; virtual education",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim EdW scope phrase (workforce training; virtual education) vs the FY2024 background: 5/22 vs 44/1979 docs, z=5.11.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 5,
+        "n_pca": 22,
+        "df_bg": 44,
+        "n_bg": 1979,
+        "z": 5.11
+      }
+    },
+    {
+      "term": "implementing",
+      "pca": "EdW",
+      "expands": "workforce training; virtual education",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim EdW scope phrase (workforce training; virtual education) vs the FY2024 background: 5/22 vs 54/1979 docs, z=4.741.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 5,
+        "n_pca": 22,
+        "df_bg": 54,
+        "n_bg": 1979,
+        "z": 4.741
+      }
+    },
+    {
+      "term": "expanding",
+      "pca": "EdW",
+      "expands": "workforce training; virtual education",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim EdW scope phrase (workforce training; virtual education) vs the FY2024 background: 5/22 vs 56/1979 docs, z=4.674.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 5,
+        "n_pca": 22,
+        "df_bg": 56,
+        "n_bg": 1979,
+        "z": 4.674
+      }
+    },
+    {
+      "term": "probes",
+      "pca": "ENIT",
+      "expands": "nanoelectronics; silicon",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ENIT scope phrase (nanoelectronics; silicon) vs the FY2024 background: 35/116 vs 23/1979 docs, z=12.426.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 35,
+        "n_pca": 116,
+        "df_bg": 23,
+        "n_bg": 1979,
+        "z": 12.426
+      }
+    },
+    {
+      "term": "recording",
+      "pca": "ENIT",
+      "expands": "nanoelectronics; silicon",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ENIT scope phrase (nanoelectronics; silicon) vs the FY2024 background: 26/116 vs 11/1979 docs, z=10.605.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 26,
+        "n_pca": 116,
+        "df_bg": 11,
+        "n_bg": 1979,
+        "z": 10.605
+      }
+    },
+    {
+      "term": "recordings",
+      "pca": "ENIT",
+      "expands": "nanoelectronics; silicon",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ENIT scope phrase (nanoelectronics; silicon) vs the FY2024 background: 23/116 vs 31/1979 docs, z=9.383.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 23,
+        "n_pca": 116,
+        "df_bg": 31,
+        "n_bg": 1979,
+        "z": 9.383
+      }
+    },
+    {
+      "term": "arrays",
+      "pca": "ENIT",
+      "expands": "nanoelectronics; silicon",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ENIT scope phrase (nanoelectronics; silicon) vs the FY2024 background: 18/116 vs 10/1979 docs, z=8.906.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 18,
+        "n_pca": 116,
+        "df_bg": 10,
+        "n_bg": 1979,
+        "z": 8.906
+      }
+    },
+    {
+      "term": "neural",
+      "pca": "ENIT",
+      "expands": "nanoelectronics; silicon",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ENIT scope phrase (nanoelectronics; silicon) vs the FY2024 background: 40/116 vs 154/1979 docs, z=8.664.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 40,
+        "n_pca": 116,
+        "df_bg": 154,
+        "n_bg": 1979,
+        "z": 8.664
+      }
+    },
+    {
+      "term": "high-density",
+      "pca": "ENIT",
+      "expands": "nanoelectronics; silicon",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ENIT scope phrase (nanoelectronics; silicon) vs the FY2024 background: 14/116 vs 9/1979 docs, z=7.867.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 14,
+        "n_pca": 116,
+        "df_bg": 9,
+        "n_bg": 1979,
+        "z": 7.867
+      }
+    },
+    {
+      "term": "neural activity",
+      "pca": "ENIT",
+      "expands": "nanoelectronics; silicon",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ENIT scope phrase (nanoelectronics; silicon) vs the FY2024 background: 14/116 vs 14/1979 docs, z=7.673.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 14,
+        "n_pca": 116,
+        "df_bg": 14,
+        "n_bg": 1979,
+        "z": 7.673
+      }
+    },
+    {
+      "term": "optical",
+      "pca": "ENIT",
+      "expands": "nanoelectronics; silicon",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ENIT scope phrase (nanoelectronics; silicon) vs the FY2024 background: 15/116 vs 26/1979 docs, z=7.214.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 15,
+        "n_pca": 116,
+        "df_bg": 26,
+        "n_bg": 1979,
+        "z": 7.214
+      }
+    },
+    {
+      "term": "flexible",
+      "pca": "ENIT",
+      "expands": "nanoelectronics; silicon",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ENIT scope phrase (nanoelectronics; silicon) vs the FY2024 background: 14/116 vs 22/1979 docs, z=7.138.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 14,
+        "n_pca": 116,
+        "df_bg": 22,
+        "n_bg": 1979,
+        "z": 7.138
+      }
+    },
+    {
+      "term": "circuits",
+      "pca": "ENIT",
+      "expands": "nanoelectronics; silicon",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ENIT scope phrase (nanoelectronics; silicon) vs the FY2024 background: 23/116 vs 75/1979 docs, z=7.134.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 23,
+        "n_pca": 116,
+        "df_bg": 75,
+        "n_bg": 1979,
+        "z": 7.134
+      }
+    },
+    {
+      "term": "circuit",
+      "pca": "ENIT",
+      "expands": "nanoelectronics; silicon",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ENIT scope phrase (nanoelectronics; silicon) vs the FY2024 background: 21/116 vs 62/1979 docs, z=7.128.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 21,
+        "n_pca": 116,
+        "df_bg": 62,
+        "n_bg": 1979,
+        "z": 7.128
+      }
+    },
+    {
+      "term": "probe",
+      "pca": "ENIT",
+      "expands": "nanoelectronics; silicon",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim ENIT scope phrase (nanoelectronics; silicon) vs the FY2024 background: 19/116 vs 50/1979 docs, z=7.108.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 19,
+        "n_pca": 116,
+        "df_bg": 50,
+        "n_bg": 1979,
+        "z": 7.108
+      }
+    },
+    {
+      "term": "data management",
+      "pca": "HCIA",
+      "expands": "data infrastructure; application software",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim HCIA scope phrase (data infrastructure; application software) vs the FY2024 background: 24/131 vs 17/1979 docs, z=9.872.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 24,
+        "n_pca": 131,
+        "df_bg": 17,
+        "n_bg": 1979,
+        "z": 9.872
+      }
+    },
+    {
+      "term": "infrastructure support",
+      "pca": "HCIA",
+      "expands": "data infrastructure; application software",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim HCIA scope phrase (data infrastructure; application software) vs the FY2024 background: 17/131 vs 7/1979 docs, z=8.265.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 17,
+        "n_pca": 131,
+        "df_bg": 7,
+        "n_bg": 1979,
+        "z": 8.265
+      }
+    },
+    {
+      "term": "management",
+      "pca": "HCIA",
+      "expands": "data infrastructure; application software",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim HCIA scope phrase (data infrastructure; application software) vs the FY2024 background: 45/131 vs 184/1979 docs, z=8.215.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 45,
+        "n_pca": 131,
+        "df_bg": 184,
+        "n_bg": 1979,
+        "z": 8.215
+      }
+    },
+    {
+      "term": "national",
+      "pca": "HCIA",
+      "expands": "data infrastructure; application software",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim HCIA scope phrase (data infrastructure; application software) vs the FY2024 background: 45/131 vs 187/1979 docs, z=8.134.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 45,
+        "n_pca": 131,
+        "df_bg": 187,
+        "n_bg": 1979,
+        "z": 8.134
+      }
+    },
+    {
+      "term": "health research",
+      "pca": "HCIA",
+      "expands": "data infrastructure; application software",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim HCIA scope phrase (data infrastructure; application software) vs the FY2024 background: 18/131 vs 23/1979 docs, z=8.013.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 18,
+        "n_pca": 131,
+        "df_bg": 23,
+        "n_bg": 1979,
+        "z": 8.013
+      }
+    },
+    {
+      "term": "population health",
+      "pca": "HCIA",
+      "expands": "data infrastructure; application software",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim HCIA scope phrase (data infrastructure; application software) vs the FY2024 background: 14/131 vs 11/1979 docs, z=7.511.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 14,
+        "n_pca": 131,
+        "df_bg": 11,
+        "n_bg": 1979,
+        "z": 7.511
+      }
+    },
+    {
+      "term": "experts",
+      "pca": "HCIA",
+      "expands": "data infrastructure; application software",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim HCIA scope phrase (data infrastructure; application software) vs the FY2024 background: 24/131 vs 63/1979 docs, z=7.484.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 24,
+        "n_pca": 131,
+        "df_bg": 63,
+        "n_bg": 1979,
+        "z": 7.484
+      }
+    },
+    {
+      "term": "data sources",
+      "pca": "HCIA",
+      "expands": "data infrastructure; application software",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim HCIA scope phrase (data infrastructure; application software) vs the FY2024 background: 14/131 vs 12/1979 docs, z=7.463.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 14,
+        "n_pca": 131,
+        "df_bg": 12,
+        "n_bg": 1979,
+        "z": 7.463
+      }
+    },
+    {
+      "term": "adrd",
+      "pca": "HCIA",
+      "expands": "data infrastructure; application software",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim HCIA scope phrase (data infrastructure; application software) vs the FY2024 background: 14/131 vs 17/1979 docs, z=7.148.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 14,
+        "n_pca": 131,
+        "df_bg": 17,
+        "n_bg": 1979,
+        "z": 7.148
+      }
+    },
+    {
+      "term": "sources",
+      "pca": "HCIA",
+      "expands": "data infrastructure; application software",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim HCIA scope phrase (data infrastructure; application software) vs the FY2024 background: 22/131 vs 63/1979 docs, z=6.905.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 22,
+        "n_pca": 131,
+        "df_bg": 63,
+        "n_bg": 1979,
+        "z": 6.905
+      }
+    },
+    {
+      "term": "publicly",
+      "pca": "HCIA",
+      "expands": "data infrastructure; application software",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim HCIA scope phrase (data infrastructure; application software) vs the FY2024 background: 12/131 vs 11/1979 docs, z=6.88.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 12,
+        "n_pca": 131,
+        "df_bg": 11,
+        "n_bg": 1979,
+        "z": 6.88
+      }
+    },
+    {
+      "term": "dissemination",
+      "pca": "HCIA",
+      "expands": "data infrastructure; application software",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim HCIA scope phrase (data infrastructure; application software) vs the FY2024 background: 27/131 vs 100/1979 docs, z=6.709.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 27,
+        "n_pca": 131,
+        "df_bg": 100,
+        "n_bg": 1979,
+        "z": 6.709
+      }
+    },
+    {
+      "term": "automated",
+      "pca": "IRAS",
+      "expands": "robotic; robotics; machine perception; human-robot interaction",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim IRAS scope phrase (robotic; robotics; machine perception; human-robot interaction) vs the FY2024 background: 59/278 vs 26/1979 docs, z=12.266.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 59,
+        "n_pca": 278,
+        "df_bg": 26,
+        "n_bg": 1979,
+        "z": 12.266
+      }
+    },
+    {
+      "term": "technology",
+      "pca": "IRAS",
+      "expands": "robotic; robotics; machine perception; human-robot interaction",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim IRAS scope phrase (robotic; robotics; machine perception; human-robot interaction) vs the FY2024 background: 100/278 vs 171/1979 docs, z=12.027.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 100,
+        "n_pca": 278,
+        "df_bg": 171,
+        "n_bg": 1979,
+        "z": 12.027
+      }
+    },
+    {
+      "term": "surgical",
+      "pca": "IRAS",
+      "expands": "robotic; robotics; machine perception; human-robot interaction",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim IRAS scope phrase (robotic; robotics; machine perception; human-robot interaction) vs the FY2024 background: 62/278 vs 56/1979 docs, z=11.596.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 62,
+        "n_pca": 278,
+        "df_bg": 56,
+        "n_bg": 1979,
+        "z": 11.596
+      }
+    },
+    {
+      "term": "technologies",
+      "pca": "IRAS",
+      "expands": "robotic; robotics; machine perception; human-robot interaction",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim IRAS scope phrase (robotic; robotics; machine perception; human-robot interaction) vs the FY2024 background: 73/278 vs 102/1979 docs, z=11.084.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 73,
+        "n_pca": 278,
+        "df_bg": 102,
+        "n_bg": 1979,
+        "z": 11.084
+      }
+    },
+    {
+      "term": "device",
+      "pca": "IRAS",
+      "expands": "robotic; robotics; machine perception; human-robot interaction",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim IRAS scope phrase (robotic; robotics; machine perception; human-robot interaction) vs the FY2024 background: 52/278 vs 44/1979 docs, z=10.721.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 52,
+        "n_pca": 278,
+        "df_bg": 44,
+        "n_bg": 1979,
+        "z": 10.721
+      }
+    },
+    {
+      "term": "enable",
+      "pca": "IRAS",
+      "expands": "robotic; robotics; machine perception; human-robot interaction",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim IRAS scope phrase (robotic; robotics; machine perception; human-robot interaction) vs the FY2024 background: 92/278 vs 183/1979 docs, z=10.61.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 92,
+        "n_pca": 278,
+        "df_bg": 183,
+        "n_bg": 1979,
+        "z": 10.61
+      }
+    },
+    {
+      "term": "capabilities",
+      "pca": "IRAS",
+      "expands": "robotic; robotics; machine perception; human-robot interaction",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim IRAS scope phrase (robotic; robotics; machine perception; human-robot interaction) vs the FY2024 background: 48/278 vs 36/1979 docs, z=10.509.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 48,
+        "n_pca": 278,
+        "df_bg": 36,
+        "n_bg": 1979,
+        "z": 10.509
+      }
+    },
+    {
+      "term": "surgery",
+      "pca": "IRAS",
+      "expands": "robotic; robotics; machine perception; human-robot interaction",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim IRAS scope phrase (robotic; robotics; machine perception; human-robot interaction) vs the FY2024 background: 50/278 vs 54/1979 docs, z=9.906.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 50,
+        "n_pca": 278,
+        "df_bg": 54,
+        "n_bg": 1979,
+        "z": 9.906
+      }
+    },
+    {
+      "term": "tasks",
+      "pca": "IRAS",
+      "expands": "robotic; robotics; machine perception; human-robot interaction",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim IRAS scope phrase (robotic; robotics; machine perception; human-robot interaction) vs the FY2024 background: 40/278 vs 23/1979 docs, z=9.875.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 40,
+        "n_pca": 278,
+        "df_bg": 23,
+        "n_bg": 1979,
+        "z": 9.875
+      }
+    },
+    {
+      "term": "devices",
+      "pca": "IRAS",
+      "expands": "robotic; robotics; machine perception; human-robot interaction",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim IRAS scope phrase (robotic; robotics; machine perception; human-robot interaction) vs the FY2024 background: 44/278 vs 41/1979 docs, z=9.629.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 44,
+        "n_pca": 278,
+        "df_bg": 41,
+        "n_bg": 1979,
+        "z": 9.629
+      }
+    },
+    {
+      "term": "feedback",
+      "pca": "IRAS",
+      "expands": "robotic; robotics; machine perception; human-robot interaction",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim IRAS scope phrase (robotic; robotics; machine perception; human-robot interaction) vs the FY2024 background: 51/278 vs 68/1979 docs, z=9.341.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 51,
+        "n_pca": 278,
+        "df_bg": 68,
+        "n_bg": 1979,
+        "z": 9.341
+      }
+    },
+    {
+      "term": "image",
+      "pca": "IRAS",
+      "expands": "robotic; robotics; machine perception; human-robot interaction",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim IRAS scope phrase (robotic; robotics; machine perception; human-robot interaction) vs the FY2024 background: 46/278 vs 54/1979 docs, z=9.251.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 46,
+        "n_pca": 278,
+        "df_bg": 54,
+        "n_bg": 1979,
+        "z": 9.251
+      }
+    },
+    {
+      "term": "core",
+      "pca": "LSDMA",
+      "expands": "data management; curation",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim LSDMA scope phrase (data management; curation) vs the FY2024 background: 389/730 vs 193/1979 docs, z=22.222.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 389,
+        "n_pca": 730,
+        "df_bg": 193,
+        "n_bg": 1979,
+        "z": 22.222
+      }
+    },
+    {
+      "term": "center",
+      "pca": "LSDMA",
+      "expands": "data management; curation",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim LSDMA scope phrase (data management; curation) vs the FY2024 background: 370/730 vs 234/1979 docs, z=20.039.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 370,
+        "n_pca": 730,
+        "df_bg": 234,
+        "n_bg": 1979,
+        "z": 20.039
+      }
+    },
+    {
+      "term": "support",
+      "pca": "LSDMA",
+      "expands": "data management; curation",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim LSDMA scope phrase (data management; curation) vs the FY2024 background: 453/730 vs 418/1979 docs, z=19.23.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 453,
+        "n_pca": 730,
+        "df_bg": 418,
+        "n_bg": 1979,
+        "z": 19.23
+      }
+    },
+    {
+      "term": "projects",
+      "pca": "LSDMA",
+      "expands": "data management; curation",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim LSDMA scope phrase (data management; curation) vs the FY2024 background: 282/730 vs 139/1979 docs, z=18.237.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 282,
+        "n_pca": 730,
+        "df_bg": 139,
+        "n_bg": 1979,
+        "z": 18.237
+      }
+    },
+    {
+      "term": "investigators",
+      "pca": "LSDMA",
+      "expands": "data management; curation",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim LSDMA scope phrase (data management; curation) vs the FY2024 background: 260/730 vs 153/1979 docs, z=16.518.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 260,
+        "n_pca": 730,
+        "df_bg": 153,
+        "n_bg": 1979,
+        "z": 16.518
+      }
+    },
+    {
+      "term": "resource",
+      "pca": "LSDMA",
+      "expands": "data management; curation",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim LSDMA scope phrase (data management; curation) vs the FY2024 background: 232/730 vs 107/1979 docs, z=16.487.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 232,
+        "n_pca": 730,
+        "df_bg": 107,
+        "n_bg": 1979,
+        "z": 16.487
+      }
+    },
+    {
+      "term": "scientific",
+      "pca": "LSDMA",
+      "expands": "data management; curation",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim LSDMA scope phrase (data management; curation) vs the FY2024 background: 294/730 vs 212/1979 docs, z=16.477.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 294,
+        "n_pca": 730,
+        "df_bg": 212,
+        "n_bg": 1979,
+        "z": 16.477
+      }
+    },
+    {
+      "term": "infrastructure",
+      "pca": "LSDMA",
+      "expands": "data management; curation",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim LSDMA scope phrase (data management; curation) vs the FY2024 background: 209/730 vs 76/1979 docs, z=16.163.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 209,
+        "n_pca": 730,
+        "df_bg": 76,
+        "n_bg": 1979,
+        "z": 16.163
+      }
+    },
+    {
+      "term": "ensure",
+      "pca": "LSDMA",
+      "expands": "data management; curation",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim LSDMA scope phrase (data management; curation) vs the FY2024 background: 236/730 vs 126/1979 docs, z=16.061.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 236,
+        "n_pca": 730,
+        "df_bg": 126,
+        "n_bg": 1979,
+        "z": 16.061
+      }
+    },
+    {
+      "term": "resources",
+      "pca": "LSDMA",
+      "expands": "data management; curation",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim LSDMA scope phrase (data management; curation) vs the FY2024 background: 255/730 vs 168/1979 docs, z=15.684.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 255,
+        "n_pca": 730,
+        "df_bg": 168,
+        "n_bg": 1979,
+        "z": 15.684
+      }
+    },
+    {
+      "term": "community",
+      "pca": "LSDMA",
+      "expands": "data management; curation",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim LSDMA scope phrase (data management; curation) vs the FY2024 background: 293/730 vs 238/1979 docs, z=15.536.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 293,
+        "n_pca": 730,
+        "df_bg": 238,
+        "n_bg": 1979,
+        "z": 15.536
+      }
+    },
+    {
+      "term": "sharing",
+      "pca": "LSDMA",
+      "expands": "data management; curation",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim LSDMA scope phrase (data management; curation) vs the FY2024 background: 178/730 vs 28/1979 docs, z=14.931.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 178,
+        "n_pca": 730,
+        "df_bg": 28,
+        "n_bg": 1979,
+        "z": 14.931
+      }
+    },
+    {
+      "term": "user",
+      "pca": "SPSQ",
+      "expands": "software development",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim SPSQ scope phrase (software development) vs the FY2024 background: 27/112 vs 26/1979 docs, z=10.776.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 27,
+        "n_pca": 112,
+        "df_bg": 26,
+        "n_bg": 1979,
+        "z": 10.776
+      }
+    },
+    {
+      "term": "visualization",
+      "pca": "SPSQ",
+      "expands": "software development",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim SPSQ scope phrase (software development) vs the FY2024 background: 22/112 vs 19/1979 docs, z=9.827.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 22,
+        "n_pca": 112,
+        "df_bg": 19,
+        "n_bg": 1979,
+        "z": 9.827
+      }
+    },
+    {
+      "term": "hardware",
+      "pca": "SPSQ",
+      "expands": "software development",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim SPSQ scope phrase (software development) vs the FY2024 background: 21/112 vs 10/1979 docs, z=9.673.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 21,
+        "n_pca": 112,
+        "df_bg": 10,
+        "n_bg": 1979,
+        "z": 9.673
+      }
+    },
+    {
+      "term": "data analysis",
+      "pca": "SPSQ",
+      "expands": "software development",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim SPSQ scope phrase (software development) vs the FY2024 background: 23/112 vs 48/1979 docs, z=8.579.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 23,
+        "n_pca": 112,
+        "df_bg": 48,
+        "n_bg": 1979,
+        "z": 8.579
+      }
+    },
+    {
+      "term": "analysis",
+      "pca": "SPSQ",
+      "expands": "software development",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim SPSQ scope phrase (software development) vs the FY2024 background: 61/112 vs 368/1979 docs, z=8.369.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 61,
+        "n_pca": 112,
+        "df_bg": 368,
+        "n_bg": 1979,
+        "z": 8.369
+      }
+    },
+    {
+      "term": "custom",
+      "pca": "SPSQ",
+      "expands": "software development",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim SPSQ scope phrase (software development) vs the FY2024 background: 15/112 vs 11/1979 docs, z=8.202.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 15,
+        "n_pca": 112,
+        "df_bg": 11,
+        "n_bg": 1979,
+        "z": 8.202
+      }
+    },
+    {
+      "term": "code",
+      "pca": "SPSQ",
+      "expands": "software development",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim SPSQ scope phrase (software development) vs the FY2024 background: 14/112 vs 12/1979 docs, z=7.866.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 14,
+        "n_pca": 112,
+        "df_bg": 12,
+        "n_bg": 1979,
+        "z": 7.866
+      }
+    },
+    {
+      "term": "computing",
+      "pca": "SPSQ",
+      "expands": "software development",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim SPSQ scope phrase (software development) vs the FY2024 background: 14/112 vs 5/1979 docs, z=7.759.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 14,
+        "n_pca": 112,
+        "df_bg": 5,
+        "n_bg": 1979,
+        "z": 7.759
+      }
+    },
+    {
+      "term": "applications",
+      "pca": "SPSQ",
+      "expands": "software development",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim SPSQ scope phrase (software development) vs the FY2024 background: 28/112 vs 109/1979 docs, z=7.362.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 28,
+        "n_pca": 112,
+        "df_bg": 109,
+        "n_bg": 1979,
+        "z": 7.362
+      }
+    },
+    {
+      "term": "interface",
+      "pca": "SPSQ",
+      "expands": "software development",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim SPSQ scope phrase (software development) vs the FY2024 background: 16/112 vs 43/1979 docs, z=6.604.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 16,
+        "n_pca": 112,
+        "df_bg": 43,
+        "n_bg": 1979,
+        "z": 6.604
+      }
+    },
+    {
+      "term": "best practices",
+      "pca": "SPSQ",
+      "expands": "software development",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim SPSQ scope phrase (software development) vs the FY2024 background: 13/112 vs 27/1979 docs, z=6.512.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 13,
+        "n_pca": 112,
+        "df_bg": 27,
+        "n_bg": 1979,
+        "z": 6.512
+      }
+    },
+    {
+      "term": "user-friendly",
+      "pca": "SPSQ",
+      "expands": "software development",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim SPSQ scope phrase (software development) vs the FY2024 background: 9/112 vs 7/1979 docs, z=6.384.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 9,
+        "n_pca": 112,
+        "df_bg": 7,
+        "n_bg": 1979,
+        "z": 6.384
+      }
+    },
+    {
+      "term": "autism",
+      "pca": "AW",
+      "expands": "wireless spectrum; spectrum",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AW scope phrase (wireless spectrum; spectrum) vs the FY2024 background: 117/492 vs 34/1979 docs, z=14.233.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 117,
+        "n_pca": 492,
+        "df_bg": 34,
+        "n_bg": 1979,
+        "z": 14.233
+      }
+    },
+    {
+      "term": "autism spectrum",
+      "pca": "AW",
+      "expands": "wireless spectrum; spectrum",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AW scope phrase (wireless spectrum; spectrum) vs the FY2024 background: 117/492 vs 27/1979 docs, z=14.146.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 117,
+        "n_pca": 492,
+        "df_bg": 27,
+        "n_bg": 1979,
+        "z": 14.146
+      }
+    },
+    {
+      "term": "spectrum disorder",
+      "pca": "AW",
+      "expands": "wireless spectrum; spectrum",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AW scope phrase (wireless spectrum; spectrum) vs the FY2024 background: 86/492 vs 23/1979 docs, z=12.031.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 86,
+        "n_pca": 492,
+        "df_bg": 23,
+        "n_bg": 1979,
+        "z": 12.031
+      }
+    },
+    {
+      "term": "asd",
+      "pca": "AW",
+      "expands": "wireless spectrum; spectrum",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AW scope phrase (wireless spectrum; spectrum) vs the FY2024 background: 87/492 vs 19/1979 docs, z=12.006.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 87,
+        "n_pca": 492,
+        "df_bg": 19,
+        "n_bg": 1979,
+        "z": 12.006
+      }
+    },
+    {
+      "term": "disorder asd",
+      "pca": "AW",
+      "expands": "wireless spectrum; spectrum",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AW scope phrase (wireless spectrum; spectrum) vs the FY2024 background: 63/492 vs 17/1979 docs, z=10.205.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 63,
+        "n_pca": 492,
+        "df_bg": 17,
+        "n_bg": 1979,
+        "z": 10.205
+      }
+    },
+    {
+      "term": "disorder",
+      "pca": "AW",
+      "expands": "wireless spectrum; spectrum",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AW scope phrase (wireless spectrum; spectrum) vs the FY2024 background: 120/492 vs 158/1979 docs, z=9.83.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 120,
+        "n_pca": 492,
+        "df_bg": 158,
+        "n_bg": 1979,
+        "z": 9.83
+      }
+    },
+    {
+      "term": "neurodevelopmental",
+      "pca": "AW",
+      "expands": "wireless spectrum; spectrum",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AW scope phrase (wireless spectrum; spectrum) vs the FY2024 background: 63/492 vs 38/1979 docs, z=9.516.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 63,
+        "n_pca": 492,
+        "df_bg": 38,
+        "n_bg": 1979,
+        "z": 9.516
+      }
+    },
+    {
+      "term": "spectrum disorders",
+      "pca": "AW",
+      "expands": "wireless spectrum; spectrum",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AW scope phrase (wireless spectrum; spectrum) vs the FY2024 background: 52/492 vs 11/1979 docs, z=9.143.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 52,
+        "n_pca": 492,
+        "df_bg": 11,
+        "n_bg": 1979,
+        "z": 9.143
+      }
+    },
+    {
+      "term": "broad spectrum",
+      "pca": "AW",
+      "expands": "wireless spectrum; spectrum",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AW scope phrase (wireless spectrum; spectrum) vs the FY2024 background: 49/492 vs 9/1979 docs, z=8.774.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 49,
+        "n_pca": 492,
+        "df_bg": 9,
+        "n_bg": 1979,
+        "z": 8.774
+      }
+    },
+    {
+      "term": "disorders",
+      "pca": "AW",
+      "expands": "wireless spectrum; spectrum",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AW scope phrase (wireless spectrum; spectrum) vs the FY2024 background: 140/492 vs 251/1979 docs, z=8.366.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 140,
+        "n_pca": 492,
+        "df_bg": 251,
+        "n_bg": 1979,
+        "z": 8.366
+      }
+    },
+    {
+      "term": "broad",
+      "pca": "AW",
+      "expands": "wireless spectrum; spectrum",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AW scope phrase (wireless spectrum; spectrum) vs the FY2024 background: 96/492 vs 152/1979 docs, z=7.571.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 96,
+        "n_pca": 492,
+        "df_bg": 152,
+        "n_bg": 1979,
+        "z": 7.571
+      }
+    },
+    {
+      "term": "broad-spectrum",
+      "pca": "AW",
+      "expands": "wireless spectrum; spectrum",
+      "reason": "Over-represented in FY2024 RePORTER projects whose title/abstract contains a verbatim AW scope phrase (wireless spectrum; spectrum) vs the FY2024 background: 33/492 vs 10/1979 docs, z=7.317.",
+      "source": "FY2024 independent RePORTER corpus (corpus/fy2024_independent.v1.jsonl.gz)",
+      "stats": {
+        "df_pca": 33,
+        "n_pca": 492,
+        "df_bg": 10,
+        "n_bg": 1979,
+        "z": 7.317
+      }
+    }
+  ]
+}
