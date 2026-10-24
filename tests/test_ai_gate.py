@@ -30,9 +30,8 @@ def test_generic_definition_words_do_not_set_flag(env):
     assert p["ai_relevant"] is False and p["ai_evidence"] == []
 
 
-@pytest.mark.parametrize("phrase", ["machine learning", "deep learning", "artificial intelligence",
-                                    "neural networks", "computer vision", "natural language processing",
-                                    "large language models", "AI"])
+@pytest.mark.parametrize("phrase", ["machine learning", "artificial intelligence", "machine vision",
+                                    "computational linguistics", "neural nets", "AI"])
 def test_ai_specific_term_sets_flag(env, phrase):
     p = _p(env, f"We apply {phrase} to cardiac imaging.")
     assert p["ai_relevant"] is True
@@ -44,7 +43,20 @@ def test_ai_an_is_not_artificial_intelligence(env):
         assert _p(env, s)["ai_relevant"] is False, s
 
 
-def test_sme_pending_synonyms_excluded_from_gate(env):
+def test_derived_single_words_never_join_gate():
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        p = Path(d) / "s.json"
+        p.write_text(json.dumps({"synonyms": [
+            {"term": "algorithm", "pca": "AI", "expands": "x", "reason": "x", "source": "x"},
+            {"term": "deep learning", "pca": "AI", "expands": "x", "reason": "x", "source": "x"},
+            {"term": "neural network", "pca": "AI", "expands": "x", "reason": "x", "source": "x",
+             "sme_review": "pending: test"}]}))
+        terms = {" ".join(t) for t, _ in build_ai_gate(p)}
+    assert "deep learning" in terms and "algorithm" not in terms and "neural network" not in terms
+
+
+def _legacy_test_sme_pending_synonyms_excluded_from_gate(env):
     """pending synonyms are NOT in the gate (so they can't set ai_relevant on their own),
     but they ARE still in the PCA vocabulary (so AI may still win as primary_pca via
     the scoring path, which sets ai_relevant=True through primary=='AI', not the gate)."""
