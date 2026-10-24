@@ -1,6 +1,11 @@
 {
   "schema": "uac-nitrd/scope-synonyms/v1",
   "version": 1,
+  "selection_method": {
+    "disclosed_at": "2026-10-24",
+    "statement": "Candidate terms were chosen by counting which IT-related words and bigrams occur most often in the cached RePORTER text (title, abstract, PHR) of the 480 fixture projects, after the engine had already been run once on the 480 without synonyms. The 214 held-out projects are among the 480. Neither the fixture suggestion columns nor the held-out key were read. This is selection on the evaluation set (tuning risk), not key leakage.",
+    "status": "DISCLOSED; keep-as-disclosed vs rebuild-from-independent-text is an open decision for the project owner"
+  },
   "provenance_policy": "Every entry cites the verbatim scope phrase it expands and gives a reason why it is equivalent. No entry was chosen by inspecting the fixture's suggestion columns or the held-out answer key. Reasons reference only public NITRD scope definitions, the AI statutory definition (15 U.S.C. 9401(3)), or the cross-PCA guidance on the NITRD FY2025 PCA page.",
   "synonyms": [
 
@@ -103,18 +108,21 @@
      "source": "cross-PCA example 4"},
 
     {"term": "predictive model",
+     "sme_review": "pending: overlaps conventional statistical risk models that are not AI R&D",
      "pca": "AI",
      "expands": "a machine-based system that can ... make predictions",
      "reason": "The AI statutory definition (15 U.S.C. 9401(3)) defines AI as a system that makes predictions. A 'predictive model' is the implementation of that.",
      "source": "AI statutory definition"},
 
     {"term": "predictive models",
+     "sme_review": "pending: overlaps conventional statistical risk models that are not AI R&D",
      "pca": "AI",
      "expands": "a machine-based system that can ... make predictions",
      "reason": "Plural of 'predictive model'.",
      "source": "AI statutory definition"},
 
     {"term": "predictive modeling",
+     "sme_review": "pending: overlaps conventional statistical risk models that are not AI R&D",
      "pca": "AI",
      "expands": "a machine-based system that can ... make predictions",
      "reason": "The activity form of 'predictive model', which directly instantiates the statutory AI definition.",
@@ -153,12 +161,14 @@
      "source": "CHuman scope_text"},
 
     {"term": "telehealth",
+     "sme_review": "pending: clinical service delivery may not be CHuman R&D",
      "pca": "CHuman",
      "expands": "human-to-human and human-to-machine interactions and collaborations",
      "reason": "Telehealth is a technology-mediated human-to-human interaction system, directly in scope.",
      "source": "CHuman scope_text"},
 
     {"term": "telemedicine",
+     "sme_review": "pending: clinical service delivery may not be CHuman R&D",
      "pca": "CHuman",
      "expands": "human-to-human and human-to-machine interactions and collaborations",
      "reason": "Telemedicine is a synonym for telehealth: technology-mediated clinical interaction.",
@@ -179,6 +189,7 @@
      "source": "CNPS scope_text"},
 
     {"term": "wearable",
+     "sme_review": "pending: single word; using a wearable is not CNPS R&D",
      "pca": "CNPS",
      "expands": "systems that are complex, highly-reliable, real-time, networked, and/or hybrid",
      "reason": "Wearable devices are networked physical systems (sensors, actuators, real-time data) — the definition of a cyber-physical system in the CNPS scope.",
@@ -243,18 +254,21 @@
      "source": "EdW scope_text"},
 
     {"term": "curriculum",
+     "sme_review": "pending: biomedical curricula are not computing-enabled education",
      "pca": "EdW",
      "expands": "support for learning, teaching, assessment, standards",
      "reason": "A curriculum is the structured form of teaching and learning referenced in the scope text.",
      "source": "EdW scope_text"},
 
     {"term": "data science",
+     "sme_review": "pending: engine has no context check, so this maps every mention to EdW; reason text assumes a training context",
      "pca": "EdW",
      "expands": "advances the use of computing ... technologies to enhance education and workforce training",
      "reason": "When 'data science' appears in the context of training, education, or workforce development it denotes computing-enabled education. This synonym maps to EdW, not LSDMA, because the scope text is about education USING computing. Standalone data-science R&D (the ecosystem) maps to LSDMA via separate terms.",
      "source": "EdW scope_text"},
 
     {"term": "trainees",
+     "sme_review": "pending: biomedical training grants are not computing-enabled education",
      "pca": "EdW",
      "expands": "recruitment, preparation, and retention of a diverse population of researchers",
      "reason": "'Trainees' are the people being prepared under the EdW scope.",
@@ -301,6 +315,7 @@
      "source": "HCIA scope_text"},
 
     {"term": "cloud-based",
+     "sme_review": "pending: using the cloud is not providing HCIA infrastructure",
      "pca": "HCIA",
      "expands": "provides high-capability computing systems, application software, and infrastructure",
      "reason": "Adjective form of 'cloud computing'; describes infrastructure delivery.",
@@ -347,18 +362,21 @@
      "source": "LSDMA scope_text + cross-PCA example 5"},
 
     {"term": "genomics",
+     "sme_review": "pending: single word, common in biomedical work that is not data-management R&D",
      "pca": "LSDMA",
      "expands": "capture, curation, provenance ... management ... analysis ... of large-scale and diverse data",
      "reason": "Genomics R&D centres on large-scale data management and analysis of genomic datasets.",
      "source": "LSDMA scope_text"},
 
     {"term": "genomic",
+     "sme_review": "pending: single word, common in biomedical work that is not data-management R&D",
      "pca": "LSDMA",
      "expands": "capture, curation, provenance ... management ... analysis ... of large-scale and diverse data",
      "reason": "Adjective form of 'genomics'.",
      "source": "LSDMA scope_text"},
 
     {"term": "database",
+     "sme_review": "pending: single word; using a database is not LSDMA R&D",
      "pca": "LSDMA",
      "expands": "management, governance, access ... of large-scale and diverse data",
      "reason": "A database is the implementation of data management, governance, and access.",
@@ -371,12 +389,14 @@
      "source": "LSDMA scope_text"},
 
     {"term": "dataset",
+     "sme_review": "pending: single word; nearly every study has a dataset",
      "pca": "LSDMA",
      "expands": "capture, curation ... management ... of large-scale and diverse data",
      "reason": "A dataset is the artefact managed under the LSDMA scope.",
      "source": "LSDMA scope_text"},
 
     {"term": "datasets",
+     "sme_review": "pending: single word; nearly every study has a dataset",
      "pca": "LSDMA",
      "expands": "capture, curation ... management ... of large-scale and diverse data",
      "reason": "Plural of 'dataset'.",
@@ -425,12 +445,14 @@
      "source": "SPSQ scope_text"},
 
     {"term": "open source",
+     "sme_review": "pending: releasing software openly is not SPSQ R&D",
      "pca": "SPSQ",
      "expands": "improve software development productivity, quality ... adaptability",
      "reason": "Open-source is a software development and sustainability model.",
      "source": "SPSQ scope_text"},
 
     {"term": "open-source",
+     "sme_review": "pending: releasing software openly is not SPSQ R&D",
      "pca": "SPSQ",
      "expands": "improve software development productivity, quality ... adaptability",
      "reason": "Hyphenated form of 'open source'.",

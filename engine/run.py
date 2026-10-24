@@ -35,7 +35,29 @@ AW = "AW"
 
 # Scoring thresholds (fixed before running on the 480)
 PCA_THRESHOLD = 1.0      # minimum score to propose a PCA
-AI_THRESHOLD = 0.8       # minimum AI vocabulary score to set ai_relevant
+# ai_relevant gate (ai-gate-v2, decided 2026-10-24 before running on the 480).
+# v1 summed IDF weights over the whole AI vocabulary, which includes generic words from
+# the statutory definition ("systems", "models", "analysis", "human"), so almost any
+# text passed. v2 requires at least AI_GATE_MIN_TERMS distinct AI-SPECIFIC terms.
+AI_GATE_MIN_TERMS = 1
+# AI-specific terms, each from the AI scope text, the statutory definition, or a
+# cross-PCA sentence that assigns the concept to AI. Generic definition words excluded.
+AI_GATE_CORE = (
+    ("ai", "AI scope_text: 'research in AI and associated AI topics'"),
+    ("human-ai", "AI scope_text: 'human-AI collaboration'"),
+    ("artificial intelligence", "AI definition: 'The term artificial intelligence or AI'"),
+    ("machine-based system", "AI definition: 'a machine-based system that can ... make predictions'"),
+    ("model inference", "AI definition: 'use model inference to formulate options'"),
+    ("machine vision", "cross-PCA 1: 'general methods for machine vision would fall under AI'"),
+    ("intelligent autonomous systems", "cross-PCA 1: 'intelligent autonomous systems that exist only in cyberspace ... AI'"),
+    ("computational linguistics", "cross-PCA 2: 'algorithms for computational linguistics would fall under AI'"),
+    ("neural nets", "cross-PCA 4: 'chips optimized for neural nets would fall under AI'"),
+    ("machine learning", "cross-PCA 5: 'R&D that is primarily machine learning would fall under AI'"),
+)
+# Synonyms with pca=AI also join the gate, EXCEPT entries flagged sme_review (pending).
+# NIH text writes American Indian/Alaska Native as "AI/AN"; rewrite before tokenising
+# so it never reads as artificial intelligence (domain convention, not from the 480).
+_AIAN_RE = re.compile(r"\bAI\s*/\s*ANs?\b", re.IGNORECASE)
 PHRASE_BONUS = 3.0       # multiplier for multi-word phrase matches vs single words
 
 # Stop words removed during normalisation
@@ -231,12 +253,37 @@ def _apply_specificity(ranked: list[dict]) -> tuple[list[dict], list[dict]]:
 
 
 # --------------------------------------------------------------------------- main logic
-def propose(appl_id: int, text: dict, vocab: dict, scope_sha: str) -> dict:
+def build_ai_gate(syn_path: Path | None) -> tuple[tuple[tuple[str, ...], str], ...]:
+    """AI-specific gate terms: AI_GATE_CORE + non-pending AI synonyms, as normalised tuples."""
+    terms: dict[tuple[str, ...], str] = {}
+    for t, src in AI_GATE_CORE:
+        terms.setdefault(tuple(_normalise(t)), src)
+    if syn_path is not None and syn_path.exists():
+        for e in json.loads(syn_path.read_text(encoding="utf-8")).get("synonyms", []):
+            if "comment" in e or e.get("pca") != "AI" or e.get("sme_review"):
+                continue
+            terms.setdefault(tuple(_normalise(e["term"])), f"synonym: {e['expands'][:60]} ({e['source']})")
+    return tuple(sorted((k, v) for k, v in terms.items() if k))
+
+
+def _ai_gate_hits(words: list[str], gate) -> list[dict]:
+    hits = []
+    for toks, src in gate:
+        n = len(toks)
+        for i in range(len(words) - n + 1):
+            if tuple(words[i:i + n]) == toks:
+                span = " ".join(words[max(0, i - 5):i + n + 5])
+                hits.append({"term": " ".join(toks), "source_phrase": src, "text_span": span})
+                break
+    return hits
+
+
+def propose(appl_id: int, text: dict, vocab: dict, scope_sha: str, ai_gate=()) -> dict:
     """Generate one proposal with full explanation."""
     title = (text.get("title") or "").strip()
     abstract = (text.get("abstract") or "").strip()
     phr = (text.get("public_health_relevance") or "").strip()
-    combined = f"{title}. {abstract} {phr}".strip()
+    combined = _AIAN_RE.sub("american indian alaska native", f"{title}. {abstract} {phr}".strip())
     text_sha = hashlib.sha256(json.dumps(text, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
 
     if not title and not abstract:
@@ -258,16 +305,15 @@ def propose(appl_id: int, text: dict, vocab: dict, scope_sha: str) -> dict:
     # Apply specificity rules
     ranked, rules_applied = _apply_specificity(ranked)
 
-    # AI evidence (for the ai_relevant flag)
-    ai_hits = _score_text(words, vocab.get("AI", {}))
-    ai_score = _pca_score(ai_hits)
+    # AI evidence (for the ai_relevant flag): AI-specific gate terms only
+    ai_hits = _ai_gate_hits(words, ai_gate)
 
     # Pick the winner
     primary = ""
     if ranked and ranked[0]["score"] >= PCA_THRESHOLD:
         primary = ranked[0]["pca"]
 
-    ai_relevant = primary == "AI" or ai_score >= AI_THRESHOLD
+    ai_relevant = primary == "AI" or len(ai_hits) >= AI_GATE_MIN_TERMS
 
     # AW sub-PCA
     sub_pca = ""
@@ -329,6 +375,8 @@ def main(argv=None) -> int:
                     vocab[code][t] = (w * idf * (PHRASE_BONUS if is_phrase else 1.0), src)
         print(f"Synonyms: {syn_added} terms added from {a.synonyms.name} (SHA {syn_sha[:12]})")
 
+    ai_gate = build_ai_gate(a.synonyms)
+
     # Load cache
     cache: dict[int, dict] = {}
     for line in a.cache.read_text(encoding="utf-8").splitlines():
@@ -344,7 +392,7 @@ def main(argv=None) -> int:
     proposals = []
     for r in sorted(refs, key=lambda r: r.appl_id):
         text = cache.get(r.appl_id, {})
-        proposals.append(propose(r.appl_id, text, vocab, scope_sha))
+        proposals.append(propose(r.appl_id, text, vocab, scope_sha, ai_gate))
 
     # Write outputs
     a.out_dir.mkdir(parents=True, exist_ok=True)
@@ -364,7 +412,9 @@ def main(argv=None) -> int:
     # Write meta
     write_meta(csv_path, scope_set=scope_data["scope_set_id"], scope_sha256=scope_sha,
                text_source="committed RePORTER text cache (cache/reporter/reporter_text.v1.jsonl)",
-               synonyms_sha256=syn_sha, synonyms_added=syn_added)
+               synonyms_sha256=syn_sha, synonyms_added=syn_added,
+               ai_gate={"id": "ai-gate-v2-2026-10-24", "min_terms": AI_GATE_MIN_TERMS,
+                        "terms": [" ".join(t) for t, _ in ai_gate]})
 
     # Summary
     by_pca = Counter(p["primary_pca"] for p in proposals if p["primary_pca"])
