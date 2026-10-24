@@ -54,7 +54,8 @@ AI_GATE_CORE = (
     ("neural nets", "cross-PCA 4: 'chips optimized for neural nets would fall under AI'"),
     ("machine learning", "cross-PCA 5: 'R&D that is primarily machine learning would fall under AI'"),
 )
-# Synonyms with pca=AI also join the gate, EXCEPT entries flagged sme_review (pending).
+# Synonyms with pca=AI also join the gate if MULTI-WORD and not flagged sme_review
+# (gate-v2.1, pre-registered 2026-10-24 with synonym-derivation-v2, before deriving).
 # NIH text writes American Indian/Alaska Native as "AI/AN"; rewrite before tokenising
 # so it never reads as artificial intelligence (domain convention, not from the 480).
 _AIAN_RE = re.compile(r"\bAI\s*/\s*ANs?\b", re.IGNORECASE)
@@ -262,7 +263,10 @@ def build_ai_gate(syn_path: Path | None) -> tuple[tuple[tuple[str, ...], str], .
         for e in json.loads(syn_path.read_text(encoding="utf-8")).get("synonyms", []):
             if "comment" in e or e.get("pca") != "AI" or e.get("sme_review"):
                 continue
-            terms.setdefault(tuple(_normalise(e["term"])), f"synonym: {e['expands'][:60]} ({e['source']})")
+            toks = tuple(_normalise(e["term"]))
+            if len(toks) < 2:  # gate-v2.1: derived single words are too ambiguous to set the flag
+                continue
+            terms.setdefault(toks, f"synonym: {e['expands'][:60]} ({e['source']})")
     return tuple(sorted((k, v) for k, v in terms.items() if k))
 
 
