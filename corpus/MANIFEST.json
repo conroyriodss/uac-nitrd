@@ -1,0 +1,64 @@
+{
+  "api": "https://api.reporter.nih.gov/v2/projects/search",
+  "background_offsets": [
+    0,
+    3000,
+    6000,
+    9000
+  ],
+  "corpus_fy": 2024,
+  "derivation_id": "synonym-derivation-v2-2026-10-24",
+  "docs": 5355,
+  "docs_per_query": {
+    "background": 1979,
+    "seed:ACNS:communication networks": 29,
+    "seed:ACNS:networking": 493,
+    "seed:ACNS:wireless": 203,
+    "seed:AI:artificial intelligence": 487,
+    "seed:AI:computational linguistics": 10,
+    "seed:AI:machine learning": 498,
+    "seed:AI:machine vision": 14,
+    "seed:AW:spectrum": 492,
+    "seed:CHuman:human-machine interaction": 1,
+    "seed:CHuman:human-to-machine": 5,
+    "seed:CNPS:Internet of Things": 10,
+    "seed:CSP:cybersecurity": 6,
+    "seed:CSP:privacy": 205,
+    "seed:EHCS:computation-intensive": 1,
+    "seed:ENIT:nanoelectronics": 6,
+    "seed:ENIT:silicon": 112,
+    "seed:EdW:virtual education": 7,
+    "seed:EdW:workforce training": 15,
+    "seed:HCIA:application software": 2,
+    "seed:HCIA:data infrastructure": 129,
+    "seed:IRAS:human-robot interaction": 5,
+    "seed:IRAS:machine perception": 2,
+    "seed:IRAS:robotic": 218,
+    "seed:IRAS:robotics": 100,
+    "seed:LSDMA:curation": 278,
+    "seed:LSDMA:data management": 466,
+    "seed:SPSQ:software development": 112
+  },
+  "dropped": {
+    "fixture_appl_id": 0,
+    "no_text": 0,
+    "same_core_as_fixture": 112,
+    "wrong_fy": 0
+  },
+  "excluded": {
+    "fixture_appl_ids": 480,
+    "fixture_core_projects": 411
+  },
+  "fetched_at_utc": "2026-10-24T01:38:29+00:00",
+  "gz_sha256": "f0a839d728ef1020fad4e2300683cf8e34a58f3d4628420c9ac6fc3ed937ded1",
+  "include_fields": [
+    "ApplId",
+    "CoreProjectNum",
+    "FiscalYear",
+    "ProjectTitle",
+    "AbstractText"
+  ],
+  "jsonl_sha256": "1479af6e9954a9b8f7d725005177ee4247219aea1e54d2cb9c9ef5ab2b9bcf19",
+  "search_field": "projecttitle,abstracttext",
+  "seed_cap": 500
+}
