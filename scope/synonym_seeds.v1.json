@@ -1,0 +1,20 @@
+{
+  "schema": "uac-nitrd/synonym-seeds/v1",
+  "derivation_id": "synonym-derivation-v2-2026-10-24",
+  "rule": "Every seed is a verbatim, case-insensitive substring of that PCA's scope_text in scope/nitrd_pca_scopes_fy2025.v1.json, or of the AI definition / a cross-PCA sentence that assigns the concept to that PCA. Seeds are RePORTER text queries over an independent FY2024 corpus; they are not synonyms themselves.",
+  "seeds": {
+    "ACNS":   ["communication networks", "wireless", "networking"],
+    "AI":     ["artificial intelligence", "machine learning", "machine vision", "computational linguistics"],
+    "CHuman": ["human-machine interaction", "human-to-machine"],
+    "CNPS":   ["cyber-physical systems", "Internet of Things"],
+    "CSP":    ["cybersecurity", "privacy"],
+    "EdW":    ["workforce training", "virtual education"],
+    "EHCS":   ["high-capability computing", "neuromorphic computing", "computation-intensive"],
+    "ENIT":   ["nanoelectronics", "silicon"],
+    "HCIA":   ["data infrastructure", "application software"],
+    "IRAS":   ["robotic", "robotics", "machine perception", "human-robot interaction"],
+    "LSDMA":  ["data management", "curation"],
+    "SPSQ":   ["software development"],
+    "AW":     ["wireless spectrum", "spectrum"]
+  }
+}
