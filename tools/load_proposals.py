@@ -17,10 +17,11 @@ The store is NOT populated with assignments: every proposal is PENDING. The code
 approves, overrides or rejects each one (invariant 7). This tool makes proposals,
 not decisions.
 
-Amounts. The fixture has no dollar column. Amounts default to 0 (placeholder) unless
---amounts supplies a CSV keyed by Appl ID. The store's math (invariant 4) is correct
-either way, but real totals need a permitted source — for example, adding
-award_amount to the RePORTER cache.
+Amounts. The fixture has no dollar column. Amount priority:
+  1. --amounts CSV (appl_id,amount) if provided
+  2. award_amount from the committed RePORTER text cache (public API field)
+  3. 0 (placeholder, for projects not found in RePORTER)
+The store's math (invariant 4) uses whichever amount is loaded.
 
 Usage:
   python tools/load_proposals.py \
@@ -66,11 +67,28 @@ def _amounts_map(path: Path | None) -> dict[int, int]:
         return {int(r["appl_id"]): int(r["amount"]) for r in csv.DictReader(f)}
 
 
+def _cache_amounts(cache_path: Path) -> dict[int, int]:
+    """Read per-project award_amount from the committed RePORTER text cache."""
+    m: dict[int, int] = {}
+    for line in cache_path.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        rec = json.loads(line)
+        amt = rec.get("award_amount")
+        if amt is not None:
+            m[int(rec["appl_id"])] = int(amt)
+    return m
+
+
 def build_listing(fixture: Path, cache_path: Path, amounts_path: Path | None,
                   crosscut: str = "NITRD") -> ParentListing:
+    """Build a ParentListing. Amount priority: --amounts CSV > cache award_amount > 0."""
     refs = load_project_refs(fixture)
     snaps = _snapshot_map(cache_path)
     amts = _amounts_map(amounts_path)
+    # Fall back to cache award_amount when no explicit amounts CSV
+    if not amts:
+        amts = _cache_amounts(cache_path)
     projects = []
     for r in refs:
         sha = snaps.get(r.appl_id, hashlib.sha256(f"no-cache:{r.appl_id}".encode()).hexdigest())
