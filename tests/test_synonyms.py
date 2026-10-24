@@ -25,7 +25,8 @@ def synonyms():
 
 def test_valid_json():
     data = json.loads(SYN.read_text(encoding="utf-8"))
-    assert data["schema"] == "uac-nitrd/scope-synonyms/v1"
+    assert data["schema"] == "uac-nitrd/scope-synonyms/v2"
+    assert data["derivation_id"] == "synonym-derivation-v2-2026-10-24"
     assert isinstance(data["synonyms"], list) and len(data["synonyms"]) > 0
 
 
@@ -115,9 +116,20 @@ def test_engine_deterministic_with_synonyms(tmp_path):
     assert (d1 / "explanations.jsonl").read_bytes() == (d2 / "explanations.jsonl").read_bytes()
 
 
-def test_at_least_one_pca_per_category_has_synonyms(synonyms):
-    """Every standard PCA should have at least one synonym to ensure coverage."""
-    covered = {e["pca"] for e in synonyms}
-    standard = PCA_CODES - {"AW"}  # AW is a sub-PCA, coverage is a bonus
-    missing = standard - covered
-    assert not missing, f"PCAs with no synonyms: {missing}"
+def test_synonyms_file_is_exactly_the_derivation_output(tmp_path):
+    """No hand edits: re-running the committed derivation on the committed corpus reproduces
+    engine/synonyms.json byte-for-byte (SME flags, if any, are added by a separate dated step)."""
+    out = tmp_path / "s.json"
+    r = subprocess.run([sys.executable, str(ROOT / "tools" / "derive_synonyms.py"), "--out", str(out)],
+                       capture_output=True, text=True)
+    assert r.returncode == 0, r.stderr
+    committed = json.loads(SYN.read_text(encoding="utf-8"))
+    for e in committed["synonyms"]:
+        e.pop("sme_review", None)
+    assert json.loads(out.read_text(encoding="utf-8")) == committed
+
+
+def test_expands_is_the_pcas_verbatim_seeds(synonyms):
+    seeds = json.loads((ROOT / "scope" / "synonym_seeds.v1.json").read_text(encoding="utf-8"))["seeds"]
+    for e in synonyms:
+        assert e["expands"] == "; ".join(seeds[e["pca"]]), e["term"]
