@@ -240,6 +240,19 @@ is reported. None is worked around.
   `scripts/freeze.sh`, re-executing the engine in temp dirs for byte comparison only. In
   build mode (including CI) the real engine refuses the evaluation projects, so S8 reports
   `GUARDED`; the behavioural proof on the real engine is the freeze-mode S8.
+* S9: frozen artifact (post-freeze, build mode / CI; added 2026-10-25). Once
+  `proposals/FREEZE_SWEEP.json` exists, CI verifies the frozen artifact by hash and does
+  not regenerate it. `proposals.csv`, `explanations.jsonl` and `proposals.meta.json` must
+  equal their seal-logged hashes (tag `uac-nitrd-freeze-v1`). The committed freeze record
+  must be a freeze-mode PASS for those hashes, with S8 PASS and frozen == engine output.
+  `docs/REVEAL_CONSTANTS.json` must equal its pinned hash, and `tools/reveal_constants.py
+  --check` must pass. S8 must be `GUARDED`: an S8 PASS in build mode after the freeze would
+  mean the engine ran on the 480, so it fails S9. NOT_RUN before the freeze and in freeze mode.
+  Stated CI limitation: CI cannot re-execute the engine on the 480 (the guard forbids it,
+  by design), so CI does not independently re-prove that the frozen proposals are the
+  engine's output. That behavioural check is the freeze run's S1-S8 PASS, recorded in
+  `proposals/FREEZE_SWEEP.json` and seal line 26, and it is authoritative. CI verifies
+  that the artifact and the constants are unchanged since that run.
 
 It never reads the key. On a PASS, it prints the proposals SHA-256, which is tagged
 and logged before the reveal. During the build, the same sweep without `--freeze`

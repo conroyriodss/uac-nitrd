@@ -70,6 +70,14 @@ MODEL_OR_NET_RE = re.compile(
     r"databricks(?:\.sdk)?|requests|httpx|aiohttp|urllib3?|http\.client|socket)\b", re.MULTILINE)
 ENGINE_OUTPUTS = ("proposals.csv", "explanations.jsonl")
 GUARD_EXIT = 3  # engine/freeze_guard.py: refused, evaluation projects outside the freeze run
+# S9: the frozen artifact (tag uac-nitrd-freeze-v1, seal lines 26-27). Verified by hash, never regenerated.
+FROZEN_ARTIFACT = {
+    "tag": "uac-nitrd-freeze-v1",
+    "proposals.csv": "08519115626ad367ea9c5b938520558e2802e763768f310864aa86c35fdb6572",
+    "explanations.jsonl": "fc45e2564a1f7bfb54a531ef4414b53a6c0e1218e0332bd78b1671717284d020",
+    "proposals.meta.json": "c45c3f84084bfada051bec843e736bd8d183cf2a04ce8232cfe68c6278009933",
+    "docs/REVEAL_CONSTANTS.json": "2de4670d303f04033ca1d55abbabf66341a7314f90b4ee279254673d0c14226a",
+}
 OUTPUT_LABEL = ("ASSIST PROPOSAL FOR SME REVIEW. Not a reproduction of the official UAC method "
                 "(no UAC fingerprints exist). The 'most specific PCA' rule is NITRD's published "
                 "guidance applied to project text, not a claim of official correctness.")
@@ -161,8 +169,62 @@ def main(argv=None) -> int:
     }
     checks["S5_format_v2"] = _format_v2(a.proposals)
     checks["S7_output_label"] = _output_label(a.proposals.with_name("proposals.meta.json"))
+    checks["S9_frozen_artifact"] = _frozen_artifact(a.tree, a.proposals, a.freeze,
+                                                    checks["S8_scramble_proof"].get("status"))
     checks["proposals_sha256"] = _sha(a.proposals)
     return _finish(a, checks)
+
+
+def _frozen_artifact(tree: Path, proposals: Path, freeze: bool, s8_status: str | None) -> dict:
+    """S9 (post-freeze, build mode/CI): verify the frozen artifact WITHOUT running the engine.
+
+    After the freeze the engine refuses the 480 outside scripts/freeze.sh, so CI cannot (and must
+    not) regenerate the proposals. Instead it checks: each frozen file equals its seal-logged
+    hash; the committed freeze record (proposals/FREEZE_SWEEP.json) is a freeze-mode PASS for
+    the same hashes; the constants record matches the engine (tools/reveal_constants.py --check)
+    and its pinned hash; and S8 is GUARDED (an S8 PASS here would mean the engine ran on the 480).
+    The authoritative behavioural check remains the freeze run's S1-S8 PASS (seal line 26).
+    """
+    if freeze:
+        return {"status": "NOT_RUN", "detail": "freeze mode: this run is the authoritative check"}
+    rec_path = proposals.parent / "FREEZE_SWEEP.json"
+    if not rec_path.is_file():
+        return {"status": "NOT_RUN", "detail": "no freeze record yet (pre-freeze)"}
+    problems, got = [], {}
+    for name in ("proposals.csv", "explanations.jsonl", "proposals.meta.json"):
+        p = proposals.parent / name
+        got[name] = _sha(p) if p.is_file() else None
+        if got[name] != FROZEN_ARTIFACT[name]:
+            problems.append(f"{name} sha256 {got[name]} != frozen {FROZEN_ARTIFACT[name]}")
+    rc_file = tree / "docs" / "REVEAL_CONSTANTS.json"
+    got["docs/REVEAL_CONSTANTS.json"] = _sha(rc_file) if rc_file.is_file() else None
+    if got["docs/REVEAL_CONSTANTS.json"] != FROZEN_ARTIFACT["docs/REVEAL_CONSTANTS.json"]:
+        problems.append("docs/REVEAL_CONSTANTS.json differs from the frozen constants record")
+    try:
+        rec = json.loads(rec_path.read_text(encoding="utf-8"))
+        c = rec.get("checks", {})
+        if rec.get("mode") != "freeze" or rec.get("verdict") != "PASS":
+            problems.append(f"freeze record is mode={rec.get('mode')} verdict={rec.get('verdict')}")
+        if c.get("proposals_sha256") != FROZEN_ARTIFACT["proposals.csv"]:
+            problems.append("freeze record proposals_sha256 != frozen hash")
+        s8 = c.get("S8_scramble_proof", {})
+        if s8.get("status") != "PASS" or s8.get("frozen_equals_A") is not True \
+                or s8.get("explanations.jsonl", {}).get("sha256_A") != FROZEN_ARTIFACT["explanations.jsonl"]:
+            problems.append("freeze record S8 is not a PASS for the frozen outputs")
+    except (OSError, ValueError) as e:
+        problems.append(f"freeze record unreadable: {e}")
+    tool = tree / "tools" / "reveal_constants.py"
+    if tool.is_file():
+        r = subprocess.run([sys.executable, str(tool), "--check"], cwd=str(tree), capture_output=True, text=True)
+        if r.returncode != 0:
+            problems.append("engine constants/inputs differ from docs/REVEAL_CONSTANTS.json")
+    else:
+        problems.append("tools/reveal_constants.py missing")
+    if s8_status != "GUARDED":
+        problems.append(f"S8 is {s8_status}, expected GUARDED (the engine must refuse the 480 outside the freeze)")
+    return {"status": "FAIL" if problems else "PASS", "tag": FROZEN_ARTIFACT["tag"], "sha256": got,
+            "problems": problems,
+            "note": "verified by hash; engine not re-run; authoritative check = freeze run S1-S8 PASS (seal line 26)"}
 
 
 def _input_boundary(tree: Path, freeze: bool) -> dict:
