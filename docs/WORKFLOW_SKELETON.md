@@ -21,19 +21,26 @@ The store (`store-invariants-v1`, unchanged) keeps one active assignment per pro
 crosscuts in an FY (invariant 8), so the stages use separate store roots:
 
 * **Task 1 store**: crosscut `NITRD_PARENT`, single code `NITRD`, listing = the DEV award universe.
-  The agent proposes; an SME approves or rejects, and can add an award the fingerprint missed by
+  The agent proposes; an SME approves or rejects, and can add an award the candidate shortlister missed by
   proposing it as a coder (invariant 1 still holds: only awards in the universe).
 * **Task 2 store**: crosscut `NITRD`, listing = the awards with an active Task 1 assignment. The
   Task 1 output becomes the Task 2 parent listing, and all 9 invariants apply as before.
 
-## Fingerprint
+## Candidate shortlister (parent-match model)
+
+Terminology: in these docs, **"fingerprint" means only RCDC's thesaurus-based category
+fingerprint** (a weighted list of RCDC Thesaurus concepts). Our Task 1 tool is a different
+mechanism and is called the **candidate shortlister** (or parent-match model). File names, IDs and
+environment variables that already contain "fingerprint" (for example
+`nitrd-parent-fingerprint-placeholder-v0-2026-10-25`, `UAC_NITRD_TASK1_FREEZE_RUN`) are pinned audit
+references and keep their names.
 
 `workflow/fingerprint/nitrd_parent_fingerprint.placeholder.v0.json` (sha256 pinned in
-`workflow/common.py`) is a **placeholder**. It is built mechanically by
+`workflow/common.py`) is the shortlister's **placeholder** term list. It is built mechanically by
 `tools/build_fingerprint_placeholder.py` from the committed NITRD scope file: 2-3 word scope
 phrases plus the engine's 10 AI core terms, with the engine's normalisation. It is not the
-curated fingerprint. It's versioned and SME-owned: a committed version is never rewritten (the
-tool refuses), and a change ships as a new file with a new pin. Task 3 records the fingerprint's
+curated term list. It's versioned and SME-owned: a committed version is never rewritten (the
+tool refuses), and a change ships as a new file with a new pin. Task 3 records the term list's
 hash before and after, and never edits it.
 
 Known placeholder weakness, visible in the DEV run: nested n-grams ("natural language",
@@ -51,6 +58,6 @@ Known placeholder weakness, visible in the DEV run: nested n-grams ("natural lan
   shows the shortlist is byte-identical with random suggestion/category/title columns added.
 * SME decisions in the DEV run come from `workflow/sme_standin.py`, a rule-based **stand-in**
   whose rules are printed in every decision record. They are not SME judgments, so the drift
-  report on DEV reflects the stand-in's rules, not real fingerprint drift.
+  report on DEV reflects the stand-in's rules, not real shortlister drift.
 * Deterministic and offline: two runs give byte-identical files and identical store-state digests
   (only the event timestamps differ).
