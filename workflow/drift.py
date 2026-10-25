@@ -54,7 +54,11 @@ def report(store1, fy: int, fingerprint_path: Path, cache: Path, out_dir: Path) 
         if ev["kind"] == "proposal_rejected":
             reasons[ev["proposal_id"]] = ev["reason"]
     props = [p for _, p in sorted(store1._proposals.items()) if (p["crosscut"], p["fy"]) == (PARENT_CROSSCUT, fy)]
-    agent = [p for p in props if p["proposer_role"] == "agent"]
+    # Only proposals the shortlist made are fingerprint captures; any other agent proposal is reported
+    # separately and never counted as an over- or under-capture.
+    agent = [p for p in props if p["proposer_role"] == "agent"
+             and (p["explanation"] or {}).get("stage") == "task1_shortlist"]
+    other_agent = [p["proposal_id"] for p in props if p["proposer_role"] == "agent" and p not in agent]
     added = [p for p in props if p["proposer_role"] == "coder" and p["status"] == "APPROVED"]
     status = collections.Counter(p["status"] for p in agent)
 
@@ -110,7 +114,8 @@ def report(store1, fy: int, fingerprint_path: Path, cache: Path, out_dir: Path) 
         "counts": {"universe": len(L["projects"]), "shortlisted": len(agent),
                    "sme_approved": status.get("APPROVED", 0), "sme_rejected_over_captures": status.get("REJECTED", 0),
                    "pending": status.get("PENDING", 0), "sme_added_under_captures": n_u,
-                   "confirmed_nitrd_relevant": len(confirmed_ids)},
+                   "confirmed_nitrd_relevant": len(confirmed_ids),
+                   "other_agent_proposals_excluded": len(other_agent)},
         "over_capture_terms": over_terms, "over_captures": over,
         "under_captures": under, "under_capture_candidate_concepts": cands[:TOP_CONCEPTS],
     }
