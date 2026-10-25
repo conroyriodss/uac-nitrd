@@ -51,3 +51,33 @@ def test_baseline_new_group_is_no_record_in_fy2021_2023():
     assert all((s == "new") == (c not in prior) for c, s in strata.items())
     assert sum(s == "new" for s in strata.values()) == 15472
     assert all(r["prediction"] == "0" for r in rows if r["stratum"] == "new")
+
+
+# ---- v2 (supersedes v1 for scoring; v1 stays pinned because the FY2024 seal records it) ----
+RULE_V2 = ROOT / "docs" / "TASK1_MATCH_RULE_v2.md"
+RULE_V2_ID = "nitrd-parent-match-rule-v2-2026-10-25"
+RULE_V2_SHA256 = "93195c0a86d0652f55c7c77f66dfea3195fc8d73d5ffe4bf8460e278f674cbe5"
+RULE67 = ("F37", "F38", "G07", "G08")
+
+
+def test_v2_is_the_committed_version_and_supersedes_v1():
+    text = RULE_V2.read_text(encoding="utf-8")
+    assert text.splitlines()[0] == f"# Task 1 match rule: `{RULE_V2_ID}`"
+    assert sha256(RULE_V2) == RULE_V2_SHA256
+    assert RULE_ID in text and RULE_SHA256 in text           # names exactly what it supersedes
+    seal = json.loads((ROOT / "docs" / "seal" / "task1_fy2024_seal_manifest.json").read_text())
+    assert seal["match_rule"]["sha256"] == RULE_SHA256        # the seal still records v1, unchanged
+
+
+def test_v2_pins_match_the_files():
+    pins = dict(re.findall(r"^\| `([^`]+)`[^|]*\| `([0-9a-f]{64})` \|$", RULE_V2.read_text(encoding="utf-8"), re.M))
+    assert len(pins) == 7
+    for rel, want in pins.items():
+        assert sha256(ROOT / rel) == want, rel
+
+
+def test_v2_rule67_identity_count_matches_the_committed_universe():
+    with (ROOT / "build" / "universe" / "fy2024_identity.csv").open(newline="") as f:
+        sel = [r for r in csv.DictReader(f) if r["core_project_num"][:3] in RULE67]
+    assert (len(sel), len({r["core_project_num"] for r in sel})) == (10, 9)
+    assert "10 records in 9 cores, all G08" in RULE_V2.read_text(encoding="utf-8")
