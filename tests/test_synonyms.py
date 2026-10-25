@@ -19,6 +19,17 @@ SYN_V1 = ROOT / "docs" / "evidence" / "synonyms_v1_WITHDRAWN.json"
 SCOPE = ROOT / "scope" / "nitrd_pca_scopes_fy2025.v1.json"
 FIXTURE = ROOT / "fixtures" / "UAC_Uncoded_12-01-2025-updated-NIH_ODSS.csv"
 CACHE = ROOT / "cache" / "reporter" / "reporter_text.v1.jsonl"
+sys.path.insert(0, str(ROOT / "tests"))
+import synthetic_projects  # noqa: E402  (freeze-guard-v1: never the 480 in tests)
+
+
+def _engine(out, tmp_path, *extra):
+    fx, cache = synthetic_projects.make(tmp_path / "syn")
+    return subprocess.run([sys.executable, str(ROOT / "engine" / "run.py"), "--fixture", str(fx),
+                           "--cache", str(cache), "--out-dir", str(out), "--offline", *extra],
+                          capture_output=True, text=True)
+
+
 PCA_CODES = {"ACNS", "AI", "CHuman", "CNPS", "CSP", "EdW", "EHCS", "ENIT", "HCIA", "IRAS", "LSDMA", "SPSQ", "AW"}
 REQUIRED_FIELDS = {"term", "pca", "expands", "reason", "source"}
 
@@ -84,13 +95,10 @@ def test_load_synonyms_adds_terms():
 
 def test_no_synonym_in_any_explanation(tmp_path):
     """Scope-only vocabulary: no explanation may cite a synonym term."""
-    r = subprocess.run(
-        [sys.executable, str(ROOT / "engine" / "run.py"),
-         "--fixture", str(FIXTURE), "--out-dir", str(tmp_path), "--offline"],
-        capture_output=True, text=True)
+    r = _engine(tmp_path / "o", tmp_path)
     assert r.returncode == 0, r.stderr
-    expls = [json.loads(l) for l in (tmp_path / "explanations.jsonl").read_text().splitlines() if l.strip()]
-    # At least one explanation should have a matched_term whose source_phrase starts with 'synonym:'
+    expls = [json.loads(l) for l in (tmp_path / "o" / "explanations.jsonl").read_text().splitlines() if l.strip()]
+    assert any(e.get("ranked") for e in expls)  # the synthetic texts do match scope terms
     syn_hits = 0
     for e in expls:
         for ranked in e.get("ranked", []):
@@ -101,11 +109,8 @@ def test_no_synonym_in_any_explanation(tmp_path):
 
 
 def test_meta_records_synonyms_sha(tmp_path):
-    subprocess.run(
-        [sys.executable, str(ROOT / "engine" / "run.py"),
-         "--fixture", str(FIXTURE), "--out-dir", str(tmp_path), "--offline"],
-        capture_output=True, text=True)
-    meta = json.loads((tmp_path / "proposals.meta.json").read_text())
+    assert _engine(tmp_path / "o", tmp_path).returncode == 0
+    meta = json.loads((tmp_path / "o" / "proposals.meta.json").read_text())
     assert meta["vocabulary"] == "vocabulary-scope-only-2026-10-24"
     assert meta["synonyms_sha256"] == "" and meta["synonyms_added"] == 0
     from engine.run import AI_GATE_CORE, _normalise
@@ -117,9 +122,7 @@ def test_engine_cannot_load_synonyms():
     assert run.SYNONYMS_PATH is None
     assert not (ROOT / "engine" / "synonyms.json").exists()
     assert "--synonyms" not in (ROOT / "engine" / "run.py").read_text(encoding="utf-8")
-    r = subprocess.run([sys.executable, str(ROOT / "engine" / "run.py"), "--fixture", str(FIXTURE),
-                        "--out-dir", "/tmp/x", "--offline", "--synonyms", str(SYN)],
-                       capture_output=True, text=True)
+    r = _engine("/tmp/x", Path("/tmp/uac_nitrd_syn_test"), "--synonyms", str(SYN))
     assert r.returncode != 0 and "unrecognized arguments" in r.stderr
 
 
@@ -130,10 +133,7 @@ def test_withdrawn_v1_kept_as_evidence():
 def test_engine_deterministic_scope_only(tmp_path):
     d1, d2 = tmp_path / "r1", tmp_path / "r2"
     for d in (d1, d2):
-        r = subprocess.run(
-            [sys.executable, str(ROOT / "engine" / "run.py"),
-             "--fixture", str(FIXTURE), "--out-dir", str(d), "--offline"],
-            capture_output=True, text=True)
+        r = _engine(d, tmp_path)
         assert r.returncode == 0, r.stderr
     assert (d1 / "proposals.csv").read_bytes() == (d2 / "proposals.csv").read_bytes()
     assert (d1 / "explanations.jsonl").read_bytes() == (d2 / "explanations.jsonl").read_bytes()

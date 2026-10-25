@@ -47,6 +47,11 @@ k, j = h.index("Appl ID"), h.index("PO Name")
 NO_EXPLANATIONS = HONEST_ENGINE.replace('(a.out_dir / "explanations.jsonl")', '(a.out_dir / "unused.txt")')
 MODEL_CLIENT = "import requests\n" + HONEST_ENGINE
 CACHE_MISS = "import sys\nsys.exit('offline cache miss for appl_id 1')\n"
+# freeze-guard-v1 stand-in: refuses the evaluation projects unless the freeze env is set.
+GUARDED_ENGINE = ("import os, sys\n"
+                  "if os.environ.get('UAC_NITRD_FREEZE_RUN') != '1':\n"
+                  "    print('REFUSED (freeze-guard-v1-2026-10-24): only the freeze run', file=sys.stderr); sys.exit(3)\n"
+                  + HONEST_ENGINE)
 
 
 def _run(t, freeze=False, proposals=None):
@@ -111,6 +116,17 @@ def test_model_or_network_import_fails_s6(tmp_path):
 def test_engine_failure_fails_s8(tmp_path):
     r, c = _run(_tree(tmp_path, {"engine/run.py": CACHE_MISS}))
     assert r.returncode == 1 and c["S8_scramble_proof"]["status"] == "FAIL"
+
+
+def test_guarded_engine_is_GUARDED_in_build_not_fail(tmp_path):
+    r, c = _run(_tree(tmp_path, {"engine/run.py": GUARDED_ENGINE}))
+    assert c["S8_scramble_proof"]["status"] == "GUARDED" and r.returncode == 0, c["S8_scramble_proof"]
+
+
+def test_guarded_engine_refusal_fails_freeze(tmp_path):
+    meta = {**_meta_ok(), "engine/run.py": GUARDED_ENGINE}
+    r, c = _run(_tree(tmp_path, meta), freeze=True, proposals=_props(_synthetic()))
+    assert c["S8_scramble_proof"]["status"] == "FAIL" and r.returncode == 1
 
 
 def test_freeze_passes_when_frozen_equals_engine_output(tmp_path):

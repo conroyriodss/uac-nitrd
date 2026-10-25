@@ -182,20 +182,30 @@
     }
   },
   "decision_record": "docs/SYNONYM_DERIVATION.md (Decision 2026-10-24)",
+  "freeze_guard_constants": {
+    "FREEZE_ENV": "UAC_NITRD_FREEZE_RUN",
+    "GUARDED_PATHS": [
+      "engine",
+      "scope",
+      "cache",
+      "fixtures",
+      "docs/REVEAL_CONSTANTS.json",
+      "tools/reveal_constants.py"
+    ],
+    "GUARD_EXIT": 3,
+    "GUARD_ID": "freeze-guard-v1-2026-10-24"
+  },
+  "freeze_order": "constants committed + hashed -> single engine run (scripts/freeze.sh) -> reveal",
   "input_sha256": {
     "cache/reporter/reporter_text.v1.jsonl": "241e8c2412b751184c13fa1e73859b2a5f43cc0ad593989e915608f66cb1527c",
     "engine/__init__.py": "a64d83c05e8337b331a4eaebbd2b2c14e1eb20e7a9e4291c4abed98d3f2a304d",
-    "engine/inputs.py": "421bff029ecc67055796c1d2567a835965ade952611e6b292c153bacd08ef472",
-    "engine/run.py": "f2fe68987f16ff06b513ba83acc86f70291d988f0389aeb033f9a1e775311779",
+    "engine/freeze_guard.py": "f5ce3fb3495ba283bcd70e7c964bdf822367a81b248e510e6dc4ba2abc17ee15",
+    "engine/inputs.py": "6eebe12bd3111d1347a74ea50999f453ad383aed5a0c7a597fa9980584c59001",
+    "engine/run.py": "73b5d78489c699b8291b319df4fb655769511c8e87a108d67ab8d3f1632df8ff",
     "fixtures/UAC_Uncoded_12-01-2025-updated-NIH_ODSS.csv": "8c92c8af62b65b9a48b913c83d4c9f61f6f8956b84f0ceede9ba1eb1067edb9c",
     "scope/nitrd_pca_scopes_fy2025.v1.json": "8914f4c0d7953c366bae19683ed96ca6d2cce6043c98a227544e907683b56ea9"
   },
-  "output_sha256_on_fixture": {
-    "explanations.jsonl": "fc45e2564a1f7bfb54a531ef4414b53a6c0e1218e0332bd78b1671717284d020",
-    "proposals.csv": "08519115626ad367ea9c5b938520558e2802e763768f310864aa86c35fdb6572"
-  },
-  "record_id": "reveal-constants-v1-2026-10-24",
-  "synonyms_added": 0,
+  "record_id": "reveal-constants-v2-2026-10-24",
   "synonyms_path": null,
   "vocabulary": "vocabulary-scope-only-2026-10-24"
 }

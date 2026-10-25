@@ -44,3 +44,12 @@ def load_project_refs(fixture: Path) -> list[ProjectRef]:
     if len({r.appl_id for r in refs}) != len(refs):
         raise ValueError("duplicate Appl ID in fixture")
     return refs
+
+
+# The committed evaluation fixture. Used by the freeze guard to recognise the 480 evaluation
+# projects in ANY fixture passed to the engine (identity column only).
+EVALUATION_FIXTURE = Path(__file__).resolve().parents[1] / "fixtures" / "UAC_Uncoded_12-01-2025-updated-NIH_ODSS.csv"
+
+
+def evaluation_appl_ids() -> frozenset[int]:
+    return frozenset(r.appl_id for r in load_project_refs(EVALUATION_FIXTURE))
