@@ -1,0 +1,4194 @@
+{
+ "decision_rule": {
+  "shortlist_if_distinct_terms_at_least": 2
+ },
+ "derivation": {
+  "generic_excluded": [
+   "across",
+   "activities",
+   "activity",
+   "advance",
+   "advanced",
+   "advances",
+   "agencies",
+   "agency",
+   "all",
+   "also",
+   "among",
+   "any",
+   "area",
+   "areas",
+   "based",
+   "basic",
+   "both",
+   "broad",
+   "core",
+   "critical",
+   "development",
+   "each",
+   "effort",
+   "efforts",
+   "enable",
+   "enables",
+   "enabling",
+   "federal",
+   "focus",
+   "focused",
+   "focuses",
+   "important",
+   "improve",
+   "improving",
+   "include",
+   "includes",
+   "including",
+   "key",
+   "less",
+   "level",
+   "levels",
+   "many",
+   "more",
+   "most",
+   "nation",
+   "national",
+   "new",
+   "novel",
+   "other",
+   "others",
+   "part",
+   "parts",
+   "program",
+   "programs",
+   "project",
+   "projects",
+   "provide",
+   "provides",
+   "providing",
+   "range",
+   "related",
+   "relevant",
+   "research",
+   "such",
+   "support",
+   "supporting",
+   "supports",
+   "use",
+   "used",
+   "uses",
+   "using",
+   "variety",
+   "various",
+   "well",
+   "wide",
+   "within",
+   "work",
+   "works"
+  ],
+  "min_token_len": 3,
+  "ngram_sizes": [
+   2,
+   3
+  ],
+  "plus": "engine AI_GATE_CORE terms"
+ },
+ "derived_from": {
+  "scope_file": "scope/nitrd_pca_scopes_fy2025.v1.json",
+  "scope_set_id": "nitrd-pca-fy2025",
+  "scope_sha256": "8914f4c0d7953c366bae19683ed96ca6d2cce6043c98a227544e907683b56ea9",
+  "version": 1
+ },
+ "fingerprint_id": "nitrd-parent-fingerprint-placeholder-v0-2026-10-25",
+ "label": "DEV / not scored",
+ "normalisation": "engine.run: lower-case, _WORD_RE tokens, STOP words dropped; no stemming",
+ "owner": "SME (unassigned). Changes ship as a new version authored by the SME; never edited in place.",
+ "schema": "uac-nitrd/parent-fingerprint/v0",
+ "status": "PLACEHOLDER: mechanically derived from public NITRD scope text for the workflow skeleton. NOT the curated fingerprint; not for scoring.",
+ "terms": [
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "ability exploit"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "ability exploit flaws"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 2,
+   "term": "ability individuals"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 3,
+   "term": "ability individuals interact"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "abstract perceptions"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "abstract perceptions models"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "access analysis"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "access analysis reusability"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 2,
+   "term": "adaptability while"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "adaptation mobility"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "adaptation mobility manipulation"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "addressing challenges"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "addressing challenges system"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "addressing ethical"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "addressing ethical legal"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "advancing spectrum"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "advancing spectrum efficiency"
+  },
+  {
+   "from": [
+    "AI-gate-core"
+   ],
+   "n": 1,
+   "term": "ai"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "algorithms computational"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "algorithms computational linguistics"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "algorithms software"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "algorithms software data"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "analysis automated"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "analysis automated manner"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "analysis ecosystem"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "analysis ecosystem even"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "analysis reusability"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "analysis reusability presentation"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 2,
+   "term": "another computing"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 3,
+   "term": "another computing communication"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "application machine"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "application machine perception"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "application software"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "application software infrastructure"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "approaches developing"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "approaches developing effective"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "approaches high-capability"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "approaches high-capability computing"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "architecture validation"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "architecture validation testing"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "architectures chips"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "architectures chips optimized"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "architectures programmability"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "architectures programmability security"
+  },
+  {
+   "from": [
+    "AI",
+    "AI-gate-core"
+   ],
+   "n": 2,
+   "term": "artificial intelligence"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "artificial intelligence systems"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 2,
+   "term": "aspects cybersecurity"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 3,
+   "term": "aspects cybersecurity privacy"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "assessment standards"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "assessment standards virtual"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 2,
+   "term": "assurance adaptability"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 3,
+   "term": "assurance adaptability while"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "automated manner"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "automated manner model"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "autonomous systems"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "autonomous systems exist"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 2,
+   "term": "behavior usability"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 3,
+   "term": "behavior usability interact"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "capture curation"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "capture curation provenance"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "challenges system"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "challenges system performance"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "challenges unique"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 2,
+   "term": "characteristics security"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 3,
+   "term": "characteristics security privacy"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "chips optimized"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "chips optimized neural"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "cognition adaptation"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "cognition adaptation mobility"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "collaboration addressing"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "collaboration addressing ethical"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 2,
+   "term": "collaborations impacts"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 3,
+   "term": "collaborations impacts society"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "communication architectures"
+  },
+  {
+   "from": [
+    "CHuman",
+    "CSP",
+    "EdW"
+   ],
+   "n": 2,
+   "term": "communication information"
+  },
+  {
+   "from": [
+    "CHuman",
+    "CSP",
+    "EdW"
+   ],
+   "n": 3,
+   "term": "communication information technologies"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "communication networks"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "communication networks systems"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "communication technologies"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "communication technologies services"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "communications storage"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "communications storage data"
+  },
+  {
+   "from": [
+    "CNPS"
+   ],
+   "n": 2,
+   "term": "complex highly-reliable"
+  },
+  {
+   "from": [
+    "CNPS"
+   ],
+   "n": 3,
+   "term": "complex highly-reliable real-time"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "computation-intensive workloads"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "computation-intensive workloads while"
+  },
+  {
+   "from": [
+    "AI-cross-PCA",
+    "AI-gate-core"
+   ],
+   "n": 2,
+   "term": "computational linguistics"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "computational linguistics fall"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "computing architectures"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "computing architectures chips"
+  },
+  {
+   "from": [
+    "CHuman",
+    "CSP",
+    "ENIT",
+    "EdW"
+   ],
+   "n": 2,
+   "term": "computing communication"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "computing communication architectures"
+  },
+  {
+   "from": [
+    "CHuman",
+    "CSP",
+    "EdW"
+   ],
+   "n": 3,
+   "term": "computing communication information"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "computing fall"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "computing fall ehcs"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "computing paradigms"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "computing paradigms hardware"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "computing software"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "computing software services"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "computing systems"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "computing systems application"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "consider examples"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "consider examples report"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "contains element"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "contains element machine"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "contains element natural"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "coordination services"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "coordination services necessary"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "creating standards"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "creating standards benchmarks"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "curation provenance"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "curation provenance privacy"
+  },
+  {
+   "from": [
+    "CNPS"
+   ],
+   "n": 2,
+   "term": "cyber-physical systems"
+  },
+  {
+   "from": [
+    "CNPS"
+   ],
+   "n": 3,
+   "term": "cyber-physical systems internet"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "cybersecurity challenges"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "cybersecurity challenges unique"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 2,
+   "term": "cybersecurity privacy"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "cyberspace physical"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "cyberspace physical embodiment"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "data analytics"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "data computation-intensive"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "data computation-intensive workloads"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "data infrastructure"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "data infrastructure coordination"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "data management"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "data management analysis"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "datasets testing"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "datasets testing environments"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "decisions influencing"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "decisions influencing real"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "design application"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "design application machine"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "design architecture"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "design architecture validation"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "design stack"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "design stack methodologies"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "developing effective"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "developing effective human-ai"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "developing training"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "developing training datasets"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "distributed networked"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "distributed networked robotics"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "diverse data"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "diverse population"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "diverse population researchers"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "ecosystem even"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "ecosystem needed"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "ecosystem needed extraction"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "education training"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "education workforce"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "education workforce training"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "effective high-capability"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "effective high-capability computing"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "effective human-ai"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "effective human-ai collaboration"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "efficiency methods"
+  },
+  {
+   "from": [
+    "AW"
+   ],
+   "n": 2,
+   "term": "efficient wireless"
+  },
+  {
+   "from": [
+    "AW"
+   ],
+   "n": 3,
+   "term": "efficient wireless spectrum"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "element machine"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "element machine learning"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "element natural"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "element natural language"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "embodiment reported"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "employ machine"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "employ machine vision"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "energy efficiency"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "energy efficiency methods"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "energy-efficient systems"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "energy-efficient systems silicon"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "enhance education"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "enhance education workforce"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "ensuring safety"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "ensuring safety security"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "entrepreneurs users"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "environments abstract"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "environments abstract perceptions"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "environments artificial"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "environments artificial intelligence"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "environments evaluating"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 2,
+   "term": "essential characteristics"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 3,
+   "term": "essential characteristics security"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "ethical legal"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "ethical legal societal"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "examples report"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "exist only"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "exist only cyberspace"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "exploit flaws"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "extraction knowledge"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "extraction knowledge insights"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "extreme data"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "extreme data computation-intensive"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "fall chuman"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "fall csp"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "fall ehcs"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "fall iras"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "fall iras note"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "fall lsdma"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "formulate options"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "formulate options information"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "general methods"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "general methods machine"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "given set"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "given set human-defined"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "goals fall"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "governance access"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "governance access analysis"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "hardware algorithms"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "hardware algorithms software"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "hardware design"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "hardware design stack"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "hardware software"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "hardware software design"
+  },
+  {
+   "from": [
+    "EHCS",
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "high-capability computing"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "high-capability computing systems"
+  },
+  {
+   "from": [
+    "CNPS"
+   ],
+   "n": 2,
+   "term": "highly-reliable real-time"
+  },
+  {
+   "from": [
+    "CNPS"
+   ],
+   "n": 3,
+   "term": "highly-reliable real-time networked"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 2,
+   "term": "how human"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 3,
+   "term": "how human behavior"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 2,
+   "term": "human behavior"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 3,
+   "term": "human behavior usability"
+  },
+  {
+   "from": [
+    "AI-gate-core"
+   ],
+   "n": 1,
+   "term": "human-ai"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "human-ai collaboration"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "human-ai collaboration addressing"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "human-based inputs"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "human-based inputs perceive"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "human-defined objectives"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "human-defined objectives make"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "human-machine interaction"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "human-machine interaction even"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "human-robot interaction"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "human-robot interaction distributed"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 2,
+   "term": "human-to-human human-to-machine"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 3,
+   "term": "human-to-human human-to-machine interactions"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 2,
+   "term": "human-to-machine interactions"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 3,
+   "term": "human-to-machine interactions collaborations"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 2,
+   "term": "impacts society"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "implementations computing"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "implementations computing communication"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "implications ensuring"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "implications ensuring safety"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "increasingly autonomous"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 2,
+   "term": "individuals interact"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 3,
+   "term": "individuals interact one"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "inference formulate"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "inference formulate options"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "influencing real"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "influencing real virtual"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "information action"
+  },
+  {
+   "from": [
+    "CHuman",
+    "CSP",
+    "EdW"
+   ],
+   "n": 2,
+   "term": "information technologies"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "information technologies enhance"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "information technology"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "information technology hardware"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "infrastructure computing"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "infrastructure computing software"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "infrastructure coordination"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "infrastructure coordination services"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "inputs perceive"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "inputs perceive real"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "insights data"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "intelligence systems"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "intelligence systems machine"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "intelligent autonomous"
+  },
+  {
+   "from": [
+    "AI-cross-PCA",
+    "AI-gate-core"
+   ],
+   "n": 3,
+   "term": "intelligent autonomous systems"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "intelligent robotic"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "intelligent robotic systems"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 2,
+   "term": "interact one"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 3,
+   "term": "interact one another"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 2,
+   "term": "interact technical"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 3,
+   "term": "interact technical aspects"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "interaction distributed"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "interaction distributed networked"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "interaction even"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 2,
+   "term": "interactions collaborations"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 3,
+   "term": "interactions collaborations impacts"
+  },
+  {
+   "from": [
+    "CNPS"
+   ],
+   "n": 2,
+   "term": "internet things"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "interoperability techniques"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "interoperability techniques advancing"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "intersect multiple"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "intersect multiple pcas"
+  },
+  {
+   "from": [
+    "AW"
+   ],
+   "n": 2,
+   "term": "investments promote"
+  },
+  {
+   "from": [
+    "AW"
+   ],
+   "n": 3,
+   "term": "investments promote efficient"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "iras note"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "knowledge insights"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "knowledge insights data"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "language processing"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "language processing fall"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "large-scale diverse"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "large-scale diverse data"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "larger data"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "larger data management"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "learning fall"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "learning fall lsdma"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "learning teaching"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "learning teaching assessment"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "legal societal"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "legal societal implications"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "linguistics fall"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 2,
+   "term": "low-defect low-vulnerability"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 3,
+   "term": "low-defect low-vulnerability software"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 2,
+   "term": "low-vulnerability software"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "machine human-based"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "machine human-based inputs"
+  },
+  {
+   "from": [
+    "AI-cross-PCA",
+    "AI-gate-core"
+   ],
+   "n": 2,
+   "term": "machine learning"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "machine learning fall"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "machine perception"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "machine perception cognition"
+  },
+  {
+   "from": [
+    "AI-cross-PCA",
+    "AI-gate-core"
+   ],
+   "n": 2,
+   "term": "machine vision"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "machine vision fall"
+  },
+  {
+   "from": [
+    "AI",
+    "AI-gate-core"
+   ],
+   "n": 2,
+   "term": "machine-based system"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "machine-based system given"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "make predictions"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "make predictions recommendations"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "management analysis"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "management analysis ecosystem"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "management governance"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "management governance access"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "manipulation safe"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "manipulation safe human-robot"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "manner model"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "manner model inference"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "meaning set"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "meaning set forth"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 2,
+   "term": "measurement assurance"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 3,
+   "term": "measurement assurance adaptability"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "measurement performance"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "measurement performance robustness"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "methodologies scalable"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "methodologies scalable energy-efficient"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "methods machine"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "methods machine vision"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "micro nanoelectronics"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "micro nanoelectronics design"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "mobility manipulation"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "mobility manipulation safe"
+  },
+  {
+   "from": [
+    "AI",
+    "AI-gate-core"
+   ],
+   "n": 2,
+   "term": "model inference"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "model inference formulate"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "models analysis"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "models analysis automated"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "multiple pcas"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "multiple pcas example"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "nanoelectronics design"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "nanoelectronics design architecture"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "natural language"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "natural language processing"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "necessary resources"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "necessary resources effective"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "needed extraction"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "needed extraction knowledge"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "nets fall"
+  },
+  {
+   "from": [
+    "CNPS"
+   ],
+   "n": 2,
+   "term": "networked hybrid"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "networked robotics"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "networking architectures"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "networking architectures programmability"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "networking information"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "networking information technology"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "networks systems"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "networks systems wireless"
+  },
+  {
+   "from": [
+    "AI-cross-PCA",
+    "AI-gate-core"
+   ],
+   "n": 2,
+   "term": "neural nets"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "neural nets fall"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "neuromorphic computing"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "neuromorphic computing architectures"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "neuromorphic computing fall"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "non-silicon technologies"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "non-silicon technologies implementations"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "note understand"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "objectives make"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "objectives make predictions"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 2,
+   "term": "one another"
+  },
+  {
+   "from": [
+    "CHuman"
+   ],
+   "n": 3,
+   "term": "one another computing"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "only cyberspace"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "only cyberspace physical"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "optical quantum"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "optical quantum communication"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "optimized neural"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "optimized neural nets"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "options information"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "options information action"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "paradigms hardware"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "paradigms hardware algorithms"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "pca specific"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "pcas example"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "perceive real"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "perceive real virtual"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "perception cognition"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "perception cognition adaptation"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "perceptions models"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "perceptions models analysis"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "performance reliability"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "performance reliability trust"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "performance robustness"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "performance robustness resilience"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "physical embodiment"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "physical embodiment reported"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "please note"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "please note understand"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "population researchers"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "population researchers entrepreneurs"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "predictions recommendations"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "predictions recommendations decisions"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "preparation retention"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "preparation retention diverse"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "presentation large-scale"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "presentation large-scale diverse"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "preservation management"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "preservation management governance"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "primarily machine"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "primarily machine learning"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 2,
+   "term": "privacy computing"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 3,
+   "term": "privacy computing communication"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "privacy preservation"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "privacy preservation management"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 2,
+   "term": "privacy usability"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 3,
+   "term": "privacy usability reliability"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "problem human-machine"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "problem human-machine interaction"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "processing fall"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "processing fall chuman"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 2,
+   "term": "productivity quality"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 3,
+   "term": "productivity quality measurement"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "programmability security"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "programmability security measurement"
+  },
+  {
+   "from": [
+    "AW"
+   ],
+   "n": 2,
+   "term": "promote efficient"
+  },
+  {
+   "from": [
+    "AW"
+   ],
+   "n": 3,
+   "term": "promote efficient wireless"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "provenance privacy"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "provenance privacy preservation"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 2,
+   "term": "quality measurement"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 3,
+   "term": "quality measurement assurance"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "quantum communication"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "quantum communication technologies"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "real virtual"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "real virtual environments"
+  },
+  {
+   "from": [
+    "CNPS"
+   ],
+   "n": 2,
+   "term": "real-time networked"
+  },
+  {
+   "from": [
+    "CNPS"
+   ],
+   "n": 3,
+   "term": "real-time networked hybrid"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "recommendations decisions"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "recommendations decisions influencing"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "recruitment preparation"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "recruitment preparation retention"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "reliability trust"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "reliability trust transparency"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "researchers entrepreneurs"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "researchers entrepreneurs users"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "resilience interoperability"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "resilience interoperability techniques"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 2,
+   "term": "resilience trustworthiness"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 3,
+   "term": "resilience trustworthiness privacy"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "resources effective"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "resources effective high-capability"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "retention diverse"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "retention diverse population"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 2,
+   "term": "reusability presentation"
+  },
+  {
+   "from": [
+    "LSDMA"
+   ],
+   "n": 3,
+   "term": "reusability presentation large-scale"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "robotic systems"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "robotic systems increasingly"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "robotics hardware"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "robotics hardware software"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "robots employ"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "robots employ machine"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "robots even"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "robustness resilience"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "robustness resilience interoperability"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "safe human-robot"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "safe human-robot interaction"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "safety security"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "safety security developing"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "scalable energy-efficient"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "scalable energy-efficient systems"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "security developing"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "security developing training"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "security measurement"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "security measurement performance"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 2,
+   "term": "security privacy"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 3,
+   "term": "security privacy usability"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 2,
+   "term": "security resilience"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 3,
+   "term": "security resilience trustworthiness"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "services communications"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "services communications storage"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "services necessary"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "services necessary resources"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "set forth"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "set human-defined"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "set human-defined objectives"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "silicon non-silicon"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "silicon non-silicon technologies"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "societal implications"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "societal implications ensuring"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "software data"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "software data analytics"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "software design"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "software design application"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "software infrastructure"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "software infrastructure computing"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "software services"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "software services communications"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "special neuromorphic"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "special neuromorphic computing"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "spectrum efficiency"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "stack methodologies"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "stack methodologies scalable"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "standards benchmarks"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "standards virtual"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "standards virtual education"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "storage data"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "storage data infrastructure"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 2,
+   "term": "sustainability low-defect"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 3,
+   "term": "sustainability low-defect low-vulnerability"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "system given"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "system given set"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "system performance"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "system performance reliability"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 2,
+   "term": "systems application"
+  },
+  {
+   "from": [
+    "HCIA"
+   ],
+   "n": 3,
+   "term": "systems application software"
+  },
+  {
+   "from": [
+    "CNPS"
+   ],
+   "n": 2,
+   "term": "systems complex"
+  },
+  {
+   "from": [
+    "CNPS"
+   ],
+   "n": 3,
+   "term": "systems complex highly-reliable"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "systems creating"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "systems creating standards"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "systems exist"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "systems exist only"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 2,
+   "term": "systems increasingly"
+  },
+  {
+   "from": [
+    "IRAS"
+   ],
+   "n": 3,
+   "term": "systems increasingly autonomous"
+  },
+  {
+   "from": [
+    "CNPS"
+   ],
+   "n": 2,
+   "term": "systems internet"
+  },
+  {
+   "from": [
+    "CNPS"
+   ],
+   "n": 3,
+   "term": "systems internet things"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "systems machine"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "systems machine human-based"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "systems silicon"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "systems silicon non-silicon"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "systems wireless"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "systems wireless optical"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "teaching assessment"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "teaching assessment standards"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 2,
+   "term": "technical aspects"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 3,
+   "term": "technical aspects cybersecurity"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "techniques advancing"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "techniques advancing spectrum"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "technologies enhance"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "technologies enhance education"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "technologies implementations"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "technologies implementations computing"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "technologies services"
+  },
+  {
+   "from": [
+    "AW"
+   ],
+   "n": 2,
+   "term": "technologies systems"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "technology hardware"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "technology hardware design"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "term artificial"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "term artificial intelligence"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "testing environments"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "testing environments evaluating"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "testing networking"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "testing networking information"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 2,
+   "term": "timely affordable"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "training datasets"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "training datasets testing"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "translates approaches"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "translates approaches high-capability"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "transparency energy"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "transparency energy efficiency"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "trust transparency"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "trust transparency energy"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 2,
+   "term": "trustworthiness privacy"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 3,
+   "term": "trustworthiness privacy computing"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 2,
+   "term": "usability interact"
+  },
+  {
+   "from": [
+    "CSP"
+   ],
+   "n": 3,
+   "term": "usability interact technical"
+  },
+  {
+   "from": [
+    "SPSQ"
+   ],
+   "n": 2,
+   "term": "usability reliability"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "validates communication"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "validates communication networks"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 2,
+   "term": "validation testing"
+  },
+  {
+   "from": [
+    "ENIT"
+   ],
+   "n": 3,
+   "term": "validation testing networking"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "virtual education"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 3,
+   "term": "virtual education training"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 2,
+   "term": "virtual environments"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "virtual environments abstract"
+  },
+  {
+   "from": [
+    "AI"
+   ],
+   "n": 3,
+   "term": "virtual environments artificial"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "vision fall"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 3,
+   "term": "vision fall iras"
+  },
+  {
+   "from": [
+    "AI-cross-PCA"
+   ],
+   "n": 2,
+   "term": "whereas general"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "while addressing"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "while addressing challenges"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 2,
+   "term": "wireless optical"
+  },
+  {
+   "from": [
+    "ACNS"
+   ],
+   "n": 3,
+   "term": "wireless optical quantum"
+  },
+  {
+   "from": [
+    "AW"
+   ],
+   "n": 2,
+   "term": "wireless spectrum"
+  },
+  {
+   "from": [
+    "EdW"
+   ],
+   "n": 2,
+   "term": "workforce training"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 2,
+   "term": "workloads while"
+  },
+  {
+   "from": [
+    "EHCS"
+   ],
+   "n": 3,
+   "term": "workloads while addressing"
+  }
+ ]
+}
