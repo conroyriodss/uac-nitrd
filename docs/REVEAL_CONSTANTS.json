@@ -1,0 +1,201 @@
+{
+  "constants": {
+    "AI_GATE_CORE": [
+      [
+        "ai",
+        "AI scope_text: 'research in AI and associated AI topics'"
+      ],
+      [
+        "human-ai",
+        "AI scope_text: 'human-AI collaboration'"
+      ],
+      [
+        "artificial intelligence",
+        "AI definition: 'The term artificial intelligence or AI'"
+      ],
+      [
+        "machine-based system",
+        "AI definition: 'a machine-based system that can ... make predictions'"
+      ],
+      [
+        "model inference",
+        "AI definition: 'use model inference to formulate options'"
+      ],
+      [
+        "machine vision",
+        "cross-PCA 1: 'general methods for machine vision would fall under AI'"
+      ],
+      [
+        "intelligent autonomous systems",
+        "cross-PCA 1: 'intelligent autonomous systems that exist only in cyberspace ... AI'"
+      ],
+      [
+        "computational linguistics",
+        "cross-PCA 2: 'algorithms for computational linguistics would fall under AI'"
+      ],
+      [
+        "neural nets",
+        "cross-PCA 4: 'chips optimized for neural nets would fall under AI'"
+      ],
+      [
+        "machine learning",
+        "cross-PCA 5: 'R&D that is primarily machine learning would fall under AI'"
+      ]
+    ],
+    "AI_GATE_MIN_TERMS": 1,
+    "AW": "AW",
+    "PCA_CODES": [
+      "ACNS",
+      "AI",
+      "CHuman",
+      "CNPS",
+      "CSP",
+      "EdW",
+      "EHCS",
+      "ENIT",
+      "HCIA",
+      "IRAS",
+      "LSDMA",
+      "SPSQ"
+    ],
+    "PCA_THRESHOLD": 1.0,
+    "PHRASE_BONUS": 3.0,
+    "STOP": [
+      "a",
+      "about",
+      "across",
+      "after",
+      "all",
+      "along",
+      "also",
+      "among",
+      "an",
+      "and",
+      "are",
+      "as",
+      "at",
+      "based",
+      "be",
+      "been",
+      "between",
+      "both",
+      "but",
+      "by",
+      "can",
+      "could",
+      "did",
+      "do",
+      "does",
+      "during",
+      "each",
+      "for",
+      "from",
+      "has",
+      "have",
+      "in",
+      "include",
+      "included",
+      "includes",
+      "including",
+      "into",
+      "is",
+      "it",
+      "its",
+      "may",
+      "more",
+      "most",
+      "new",
+      "no",
+      "nor",
+      "not",
+      "of",
+      "on",
+      "or",
+      "other",
+      "our",
+      "over",
+      "related",
+      "should",
+      "so",
+      "some",
+      "such",
+      "than",
+      "that",
+      "the",
+      "their",
+      "these",
+      "they",
+      "this",
+      "those",
+      "through",
+      "to",
+      "under",
+      "upon",
+      "use",
+      "used",
+      "uses",
+      "using",
+      "was",
+      "we",
+      "were",
+      "which",
+      "will",
+      "with",
+      "within",
+      "would"
+    ],
+    "VOCABULARY_ID": "vocabulary-scope-only-2026-10-24",
+    "_AIAN_RE": {
+      "flags": 34,
+      "regex": "\\bAI\\s*/\\s*ANs?\\b"
+    },
+    "_SPECIFICITY": [
+      [
+        "AI",
+        "IRAS",
+        "robots employing machine vision → IRAS, not AI"
+      ],
+      [
+        "AI",
+        "CHuman",
+        "broad HCI even with NLP → CHuman, not AI"
+      ],
+      [
+        "AI",
+        "CSP",
+        "AI supporting cybersecurity → CSP, not AI"
+      ],
+      [
+        "AI",
+        "EHCS",
+        "general neuromorphic computing → EHCS, not AI"
+      ],
+      [
+        "AI",
+        "LSDMA",
+        "wider data ecosystem with ML element → LSDMA, not AI"
+      ]
+    ],
+    "_WORD_RE": {
+      "flags": 256,
+      "regex": "[a-z][a-z0-9'-]*[a-z0-9]|[a-z]"
+    }
+  },
+  "decision_record": "docs/SYNONYM_DERIVATION.md (Decision 2026-10-24)",
+  "input_sha256": {
+    "cache/reporter/reporter_text.v1.jsonl": "241e8c2412b751184c13fa1e73859b2a5f43cc0ad593989e915608f66cb1527c",
+    "engine/__init__.py": "a64d83c05e8337b331a4eaebbd2b2c14e1eb20e7a9e4291c4abed98d3f2a304d",
+    "engine/inputs.py": "421bff029ecc67055796c1d2567a835965ade952611e6b292c153bacd08ef472",
+    "engine/run.py": "f2fe68987f16ff06b513ba83acc86f70291d988f0389aeb033f9a1e775311779",
+    "fixtures/UAC_Uncoded_12-01-2025-updated-NIH_ODSS.csv": "8c92c8af62b65b9a48b913c83d4c9f61f6f8956b84f0ceede9ba1eb1067edb9c",
+    "scope/nitrd_pca_scopes_fy2025.v1.json": "8914f4c0d7953c366bae19683ed96ca6d2cce6043c98a227544e907683b56ea9"
+  },
+  "output_sha256_on_fixture": {
+    "explanations.jsonl": "fc45e2564a1f7bfb54a531ef4414b53a6c0e1218e0332bd78b1671717284d020",
+    "proposals.csv": "08519115626ad367ea9c5b938520558e2802e763768f310864aa86c35fdb6572"
+  },
+  "record_id": "reveal-constants-v1-2026-10-24",
+  "synonyms_added": 0,
+  "synonyms_path": null,
+  "vocabulary": "vocabulary-scope-only-2026-10-24"
+}
