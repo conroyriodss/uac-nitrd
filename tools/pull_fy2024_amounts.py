@@ -20,8 +20,6 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 
-import requests
-
 ROOT = Path(__file__).resolve().parents[1]
 URL = "https://api.reporter.nih.gov/v2/projects/search"
 AMOUNTS_ID = "fy2024-amounts-v1-2026-10-25"
@@ -55,6 +53,8 @@ def check_body(body: dict) -> dict:
 
 
 def post(body: dict) -> dict:
+    import requests  # network-only dependency; check_body stays importable offline (CI has no requests)
+
     check_body(body)
     for i in range(6):
         try:
