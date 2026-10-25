@@ -20,11 +20,22 @@ def _ids():
 
 def _tree(tmp_path, extra=None):
     t = tmp_path / "repo"
-    shutil.copytree(ROOT, t, ignore=shutil.ignore_patterns(".git", "__pycache__", ".pytest_cache"))
+    # Test trees start from the pre-freeze state: the frozen engine outputs in proposals/
+    # (tag uac-nitrd-freeze-v1) are NOT copied, so each test controls its own proposals and meta.
+    shutil.copytree(ROOT, t, ignore=shutil.ignore_patterns(
+        ".git", "__pycache__", ".pytest_cache",
+        "proposals.csv", "explanations.jsonl", "proposals.meta.json", "FREEZE_SWEEP.json"))
     for rel, text in (extra or {}).items():
         (t / rel).parent.mkdir(parents=True, exist_ok=True)
         (t / rel).write_text(text)
     return t
+
+
+def test_test_trees_exclude_the_frozen_outputs(tmp_path):
+    """Regression (CI red on b0ccbe6/6fdc57f): a copied frozen meta made the 'missing meta' S7 case pass."""
+    t = _tree(tmp_path)
+    for n in ("proposals.csv", "explanations.jsonl", "proposals.meta.json", "FREEZE_SWEEP.json"):
+        assert not (t / "proposals" / n).exists(), n
 
 
 def _props(rows, header="appl_id,primary_pca,ai_relevant,sub_pca"):
