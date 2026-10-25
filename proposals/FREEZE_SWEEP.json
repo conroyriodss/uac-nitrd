@@ -1,0 +1,90 @@
+{
+  "at_utc": "2026-10-25T00:41:04+00:00",
+  "mode": "freeze",
+  "rule_id": "entry2-match-rule-v1-2026-10-23",
+  "format_id": "proposal-format-v2-2026-10-23",
+  "verdict": "PASS",
+  "checks": {
+    "S1_tool_integrity": {
+      "status": "PASS",
+      "files": {
+        "seal_guard.py": {
+          "sha256": "8dfb241754afbac0aa85a111828c1b268cc75e61e9bea74b032a3964a3ace401",
+          "ok": true
+        },
+        "score_heldout.py": {
+          "sha256": "5b9860fa882e71d5790e1959b5fcc37cdb29ab723022c2a14a3643c1eb6636d1",
+          "ok": true
+        }
+      }
+    },
+    "S2_seal_guard": {
+      "status": "PASS",
+      "exit": 0,
+      "summary": "seal_guard entry2-heldout-2026-10-23T19:18:20Z: CLEAN (0 finding(s))"
+    },
+    "S6_input_boundary": {
+      "status": "PASS",
+      "violations": []
+    },
+    "S8_scramble_proof": {
+      "status": "PASS",
+      "seed": 2825704639,
+      "scrambled_columns": [
+        "Class Code",
+        "Category",
+        "Admin IC",
+        "Project Title",
+        "Activity Code",
+        "PCC",
+        "PO Name",
+        "suggestion_1",
+        "suggestion_2"
+      ],
+      "cells_changed": 4320,
+      "engine_exit_A": 0,
+      "engine_exit_B": 0,
+      "method_id": "engine-method-deterministic-v1-2026-10-23",
+      "proposals.csv": {
+        "sha256_A": "08519115626ad367ea9c5b938520558e2802e763768f310864aa86c35fdb6572",
+        "sha256_B": "08519115626ad367ea9c5b938520558e2802e763768f310864aa86c35fdb6572",
+        "A_equals_B": true
+      },
+      "explanations.jsonl": {
+        "sha256_A": "fc45e2564a1f7bfb54a531ef4414b53a6c0e1218e0332bd78b1671717284d020",
+        "sha256_B": "fc45e2564a1f7bfb54a531ef4414b53a6c0e1218e0332bd78b1671717284d020",
+        "A_equals_B": true
+      },
+      "A_equals_B": true,
+      "frozen_equals_A": true
+    },
+    "S3_proposal_validation": {
+      "status": "PASS",
+      "exit": 0,
+      "rule_id": "entry2-match-rule-v1-2026-10-23",
+      "detail": "{\"rule_id\": \"entry2-match-rule-v1-2026-10-23\", \"proposals_valid\": true, \"n\": 480}"
+    },
+    "S4_coverage": {
+      "status": "PASS",
+      "fixture_projects": 480,
+      "proposal_rows": 480,
+      "distinct": 480,
+      "missing_count": 0,
+      "missing_first": [],
+      "extra_count": 0,
+      "extra_first": []
+    },
+    "S5_format_v2": {
+      "status": "PASS",
+      "format_id": "proposal-format-v2-2026-10-23",
+      "violations": 0,
+      "first": []
+    },
+    "S7_output_label": {
+      "status": "PASS",
+      "wrong_or_missing": []
+    },
+    "proposals_sha256": "08519115626ad367ea9c5b938520558e2802e763768f310864aa86c35fdb6572"
+  },
+  "note": "The sweep never reads the held-out key."
+}

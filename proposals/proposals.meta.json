@@ -1,0 +1,30 @@
+{
+  "label": "ASSIST PROPOSAL FOR SME REVIEW. Not a reproduction of the official UAC method (no UAC fingerprints exist). The 'most specific PCA' rule is NITRD's published guidance applied to project text, not a claim of official correctness.",
+  "official_uac_method": false,
+  "suggestion_columns_read": false,
+  "reasoning_inputs": {
+    "project_text": "committed RePORTER text cache (cache/reporter/reporter_text.v1.jsonl)",
+    "scope_set": "nitrd-pca-fy2025",
+    "scope_sha256": "8914f4c0d7953c366bae19683ed96ca6d2cce6043c98a227544e907683b56ea9",
+    "guidance": "NITRD AI cross-PCA examples + 'most specific PCA' rule"
+  },
+  "vocabulary": "vocabulary-scope-only-2026-10-24",
+  "synonyms_sha256": "",
+  "synonyms_added": 0,
+  "ai_gate": {
+    "id": "ai-gate-v2-2026-10-24",
+    "min_terms": 1,
+    "terms": [
+      "ai",
+      "artificial intelligence",
+      "computational linguistics",
+      "human-ai",
+      "intelligent autonomous systems",
+      "machine learning",
+      "machine vision",
+      "machine-based system",
+      "model inference",
+      "neural nets"
+    ]
+  }
+}
