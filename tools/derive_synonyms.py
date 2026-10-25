@@ -111,7 +111,8 @@ def main(argv=None) -> int:
     ap.add_argument("--corpus", type=Path, default=ROOT / "corpus" / "fy2024_independent.v1.jsonl.gz")
     ap.add_argument("--seeds", type=Path, default=ROOT / "scope" / "synonym_seeds.v1.json")
     ap.add_argument("--scope", type=Path, default=ROOT / "scope" / "nitrd_pca_scopes_fy2025.v1.json")
-    ap.add_argument("--out", type=Path, default=ROOT / "engine" / "synonyms.json")
+    # Output is evidence only: the reveal engine uses no synonyms (vocabulary-scope-only-2026-10-24).
+    ap.add_argument("--out", type=Path, default=ROOT / "docs" / "evidence" / "synonyms_v2_derived_NOT_APPLIED.json")
     a = ap.parse_args(argv)
     raw = gzip.decompress(a.corpus.read_bytes())
     corpus = [json.loads(l) for l in raw.decode("utf-8").splitlines() if l.strip()]

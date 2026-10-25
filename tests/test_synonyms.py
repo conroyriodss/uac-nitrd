@@ -1,4 +1,9 @@
-"""Synonym file integrity, provenance, and engine integration."""
+"""vocabulary-scope-only-2026-10-24: the reveal engine uses NO synonyms.
+
+The engine must load no synonym file and cite no synonym in any explanation. Both withdrawn
+synonym sets are kept as evidence: v1 (selected on the 480) and v2 (derived mechanically from
+independent FY2024 text, not applied). v2 must still reproduce byte-for-byte from the committed
+corpus, and the provenance checks below apply to it."""
 import hashlib
 import json
 import subprocess
@@ -9,7 +14,8 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-SYN = ROOT / "engine" / "synonyms.json"
+SYN = ROOT / "docs" / "evidence" / "synonyms_v2_derived_NOT_APPLIED.json"
+SYN_V1 = ROOT / "docs" / "evidence" / "synonyms_v1_WITHDRAWN.json"
 SCOPE = ROOT / "scope" / "nitrd_pca_scopes_fy2025.v1.json"
 FIXTURE = ROOT / "fixtures" / "UAC_Uncoded_12-01-2025-updated-NIH_ODSS.csv"
 CACHE = ROOT / "cache" / "reporter" / "reporter_text.v1.jsonl"
@@ -76,8 +82,8 @@ def test_load_synonyms_adds_terms():
     assert added == after - before
 
 
-def test_synonym_provenance_in_explanations(tmp_path):
-    """At least some explanations cite a synonym term."""
+def test_no_synonym_in_any_explanation(tmp_path):
+    """Scope-only vocabulary: no explanation may cite a synonym term."""
     r = subprocess.run(
         [sys.executable, str(ROOT / "engine" / "run.py"),
          "--fixture", str(FIXTURE), "--out-dir", str(tmp_path), "--offline"],
@@ -91,7 +97,7 @@ def test_synonym_provenance_in_explanations(tmp_path):
             for mt in ranked.get("matched_terms", []):
                 if mt.get("source_phrase", "").startswith("synonym:"):
                     syn_hits += 1
-    assert syn_hits > 0, "no synonym terms appeared in any explanation"
+    assert syn_hits == 0, f"{syn_hits} synonym citations in explanations"
 
 
 def test_meta_records_synonyms_sha(tmp_path):
@@ -100,11 +106,28 @@ def test_meta_records_synonyms_sha(tmp_path):
          "--fixture", str(FIXTURE), "--out-dir", str(tmp_path), "--offline"],
         capture_output=True, text=True)
     meta = json.loads((tmp_path / "proposals.meta.json").read_text())
-    assert meta["synonyms_sha256"] == hashlib.sha256(SYN.read_bytes()).hexdigest()
-    assert meta["synonyms_added"] > 0
+    assert meta["vocabulary"] == "vocabulary-scope-only-2026-10-24"
+    assert meta["synonyms_sha256"] == "" and meta["synonyms_added"] == 0
+    from engine.run import AI_GATE_CORE, _normalise
+    assert sorted(meta["ai_gate"]["terms"]) == sorted(" ".join(_normalise(t)) for t, _ in AI_GATE_CORE)
 
 
-def test_engine_deterministic_with_synonyms(tmp_path):
+def test_engine_cannot_load_synonyms():
+    from engine import run
+    assert run.SYNONYMS_PATH is None
+    assert not (ROOT / "engine" / "synonyms.json").exists()
+    assert "--synonyms" not in (ROOT / "engine" / "run.py").read_text(encoding="utf-8")
+    r = subprocess.run([sys.executable, str(ROOT / "engine" / "run.py"), "--fixture", str(FIXTURE),
+                        "--out-dir", "/tmp/x", "--offline", "--synonyms", str(SYN)],
+                       capture_output=True, text=True)
+    assert r.returncode != 0 and "unrecognized arguments" in r.stderr
+
+
+def test_withdrawn_v1_kept_as_evidence():
+    assert json.loads(SYN_V1.read_text(encoding="utf-8"))["schema"] == "uac-nitrd/scope-synonyms/v1"
+
+
+def test_engine_deterministic_scope_only(tmp_path):
     d1, d2 = tmp_path / "r1", tmp_path / "r2"
     for d in (d1, d2):
         r = subprocess.run(
@@ -118,7 +141,7 @@ def test_engine_deterministic_with_synonyms(tmp_path):
 
 def test_synonyms_file_is_exactly_the_derivation_output(tmp_path):
     """No hand edits: re-running the committed derivation on the committed corpus reproduces
-    engine/synonyms.json byte-for-byte (SME flags, if any, are added by a separate dated step)."""
+    the v2 evidence file exactly (it was judged unusable on FY2024 output and not applied)."""
     out = tmp_path / "s.json"
     r = subprocess.run([sys.executable, str(ROOT / "tools" / "derive_synonyms.py"), "--out", str(out)],
                        capture_output=True, text=True)

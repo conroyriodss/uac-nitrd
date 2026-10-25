@@ -28,7 +28,12 @@ from engine.inputs import load_project_refs  # noqa: E402
 
 # --------------------------------------------------------------------------- constants
 SCOPE_PATH = ROOT / "scope" / "nitrd_pca_scopes_fy2025.v1.json"
-SYNONYMS_PATH = ROOT / "engine" / "synonyms.json"
+# vocabulary-scope-only-2026-10-24 (owner decision): the reveal engine uses NO synonyms.
+# Vocabulary = verbatim NITRD scope text + AI definition + cross-PCA guidance only.
+# v1 (selected on the 480) and v2 (FY2024-derived, unusable) are kept as evidence in
+# docs/evidence/. There is deliberately no CLI flag to load a synonym file.
+VOCABULARY_ID = "vocabulary-scope-only-2026-10-24"
+SYNONYMS_PATH = None
 CACHE_PATH = ROOT / "cache" / "reporter" / "reporter_text.v1.jsonl"
 PCA_CODES = ("ACNS", "AI", "CHuman", "CNPS", "CSP", "EdW", "EHCS", "ENIT", "HCIA", "IRAS", "LSDMA", "SPSQ")
 AW = "AW"
@@ -347,7 +352,6 @@ def main(argv=None) -> int:
     ap.add_argument("--out-dir", type=Path, required=True)
     ap.add_argument("--offline", action="store_true", required=True)
     ap.add_argument("--scope", type=Path, default=SCOPE_PATH)
-    ap.add_argument("--synonyms", type=Path, default=SYNONYMS_PATH)
     ap.add_argument("--cache", type=Path, default=CACHE_PATH)
     a = ap.parse_args(argv)
 
@@ -360,9 +364,9 @@ def main(argv=None) -> int:
     # Load synonyms (before IDF is applied to synonym terms)
     syn_sha = ""
     syn_added = 0
-    if a.synonyms.exists():
-        syn_sha = hashlib.sha256(a.synonyms.read_bytes()).hexdigest()
-        syn_added = _load_synonyms(a.synonyms, vocab)
+    if SYNONYMS_PATH is not None:  # never true under vocabulary-scope-only
+        syn_sha = hashlib.sha256(SYNONYMS_PATH.read_bytes()).hexdigest()
+        syn_added = _load_synonyms(SYNONYMS_PATH, vocab)
         # Apply IDF + phrase bonus to newly-added synonym terms
         all_terms: set[str] = set()
         for code in list(PCA_CODES) + [AW]:
@@ -377,9 +381,9 @@ def main(argv=None) -> int:
                     idf = math.log(n_docs / max(doc_freq[t], 1))
                     is_phrase = " " in t
                     vocab[code][t] = (w * idf * (PHRASE_BONUS if is_phrase else 1.0), src)
-        print(f"Synonyms: {syn_added} terms added from {a.synonyms.name} (SHA {syn_sha[:12]})")
+        print(f"Synonyms: {syn_added} terms added (SHA {syn_sha[:12]})")
 
-    ai_gate = build_ai_gate(a.synonyms)
+    ai_gate = build_ai_gate(SYNONYMS_PATH)
 
     # Load cache
     cache: dict[int, dict] = {}
@@ -416,7 +420,7 @@ def main(argv=None) -> int:
     # Write meta
     write_meta(csv_path, scope_set=scope_data["scope_set_id"], scope_sha256=scope_sha,
                text_source="committed RePORTER text cache (cache/reporter/reporter_text.v1.jsonl)",
-               synonyms_sha256=syn_sha, synonyms_added=syn_added,
+               vocabulary=VOCABULARY_ID, synonyms_sha256=syn_sha, synonyms_added=syn_added,
                ai_gate={"id": "ai-gate-v2-2026-10-24", "min_terms": AI_GATE_MIN_TERMS,
                         "terms": [" ".join(t) for t, _ in ai_gate]})
 

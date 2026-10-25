@@ -1,5 +1,16 @@
 # Synonym derivation v2: independent text, mechanical selection
 
+> **Decision 2026-10-24 (project owner): the reveal uses NO synonyms**
+> (`vocabulary-scope-only-2026-10-24`). v2 was run as pre-registered (below) and its
+> output was judged unusable on the FY2024 output alone (seed ambiguity: "networking" ->
+> careers, "spectrum" -> autism, "data management" -> center cores; CHuman, CNPS, EHCS
+> under 20 docs). The engine's vocabulary is the verbatim NITRD scope text, the AI
+> statutory definition and the cross-PCA guidance; the AI gate is the 10 core terms. The
+> engine has no option to load a synonym file. Kept as evidence, not used:
+> `docs/evidence/synonyms_v1_WITHDRAWN.json` (selected on the 480) and
+> `docs/evidence/synonyms_v2_derived_NOT_APPLIED.json` (this procedure's exact output).
+> X/214 therefore measures scope-text matching with no vocabulary chosen from project text.
+
 Derivation ID: `synonym-derivation-v2-2026-10-24`. Pre-registered (this file, the seeds,
 both tools and the gate rule committed) **before** the FY2024 corpus was fetched and
 before any v2 synonym was computed.

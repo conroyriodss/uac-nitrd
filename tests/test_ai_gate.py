@@ -8,14 +8,14 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from engine.run import (AI_GATE_CORE, SCOPE_PATH, SYNONYMS_PATH, _build_vocabulary,  # noqa: E402
-                        _load_synonyms, build_ai_gate, propose)
+                        build_ai_gate, propose)
 
 
 @pytest.fixture(scope="module")
 def env():
     scope = json.loads(SCOPE_PATH.read_text(encoding="utf-8"))
     vocab = _build_vocabulary(scope["scopes"], scope.get("cross_pca_guidance", {}))
-    _load_synonyms(SYNONYMS_PATH, vocab)
+    assert SYNONYMS_PATH is None  # vocabulary-scope-only: gate = AI_GATE_CORE exactly
     return vocab, build_ai_gate(SYNONYMS_PATH)
 
 
@@ -75,7 +75,8 @@ def _legacy_test_sme_pending_synonyms_excluded_from_gate(env):
 def test_gate_contains_every_core_term(env):
     _, gate = env
     terms = {" ".join(t) for t, _ in gate}
-    assert {t for t, _ in AI_GATE_CORE} <= terms
+    from engine.run import _normalise
+    assert terms == {" ".join(_normalise(s)) for s, _ in AI_GATE_CORE}  # scope-only: core exactly
 
 
 def test_gate_is_deterministic():
