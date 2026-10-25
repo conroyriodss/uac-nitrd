@@ -1,0 +1,326 @@
+{
+ "cache_sha256": "657ebee7914d9b2506e8f7480b4f431f1df1f811eee8f8f9d59e356c4891f428",
+ "excluded": "records of any core project in the 480 evaluation fixture",
+ "fields_requested": [
+  "ApplId",
+  "SubprojectId",
+  "ProjectNum",
+  "CoreProjectNum",
+  "FiscalYear",
+  "ProjectTitle",
+  "AbstractText",
+  "PhrText",
+  "AwardAmount"
+ ],
+ "fiscal_year": 2023,
+ "fixture_sha256": "84c891f817e6e17efd50b3cc4450b044e9d269495ad77f84d292c89799766319",
+ "label": "DEV / not scored. Workflow skeleton run on a development slice of public RePORTER awards; no held-out data was read and no result here is a score.",
+ "n_records": 300,
+ "plan": [
+  {
+   "ic": "NCI",
+   "ic_total": 13187,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NCI",
+   "ic_total": 13187,
+   "offset": 6593,
+   "returned": 6
+  },
+  {
+   "ic": "NEI",
+   "ic_total": 2026,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NEI",
+   "ic_total": 2026,
+   "offset": 1013,
+   "returned": 6
+  },
+  {
+   "ic": "NHLBI",
+   "ic_total": 6987,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NHLBI",
+   "ic_total": 6987,
+   "offset": 3493,
+   "returned": 6
+  },
+  {
+   "ic": "NHGRI",
+   "ic_total": 799,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NHGRI",
+   "ic_total": 799,
+   "offset": 399,
+   "returned": 6
+  },
+  {
+   "ic": "NIA",
+   "ic_total": 6476,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NIA",
+   "ic_total": 6476,
+   "offset": 3238,
+   "returned": 6
+  },
+  {
+   "ic": "NIAAA",
+   "ic_total": 1445,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NIAAA",
+   "ic_total": 1445,
+   "offset": 722,
+   "returned": 6
+  },
+  {
+   "ic": "NIAID",
+   "ic_total": 8731,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NIAID",
+   "ic_total": 8731,
+   "offset": 4365,
+   "returned": 6
+  },
+  {
+   "ic": "NIAMS",
+   "ic_total": 1803,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NIAMS",
+   "ic_total": 1803,
+   "offset": 901,
+   "returned": 6
+  },
+  {
+   "ic": "NIBIB",
+   "ic_total": 1110,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NIBIB",
+   "ic_total": 1110,
+   "offset": 555,
+   "returned": 6
+  },
+  {
+   "ic": "NICHD",
+   "ic_total": 3860,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NICHD",
+   "ic_total": 3860,
+   "offset": 1930,
+   "returned": 6
+  },
+  {
+   "ic": "NIDCD",
+   "ic_total": 1266,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NIDCD",
+   "ic_total": 1266,
+   "offset": 633,
+   "returned": 6
+  },
+  {
+   "ic": "NIDCR",
+   "ic_total": 1056,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NIDCR",
+   "ic_total": 1056,
+   "offset": 528,
+   "returned": 6
+  },
+  {
+   "ic": "NIDDK",
+   "ic_total": 5320,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NIDDK",
+   "ic_total": 5320,
+   "offset": 2660,
+   "returned": 6
+  },
+  {
+   "ic": "NIDA",
+   "ic_total": 2863,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NIDA",
+   "ic_total": 2863,
+   "offset": 1431,
+   "returned": 6
+  },
+  {
+   "ic": "NIEHS",
+   "ic_total": 1754,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NIEHS",
+   "ic_total": 1754,
+   "offset": 877,
+   "returned": 6
+  },
+  {
+   "ic": "NIGMS",
+   "ic_total": 9125,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NIGMS",
+   "ic_total": 9125,
+   "offset": 4562,
+   "returned": 6
+  },
+  {
+   "ic": "NIMH",
+   "ic_total": 3997,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NIMH",
+   "ic_total": 3997,
+   "offset": 1998,
+   "returned": 6
+  },
+  {
+   "ic": "NIMHD",
+   "ic_total": 1081,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NIMHD",
+   "ic_total": 1081,
+   "offset": 540,
+   "returned": 6
+  },
+  {
+   "ic": "NINDS",
+   "ic_total": 5413,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NINDS",
+   "ic_total": 5413,
+   "offset": 2706,
+   "returned": 6
+  },
+  {
+   "ic": "NINR",
+   "ic_total": 362,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NINR",
+   "ic_total": 362,
+   "offset": 181,
+   "returned": 6
+  },
+  {
+   "ic": "NLM",
+   "ic_total": 266,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NLM",
+   "ic_total": 266,
+   "offset": 133,
+   "returned": 6
+  },
+  {
+   "ic": "FIC",
+   "ic_total": 444,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "FIC",
+   "ic_total": 444,
+   "offset": 222,
+   "returned": 6
+  },
+  {
+   "ic": "NCATS",
+   "ic_total": 574,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NCATS",
+   "ic_total": 574,
+   "offset": 287,
+   "returned": 6
+  },
+  {
+   "ic": "NCCIH",
+   "ic_total": 378,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "NCCIH",
+   "ic_total": 378,
+   "offset": 189,
+   "returned": 6
+  },
+  {
+   "ic": "OD",
+   "ic_total": 884,
+   "offset": 0,
+   "returned": 6
+  },
+  {
+   "ic": "OD",
+   "ic_total": 884,
+   "offset": 442,
+   "returned": 6
+  }
+ ],
+ "rcdc_fields_requested": false,
+ "retrieved_at_utc": "2026-10-25T01:57:11+00:00",
+ "selection": "per administering IC, sorted by appl_id: 6 records at offset 0 and at the IC midpoint",
+ "slice_id": "dev-slice-fy2023-v1",
+ "source": "NIH RePORTER API v2 projects/search (public)"
+}
