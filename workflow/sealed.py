@@ -115,8 +115,7 @@ def load_score_text(root: Path = ROOT, *, env=None) -> dict[int, dict]:
     for s in m["text_snapshot"]["shards"]:
         raw = gzip.decompress((root / s["file"]).read_bytes())
         agg.update(raw)
-        for line in raw.decode("utf-8").splitlines():
-            r = json.loads(line)
+        for r in iter_records(raw):
             body = {k: v for k, v in r.items() if k != "record_sha256"}
             if hashlib.sha256(canonical(body).encode("utf-8")).hexdigest() != r["record_sha256"]:
                 raise SealBoundaryError(f"appl_id {r.get('appl_id')}: per-record sha mismatch")
@@ -124,6 +123,14 @@ def load_score_text(root: Path = ROOT, *, env=None) -> dict[int, dict]:
     if agg.hexdigest() != m["text_snapshot"]["aggregate_sha256"] or len(out) != m["text_snapshot"]["records"]:
         raise SealBoundaryError("text snapshot aggregate does not match the seal manifest")
     return out
+
+
+def iter_records(raw: bytes):
+    """Split on b'\\n' ONLY. str.splitlines() also splits on U+2028/U+0085/etc., which occur raw inside
+    JSON strings because the snapshot is written with ensure_ascii=False."""
+    for line in raw.split(b"\n"):
+        if line:
+            yield json.loads(line.decode("utf-8"))
 
 
 def canonical(obj) -> str:
