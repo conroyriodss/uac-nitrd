@@ -1,0 +1,37 @@
+{
+  "report_id": "report-breakdown-v1-2026-10-23",
+  "rule_id": "entry2-match-rule-v1-2026-10-23",
+  "headline": "Match rate: 24/214",
+  "misses": 190,
+  "breakdown": {
+    "wrong_pca": {
+      "n": 176,
+      "of_which_ai_for_suffix_key": 0,
+      "meaning": "proposed incorrectly"
+    },
+    "right_pca_no_ai_flag": {
+      "n": 12,
+      "meaning": "right PCA, AI flag not set"
+    },
+    "abstained": {
+      "n": 2,
+      "no_public_text": 2,
+      "below_scope_threshold": 0,
+      "meaning": "declined to propose"
+    },
+    "aw_primary": {
+      "n": 0,
+      "meaning": "AW as primary (0 expected under format v2)"
+    }
+  },
+  "statement": "Match rate: 24/214. Of the 190 misses, 176 proposed a wrong PCA, 12 proposed the right PCA without the AI flag, and 2 abstained (declined to propose: 2 with no public text, 0 below the scope-match threshold); 0 proposed Advanced Wireless as primary. Abstentions are the engine declining where the project text does not match NITRD scope wording. They are reported as declines, not as incorrect proposals, and they remain misses in X.",
+  "lists": {
+    "abstained_no_public_text": [
+      11189671,
+      11376321
+    ],
+    "abstained_below_threshold": [],
+    "aw_primary": [],
+    "ai_for_suffix_key": []
+  }
+}
