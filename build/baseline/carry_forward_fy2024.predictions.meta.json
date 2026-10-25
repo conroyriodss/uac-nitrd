@@ -1,0 +1,42 @@
+{
+ "baseline_id": "carry-forward-v1-2026-10-25",
+ "counts": {
+  "appl_ids": 79721,
+  "appls_predicted_329": 8712,
+  "continuing_cores_by_source_fy": {
+   "2021": 288,
+   "2022": 1145,
+   "2023": 45603
+  },
+  "cores": 62508,
+  "cores_by_stratum": {
+   "continuing": 47036,
+   "new": 15472
+  },
+  "cores_predicted_329": 3181
+ },
+ "fy2024_labels_read": false,
+ "inputs": {
+  "files": {
+   "fy2021.csv": "d7f7fadd03bb8cfce75ec0cf8329c232d8c3ffc89c73d4b58533baf743832abf",
+   "fy2022.csv": "5126368e4971542e6b4d3ad0f1f027a7da3af52ea83e5a4d345022c7581a4079",
+   "fy2023.csv": "d96da7b3cbb33d04eb81fa8272f3683348c7ab00acf276e40a1e2a41480338a3",
+   "fy2024_identity.csv": "9d996db94774a9b7e4b450361d4d903182411cd346a3b810b99938a3ee10936c"
+  },
+  "manifest_sha256": "fb228392812a6bf0b109eacb49f9caf2f767726cf85b75856dcc793f622db657",
+  "universe_id": "task1-build-universe-v1-2026-10-25"
+ },
+ "label": "Frozen FY2024 carry-forward baseline predictions (FY2024 identity + FY2021-2023 labels). NOT scored: to be compared to the sealed FY2024 listing only when the seal is opened.",
+ "labels_read": [
+  "FY2021",
+  "FY2022",
+  "FY2023"
+ ],
+ "predictions_sha256": "b57aab61d646ca423831c209760abb4ccfe0364f910f0e249abd57b7ffbfaff5",
+ "prior_fys": [
+  2021,
+  2022,
+  2023
+ ],
+ "target_fy": 2024
+}
