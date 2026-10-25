@@ -16,6 +16,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from engine.inputs import ProjectRef, evaluation_appl_ids, load_project_refs  # noqa: E402
+from workflow.sealed import guard_build_read  # noqa: E402
 
 WORKFLOW_ID = "nitrd-workflow-skeleton-v0-2026-10-25"
 DEV_LABEL = ("DEV / not scored. Workflow skeleton run on a development slice of public RePORTER awards; "
@@ -56,12 +57,14 @@ def check_dev_refs(refs: list[ProjectRef]) -> int:
 
 
 def load_dev_refs(fixture: Path) -> tuple[list[ProjectRef], int]:
+    guard_build_read(fixture)                # never a sealed location or the FY2024 text snapshot
     refs = load_project_refs(fixture)        # identity columns only (input boundary 1)
     return refs, check_dev_refs(refs)
 
 
 def load_cache(cache: Path) -> tuple[dict[int, dict], dict[int, str]]:
     """(records, per-record snapshot sha) keyed by appl_id; same hashing as tools/load_proposals."""
+    guard_build_read(cache)
     recs, snaps = {}, {}
     for line in Path(cache).read_text(encoding="utf-8").splitlines():
         if line.strip():

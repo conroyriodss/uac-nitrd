@@ -83,6 +83,10 @@ def _cache_amounts(cache_path: Path) -> dict[int, int]:
 def build_listing(fixture: Path, cache_path: Path, amounts_path: Path | None,
                   crosscut: str = "NITRD") -> ParentListing:
     """Build a ParentListing. Amount priority: --amounts CSV > cache award_amount > 0."""
+    from workflow.sealed import guard_build_read
+    for p in (fixture, cache_path, amounts_path):
+        if p is not None:
+            guard_build_read(p)
     refs = load_project_refs(fixture)
     snaps = _snapshot_map(cache_path)
     amts = _amounts_map(amounts_path)

@@ -1,0 +1,350 @@
+{
+ "abstentions": {
+  "appl_ids": [],
+  "count": 0,
+  "rule": "title and abstract both empty in the snapshot (no_public_text, match rule s4)",
+  "title_but_no_abstract": 375
+ },
+ "authorized_by": "conroyri@nih.gov (owner, in conversation, 2026-10-25)",
+ "boundary": "workflow/sealed.py (task1-seal-boundary-v1-2026-10-25)",
+ "fiscal_year": 2024,
+ "fy2024_label_reads_before_seal": [
+  {
+   "aggregates_reported": {
+    "all_rule": {
+     "both": 2216,
+     "neither": 43100,
+     "only_fy2023": 125,
+     "only_fy2024": 162
+    },
+    "any_rule": {
+     "both": 2969,
+     "neither": 42313,
+     "only_fy2023": 148,
+     "only_fy2024": 173
+    },
+    "cores_in_both_years": 45603,
+    "fy2024_cat329_records": 4758,
+    "fy2024_mixed_cores": 840,
+    "fy2024_positive_cores_any": 4320
+   },
+   "date": "2026-10-25",
+   "entry": 1,
+   "per_project_output_saved": false,
+   "read": "FY2024 category-329 records joined to FY2023/FY2024 universes at core level",
+   "what": "2023->2024 carry-forward agreement check (owner-requested)"
+  },
+  {
+   "aggregates_reported": {
+    "fy2024_cat329_records": 4758
+   },
+   "date": "2026-10-25",
+   "entry": 2,
+   "per_project_output_saved": false,
+   "read": "FY2024 category-329 record count from the API result total",
+   "what": "Task 1 oracle reconnaissance (earlier the same day)"
+  },
+  {
+   "aggregates_reported": {
+    "filea_fy2021_23_cores_also_fy2024": 1365,
+    "filea_fy2024_appl_ids": 2281,
+    "filea_fy2024_cores": 2155
+   },
+   "date": "2026-10-25",
+   "entry": 3,
+   "per_project_output_saved": false,
+   "read": "File A FY2024 identity rows (NITRD subcategory rows, so a subset of FY2024 positives)",
+   "what": "File A selection-effect check (identity columns only)"
+  }
+ ],
+ "groups": {
+  "filea_exposed": "core appears in File A, any FY (Project Number identity column)",
+  "filea_project_numbers_unparsed": 95,
+  "filea_sha256": "fa6940d2bfa4f2445e0eaee3eadf2c173dd69d03a0552e28cb8fe09ec2488830",
+  "new": "core has no NIH record in FY2021-2023 (pinned build/universe files)",
+  "universe_pins": {
+   "fy2021.csv": "d7f7fadd03bb8cfce75ec0cf8329c232d8c3ffc89c73d4b58533baf743832abf",
+   "fy2022.csv": "5126368e4971542e6b4d3ad0f1f027a7da3af52ea83e5a4d345022c7581a4079",
+   "fy2023.csv": "d96da7b3cbb33d04eb81fa8272f3683348c7ab00acf276e40a1e2a41480338a3",
+   "fy2024_identity.csv": "9d996db94774a9b7e4b450361d4d903182411cd346a3b810b99938a3ee10936c"
+  }
+ },
+ "identity_aggregates": {
+  "core_projects": 62508,
+  "cores_by_group": {
+   "continuing|filea_exposed=0": 45279,
+   "continuing|filea_exposed=1": 1757,
+   "new|filea_exposed=0": 14777,
+   "new|filea_exposed=1": 695
+  },
+  "nih_total_at_pull": 79721,
+  "per_ic_admin": {
+   "CLC": 118,
+   "FIC": 446,
+   "NCATS": 550,
+   "NCCIH": 377,
+   "NCI": 13109,
+   "NEI": 2003,
+   "NHGRI": 799,
+   "NHLBI": 6873,
+   "NIA": 6557,
+   "NIAAA": 1366,
+   "NIAID": 8920,
+   "NIAMS": 1696,
+   "NIBIB": 1072,
+   "NICHD": 3713,
+   "NIDA": 2856,
+   "NIDCD": 1230,
+   "NIDCR": 1011,
+   "NIDDK": 5141,
+   "NIEHS": 1739,
+   "NIGMS": 8602,
+   "NIMH": 3766,
+   "NIMHD": 1094,
+   "NINDS": 5230,
+   "NINR": 351,
+   "NLM": 263,
+   "OD": 839
+  },
+  "records": 79721,
+  "vs_committed_fy2024_identity": {
+   "only_in_committed": 0,
+   "only_in_seal": 0
+  }
+ },
+ "label": "Task 1 FY2024 seal. Sealed key is off-limits except to the scoring run; the text snapshot is for the fingerprint freeze run only.",
+ "match_rule": {
+  "file": "docs/TASK1_MATCH_RULE.md",
+  "id": "nitrd-parent-match-rule-v1-2026-10-25",
+  "sha256": "154a26e4e2253aadee611c92864c184a9d10390d88bf0fd2636ad42e1a119123"
+ },
+ "repo_head_at_seal": "9181f03b1dbe9cf5c102638c12ba5d5baa97ce63",
+ "seal_id": "task1-fy2024-seal-2026-10-25T17:56:21Z",
+ "sealed_key": {
+  "aggregate_sha256": "81350a5328ceb485eb41c7095765c3a7f2d5f8f648cc7b2159610b8bf52efc02",
+  "columns": [
+   "appl_id",
+   "core_project_num",
+   "cat329",
+   "stratum",
+   "filea_exposed",
+   "record_sha256"
+  ],
+  "label_counts": "not recorded outside the sealed key",
+  "location": "sealed volume (recorded only in the sealed copy's directory)",
+  "per_record_sha256": "in the sealed key only (sha256 of the comma-joined first five columns)",
+  "pull_utc": {
+   "end": "2026-10-25T17:56:21Z",
+   "start": "2026-10-25T17:56:16Z"
+  },
+  "query": {
+   "api_calls": 11,
+   "criteria": {
+    "agencies": [
+     "NIH"
+    ],
+    "fiscal_years": [
+     2024
+    ],
+    "spending_categories": {
+     "match_all": false,
+     "values": [
+      329
+     ]
+    }
+   },
+   "include_fields": [
+    "ApplId",
+    "CoreProjectNum"
+   ]
+  },
+  "records": 79721
+ },
+ "source": "https://api.reporter.nih.gov/v2/projects/search",
+ "text_snapshot": {
+  "aggregate_rule": "sha256 of the uncompressed shard bytes concatenated in shard order",
+  "aggregate_sha256": "72bb704a4b95d8eb39d54f4035305b6091656043c87f3961504b24bf60a4160c",
+  "dir": "cache/task1_fy2024_text",
+  "fields": [
+   "appl_id",
+   "core_project_num",
+   "fiscal_year",
+   "title",
+   "abstract",
+   "public_health_relevance",
+   "record_sha256"
+  ],
+  "per_record_sha256": "record_sha256 = sha256 of the canonical JSON of the other fields",
+  "pull_utc": {
+   "end": "2026-10-25T17:56:16Z",
+   "start": "2026-10-25T17:54:08Z"
+  },
+  "query": {
+   "api_calls": 229,
+   "category_criteria_or_fields": "none",
+   "criteria": {
+    "agencies": [
+     "<one IC per partition>"
+    ],
+    "fiscal_years": [
+     2024
+    ]
+   },
+   "include_fields": [
+    "ApplId",
+    "CoreProjectNum",
+    "FiscalYear",
+    "AgencyIcAdmin",
+    "ProjectTitle",
+    "AbstractText",
+    "PhrText"
+   ],
+   "oversize_partition_split": "award_types 1-9",
+   "partition": [
+    "NCI",
+    "NEI",
+    "NHLBI",
+    "NHGRI",
+    "NIA",
+    "NIAAA",
+    "NIAID",
+    "NIAMS",
+    "NIBIB",
+    "NICHD",
+    "NIDA",
+    "NIDCD",
+    "NIDCR",
+    "NIDDK",
+    "NIEHS",
+    "NIGMS",
+    "NIMH",
+    "NIMHD",
+    "NINDS",
+    "NINR",
+    "NLM",
+    "NCCIH",
+    "NCATS",
+    "FIC",
+    "OD",
+    "CLC",
+    "CC",
+    "CIT"
+   ]
+  },
+  "records": 79721,
+  "shards": [
+   {
+    "file": "cache/task1_fy2024_text/shard_00.jsonl.gz",
+    "first_appl_id": 10228542,
+    "last_appl_id": 10762453,
+    "records": 4983,
+    "sha256": "94059480ba1aee99101784ccef20aaf84c0701bbec5e08bc6f84c57582f7eba4"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_01.jsonl.gz",
+    "first_appl_id": 10762454,
+    "last_appl_id": 10785360,
+    "records": 4983,
+    "sha256": "5e55c321ddfe7babe5d898696941db1646b113239f6ef443aadb72514ca2f927"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_02.jsonl.gz",
+    "first_appl_id": 10785367,
+    "last_appl_id": 10808464,
+    "records": 4983,
+    "sha256": "02f4940654bf652fd2ee650cece569f79a95d2622750e5eaa0033200d5847935"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_03.jsonl.gz",
+    "first_appl_id": 10808470,
+    "last_appl_id": 10824400,
+    "records": 4983,
+    "sha256": "f20b3ed2eaded1b7ba2cee8288ad00a6e495d505f1c56d35b37a40e6ff01c31e"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_04.jsonl.gz",
+    "first_appl_id": 10824401,
+    "last_appl_id": 10838916,
+    "records": 4983,
+    "sha256": "85a75747c2677047b82722cec7676a96167b15e97097a6d2cd6cc4e9b224e46a"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_05.jsonl.gz",
+    "first_appl_id": 10838922,
+    "last_appl_id": 10850965,
+    "records": 4983,
+    "sha256": "2181be614cbcaa7045e029efa362cf58cb49e306be388359a3d8ccb57c642f34"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_06.jsonl.gz",
+    "first_appl_id": 10850966,
+    "last_appl_id": 10870107,
+    "records": 4983,
+    "sha256": "029f50d29a4d949982215bbec196c65e254ddaa80ae3decd99c5d747f95b7d44"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_07.jsonl.gz",
+    "first_appl_id": 10870108,
+    "last_appl_id": 10882695,
+    "records": 4983,
+    "sha256": "5805647110fd02fa7dc05498259e7774ec281bd786675aed57a8e75450ff57af"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_08.jsonl.gz",
+    "first_appl_id": 10882696,
+    "last_appl_id": 10893616,
+    "records": 4983,
+    "sha256": "1ae1372089e3e2ab71d3d44b71b45ec4f428c4bf5eef29d16772bca0e33031cb"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_09.jsonl.gz",
+    "first_appl_id": 10893617,
+    "last_appl_id": 10904834,
+    "records": 4983,
+    "sha256": "1865672f7f33d9cb55c62b15e7cee1238182e1faaec09f57a535d6806e294595"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_10.jsonl.gz",
+    "first_appl_id": 10904835,
+    "last_appl_id": 10915427,
+    "records": 4983,
+    "sha256": "cc20acbc6d86090b73879d3b396c21373ece0d020eda28d388805cc35e85abd9"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_11.jsonl.gz",
+    "first_appl_id": 10915428,
+    "last_appl_id": 10932108,
+    "records": 4983,
+    "sha256": "74231116c659732219cf9d530ae29ab390504be072a41ae38dcb9fc6b0f032c7"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_12.jsonl.gz",
+    "first_appl_id": 10932109,
+    "last_appl_id": 10981091,
+    "records": 4983,
+    "sha256": "9bb15b4e1a712587926edf8f366fe9d05533c6fefa308d3ab26cfe145758cd66"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_13.jsonl.gz",
+    "first_appl_id": 10981093,
+    "last_appl_id": 11041824,
+    "records": 4983,
+    "sha256": "48f0b5ebfac3e8dc176618325f3b3b028b5633cafcdb8e6327a7b071df539e5b"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_14.jsonl.gz",
+    "first_appl_id": 11041826,
+    "last_appl_id": 11165452,
+    "records": 4983,
+    "sha256": "4af5126e6e96e4ff4765f2507df01be45acac8c0dd684369e55ffedc40d60d22"
+   },
+   {
+    "file": "cache/task1_fy2024_text/shard_15.jsonl.gz",
+    "first_appl_id": 11165490,
+    "last_appl_id": 11640036,
+    "records": 4976,
+    "sha256": "7003306da24b7e541e017bb0d1b165efa649d73d7188c7ab7c2845be3f8182e1"
+   }
+  ]
+ }
+}
