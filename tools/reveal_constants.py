@@ -1,12 +1,13 @@
-"""Pre-reveal record of every engine constant, input hash and output hash.
+"""Pre-reveal record of every engine constant and input hash (no output: see freeze order).
 
     python tools/reveal_constants.py --write   # regenerate docs/REVEAL_CONSTANTS.json
     python tools/reveal_constants.py --check   # exit 1 if anything differs from the committed record
 
 The record is generated, never hand-edited: every UPPERCASE module constant of engine/run.py
-(regex patterns as their source string), the sha256 of every engine input, and the sha256 of
-the engine's proposals/explanations on the fixture (run offline in a temp dir). Reads no
-sealed path and no fixture column beyond what engine/inputs.py allows.
+and engine/freeze_guard.py (regex patterns as their source string) and the sha256 of every
+engine input. It does NOT run the engine and records no output: under the owner's freeze
+order (constants committed + hashed, THEN the single engine run, THEN the reveal) output
+hashes come only from the freeze run (scripts/freeze.sh). Reads no sealed path.
 """
 from __future__ import annotations
 
@@ -14,16 +15,14 @@ import argparse
 import hashlib
 import json
 import re
-import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "docs" / "REVEAL_CONSTANTS.json"
-RECORD_ID = "reveal-constants-v1-2026-10-24"
+RECORD_ID = "reveal-constants-v2-2026-10-24"
 FIXTURE = "fixtures/UAC_Uncoded_12-01-2025-updated-NIH_ODSS.csv"
-INPUTS = ("engine/run.py", "engine/__init__.py", "engine/inputs.py",
+INPUTS = ("engine/run.py", "engine/__init__.py", "engine/inputs.py", "engine/freeze_guard.py",
           "scope/nitrd_pca_scopes_fy2025.v1.json", "cache/reporter/reporter_text.v1.jsonl", FIXTURE)
 
 
@@ -47,25 +46,20 @@ def _ser(v):
 
 def build() -> dict:
     sys.path.insert(0, str(ROOT))
-    from engine import run  # noqa: E402
-    consts = {k: _ser(getattr(run, k)) for k in sorted(vars(run))
-              if k.lstrip("_").isupper() and not k.endswith("_PATH") and k != "ROOT"}
-    with tempfile.TemporaryDirectory() as d:
-        r = subprocess.run([sys.executable, str(ROOT / "engine" / "run.py"), "--fixture", str(ROOT / FIXTURE),
-                            "--out-dir", d, "--offline"], capture_output=True, text=True)
-        if r.returncode != 0:
-            raise SystemExit(f"engine failed: {r.stderr}")
-        outs = {n: _sha(Path(d) / n) for n in ("proposals.csv", "explanations.jsonl")}
-        meta = json.loads((Path(d) / "proposals.meta.json").read_text(encoding="utf-8"))
+    from engine import freeze_guard, run  # noqa: E402
+
+    def consts(mod):
+        return {k: _ser(getattr(mod, k)) for k in sorted(vars(mod))
+                if k.lstrip("_").isupper() and not k.endswith("_PATH") and k != "ROOT"}
     return {
         "record_id": RECORD_ID,
-        "vocabulary": meta["vocabulary"],
-        "synonyms_added": meta["synonyms_added"],
+        "vocabulary": run.VOCABULARY_ID,
         "synonyms_path": None if run.SYNONYMS_PATH is None else str(run.SYNONYMS_PATH),
         "decision_record": "docs/SYNONYM_DERIVATION.md (Decision 2026-10-24)",
-        "constants": consts,
+        "freeze_order": "constants committed + hashed -> single engine run (scripts/freeze.sh) -> reveal",
+        "constants": consts(run),
+        "freeze_guard_constants": consts(freeze_guard),
         "input_sha256": {p: _sha(ROOT / p) for p in INPUTS},
-        "output_sha256_on_fixture": outs,
     }
 
 

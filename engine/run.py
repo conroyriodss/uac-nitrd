@@ -24,7 +24,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from engine import write_meta  # noqa: E402
-from engine.inputs import load_project_refs  # noqa: E402
+from engine.inputs import evaluation_appl_ids, load_project_refs  # noqa: E402
+from engine import freeze_guard  # noqa: E402
 
 # --------------------------------------------------------------------------- constants
 SCOPE_PATH = ROOT / "scope" / "nitrd_pca_scopes_fy2025.v1.json"
@@ -357,6 +358,15 @@ def main(argv=None) -> int:
 
     # Load inputs
     refs = load_project_refs(a.fixture)
+    # freeze-guard-v1: refuse the evaluation projects outside the freeze run, before anything is computed
+    ids, eval_ids = {r.appl_id for r in refs}, evaluation_appl_ids()
+    problems = freeze_guard.check(ids, eval_ids)
+    if not problems and freeze_guard.touches(ids, eval_ids) and (
+            a.scope.resolve() != SCOPE_PATH.resolve() or a.cache.resolve() != CACHE_PATH.resolve()):
+        problems = ["evaluation projects must use the committed scope and cache, not --scope/--cache"]
+    if problems:
+        print(f"REFUSED ({freeze_guard.GUARD_ID}): " + " | ".join(problems), file=sys.stderr)
+        return freeze_guard.GUARD_EXIT
     scope_data = json.loads(a.scope.read_text(encoding="utf-8"))
     scope_sha = hashlib.sha256(a.scope.read_bytes()).hexdigest()
     vocab = _build_vocabulary(scope_data["scopes"], scope_data.get("cross_pca_guidance", {}))

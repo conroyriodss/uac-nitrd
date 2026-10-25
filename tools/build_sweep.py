@@ -69,6 +69,7 @@ MODEL_OR_NET_RE = re.compile(
     r"^\s*(?:import|from)\s+(?:openai|anthropic|langchain\w*|litellm|transformers|vllm|mlflow|"
     r"databricks(?:\.sdk)?|requests|httpx|aiohttp|urllib3?|http\.client|socket)\b", re.MULTILINE)
 ENGINE_OUTPUTS = ("proposals.csv", "explanations.jsonl")
+GUARD_EXIT = 3  # engine/freeze_guard.py: refused, evaluation projects outside the freeze run
 OUTPUT_LABEL = ("ASSIST PROPOSAL FOR SME REVIEW. Not a reproduction of the official UAC method "
                 "(no UAC fingerprints exist). The 'most specific PCA' rule is NITRD's published "
                 "guidance applied to project text, not a claim of official correctness.")
@@ -232,6 +233,10 @@ def _scramble_proof(tree: Path, fixture: Path, freeze: bool, frozen: Path | None
         rc_a, err_a = _run_engine(tree, fixture, td / "A")
         rc_b, err_b = _run_engine(tree, scr, td / "B")
         res = {"seed": seed, **info, "engine_exit_A": rc_a, "engine_exit_B": rc_b, "method_id": ENGINE_METHOD_ID}
+        if GUARD_EXIT in (rc_a, rc_b) and not freeze:
+            # freeze-guard-v1: the engine refuses the evaluation projects outside the freeze run.
+            # Expected during the build; S8 on the real engine runs only inside scripts/freeze.sh.
+            return {"status": "GUARDED", **res, "detail": f"engine refused the evaluation projects: {err_a or err_b}"}
         missing = [f"{s}/{n}" for s in ("A", "B") for n in ENGINE_OUTPUTS if not (td / s / n).is_file()]
         if rc_a or rc_b or missing:
             return {"status": "FAIL", **res, "missing_outputs": missing,
