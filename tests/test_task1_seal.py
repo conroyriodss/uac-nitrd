@@ -95,6 +95,13 @@ def test_no_repo_file_is_or_carries_the_sealed_key():
                     assert all(row.get("fy") != "2024" for row in r), f"{p}: FY2024 rows with a label column"
 
 
+def test_record_splitting_survives_unicode_line_separators():
+    # Regression: str.splitlines() split abstracts containing U+2028 / U+0085 and broke the freeze-mode read.
+    recs = [{"appl_id": 1, "abstract": "a\u2028b\x85c\x1cd\u2029e"}, {"appl_id": 2, "abstract": "plain"}]
+    raw = ("\n".join(sealed.canonical(r) for r in recs) + "\n").encode("utf-8")
+    assert list(sealed.iter_records(raw)) == recs
+
+
 def test_only_the_boundary_module_names_the_text_snapshot():
     hits = [p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*.py")
             if "tests" not in p.relative_to(ROOT).parts and "task1_fy2024_text" in p.read_text(encoding="utf-8")]
