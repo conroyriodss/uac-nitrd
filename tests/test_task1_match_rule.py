@@ -1,4 +1,5 @@
 """The committed Task 1 match rule stays pinned to its inputs, and the baseline agrees with its definitions."""
+import collections
 import csv
 import json
 import re
@@ -81,3 +82,48 @@ def test_v2_rule67_identity_count_matches_the_committed_universe():
         sel = [r for r in csv.DictReader(f) if r["core_project_num"][:3] in RULE67]
     assert (len(sel), len({r["core_project_num"] for r in sel})) == (10, 9)
     assert "10 records in 9 cores, all G08" in RULE_V2.read_text(encoding="utf-8")
+
+
+# ---- v3 (supersedes v1 and v2 for scoring) ----
+RULE_V3 = ROOT / "docs" / "TASK1_MATCH_RULE_v3.md"
+RULE_V3_ID = "nitrd-parent-match-rule-v3-2026-10-25"
+RULE_V3_SHA256 = "5f31cadecfa514f2478336c333e1ba0941dae5cac476ec0d3d96030fc2ae0a99"
+
+
+def rcdc_view_keep(row: dict) -> bool:
+    """Section 2 RCDC-view filter, exactly as written in v3 (identity columns only)."""
+    a = row["core_project_num"][:3]
+    contract = a == "75N" or a.startswith("HHS") or bool(re.match(r"^N\d\d$", a)) or a[:1].isdigit()
+    return not row["subproject_id"] and not a.startswith("Z") and not contract and not a.startswith("OT")
+
+
+def test_v3_is_the_committed_version_and_supersedes_v1_v2():
+    text = RULE_V3.read_text(encoding="utf-8")
+    assert text.splitlines()[0] == f"# Task 1 match rule: `{RULE_V3_ID}`"
+    assert sha256(RULE_V3) == RULE_V3_SHA256
+    assert RULE_SHA256 in text and RULE_V2_SHA256 in text
+    assert sha256(RULE) == RULE_SHA256 and sha256(RULE_V2) == RULE_V2_SHA256      # superseded files untouched
+
+
+def test_v3_pins_match_the_files():
+    pins = dict(re.findall(r"^\| `([^`]+)`[^|]*\| `([0-9a-f]{64})` \|$", RULE_V3.read_text(encoding="utf-8"), re.M))
+    assert len(pins) == 9
+    for rel, want in pins.items():
+        assert sha256(ROOT / rel) == want, rel
+
+
+def test_v3_rcdc_view_filter_reproduces_the_stated_fy2023_counts():
+    with (ROOT / "build" / "universe" / "fy2023.csv").open(newline="") as f:
+        pos = [r for r in csv.DictReader(f) if r["cat329"] == "1"]            # build-year labels
+    kept = [r for r in pos if rcdc_view_keep(r)]
+    assert (len(pos), len({r["core_project_num"] for r in pos})) == (4583, 4104)
+    assert (len(kept), len({r["core_project_num"] for r in kept})) == (3407, 3241)
+    assert "3,407 records in 3,241 cores" in RULE_V3.read_text(encoding="utf-8")
+
+
+def test_v3_uac_worklist_spans_instruments_outside_the_rcdc_view():
+    with (ROOT / "fixtures" / "UAC_Uncoded_12-01-2025-updated-NIH_ODSS.csv").open(newline="", encoding="utf-8-sig") as f:
+        fx = list(csv.DictReader(f))
+    cls = collections.Counter(r["Class Code"] for r in fx)
+    assert (cls["C"], cls["M"], cls["O"], cls["I"]) == (15, 9, 45, 1)
+    assert sum(bool(r["SubProj"].strip()) for r in fx) == 81
