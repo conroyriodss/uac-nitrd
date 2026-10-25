@@ -127,3 +127,37 @@ def test_v3_uac_worklist_spans_instruments_outside_the_rcdc_view():
     cls = collections.Counter(r["Class Code"] for r in fx)
     assert (cls["C"], cls["M"], cls["O"], cls["I"]) == (15, 9, 45, 1)
     assert sum(bool(r["SubProj"].strip()) for r in fx) == 81
+
+
+# ---- FY2024 amounts (v3 section 10: committed with or before the scorer; label-free) ----
+AMOUNTS = ROOT / "build" / "amounts" / "fy2024_amounts.v1.csv"
+AMOUNTS_SHA256 = "090397b3a3822e5fb45a190a7c3b33553fddfcec6a7f798092aac43e8dbefae8"
+AMOUNTS_MANIFEST = AMOUNTS.with_name("fy2024_amounts.v1.manifest.json")
+
+
+def test_fy2024_amounts_pinned_label_free_and_cover_the_sealed_universe():
+    assert sha256(AMOUNTS) == AMOUNTS_SHA256
+    m = json.loads(AMOUNTS_MANIFEST.read_text())
+    assert m["output"]["sha256"] == AMOUNTS_SHA256
+    assert m["labels_requested"] is False and m["text_requested"] is False
+    assert m["request"]["include_fields"] == ["ApplId", "AwardAmount"]
+    assert set(m["request"]["criteria_keys"]) == {"agencies", "fiscal_years"}
+    with AMOUNTS.open(newline="") as f:
+        rd = csv.DictReader(f)
+        assert rd.fieldnames == ["appl_id", "award_amount"]          # no label or text column
+        ids = [int(r["appl_id"]) for r in rd]
+    with (ROOT / "build" / "universe" / "fy2024_identity.csv").open(newline="") as f:
+        sealed = {int(r["appl_id"]) for r in csv.DictReader(f)}
+    assert ids == sorted(sealed)
+
+
+def test_amounts_tool_refuses_label_or_text_requests():
+    import pytest
+    sys.path.insert(0, str(ROOT / "tools"))
+    import pull_fy2024_amounts as p
+    for bad in ({"criteria": {"fiscal_years": [2024], "spending_categories": {"values": [329]}},
+                 "include_fields": ["ApplId", "AwardAmount"]},
+                {"criteria": {"fiscal_years": [2024]}, "include_fields": ["ApplId", "AwardAmount", "SpendingCategories"]},
+                {"criteria": {"fiscal_years": [2024]}, "include_fields": ["ApplId", "AbstractText"]}):
+        with pytest.raises(SystemExit):
+            p.check_body(bad)

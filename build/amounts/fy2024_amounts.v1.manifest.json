@@ -1,0 +1,92 @@
+{
+ "amounts_id": "fy2024-amounts-v1-2026-10-25",
+ "fiscal_year": 2024,
+ "labels_requested": false,
+ "null_award_amount": 9,
+ "output": {
+  "path": "build/amounts/fy2024_amounts.v1.csv",
+  "sha256": "090397b3a3822e5fb45a190a7c3b33553fddfcec6a7f798092aac43e8dbefae8"
+ },
+ "per_ic_totals": {
+  "CLC": 118,
+  "FIC": 446,
+  "NCATS": 550,
+  "NCCIH": 377,
+  "NCI": 13109,
+  "NEI": 2003,
+  "NHGRI": 799,
+  "NHLBI": 6873,
+  "NIA": 6557,
+  "NIAAA": 1366,
+  "NIAID": 8920,
+  "NIAMS": 1696,
+  "NIBIB": 1072,
+  "NICHD": 3714,
+  "NIDA": 2856,
+  "NIDCD": 1231,
+  "NIDCR": 1011,
+  "NIDDK": 5141,
+  "NIEHS": 1739,
+  "NIGMS": 8602,
+  "NIMH": 3766,
+  "NIMHD": 1094,
+  "NINDS": 5230,
+  "NINR": 351,
+  "NLM": 263,
+  "OD": 839
+ },
+ "pulled_at_utc": "2026-10-25T21:32:54+00:00",
+ "purpose": "dollar-weighted precision/recall, nitrd-parent-match-rule-v3 section 6",
+ "reporter_added_after_seal_dropped": 2,
+ "reporter_records_returned": 79723,
+ "request": {
+  "criteria_keys": [
+   "agencies",
+   "fiscal_years"
+  ],
+  "ics": [
+   "NCI",
+   "NHLBI",
+   "NIAID",
+   "NIGMS",
+   "NIDDK",
+   "NINDS",
+   "NIMH",
+   "NICHD",
+   "NIA",
+   "NIEHS",
+   "NIDA",
+   "NEI",
+   "NIAMS",
+   "NIAAA",
+   "NIDCD",
+   "NIDCR",
+   "NHGRI",
+   "NIBIB",
+   "NIMHD",
+   "NINR",
+   "NLM",
+   "NCATS",
+   "NCCIH",
+   "FIC",
+   "OD",
+   "CLC"
+  ],
+  "include_fields": [
+   "ApplId",
+   "AwardAmount"
+  ],
+  "partition": "agencies, one IC per request"
+ },
+ "rows": 79721,
+ "source": "https://api.reporter.nih.gov/v2/projects/search",
+ "sum_award_amount": 47167811504,
+ "text_requested": false,
+ "universe": {
+  "appl_ids": 79721,
+  "filter": "full sealed FY2024 universe (all instruments, all subprojects); not the RCDC view",
+  "path": "build/universe/fy2024_identity.csv",
+  "sha256": "9d996db94774a9b7e4b450361d4d903182411cd346a3b810b99938a3ee10936c"
+ },
+ "zero_award_amount": 117
+}
