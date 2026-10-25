@@ -20,11 +20,13 @@ import math
 from pathlib import Path
 
 from workflow.common import RESERVED_FYS, DevBoundaryError
+from workflow.sealed import guard_build_read
 
 BASELINE_ID = "carry-forward-v1-2026-10-25"
 
 
 def load_universe(path: Path) -> list[dict]:
+    guard_build_read(path)
     with Path(path).open(newline="", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
     for r in rows:

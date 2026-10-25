@@ -22,9 +22,12 @@ def _tree(tmp_path, extra=None):
     t = tmp_path / "repo"
     # Test trees start from the pre-freeze state: the frozen engine outputs in proposals/
     # (tag uac-nitrd-freeze-v1) are NOT copied, so each test controls its own proposals and meta.
+    # The 92 MB Task 1 FY2024 text snapshot is irrelevant to S1-S9 and is not copied either
+    # (copying and guard-scanning it in every test tree made the suite exceed its time budget).
     shutil.copytree(ROOT, t, ignore=shutil.ignore_patterns(
         ".git", "__pycache__", ".pytest_cache",
-        "proposals.csv", "explanations.jsonl", "proposals.meta.json", "FREEZE_SWEEP.json"))
+        "proposals.csv", "explanations.jsonl", "proposals.meta.json", "FREEZE_SWEEP.json",
+        "task1_fy2024_text"))
     for rel, text in (extra or {}).items():
         (t / rel).parent.mkdir(parents=True, exist_ok=True)
         (t / rel).write_text(text)
