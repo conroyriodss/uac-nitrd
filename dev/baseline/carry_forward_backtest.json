@@ -1,0 +1,251 @@
+{
+ "backtests": {
+  "FY2022<-FY2021": {
+   "appl": {
+    "all": {
+     "fn": 1534,
+     "fp": 4780,
+     "n": 80247,
+     "positives": 4247,
+     "precision": 0.3621,
+     "precision_ci95": [
+      0.3513,
+      0.373
+     ],
+     "recall": 0.6388,
+     "recall_ci95": [
+      0.6242,
+      0.6531
+     ],
+     "tn": 71220,
+     "tp": 2713
+    },
+    "continuing": {
+     "fn": 232,
+     "fp": 4780,
+     "n": 60078,
+     "positives": 2945,
+     "precision": 0.3621,
+     "precision_ci95": [
+      0.3513,
+      0.373
+     ],
+     "recall": 0.9212,
+     "recall_ci95": [
+      0.9109,
+      0.9304
+     ],
+     "tn": 52353,
+     "tp": 2713
+    },
+    "new": {
+     "fn": 1302,
+     "fp": 0,
+     "n": 20169,
+     "positives": 1302,
+     "precision": null,
+     "precision_ci95": null,
+     "recall": 0.0,
+     "recall_ci95": [
+      0.0,
+      0.0029
+     ],
+     "tn": 18867,
+     "tp": 0
+    }
+   },
+   "continuing_core_flips": {
+    "baseline_correct_on_flips": 0,
+    "entered_329": 206,
+    "left_329": 173,
+    "n": 379
+   },
+   "core": {
+    "all": {
+     "fn": 1436,
+     "fp": 173,
+     "n": 62548,
+     "positives": 3787,
+     "precision": 0.9315,
+     "precision_ci95": [
+      0.9209,
+      0.9407
+     ],
+     "recall": 0.6208,
+     "recall_ci95": [
+      0.6052,
+      0.6361
+     ],
+     "tn": 58588,
+     "tp": 2351
+    },
+    "continuing": {
+     "fn": 206,
+     "fp": 173,
+     "n": 44641,
+     "positives": 2557,
+     "precision": 0.9315,
+     "precision_ci95": [
+      0.9209,
+      0.9407
+     ],
+     "recall": 0.9194,
+     "recall_ci95": [
+      0.9082,
+      0.9294
+     ],
+     "tn": 41911,
+     "tp": 2351
+    },
+    "new": {
+     "fn": 1230,
+     "fp": 0,
+     "n": 17907,
+     "positives": 1230,
+     "precision": null,
+     "precision_ci95": null,
+     "recall": 0.0,
+     "recall_ci95": [
+      0.0,
+      0.0031
+     ],
+     "tn": 16677,
+     "tp": 0
+    }
+   },
+   "source_fy_mix": {
+    "2021": 44641
+   }
+  },
+  "FY2023<-FY2021-2022": {
+   "appl": {
+    "all": {
+     "fn": 1352,
+     "fp": 5246,
+     "n": 81330,
+     "positives": 4583,
+     "precision": 0.3811,
+     "precision_ci95": [
+      0.3709,
+      0.3915
+     ],
+     "recall": 0.705,
+     "recall_ci95": [
+      0.6916,
+      0.718
+     ],
+     "tn": 71501,
+     "tp": 3231
+    },
+    "continuing": {
+     "fn": 273,
+     "fp": 5246,
+     "n": 63138,
+     "positives": 3504,
+     "precision": 0.3811,
+     "precision_ci95": [
+      0.3709,
+      0.3915
+     ],
+     "recall": 0.9221,
+     "recall_ci95": [
+      0.9127,
+      0.9305
+     ],
+     "tn": 54388,
+     "tp": 3231
+    },
+    "new": {
+     "fn": 1079,
+     "fp": 0,
+     "n": 18192,
+     "positives": 1079,
+     "precision": null,
+     "precision_ci95": null,
+     "recall": 0.0,
+     "recall_ci95": [
+      0.0,
+      0.0035
+     ],
+     "tn": 17113,
+     "tp": 0
+    }
+   },
+   "continuing_core_flips": {
+    "baseline_correct_on_flips": 0,
+    "entered_329": 262,
+    "left_329": 174,
+    "n": 436
+   },
+   "core": {
+    "all": {
+     "fn": 1296,
+     "fp": 174,
+     "n": 62924,
+     "positives": 4104,
+     "precision": 0.9416,
+     "precision_ci95": [
+      0.9327,
+      0.9495
+     ],
+     "recall": 0.6842,
+     "recall_ci95": [
+      0.6698,
+      0.6983
+     ],
+     "tn": 58646,
+     "tp": 2808
+    },
+    "continuing": {
+     "fn": 262,
+     "fp": 174,
+     "n": 46463,
+     "positives": 3070,
+     "precision": 0.9416,
+     "precision_ci95": [
+      0.9327,
+      0.9495
+     ],
+     "recall": 0.9147,
+     "recall_ci95": [
+      0.9042,
+      0.924
+     ],
+     "tn": 43219,
+     "tp": 2808
+    },
+    "new": {
+     "fn": 1034,
+     "fp": 0,
+     "n": 16461,
+     "positives": 1034,
+     "precision": null,
+     "precision_ci95": null,
+     "recall": 0.0,
+     "recall_ci95": [
+      0.0,
+      0.0037
+     ],
+     "tn": 15427,
+     "tp": 0
+    }
+   },
+   "source_fy_mix": {
+    "2021": 1203,
+    "2022": 45260
+   }
+  }
+ },
+ "baseline_id": "carry-forward-v1-2026-10-25",
+ "inputs": {
+  "files": {
+   "fy2021.csv": "d7f7fadd03bb8cfce75ec0cf8329c232d8c3ffc89c73d4b58533baf743832abf",
+   "fy2022.csv": "5126368e4971542e6b4d3ad0f1f027a7da3af52ea83e5a4d345022c7581a4079",
+   "fy2023.csv": "d96da7b3cbb33d04eb81fa8272f3683348c7ab00acf276e40a1e2a41480338a3",
+   "fy2024_identity.csv": "9d996db94774a9b7e4b450361d4d903182411cd346a3b810b99938a3ee10936c"
+  },
+  "manifest_sha256": "fb228392812a6bf0b109eacb49f9caf2f767726cf85b75856dcc793f622db657",
+  "universe_id": "task1-build-universe-v1-2026-10-25"
+ },
+ "label": "DEV / not scored. Carry-forward baseline backtested inside the FY2021-2023 build window only; no FY2024 label was read."
+}
