@@ -1,12 +1,16 @@
-"""Shortlist file contract for the Task 1 scorer (nitrd-parent-match-rule-v3-2026-10-25, section 5).
+"""Shortlist file contract for the Task 1 scorer (nitrd-parent-match-rule-v4-2026-10-25, section 5).
+
+v4 is the scoring rule (seal-log line 30). v4 section 5 differs from v3 section 5 only in its last bullet
+("the seal log not recording the supersession to v4"); that is a seal-log check done by the scorer, not
+a property of the shortlist file, so the checks below are unchanged from the v3 version (4dec201).
 
 The scorer MUST call validate_shortlist() before computing anything; any ShortlistContractError is a
-STOP (no score). Enforced, exactly as v3 section 5 states:
+STOP (no score). Enforced, exactly as v4 section 5 states:
 
 * columns exactly: appl_id, decision, score, reason
 * exactly one row per appl_id in the universe U (no extra, missing or duplicate appl_ids)
 * decision in {candidate, not_candidate, abstain}
-* score present and a finite real number on EVERY row (v3 requires it for all rows, not only
+* score present and a finite real number on EVERY row (v4 requires it for all rows, not only
   candidates; higher = more candidate-like). Ranking for the SME-effort metric uses candidates' scores.
 * abstain only with reason no_public_text, and only on an appl_id whose sealed text has neither title
   nor abstract (the caller passes that set; the seal froze 0 such records)
@@ -18,14 +22,14 @@ import math
 from pathlib import Path
 
 CONTRACT_ID = "task1-shortlist-contract-v1-2026-10-25"
-RULE_ID = "nitrd-parent-match-rule-v3-2026-10-25"
+RULE_ID = "nitrd-parent-match-rule-v4-2026-10-25"
 COLUMNS = ["appl_id", "decision", "score", "reason"]
 DECISIONS = {"candidate", "not_candidate", "abstain"}
 ABSTAIN_REASON = "no_public_text"
 
 
 class ShortlistContractError(ValueError):
-    """The shortlist file violates v3 section 5; the scorer must STOP."""
+    """The shortlist file violates v4 section 5; the scorer must STOP."""
 
 
 def _score(raw: str, appl_id: str) -> float:
