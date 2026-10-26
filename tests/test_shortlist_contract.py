@@ -1,4 +1,4 @@
-"""The Task 1 shortlist contract (v3 section 5) rejects any file the scorer must not score.
+"""The Task 1 shortlist contract (v4 section 5) rejects any file the scorer must not score.
 
 Synthetic appl_ids only (no sealed data, no labels).
 """
@@ -47,7 +47,7 @@ def test_valid_shortlist_passes(tmp_path):
     _with(1, score="high"),             # not a number
     _with(0, score="nan"),              # not finite
     _with(1, score="inf"),
-    _with(2, score=""),                 # v3 requires a score on not_candidate rows too
+    _with(2, score=""),                 # v4 (as v3) requires a score on not_candidate rows too
     _with(3, score=""),                 # ... and on abstain rows
 ], ids=["candidate-missing", "candidate-text", "nan", "inf", "not_candidate-missing", "abstain-missing"])
 def test_score_required_and_finite_on_every_row(tmp_path, rows):
@@ -68,6 +68,25 @@ def test_missing_score_column_refused(tmp_path):
     (_with(3, reason="low confidence"), "no_public_text"),
     (_with(2, decision="abstain", reason="no_public_text"), "has public text"),
 ], ids=["missing", "duplicate", "outside-U", "bad-decision", "abstain-reason", "abstain-with-text"])
-def test_other_v3_stop_conditions(tmp_path, rows, match):
+def test_other_section5_stop_conditions(tmp_path, rows, match):
     with pytest.raises(ShortlistContractError, match=match):
         validate_shortlist(_write(tmp_path, rows), U, NO_TEXT)
+
+
+def test_contract_targets_v4_and_section5_change_is_seal_log_only():
+    """RULE_ID is v4; v3 -> v4 section 5 differs only in the seal-log supersession bullet (scorer's job)."""
+    import re
+    from workflow import shortlist_contract as sc
+    assert sc.RULE_ID == "nitrd-parent-match-rule-v4-2026-10-25"
+
+    def sec5(name):
+        t = (ROOT / "docs" / name).read_text()
+        m = re.search(r"(?ms)^## 5\. .*?(?=^## 6\. )", t)
+        assert m, name
+        return m.group(0).splitlines()
+
+    v3, v4 = sec5("TASK1_MATCH_RULE_v3.md"), sec5("TASK1_MATCH_RULE_v4.md")
+    diff = [(a, b) for a, b in zip(v3, v4) if a != b]
+    assert len(v3) == len(v4) and diff == [
+        ("  * the seal log not recording the supersession to v3.",
+         "  * the seal log not recording the supersession to v4.")]
