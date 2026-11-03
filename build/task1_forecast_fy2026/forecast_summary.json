@@ -1,0 +1,38 @@
+{
+ "count_forecast": {
+  "formula": "(1 - u2021) x r2021 x sum(score) over the FY2026 universe snapshot",
+  "r2021": 1.2301397248544628,
+  "sum_scores": 2917.8585737689255,
+  "u2021": 0.07345340393823128,
+  "value": 3325.7
+ },
+ "fingerprint_id": "task1-fingerprint-v1",
+ "forecast_csv_sha256": "b0b42f78a6041425395625c39f4062bc728c29c3658f8df63c31919ac23bca2a",
+ "forecast_id": "task1-forecast-fy2026-v1",
+ "fy": 2026,
+ "k": 6526,
+ "model_sha256": "b703083d8a122015071bdf9c7035f2b5e3375b6dae3fdcc42e847f46b49049ce",
+ "secondary_k": {
+  "1x_prevalence": 2444,
+  "2x_prevalence": 4887,
+  "3x_prevalence": 7330
+ },
+ "seed": {
+  "pull_utc": {
+   "end": "2026-11-03T15:08:27Z",
+   "start": "2026-11-03T15:05:53Z"
+  },
+  "records": 67665,
+  "sha256_gz": "454d6c31141ae678064fcc1ca936d158b3fe8ea7c4b30b8dc2ac48fd5c828a10"
+ },
+ "shortlist_fraction": 0.11548340045026477,
+ "universe": 56508,
+ "universe_drops": {
+  "1_subproject": 10060,
+  "2_contract": 896,
+  "2_other_transaction": 201,
+  "in_universe": 56508
+ },
+ "universe_rule": "task1-universe-qvr-recon-v1",
+ "written_utc": "2026-11-03T15:46:47Z"
+}

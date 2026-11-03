@@ -1,0 +1,14 @@
+{
+ "calibrated_on": "FY2021 out-of-fold, recall 0.95",
+ "fingerprint_id": "task1-fingerprint-v1",
+ "k_formula": "ceil(shortlist_fraction x universe size)",
+ "model_sha256": "b703083d8a122015071bdf9c7035f2b5e3375b6dae3fdcc42e847f46b49049ce",
+ "order": "model score descending, ties by appl_id ascending",
+ "secondary_fractions": {
+  "1x_prevalence": 0.043234930399213625,
+  "2x_prevalence": 0.08646986079842725,
+  "3x_prevalence": 0.1297047911976409
+ },
+ "shortlist_fraction": 0.11548340045026477,
+ "universe_rule": "task1-universe-qvr-recon-v1"
+}
