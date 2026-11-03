@@ -9,6 +9,29 @@ The Databricks working copy lives at `/Workspace/Users/conroyri@nih.gov/entry2-u
 That is a local folder path, not a second repo. No GitHub repo named `entry2-uac-nitrd`
 exists, and none should be created.
 
+Part of a three-repository submission; the primary repository is
+[nitrd-categorization-mcp](https://github.com/conroyriodss/nitrd-categorization-mcp), and the witness
+records are in [uac-witness](https://github.com/conroyriodss/uac-witness).
+
+## Verifying the blind evaluation from the repositories alone
+
+The held-out answer keys live in a sealed Databricks volume that reviewers cannot see. What makes the
+blind evaluation checkable anyway is a chain of hashes and timestamps in public repositories:
+the key's hash is published before the predictions exist, the predictions are committed before the key
+is opened, and the key published after scoring must match the hash.
+
+| Link | Where (public) | Status |
+| --- | --- | --- |
+| 1. Key sealed, hash published | Task 1 FY2024 key: `docs/seal/task1_fy2024_seal_manifest.json` (commit `1b08644`, 2026-10-25), key sha256 `81350a53...`; the same hash and the seal-log hash (`b1abcd7f...`, 31 lines) in [uac-witness `records/0002`](https://github.com/conroyriodss/uac-witness/blob/main/records/0002-post-amendment-lines-29-31.json) | done |
+| 2. Build could not read the key | `workflow/build_guard.py` + `tests/test_build_guard.py` (run in CI); `build/task1_fingerprint_v1/READ_MANIFEST.json` lists every file the build opened, with sha256: only the FY2019-2021 public RePORTER fetches | done (`881bd77`) |
+| 3. Fingerprint reproducible | `tools/fetch_task1_text.py` then `tools/build_fingerprint_v1.py` reproduce `model.json.gz` sha256 `b703083d...` from inputs whose sha256 is in the READ_MANIFEST (checked byte-identical 2026-11-03). The four seed fetches (74-86 MB each) are not in git; RePORTER changes over time, so a fresh fetch can differ from them | done; seed files not yet published |
+| 4. FY2026 forecast before any FY2026 NITRD membership is public | `build/task1_forecast_fy2026/` (award-level ranking and shortlist, count forecast), pushed 2026-11-03 while public RePORTER showed 0 FY2026 category-329 records | done (`881bd77`) |
+| 5. Pre-registration frozen | `docs/TASK1_PREREGISTRATION.md` with its sha256 and the pinned artifact hashes, committed, then recorded as the next `uac-witness` record | pending (target 2026-11-07) |
+| 6. Reveal | key opened once by the scoring run; published key must hash to link 1; metrics recomputed from committed predictions + published key | after the freeze |
+
+Timestamps: git commit dates are set by the committer. GitHub's server-side push records for this
+repository and `uac-witness` are the independent record of when each link appeared.
+
 ## Layout
 
 | Path | What it is |
