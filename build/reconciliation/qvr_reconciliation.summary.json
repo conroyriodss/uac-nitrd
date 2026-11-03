@@ -1,0 +1,132 @@
+{
+ "by_fy": {
+  "2021": {
+   "all_nih": {
+    "0_start": 79126,
+    "1_drop_subprojects": 67695,
+    "2_keep_extramural_grants": 63074,
+    "3_contact_pi_only": 63074,
+    "4_status_awarded": 63074,
+    "X_core_dedup_not_applied": 57687,
+    "dropped_step2_by_class": {
+     "contract": 1313,
+     "interagency": 0,
+     "intramural": 3151,
+     "other_transaction": 157
+    }
+   },
+   "nitrd_cat329": {
+    "0_start": 3764,
+    "1_drop_subprojects": 2922,
+    "2_keep_extramural_grants": 2727,
+    "3_contact_pi_only": 2727,
+    "4_status_awarded": 2727,
+    "X_core_dedup_not_applied": 2489,
+    "diff_vs_qvr_final": 12,
+    "dropped_step2_by_class": {
+     "contract": 75,
+     "interagency": 0,
+     "intramural": 106,
+     "other_transaction": 14
+    },
+    "pct_vs_qvr_final": 0.0044,
+    "pct_vs_qvr_if_core_dedup": -0.0832,
+    "qvr": 2715,
+    "within_tolerance": true
+   }
+  },
+  "2022": {
+   "all_nih": {
+    "0_start": 80247,
+    "1_drop_subprojects": 68986,
+    "2_keep_extramural_grants": 64313,
+    "3_contact_pi_only": 64313,
+    "4_status_awarded": 64313,
+    "X_core_dedup_not_applied": 59044,
+    "dropped_step2_by_class": {
+     "contract": 1345,
+     "interagency": 0,
+     "intramural": 3132,
+     "other_transaction": 196
+    }
+   },
+   "nitrd_cat329": {
+    "0_start": 4247,
+    "1_drop_subprojects": 3350,
+    "2_keep_extramural_grants": 3115,
+    "3_contact_pi_only": 3115,
+    "4_status_awarded": 3115,
+    "X_core_dedup_not_applied": 2884,
+    "diff_vs_qvr_final": 4,
+    "dropped_step2_by_class": {
+     "contract": 72,
+     "interagency": 0,
+     "intramural": 116,
+     "other_transaction": 47
+    },
+    "pct_vs_qvr_final": 0.0013,
+    "pct_vs_qvr_if_core_dedup": -0.073,
+    "qvr": 3111,
+    "within_tolerance": true
+   }
+  },
+  "2023": {
+   "all_nih": {
+    "0_start": 81330,
+    "1_drop_subprojects": 69986,
+    "2_keep_extramural_grants": 65369,
+    "3_contact_pi_only": 65369,
+    "4_status_awarded": 65369,
+    "X_core_dedup_not_applied": 59505,
+    "dropped_step2_by_class": {
+     "contract": 1366,
+     "interagency": 0,
+     "intramural": 3042,
+     "other_transaction": 209
+    }
+   },
+   "nitrd_cat329": {
+    "0_start": 4583,
+    "1_drop_subprojects": 3650,
+    "2_keep_extramural_grants": 3407,
+    "3_contact_pi_only": 3407,
+    "4_status_awarded": 3407,
+    "X_core_dedup_not_applied": 3157,
+    "diff_vs_qvr_final": 4,
+    "dropped_step2_by_class": {
+     "contract": 74,
+     "interagency": 0,
+     "intramural": 127,
+     "other_transaction": 42
+    },
+    "pct_vs_qvr_final": 0.0012,
+    "pct_vs_qvr_if_core_dedup": -0.0723,
+    "qvr": 3403,
+    "within_tolerance": true
+   }
+  }
+ },
+ "crosswalk": {
+  "path": "build/reconciliation/qvr_crosswalk_fy2021_2023.csv",
+  "rows": 240703,
+  "sha256": "dd5b46a2c5920cd21e882fa83fdf2edfb2a2b38363985b0e6c50921ef513feaf"
+ },
+ "non_grant_rules": {
+  "contract": "75N | HHS... | N + 2 digits | starts with a digit (legacy contract numbers)",
+  "interagency": "Y + 2 digits",
+  "intramural": "Z..",
+  "other_transaction": "OT."
+ },
+ "qvr_targets": {
+  "2021": 2715,
+  "2022": 3111,
+  "2023": 3403
+ },
+ "recon_id": "qvr-reconcile-v1-2026-10-25",
+ "tolerance": 0.03,
+ "universe_pins": {
+  "fy2021.csv": "d7f7fadd03bb8cfce75ec0cf8329c232d8c3ffc89c73d4b58533baf743832abf",
+  "fy2022.csv": "5126368e4971542e6b4d3ad0f1f027a7da3af52ea83e5a4d345022c7581a4079",
+  "fy2023.csv": "d96da7b3cbb33d04eb81fa8272f3683348c7ab00acf276e40a1e2a41480338a3"
+ }
+}
