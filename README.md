@@ -22,15 +22,38 @@ is opened, and the key published after scoring must match the hash.
 
 | Link | Where (public) | Status |
 | --- | --- | --- |
-| 1. Key sealed, hash published | Task 1 FY2024 key: `docs/seal/task1_fy2024_seal_manifest.json` (commit `1b08644`, 2026-10-25), key sha256 `81350a53...`; the same hash and the seal-log hash (`b1abcd7f...`, 31 lines) in [uac-witness `records/0002`](https://github.com/conroyriodss/uac-witness/blob/main/records/0002-post-amendment-lines-29-31.json) | done |
-| 2. Build could not read the key | `workflow/build_guard.py` + `tests/test_build_guard.py` (run in CI); `build/task1_fingerprint_v1/READ_MANIFEST.json` lists every file the build opened, with sha256: only the FY2019-2021 public RePORTER fetches | done (`881bd77`) |
+| 1. Key sealed, hash published | Task 1 FY2024 key: `docs/seal/task1_fy2024_seal_manifest.json` (commit `19689a2`, pushed 2026-10-25 as `1b08644`; see History correction), key sha256 `81350a53...`; the same hash and the seal-log hash (`b1abcd7f...`, 31 lines) in [uac-witness `records/0002`](https://github.com/conroyriodss/uac-witness/blob/main/records/0002-post-amendment-lines-29-31.json) | done |
+| 2. Build could not read the key | `workflow/build_guard.py` + `tests/test_build_guard.py` (run in CI); `build/task1_fingerprint_v1/READ_MANIFEST.json` lists every file the build opened, with sha256: only the FY2019-2021 public RePORTER fetches | done (`984e895`, pushed 2026-11-03 as `881bd77`) |
 | 3. Fingerprint reproducible | `tools/fetch_task1_text.py` then `tools/build_fingerprint_v1.py` reproduce `model.json.gz` sha256 `b703083d...` from inputs whose sha256 is in the READ_MANIFEST (checked byte-identical 2026-11-03). The four seed fetches (74-86 MB each) are not in git; RePORTER changes over time, so a fresh fetch can differ from them | done; seed files not yet published |
-| 4. FY2026 forecast before any FY2026 NITRD membership is public | `build/task1_forecast_fy2026/` (award-level ranking and shortlist, count forecast), pushed 2026-11-03 while public RePORTER showed 0 FY2026 category-329 records | done (`881bd77`) |
+| 4. FY2026 forecast before any FY2026 NITRD membership is public | `build/task1_forecast_fy2026/` (award-level ranking and shortlist, count forecast), pushed 2026-11-03 while public RePORTER showed 0 FY2026 category-329 records | done (`984e895`, pushed 2026-11-03 as `881bd77`) |
 | 5. Pre-registration frozen | `docs/TASK1_PREREGISTRATION.md` with its sha256 and the pinned artifact hashes, committed, then recorded as the next `uac-witness` record | pending (target 2026-11-07) |
 | 6. Reveal | key opened once by the scoring run; published key must hash to link 1; metrics recomputed from committed predictions + published key | after the freeze |
 
 Timestamps: git commit dates are set by the committer. GitHub's server-side push records for this
-repository and `uac-witness` are the independent record of when each link appeared.
+repository and `uac-witness` are the independent record of when each link appeared. Those records
+name the pre-rewrite SHAs (see below); map them with uac-witness record 0003.
+
+## History correction (2026-11-04)
+
+The history of this repository has been rewritten once. On 2026-11-04 the non-public `PCC` column
+was removed from `fixtures/UAC_Uncoded_12-01-2025-updated-NIH_ODSS.csv` in every commit. The tool
+was `git-filter-repo`, and it replaced that one file version only: no other file, author, date or
+commit message changed. The engine never read `PCC`.
+
+* Every commit SHA changed. The full old-to-new map is in
+  [uac-witness record 0003](https://github.com/conroyriodss/uac-witness/blob/main/records/0003-correction-pcc-history-rewrite.json)
+  and in seal-log line 32.
+* The tag `uac-nitrd-freeze-v1` was moved to the rewritten freeze commit (`b0ccbe6` became `f945869`).
+* Fixture sha256 `8c92c8af...` (superseded) became `73c87d5a...`. The frozen records that pin the old
+  hash (`docs/REVEAL_CONSTANTS.json` and the Task 1 match rules v3 and v4) are not edited.
+  `docs/FIXTURE_CORRECTION_v1.json` maps the old hash to the new one, and CI accepts the new hash
+  through that record only.
+* Records written before the rewrite (seal-log lines 1-31, older docs and commit messages) cite the
+  old SHAs. Old commits may stay reachable by SHA on GitHub until GitHub Support purges them.
+
+Commit convention: evidence-chronology commits are never squashed, rebased, amended after push or
+force-pushed. The one exception is the PCC rewrite above, recorded in uac-witness record 0003. Any
+further change is made by a forward commit.
 
 ## Layout
 
