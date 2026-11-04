@@ -1,0 +1,23 @@
+{
+ "allowed_roots": [
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_embed_v1",
+  "/Workspace/Users/conroyri@nih.gov/entry2-uac-nitrd/build/task1_fingerprint_v1",
+  "/Workspace/Users/conroyri@nih.gov/entry2-uac-nitrd/build/task1_fingerprint_embed_v1"
+ ],
+ "files": {
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2019/FETCH_SUMMARY.json": "77b895eb198aa69019345bc0c9fda0637d6905822533a97792dacf1868d1b81b",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2019/fy2019.jsonl.gz": "75a48b70b37151b0767dd3d143b04a5e65fdde5c38c0729f8a8bcf59cdc919e5",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2020/FETCH_SUMMARY.json": "dec18b8027ea0b03f808bcfc64b035f4e4a4474c39aef142c85b32954009054f",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2020/fy2020.jsonl.gz": "ae495e0d49096df45746cdeaa793f10bc743985acb6889b9660a966b085d38ed",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2021/FETCH_SUMMARY.json": "847f38d6b7d711df7b24f51f2e60e0d821e59cedf059e0c99f3a4627ccca4e9c",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2021/fy2021.jsonl.gz": "5e561149f60ca252fcfce812a4e135b10f72fb94a8eaf2eb2e710982b344ce42",
+  "/Workspace/Users/conroyri@nih.gov/entry2-uac-nitrd/build/task1_fingerprint_v1/calibration.json": "876b3226e298f830b87726e79cacab755b3061a1d1ffe2a563681f0498472f24"
+ },
+ "guard_id": "task1-build-read-guard-v1",
+ "hook_installed": true,
+ "mode": "build",
+ "reporter_requests": [],
+ "sql_statements": [],
+ "written_utc": "2026-11-04T13:57:17Z"
+}

@@ -1,0 +1,21 @@
+{
+ "C": 16.0,
+ "arm": "A",
+ "checks": {
+  "fold_ap_equal": true,
+  "k95_equal": true,
+  "oof_ap_equal": true
+ },
+ "export_id": "task1-oof-scores-v1",
+ "file": "scores.csv.gz",
+ "fingerprint_id": "task1-fingerprint-v1",
+ "fold_assignment": "int8 fold index per FY2021 universe award in universe order",
+ "fold_assignment_sha256": "f34c99f1220faca2e0b17c163d6d8422cd821f36a90b71e50b67f0e15951b6ef",
+ "k95": 7284,
+ "label_fy": 2021,
+ "numpy": "2.3.4",
+ "oof_ap_categorized": 0.7970298229945345,
+ "sha256": "3aac2aaf9bcd0262b578b3121b4bc5e56f5356be2792bb750eddf605568253d3",
+ "sklearn": "1.7.2",
+ "universe": 63074
+}

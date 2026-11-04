@@ -1,0 +1,19 @@
+{
+ "allowed_roots": [
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1",
+  "/Workspace/Users/conroyri@nih.gov/entry2-uac-nitrd/prompts",
+  "/Workspace/Users/conroyri@nih.gov/entry2-uac-nitrd/scope"
+ ],
+ "files": {
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2021/FETCH_SUMMARY.json": "847f38d6b7d711df7b24f51f2e60e0d821e59cedf059e0c99f3a4627ccca4e9c",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2021/fy2021.jsonl.gz": "5e561149f60ca252fcfce812a4e135b10f72fb94a8eaf2eb2e710982b344ce42",
+  "/Workspace/Users/conroyri@nih.gov/entry2-uac-nitrd/prompts/task1_llm_v1.prompt.txt": "3aea5422f8094a86f50bd9f063df509f70777a58b859df83fac7f8a33667328c",
+  "/Workspace/Users/conroyri@nih.gov/entry2-uac-nitrd/scope/nitrd_pca_scopes_fy2026.v1.json": "29ad15b320b363227dbe5ab590351578cffefe7ab171cb3a364d55f4803b8c79"
+ },
+ "guard_id": "task1-build-read-guard-v1",
+ "hook_installed": true,
+ "mode": "build",
+ "reporter_requests": [],
+ "sql_statements": [],
+ "written_utc": "2026-11-04T13:56:17Z"
+}
