@@ -51,9 +51,25 @@ commit message changed. The engine never read `PCC`.
 * Records written before the rewrite (seal-log lines 1-31, older docs and commit messages) cite the
   old SHAs. Old commits may stay reachable by SHA on GitHub until GitHub Support purges them.
 
-Commit convention: evidence-chronology commits are never squashed, rebased, amended after push or
-force-pushed. The one exception is the PCC rewrite above, recorded in uac-witness record 0003. Any
-further change is made by a forward commit.
+Commit convention: commits already used as part of the documented evidence chronology are not
+squashed or rebased, amended after push, or force-pushed. The one exception is the single sanctioned
+PCC rewrite above, recorded with its full old-to-new commit map in
+[uac-witness record 0003](https://github.com/conroyriodss/uac-witness/blob/main/records/0003-correction-pcc-history-rewrite.json).
+Any further change is made by a forward commit.
+
+## Follow the evidence for a specific task
+
+This repository contains related categorization and evaluation work with different inputs, rules, and stages. Identify the task and its applicable protocol before interpreting an output.
+
+| Starting question | Read first | Verification boundary |
+|---|---|---|
+| How are UAC subcategory proposals generated? | [Engine design](docs/ENGINE_DESIGN.md), [engine boundaries](engine/README.md), and [proposal artifacts](proposals/) | Inspect the frozen proposal and its explanation under the applicable protocol. |
+| How are proposal matches evaluated? | [Held-out protocol](docs/HELDOUT_PROTOCOL.md) and the committed rule it identifies | A match result applies to that task, rule, denominator, and freeze. |
+| How is the Task 1 workflow documented? | The verification-status table above and [task documents](docs/) | Check the referenced version, input manifest, prediction commit, preregistration state, and witness record separately. |
+| What supports the declared seal state? | [Seal manifest](docs/seal/task1_fy2024_seal_manifest.json) and [witness repository](https://github.com/conroyriodss/uac-witness) | Hash records support comparisons when the corresponding bytes become available; they are not themselves the answer key or an independent access audit. |
+| How are reviewed changes recorded? | [Store design](store/README.md) | Inspect the sandbox write invariants separately from scientific classification performance. |
+
+Use the current status table to distinguish committed artifacts from pending work. A missing preregistration, unpublished seed file, unperformed evaluation, or unavailable review instrument is a different gap; report the specific one. Do not transfer a metric from one task or rule version to another.
 
 ## Layout
 
