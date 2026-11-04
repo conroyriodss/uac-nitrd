@@ -74,12 +74,13 @@ def main(argv=None) -> int:
         OUT.write_text(rec, encoding="utf-8")
         print(f"wrote {OUT.relative_to(ROOT)} sha256={hashlib.sha256(rec.encode()).hexdigest()}")
         return 0
-    if a.check and OUT.is_file():  # fixture-correction-v1: accept the corrected fixture hash only
-        from fixture_correction import load  # noqa: E402  (tools/ is on sys.path when run as a script)
-        c, built = load(), build()
-        if built["input_sha256"].get(c["path"]) == c["corrected_sha256"] and \
-                json.loads(OUT.read_text(encoding="utf-8"))["input_sha256"].get(c["path"]) == c["superseded_sha256"]:
-            built["input_sha256"][c["path"]] = c["superseded_sha256"]
+    if a.check and OUT.is_file():  # fixture-correction chain: accept corrected fixture hashes only
+        from fixture_correction import accepted  # noqa: E402  (tools/ is on sys.path when run as a script)
+        built = build()
+        pinned = json.loads(OUT.read_text(encoding="utf-8"))["input_sha256"].get(FIXTURE)
+        got = built["input_sha256"].get(FIXTURE)
+        if pinned and got != pinned and got in accepted(FIXTURE, pinned):
+            built["input_sha256"][FIXTURE] = pinned
             rec = json.dumps(built, indent=2, sort_keys=True, ensure_ascii=False) + "\n"
     if not OUT.is_file() or OUT.read_text(encoding="utf-8") != rec:
         print("REVEAL CONSTANTS DRIFT: engine constants, inputs or outputs differ from the committed record",

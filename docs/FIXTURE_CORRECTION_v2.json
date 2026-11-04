@@ -1,0 +1,11 @@
+{
+  "record_id": "fixture-correction-v2-2026-11-04",
+  "path": "fixtures/UAC_Uncoded_12-01-2025-updated-NIH_ODSS.csv",
+  "supersedes_record": "fixture-correction-v1-2026-11-04",
+  "superseded_sha256": "73c87d5ab8dfd9dfe785e499e7af7239a823227923413d4e8c7ba0193c89f480",
+  "corrected_sha256": "e9e447851cac2f317918515dce35c4d1274d0f0475785bffdb6da57845670761",
+  "change": "Column 'PO Name' (column 10 of 12 after v1) removed. Every other column, every row, the header order, the UTF-8 BOM and the CRLF line endings are byte-identical; 481 lines (header + 480 records), 11 columns.",
+  "reason": "The engine never read PO Name (engine allow-list: Appl ID, FY, Project Number, SubProj), and the repository does not need program-officer names. Owner decision 2026-11-04: going-forward removal only. History is NOT rewritten for this column; earlier commits keep it. Program-officer names are public in NIH RePORTER.",
+  "how": "Forward commit. No history rewrite.",
+  "pins_kept": "docs/REVEAL_CONSTANTS.json and docs/TASK1_MATCH_RULE_v3.md / _v4.md still cite the v1-superseded hash 8c92c8af...; checks follow the chain 8c92c8af... -> 73c87d5a... (v1) -> e9e44785... (v2) for this path only."
+}

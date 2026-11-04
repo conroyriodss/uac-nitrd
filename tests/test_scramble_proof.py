@@ -40,7 +40,7 @@ out = "".join(f"{r[k].strip()},{'AI' if 'learn' in r[j].lower() else ''},{'true'
 '''
 # Leak 3: labels are clean (identity only) but the EXPLANATION quotes a forbidden column.
 LEAKY_EXPLANATION = _ENGINE_HEAD + '''
-k, j = h.index("Appl ID"), h.index("PO Name")
+k, j = h.index("Appl ID"), h.index("Admin IC")
 (a.out_dir / "proposals.csv").write_text("appl_id,primary_pca,ai_relevant,sub_pca\\n" + "".join(f"{r[k].strip()},,false,\\n" for r in body))
 (a.out_dir / "explanations.jsonl").write_text("".join(f'{{"appl_id": {r[k].strip()}, "note": "{r[j]}"}}\\n' for r in body))
 '''
@@ -84,7 +84,7 @@ def test_honest_engine_passes_and_scramble_is_real(tmp_path):
     s8 = c["S8_scramble_proof"]
     assert r.returncode == 0 and s8["status"] == "PASS" and s8["A_equals_B"], s8
     assert {"suggestion_1", "suggestion_2", "Project Title", "Category"} <= set(s8["scrambled_columns"])
-    assert "PCC" not in s8["scrambled_columns"]  # removed from the fixture (fixture-correction-v1)
+    assert not {"PCC", "PO Name"} & set(s8["scrambled_columns"])  # removed (fixture-correction v1, v2)
     assert s8["cells_changed"] > 480 * 5
 
 
