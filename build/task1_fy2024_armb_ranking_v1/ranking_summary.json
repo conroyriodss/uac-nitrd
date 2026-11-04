@@ -1,0 +1,16 @@
+{
+ "arm": "B",
+ "embedding_sha256": "7f985aaa991aa148494660df707cfac6eb6a1492c614eb3c2c883ab3f73a4abd",
+ "fingerprint_id": "task1-fingerprint-embed-v1",
+ "fy": 2024,
+ "k": 7399,
+ "k_rule": "arm A's calibrated fraction (equal burden)",
+ "labels_read": 0,
+ "model_sha256": "227b91cb7d9ac0bcc94dfcee33e4e19401dc52fde402d20dcbd8d9fcd2e4678d",
+ "ranking_csv_sha256": "5d8e213537f9938b4658245ae58ff97d66a1de7f4ecbe1ed812945246534b45b",
+ "ranking_id": "task1-fy2024-armb-ranking-v1",
+ "repo_head": "113e4037a08478fd99795c084bc0280370c948ea",
+ "shortlist_fraction": 0.11548340045026477,
+ "universe": 64065,
+ "written_utc": "2026-11-04T19:26:18Z"
+}
