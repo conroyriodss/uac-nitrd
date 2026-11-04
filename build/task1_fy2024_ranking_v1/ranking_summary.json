@@ -1,0 +1,36 @@
+{
+ "fingerprint_id": "task1-fingerprint-v1",
+ "freeze_env": "UAC_NITRD_TASK1_FREEZE_RUN",
+ "fy": 2024,
+ "identity_sha256": "9d996db94774a9b7e4b450361d4d903182411cd346a3b810b99938a3ee10936c",
+ "k": 7399,
+ "labels_read": 0,
+ "model_sha256": "b703083d8a122015071bdf9c7035f2b5e3375b6dae3fdcc42e847f46b49049ce",
+ "ranking_csv_sha256": "e49e844d1ebf43691cf3d66ef70f7c415d7dd50f1deccac845709cd656ffa8dd",
+ "ranking_id": "task1-fy2024-ranking-v1",
+ "repo_head": "d021181184e4e5392c78a92740b255a9d78520f4",
+ "seal_id": "task1-fy2024-seal-2026-10-25T17:56:21Z",
+ "secondary_k": {
+  "1x_prevalence": 2770,
+  "2x_prevalence": 5540,
+  "3x_prevalence": 8310
+ },
+ "shortlist_fraction": 0.11548340045026477,
+ "sklearn": "1.7.2",
+ "text_field_map": {
+  "abstract": "abstract",
+  "phr": "public_health_relevance",
+  "title": "title"
+ },
+ "text_snapshot_aggregate_sha256": "72bb704a4b95d8eb39d54f4035305b6091656043c87f3961504b24bf60a4160c",
+ "universe": 64065,
+ "universe_drops": {
+  "1_subproject": 11015,
+  "2_contract": 1391,
+  "2_intramural": 2980,
+  "2_other_transaction": 270,
+  "in_universe": 64065
+ },
+ "universe_rule": "task1-universe-qvr-recon-v1",
+ "written_utc": "2026-11-04T17:59:30Z"
+}
