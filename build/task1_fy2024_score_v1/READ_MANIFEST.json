@@ -1,0 +1,13 @@
+{
+ "key_opened_utc": "2026-11-04T19:39:35Z",
+ "reads": {
+  "<sealed>/has_any_category.csv": "5639acfaa2246953c853549b9e87cf8ccb72756480346b271fc2a31580493f5f",
+  "<sealed>/key.csv": "81350a5328ceb485eb41c7095765c3a7f2d5f8f648cc7b2159610b8bf52efc02",
+  "build/task1_fy2024_armb_ranking_v1/ranking.csv.gz": "5d8e213537f9938b4658245ae58ff97d66a1de7f4ecbe1ed812945246534b45b",
+  "build/task1_fy2024_ranking_v1/ranking.csv.gz": "e49e844d1ebf43691cf3d66ef70f7c415d7dd50f1deccac845709cd656ffa8dd",
+  "build/universe/fy2023.csv": "d96da7b3cbb33d04eb81fa8272f3683348c7ab00acf276e40a1e2a41480338a3",
+  "docs/TASK1_PREREGISTRATION.md": "c770a502777725545f9cff5130e329fe83bb003c39f3c11f61beb0e0259a0280"
+ },
+ "repo_head": "02f95d1f0172fd290b3a18857c5388df9252b6de",
+ "score_id": "task1-fy2024-score-v1"
+}
