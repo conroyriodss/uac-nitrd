@@ -1,0 +1,15 @@
+{
+ "reads": {
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2019/fy2019.jsonl.gz": "75a48b70b37151b0767dd3d143b04a5e65fdde5c38c0729f8a8bcf59cdc919e5",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2020/fy2020.jsonl.gz": "ae495e0d49096df45746cdeaa793f10bc743985acb6889b9660a966b085d38ed",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2021/fy2021.jsonl.gz": "5e561149f60ca252fcfce812a4e135b10f72fb94a8eaf2eb2e710982b344ce42",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_tier3_v1/fy2022/fy2022.jsonl.gz": "07532a2ba2ebb0e7096d48eaeafafbfbe672ea805b6e10c94ee2aa6695a685c9",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_tier3_v1/fy2023/fy2023.jsonl.gz": "586ca7eae82b0a752a0401a5fa6e738115a41be18d53cfe9925faa0527c9394c",
+  "build/task1_fingerprint_v1/model.json.gz": "b703083d8a122015071bdf9c7035f2b5e3375b6dae3fdcc42e847f46b49049ce",
+  "build/task1_fingerprint_v1/shortlist_rule.json": "122e400069c9bdc161624a9effce4d1768a751e29eaf0165ca422232643e9893",
+  "build/universe/fy2021.csv": "d7f7fadd03bb8cfce75ec0cf8329c232d8c3ffc89c73d4b58533baf743832abf",
+  "build/universe/fy2022.csv": "5126368e4971542e6b4d3ad0f1f027a7da3af52ea83e5a4d345022c7581a4079",
+  "build/universe/fy2023.csv": "d96da7b3cbb33d04eb81fa8272f3683348c7ab00acf276e40a1e2a41480338a3"
+ },
+ "tier3_id": "task1-tier3-v1"
+}
