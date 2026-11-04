@@ -83,7 +83,8 @@ def test_honest_engine_passes_and_scramble_is_real(tmp_path):
     r, c = _run(_tree(tmp_path, {"engine/run.py": HONEST_ENGINE}))
     s8 = c["S8_scramble_proof"]
     assert r.returncode == 0 and s8["status"] == "PASS" and s8["A_equals_B"], s8
-    assert {"suggestion_1", "suggestion_2", "Project Title", "Category", "PCC"} <= set(s8["scrambled_columns"])
+    assert {"suggestion_1", "suggestion_2", "Project Title", "Category"} <= set(s8["scrambled_columns"])
+    assert "PCC" not in s8["scrambled_columns"]  # removed from the fixture (fixture-correction-v1)
     assert s8["cells_changed"] > 480 * 5
 
 

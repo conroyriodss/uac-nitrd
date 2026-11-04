@@ -1,0 +1,11 @@
+{
+  "record_id": "fixture-correction-v1-2026-11-04",
+  "path": "fixtures/UAC_Uncoded_12-01-2025-updated-NIH_ODSS.csv",
+  "superseded_sha256": "8c92c8af62b65b9a48b913c83d4c9f61f6f8956b84f0ceede9ba1eb1067edb9c",
+  "corrected_sha256": "73c87d5ab8dfd9dfe785e499e7af7239a823227923413d4e8c7ba0193c89f480",
+  "change": "Column 'PCC' (Program Class Code; column 10 of 13) removed. Every other column, every row, the header order, the UTF-8 BOM and the CRLF line endings are byte-identical; 481 lines (header + 480 records), 12 columns.",
+  "reason": "PCC is not public data. The hackathon scope is publicly available data only, so the column was removed from the whole repository history (owner decision 2026-11-04). PCC was never read by the engine (engine allow-list: Appl ID, FY, Project Number, SubProj).",
+  "how": "One sanctioned history rewrite, 2026-11-04: git-filter-repo --preserve-commit-hashes, replacing this one blob in every commit; no other blob, author, date or message changed. This is the only history rewrite in this repository.",
+  "old_to_new_commit_map": "uac-witness correction record 0003",
+  "pins_kept": "docs/REVEAL_CONSTANTS.json, docs/TASK1_MATCH_RULE_v3.md and docs/TASK1_MATCH_RULE_v4.md are unchanged and still cite the superseded hash; checks accept the corrected hash for this path through this record only."
+}

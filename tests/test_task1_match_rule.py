@@ -6,6 +6,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
+from fixture_correction import accepted  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from workflow.common import sha256  # noqa: E402
@@ -32,7 +35,7 @@ def test_pinned_inputs_match_the_files():
                          "build/universe/fy2024_identity.csv",
                          "build/baseline/carry_forward_fy2024.predictions.csv"}
     for rel, want in pins.items():
-        assert sha256(ROOT / rel) == want, rel
+        assert sha256(ROOT / rel) in accepted(rel, want), rel  # fixture-correction-v1
     meta = json.loads((ROOT / "build" / "baseline" / "carry_forward_fy2024.predictions.meta.json").read_text())
     assert meta["predictions_sha256"] == pins["build/baseline/carry_forward_fy2024.predictions.csv"]
     assert meta["prior_fys"] == [2021, 2022, 2023]
@@ -74,7 +77,7 @@ def test_v2_pins_match_the_files():
     pins = dict(re.findall(r"^\| `([^`]+)`[^|]*\| `([0-9a-f]{64})` \|$", RULE_V2.read_text(encoding="utf-8"), re.M))
     assert len(pins) == 7
     for rel, want in pins.items():
-        assert sha256(ROOT / rel) == want, rel
+        assert sha256(ROOT / rel) in accepted(rel, want), rel  # fixture-correction-v1
 
 
 def test_v2_rule67_identity_count_matches_the_committed_universe():
@@ -146,7 +149,7 @@ def test_v4_pins_match_the_files():
     pins = dict(re.findall(r"^\| `([^`]+)`[^|]*\| `([0-9a-f]{64})` \|$", RULE_V4.read_text(encoding="utf-8"), re.M))
     assert len(pins) == 11
     for rel, want in pins.items():
-        assert sha256(ROOT / rel) == want, rel
+        assert sha256(ROOT / rel) in accepted(rel, want), rel  # fixture-correction-v1
 
 
 def test_v4_primary_only_dollars_from_the_pinned_files():
@@ -187,7 +190,7 @@ def test_v3_pins_match_the_files():
     pins = dict(re.findall(r"^\| `([^`]+)`[^|]*\| `([0-9a-f]{64})` \|$", RULE_V3.read_text(encoding="utf-8"), re.M))
     assert len(pins) == 9
     for rel, want in pins.items():
-        assert sha256(ROOT / rel) == want, rel
+        assert sha256(ROOT / rel) in accepted(rel, want), rel  # fixture-correction-v1
 
 
 def test_v3_rcdc_view_filter_reproduces_the_stated_fy2023_counts():
