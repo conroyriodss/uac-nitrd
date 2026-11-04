@@ -1,0 +1,37 @@
+You are screening U.S. federal research awards against the public definitions of the NITRD (Networking and Information Technology Research and Development) Program Component Areas (PCAs).
+
+Source of the definitions below, quoted verbatim: "FY2026 NITRD Program Component Areas (PCAs)", NITRD National Coordination Office, https://www.nitrd.gov/program-component-areas/nitrd-pcas-2026/ (retrieved 2026-10-23T20:27:57Z).
+
+PCA definitions:
+- ACNS (Advanced Communication Networks and Systems): ACNS R&D advances and validates communication networks and systems, including wireless, optical, or quantum communication technologies and services; this includes R&D in networking architectures, programmability, security, measurement, performance, robustness, resilience, and interoperability, along with techniques for advancing spectrum efficiency.
+- AW (Advanced Wireless R&D, a sub-PCA of ACNS): Advanced Wireless R&D includes federal spectrum-related R&D investments that promote efficient use of wireless spectrum through advanced technologies and systems.
+- AI (Artificial Intelligence): AI R&D advances responsible research in AI and associated AI topics; this includes research directly related to AI into: fundamental AI approaches; developing more effective human-AI collaboration; addressing ethical, legal, and societal implications; ensuring safety and security; developing training datasets and testing environments; and evaluating AI systems and creating standards and benchmarks.
+- CHuman (Computing-Enabled Human Interaction, Communication, and Augmentation): CHuman R&D advances the ability of individuals to interact with one another and with computing, communication, and information technologies; this includes R&D of human-to-human and human-to-machine interactions and collaborations, and the impacts on society.
+- CNPS (Computing-Enabled Networked Physical Systems): CNPS R&D advances systems that are complex, highly-reliable, real-time, networked, and/or hybrid; this includes R&D in cyber-physical systems and the Internet of Things.
+- CSP (Cyber Security and Privacy): CSP R&D advances the security, resilience, trustworthiness, and privacy of computing, communication, and information technologies; this includes R&D on how human behavior and usability interact with technical aspects of cybersecurity and privacy.
+- EdW (Education and Workforce): EdW R&D advances the use of computing, communication, and information technologies to enhance education and workforce training at all levels; this includes the recruitment, preparation, and retention of  researchers, entrepreneurs, and users; and support for learning, teaching, assessment, standards, and virtual education and training.
+- EHCS (Enabling R&D for High-Capability Computing Systems): EHCS R&D advances and translates new approaches in high-capability computing; this includes R&D in novel computing paradigms, hardware, algorithms, software, and data analytics that enable extreme data- and computation-intensive workloads while addressing challenges such as system performance, reliability, trust, transparency, energy efficiency, and other methods.
+- ENIT (Electronics for Networking and Information Technology): ENIT R&D advances micro- and nanoelectronics design, architecture, validation, and testing across the networking and information technology hardware design stack; this includes methodologies for scalable and energy-efficient systems, silicon and/or non-silicon technologies, and implementations in computing and communication architectures.
+- HCIA (High-Capability Computing Infrastructure and Applications): HCIA provides high-capability computing systems, application software, and infrastructure; this includes computing, software and services, communications, storage, and data infrastructure, coordination services, and other necessary resources for the effective use of high-capability computing.
+- IRAS (Intelligent Robotics and Autonomous Systems): IRAS R&D advances intelligent robotic systems that are increasingly autonomous; this includes R&D in robotics hardware and software design and application, machine perception, cognition and adaptation, mobility and manipulation, safe human-robot interaction, and distributed and networked robotics.
+- LSDMA (Large-Scale Data Management and Analysis): LSDMA R&D advances the ecosystem needed for extraction of knowledge and insights from data; this includes R&D in the capture, curation, provenance, privacy preservation, management, governance, access, analysis, reusability, and presentation of large-scale and diverse data.
+- SPSQ (Software Productivity, Sustainability, and Quality): SPSQ R&D advances timely and affordable development and sustainability of low-defect, low-vulnerability software; this includes R&D to improve software development productivity, quality, measurement, assurance, and adaptability while also providing essential characteristics such as security, privacy, usability, and reliability.
+
+NITRD guidance on AI across PCAs, from the same page:
+The term “artificial intelligence” or “AI” has the meaning set forth in 15 U.S.C. 9401(3):  a machine-based system that can, for a given set of human-defined objectives, make predictions, recommendations, or decisions influencing real or virtual environments.  Artificial intelligence systems use machine- and human-based inputs to perceive real and virtual environments; abstract such perceptions into models through analysis in an automated manner; and use model inference to formulate options for information or action.
+Please note that we understand AI R&D will intersect with multiple PCAs. For example:
+- R&D on general methods for machine vision would fall under AI, while R&D on robots, even if the robots employ machine vision, would fall under IRAS. Note that R&D on intelligent autonomous systems that exist only in cyberspace, with no physical embodiment, would be reported under AI.
+- R&D on algorithms for computational linguistics would fall under AI, while R&D on the broad problem of human-machine interaction, even if it contains an element of natural language processing, would fall under CHuman.
+- R&D on the cybersecurity challenges unique to AI, such as the ability to exploit flaws in an AI system’s goals would fall under AI, whereas AI supporting cybersecurity research would fall under CSP.
+- R&D on special neuromorphic computing architectures or chips optimized for neural nets would fall under AI, whereas general research in neuromorphic computing would fall under EHCS.
+- R&D that is primarily machine learning would fall under AI, while R&D on the larger data management and analysis ecosystem, even if it contains an element of machine learning, would fall under LSDMA.
+- Agencies should consider these examples and report an activity under the PCA that is most specific to that activity.
+
+Task: read the award below. Estimate the likelihood, from 0 to 100, that the award's research falls within at least one of the PCAs defined above. Use only the award text and the definitions above.
+
+Answer with only a JSON object and nothing else: {"score": <integer from 0 to 100>}
+
+Award
+Title: <<TITLE>>
+Abstract: <<ABSTRACT>>
+Public health relevance: <<PHR>>
