@@ -116,21 +116,19 @@ def main(argv=None) -> int:
     enc = em.HostedEncoder()
     starts = list(range(0, n, CHUNK))
     for s in starts:
-        f = CHUNKS / f"chunk_{s:06d}.f32le"
-        if f.exists():
+        f, fm = CHUNKS / f"chunk_{s:06d}.f32le", CHUNKS / f"chunk_{s:06d}.json"
+        if f.exists() and fm.exists():
             continue
+        if f.exists():  # data without its record: redo the chunk
+            f.unlink()
         if (time.time() - t_start) / 60 > a.budget_min:
             done = sum((CHUNKS / f"chunk_{x:06d}.f32le").exists() for x in starts)
             log(f"PAUSED at budget: {done}/{len(starts)} chunks; rerun to continue")
             return 3
         x = enc.embed(texts[s:s + CHUNK])
-        tmp = f.with_suffix(".tmp")
-        tmp.write_bytes(np.ascontiguousarray(x, dtype="<f4").tobytes())
-        tmp.rename(f)
-        meta = CHUNKS / "calls.jsonl"
-        with meta.open("a") as fh:
-            fh.write(json.dumps({"chunk": s, "rows": len(x), "calls": enc.calls,
-                                 "versions": sorted(enc.versions_seen)}) + "\n")
+        f.write_bytes(np.ascontiguousarray(x, dtype="<f4").tobytes())
+        fm.write_text(json.dumps({"chunk": s, "rows": len(x), "sha256": _sha(f.read_bytes()),
+                                  "session_calls": enc.calls, "versions": sorted(enc.versions_seen)}) + "\n")
         if s // CHUNK % 8 == 0:
             log(f"chunk {s // CHUNK + 1}/{len(starts)}")
 
@@ -139,7 +137,10 @@ def main(argv=None) -> int:
                         for s in starts])
     if x.shape != (n, em.PIN["dimensions"]) or not np.isfinite(x).all():
         raise RuntimeError(f"assembled matrix shape {x.shape} or non-finite values")
-    versions = sorted({v for line in (CHUNKS / "calls.jsonl").read_text().splitlines() for v in json.loads(line)["versions"]})
+    cmeta = [json.loads((CHUNKS / f"chunk_{s:06d}.json").read_text()) for s in starts]
+    if any(m["sha256"] != _sha((CHUNKS / f"chunk_{s:06d}.f32le").read_bytes()) for s, m in zip(starts, cmeta)):
+        raise RuntimeError("a chunk does not match its record")
+    versions = sorted({v for m in cmeta for v in m["versions"]})
     if versions != [em.PIN["served_model_version"]]:
         raise RuntimeError(f"served versions {versions}")
     emb_bytes, appl_bytes = x.tobytes(), appl.tobytes()
@@ -147,7 +148,7 @@ def main(argv=None) -> int:
     if not (EDIR / "EMBED_SUMMARY.json").exists():
         afile.write_bytes(appl_bytes)
         efile.write_bytes(emb_bytes)
-        calls = sum(json.loads(line)["calls"] for line in (CHUNKS / "calls.jsonl").read_text().splitlines()[-1:])
+        calls = -(-n // em.BATCH)
         esum = {"embed_id": EMBED_ID, "fy": FY, "records": n, "dims": int(x.shape[1]),
                 "row_order": "fy2024_identity.csv order, universe rows only (task1-universe-qvr-recon-v1)",
                 "files": {afile.name: {"sha256": _sha(appl_bytes), "bytes": len(appl_bytes), "dtype": "<i8"},
@@ -155,7 +156,7 @@ def main(argv=None) -> int:
                                        "shape": [int(v) for v in x.shape]}},
                 "text_source": "sealed-manifest FY2024 text snapshot (workflow/sealed.load_score_text)",
                 "embedding_pin": em.PIN, "encoding": em.ENCODING, "chunk_rows": CHUNK,
-                "endpoint_calls_last_session": calls, "served_versions_seen": versions,
+                "endpoint_batches": calls, "served_versions_seen": versions,
                 "label_fields_used": False, "written_utc": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")}
         (EDIR / "EMBED_SUMMARY.json").write_text(json.dumps(esum, indent=1, sort_keys=True) + "\n")
     esum_raw = (EDIR / "EMBED_SUMMARY.json").read_bytes()
