@@ -57,6 +57,17 @@ PCC rewrite above, recorded with its full old-to-new commit map in
 [uac-witness record 0003](https://github.com/conroyriodss/uac-witness/blob/main/records/0003-correction-pcc-history-rewrite.json).
 Any further change is made by a forward commit.
 
+CI note (2026-11-05): build-sweep shows red on `d021181` through `c590404`, including the freeze commits
+`5e3bfa4` and `8409dc3`. The sole cause was one guard test,
+`tests/test_task1_seal.py::test_only_the_boundary_module_names_the_text_snapshot`, which matched the
+snapshot directory name in the module docstring of `tools/rank_task1_fy2024_v1.py`. That tool is pinned in
+the pre-registration, so it was not edited; the test was fixed forward in `854b507` (the tool's code must
+still not name the snapshot and must read it through `sealed.load_score_text()`). It was not an
+environment-bound step and not a pin mismatch. Frozen hashes are unchanged and still match
+[uac-witness record 0004](https://github.com/conroyriodss/uac-witness/blob/main/records/0004-task1-preregistration-freeze.json):
+pre-registration `c770a502...`, arm A FY2024 ranking `e49e844d...`, model `b703083d...`, FY2021 comparison
+`6170facc...`, freeze-run tool `bc8515da...`.
+
 ## Follow the evidence for a specific task
 
 This repository contains related categorization and evaluation work with different inputs, rules, and stages. Identify the task and its applicable protocol before interpreting an output.
