@@ -1,0 +1,17 @@
+{
+ "arm": "B",
+ "embedding_sha256": "979d61d07bc9098bf23cb06c21d5c075bfab663733226553cd55b9943904b346",
+ "fingerprint_id": "task1-fingerprint-embed-v1",
+ "fy": 2026,
+ "guard_mode": "forecast",
+ "k": 6526,
+ "k_rule": "arm A's calibrated fraction (equal burden)",
+ "labels_read": 0,
+ "model_sha256": "227b91cb7d9ac0bcc94dfcee33e4e19401dc52fde402d20dcbd8d9fcd2e4678d",
+ "ranking_csv_sha256": "dfccd9b3de9a4c03276426c4bdcfaaeded606182f1f80684c0da2153555ec7d6",
+ "ranking_id": "task1-fy2026-armb-ranking-v1",
+ "repo_head": "4c8fd18a1ba912bbc397e2ab00547286cd8cedee",
+ "shortlist_fraction": 0.11548340045026477,
+ "universe": 56508,
+ "written_utc": "2026-11-05T15:24:24Z"
+}
