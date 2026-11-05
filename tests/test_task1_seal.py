@@ -105,4 +105,12 @@ def test_record_splitting_survives_unicode_line_separators():
 def test_only_the_boundary_module_names_the_text_snapshot():
     hits = [p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*.py")
             if "tests" not in p.relative_to(ROOT).parts and "task1_fy2024_text" in p.read_text(encoding="utf-8")]
-    assert hits == ["workflow/sealed.py"]
+    # tools/rank_task1_fy2024_v1.py is pinned in the frozen pre-registration (sha256 bc8515da...), so it is not
+    # edited. It names the snapshot in its module docstring only; its code must not name it and must read the
+    # snapshot solely through sealed.load_score_text(). Every other file stays under the strict rule.
+    doc_only = {"tools/rank_task1_fy2024_v1.py"}
+    for h in sorted(doc_only & set(hits)):
+        code = (ROOT / h).read_text(encoding="utf-8").split('"""', 2)[2]
+        assert "task1_fy2024_text" not in code, f"{h}: code (not docstring) names the snapshot"
+        assert "sealed.load_score_text()" in code, f"{h}: must read the snapshot through sealed.load_score_text()"
+    assert sorted(set(hits) - doc_only) == ["workflow/sealed.py"]
