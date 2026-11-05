@@ -1,0 +1,25 @@
+{
+ "blind": false,
+ "candidates": 519,
+ "columns": [
+  "appl_id",
+  "core_project_num",
+  "admin_ic",
+  "activity_code",
+  "title",
+  "armA_oof_logodds",
+  "armA_oof_rank"
+ ],
+ "csv_sha256": "d25d77d362eddb4446a33b0ca94c6d930aff5303a666516a3ef5de35c445f31f",
+ "export_id": "task1-fy2021-under-capture-v1",
+ "fy": 2021,
+ "inputs": {
+  "fy2021_seed_sha256": "5e561149f60ca252fcfce812a4e135b10f72fb94a8eaf2eb2e710982b344ce42",
+  "oof_scores_sha256": "3aac2aaf9bcd0262b578b3121b4bc5e56f5356be2792bb750eddf605568253d3"
+ },
+ "k": 7284,
+ "score": "arm A (task1-fingerprint-v1) out-of-fold log-odds, FY2021 GroupKFold by core; NOT a probability and NOT the deployed nitrd-classifier",
+ "shortlist_fraction": 0.11548340045026477,
+ "uncategorized": "no RCDC spending category in the FY2021 RePORTER record (has_any_category false)",
+ "universe": 63074
+}

@@ -1,0 +1,520 @@
+appl_id,core_project_num,admin_ic,activity_code,title,armA_oof_logodds,armA_oof_rank
+10582512,R01AG066833,NIA,R01,Artificial Intelligence Strategies for Alzheimer's Disease Research,12.7290,2
+10163200,P41GM104601,NIGMS,P41,Center for Macromolecular Modeling and Bioinformatics,7.5612,54
+10061631,P41GM135019,NIGMS,P41,Center for Open Bioimage Analysis,6.9544,75
+10831775,R21EB030209,NIBIB,R21,A Fully Decentralized Federated Learning Framework for Automated Image Segmentation in Cancer Radiotherapy,6.5925,92
+10406063,T32GM007413,NIGMS,T32,Graduate Training in Genetics,6.3446,109
+10327457,U54HL160273,NHLBI,U54,"HeartShare DeCODE-HF: Data translation center to Combine Omics, Deep phenotyping, and Electronic health records for Heart Failure subtypes and treatment targets",5.9294,136
+10228743,P41GM103712,NIGMS,P41,High Performance Computing for Multiscale Modeling of Biological Systems,5.4053,168
+10171893,K01HL148390,NHLBI,K01,Using Machine Learning to Predict Clinical Deterioration in Hospitalized Children,5.3581,174
+11031462,R15GM139094,NIGMS,R15,A personalized preventive care recommendation system by integrating guidelines with the EHR data,5.3515,179
+10452038,U54MD007597,NIMHD,U54,Howard University Research Center for Minority Health and Health Disparities,5.2440,190
+10274447,P30AG073105,NIA,P30,Penn Artificial Intelligence and Technology Collaboratory for Healthy Aging,5.1989,191
+10593362,R01AI162611,NIAID,R01,Fast and flexible Bayesian phylogenetics via modern machine learning,5.0705,205
+10937605,RF1AG072799,NIA,RF1,Facilitate Observational Studies of Alzheimer's Disease and Alzheimer's Disease-Related Dementias Using Ontology and Natural Language Processing,4.9079,225
+10435854,U54MD007600,NIMHD,U54,Center for Collaborative Research in Minority Health and Health Disparities,4.6055,265
+10145009,P41GM103504,NIGMS,P41,National Resource for Network Biology (NRNB),4.3733,286
+10479588,R01AG053949,NIA,R01,"Advanced machine learning algorithms that integrate genomewide, longitudinal MRI and demographic data to predict future cognitive decline toward dementia",3.9121,354
+10443949,R00GM135488,NIGMS,R00,BOND: Benchmarking based on heterogeneous biOmedical Network and Deep learning novel drug-target associations,3.6656,388
+10406091,T32ES007060,NIEHS,T32,Integrated Regional Training Program in Environmental Health Sciences,3.5088,426
+10593356,R01AI146028,NIAID,R01,Blending deep learning with probabilistic mechanistic models to predict and understand the evolution and function of adaptive immune receptors,3.3438,466
+10244973,P41EB015902,NIBIB,P41,Neuroimaging Analysis Center (NAC),3.3415,468
+10246323,U54DA049110,NIDA,U54,Data Center for Acute to Chronic Pain Biosignatures,3.2259,493
+10604529,R35GM138146,NIGMS,R35,Data-driven Computational Modeling and Refinement of Protein Structures on Genomic Scales,3.2252,494
+10155572,P2CHD101913,NICHD,P2C,Center for Reliable Sensor Technology-Based Outcomes for Rehabilitation (RESTORE),3.2162,496
+10614815,R21DC020134,NIDCD,R21,mHealth Tympanometer: A Digital Innovation to Address Preventable Childhood Hearing Loss in Low- and Middle-Income Countries,3.2036,499
+10236408,U41HG002371,NHGRI,U41,The UCSC Genome Browser,3.0765,529
+10135685,P41EB015922,NIBIB,P41,Laboratory of Neuro Imaging Resource (LONIR),3.0182,549
+10615950,R01EB029431,NIBIB,R01,Develop a large-scale library of comprehensive deformable image registration (DIR) benchmark datasets and an integrated framework for quantifying accuracy of patient-specific DIR results,2.9495,565
+10202576,U2CDK119886,NIDDK,U2C,National Metabolomics Data Repository - nextgen Metabolomics Workbench,2.8493,585
+10260577,P20DK127488,NIDDK,P20,Center for Machine Learning in Urology,2.8061,601
+10464821,U24TR002306,NCATS,U24,A National Center for Digital Health Informatics Innovation,2.7123,622
+10632755,R34DA050967,NIDA,R34,An mHealth mood management tool to improve population-level tobacco cessation,2.7037,625
+10111538,U41HG003751,NHGRI,U41,Reactome: An Open Knowledgebase of Human Pathways,2.6326,643
+10147725,P41GM111135,NIGMS,P41,Center for Biomolecular NMR Data Processing and Analysis,2.4962,687
+10095131,R01GM139891,NIGMS,R01,"PheMAP: Measured, Automated Profile to Facilitate High Throughput Phenotyping",2.4568,698
+10206136,T32EB007507,NIBIB,T32,Comprehensive Training program in Imaging Science and Informatics,2.4567,699
+10824706,RF1AG071024,NIA,RF1,Short and long-term consequences of wildfires for Alzheimer's disease and related dementias,2.3311,742
+10334133,P41EB019936,NIBIB,P41,ReproNim: A Center for Reproducible Neuroimaging Computation,2.2713,755
+10130584,U41HG002273,NHGRI,U41,Gene Ontology Consortium,2.2218,770
+10246945,P41EB017183,NIBIB,P41,Center for Advanced Imaging Innovation and Research (CAI2R),2.1239,801
+10090279,P41EB028741,NIBIB,P41,Advanced Technologies - National Center for Image Guided Therapy (AT-NCIGT),2.0987,812
+10990110,R21AG072469,NIA,R21,Validation of a Virtual Reality Floor Maze Test to Detect Early Signs of Cognitive Impairment,1.9478,855
+10197802,U19MH121738,NIMH,U19,Mental Health Research Network III,1.8508,885
+10529984,K24DA037109,NIDA,K24,Mentoring in Advanced mHealth Technologies and Machine Learning for HIV/Drug Abuse Research,1.8390,893
+10992250,R01DK116986,NIDDK,R01,Identifying Personalized Risk of Acute Kidney Injury with Machine Learning,1.7664,919
+10089800,P41EB028744,NIBIB,P41,Center for Virtual Imaging Trials,1.7471,926
+10533641,R01EY030929,NEI,R01,Deep Learning Approaches for Personalized Modeling and Forecasting of Glaucomatous Changes,1.6221,971
+10715006,R21AG068890,NIA,R21,Sleep metrics from machine learning for Alzheimer's disease diagnostics,1.5292,1014
+10261325,P30AR072583,NIAMS,P30,Building and InnovatinG: Digital heAlth Technology and Analytics (BIGDATA),1.5249,1017
+10616273,R21AR075971,NIAMS,R21,Data-Driven Framework for Classification and Surgical Planning of Spinal Deformity,1.5006,1030
+10739064,R01GM127430,NIGMS,R01,Removing batch effects in genomic and epigenomic studies,1.4286,1048
+10428454,U54MD015929,NIMHD,U54,Biomedical Data Science Training Program,1.3478,1081
+10114985,U54CA225088,NCI,U54,Systems Pharmacology of Therapeutic and Adverse Responses to ImmuneCheckpoint and Small Molecule Drugs,1.3013,1095
+10166783,U54CA209988,NCI,U54,"Measuring, Modeling and Controlling Heterogeneity",1.2701,1111
+10254253,T32EB016640,NIBIB,T32,Medical Imaging Informatics Training Grant,1.1642,1152
+10631595,R35GM141457,NIGMS,R35,Molecular modeling and machine learning for protein structures and interactions,1.1596,1157
+10309015,P50HD106446,NICHD,P50,Vanderbilt Integrated Center of Excellence in Maternal and Pediatric Precision Therapeutics (VICE-MPRINT),1.1321,1175
+10405977,T32CA251064,NCI,T32,Cancer Training in Disparities and Equity (C-TIDE),1.0936,1190
+10405812,U54CA225088,NCI,U54,Systems Pharmacology of Therapeutic and Adverse Responses to ImmuneCheckpoint and Small Molecule Drugs,1.0557,1210
+10397317,U01CA235493,NCI,U01,"Mummichog 3, aligning mass spectrometry data to biological networks - Neutral Loss",1.0006,1237
+10554925,K99DC018051,NIDCD,K99,Revealing the organization and functional significance of neural timescales inauditory cortex,0.8510,1313
+10161807,U41HG007050,NHGRI,U41,Genomic Resource Grant for the PhenX Toolkit - expansion and sustainability,0.7936,1340
+10242955,R01GM140463,NIGMS,R01,Predictive Modeling with High-Dimensional lncomplete Data,0.7683,1351
+10840682,RF1DA055666,NIDA,RF1,"Multiscale computational frameworks for integrating large-scale cortical dynamics, connectivity, and behavior",0.7663,1353
+10237905,U01CA235482,NCI,U01,A Comprehensive Platform for High-Throughput Profiling of the Human Reference Metabolome,0.7186,1368
+10457208,R01AG071174,NIA,R01,Statistical Modeling of Alzheimer's Disease Progression Integrating Brain Imaging and -Omics Data,0.6845,1390
+10616296,R01DC020026,NIDCD,R01,North STAR Trial: Specialty Telemedicine Access for Referrals in Rural Alaska,0.6298,1422
+10220054,P20GM104420,NIGMS,P20,Center for Modeling Complex Interactions,0.5558,1458
+10311568,U2CEB032224,NIBIB,U2C,eLwazi Open Data Science Platform and Coordinating Center,0.5518,1461
+10213202,U2CES030170,NIEHS,U2C,Pacific Northwest Advanced Compound Identification Core,0.5104,1482
+10451237,U54MD007586,NIMHD,U54,The RCMI Program in Health Disparities at Meharry Medical College - Supplement,0.4793,1510
+10153869,R33HL144669,NHLBI,R33,A Mobile Relational Agent to Enhance Atrial Fibrillation Self-care,0.4018,1555
+10523247,R43AG071105,NIA,R43,The BRAIN App: Building Relationships using Artificial Intelligence and Nostalgia,0.2990,1617
+10172374,P41HD062499,NICHD,P41,Gene Expression Database for Mouse Development,0.2790,1625
+10274688,P30AG073107,NIA,P30,Massachusetts AI and Technology Center for Connected Care in Aging and Alzheimer's Disease (MAITC),0.1726,1682
+10168620,U19MH114821,NIMH,U19,A Comprehensive Center for Mouse Brain Cell Atlas,0.1692,1687
+10142376,U54CA209891,NCI,U54,Research Center for Cancer Systems Biology: Cancer Cell Map Initiative,0.1635,1692
+10381390,P01CA118816,NCI,P01,Diversity Supplement: 5P01CA118816 Project 1,0.1022,1739
+10212846,U2CAG060426,NIA,U2C,The MobileToolbox for Monitoring Cognitive Function,0.0365,1772
+10452388,U54MD007601,NIMHD,U54,Hawaii Data Science Training for RCMI Researchers,-0.0120,1803
+10378307,R01GM144961,NIGMS,R01,Statistical methods for higher order dependences to understand protein functions,-0.0410,1817
+10242751,P41HD088362,NICHD,P41,Aviport: A Resource for Avian Biology,-0.0641,1833
+10142523,T32HD101364,NICHD,T32,Computational Social Science Training Program,-0.1009,1863
+10107777,U10CA180819,NCI,U10,SWOG Statistics and Data Management Center,-0.1921,1920
+10582951,K23MH120505,NIMH,K23,The Digital Phenotype of Bipolar Disorder: Harnessing Technology to Identify Bipolar Mood Symptoms,-0.1964,1925
+10608248,R56NR019813,NINR,R56,Pilot Testing A Theory-Driven Self- Management Intervention for Chronic Musculoskeletal Pain,-0.2364,1956
+10173770,U2CES026555,NIEHS,U2C,Human Health Exposure Analysis Resource (HHEAR) Data Center,-0.2527,1968
+10118100,U10CA180882,NCI,U10,Alliance Statistics and Data Management Center,-0.2564,1972
+10378298,R01GM144960,NIGMS,R01,DMS/NIGMS 2: Advanced Statistical Methods for Spatially Resolved Transcriptomics Studies,-0.2979,2005
+10268734,P30DA029926,NIDA,P30,Technology-based Treatments for Substance Use Disorders,-0.3100,2013
+10181001,U41HG009494,NHGRI,U41,A portal and integrative collaborative analysis platform for GTEx,-0.3369,2039
+10212411,P20GM130454,NIGMS,P20,"Center for Quantitative Biology: A focus on ""omics"", from organisms to single cells",-0.3515,2059
+10267866,P50DA054039,NIDA,P50,"Center for Methodologies for Adapting and Personalizing Prevention, Treatment and Recovery Services for SUD and HIV (MAPS Center)",-0.3739,2073
+10219131,P30AG059307,NIA,P30,Stanford Aging & Ethnogeriatrics Transdisciplinary Collaborative Center (SAGE),-0.3922,2091
+10177978,P30DA044223,NIDA,P30,"Overall NIDA Core ""Center of Excellence"" in Transcriptomics, Systems Genetics and the Addictome",-0.3963,2096
+10251973,P30AR072577,NIAMS,P30,"VERITY: Value and Evidence in Rheumatology using bioInformaTics, and advanced analYtics",-0.4008,2101
+10136607,P41GM103310,NIGMS,P41,National Resource for Automated Molecular Microscopy,-0.4112,2109
+10577202,R01GM135928,NIGMS,R01,"Imputing Single Cell Rna Sequencing Data: Mathematical, Statistical And Computational Challenges",-0.4152,2114
+10202400,P50MH119029,NIMH,P50,Technology Enabled Services for Coordinated Care of Depression in Healthcare Settings,-0.4684,2155
+10242091,R01GM135926,NIGMS,R01,Learning Dynamics of Biological Processes from Time Course Omics Datasets,-0.4759,2163
+10251350,U54HL156090,NHLBI,U54,Center for Developmental Mapping of Heart and Bone Tissues,-0.4968,2178
+10605438,K01DK114388,NIDDK,K01,Technological Innovations for Live Kidney Donor Follow-up Care Management,-0.5030,2183
+10601411,U24CA230144,NCI,U24,Consortium on Translational Research in Early Detection of Liver Cancer: Data Management and Coordinating Center (DMCC),-0.5108,2195
+10259872,P50AR070590,NIAMS,P50,Psoriasis Center of Research Translation,-0.5781,2241
+10227154,U54DA049098,NIDA,U54,DATA MANAGEMENT AND RESOURCE REPOSITORY FOR THE exRNA ATLAS PHASE II,-0.5891,2252
+10656932,U24CA086368,NCI,U24,The Early Detection Research Network: Data Management and Coordinating Center,-0.6158,2272
+10385498,R01GM125753,NIGMS,R01,Equipment Supplement: Analysis tools for quantifying protein conformational landscapes using DEER spectroscopy,-0.6243,2281
+10232161,P30AR072572,NIAMS,P30,UW Core Center for Clinical Research (CCCR) of Musculoskeletal Conditions,-0.6306,2292
+10136092,P50MH115838,NIMH,P50,The Center for Enhancing Triage and Utilization for Depression and Emergent Suicidality (ETUDES) in Pediatric Primary Care,-0.6318,2295
+10270096,P41EB031771,NIBIB,P41,"MRI Resource for Physiologic, Metabolic and Anatomic Biomarkers",-0.6536,2314
+10271620,P20GM109035,NIGMS,P20,COBRE: Center for Computational Biology of Human Disease,-0.6568,2316
+10223439,R01LM013429,NLM,R01,Privacy Challenges of Genomic Data-Sharing Beacons and Solutions,-0.7480,2394
+10382066,R01DA049878,NIDA,R01,Modified Use of E-cigarettes and Marketing on YouTube,-0.7568,2400
+10633047,R35GM142502,NIGMS,R35,Democratizing Multi-Omics to Expedite Discovery of Hidden Metabolic Pathways,-0.7724,2411
+10085654,R01GM125753,NIGMS,R01,Analysis tools for quantifying protein conformational landscapes using DEER spectroscopy,-0.7725,2412
+10204783,U41HG008735,NHGRI,U41,The Disease Ontology Project: mechanistic profiles of human disease for biomedical and clinical research,-0.7907,2428
+10047726,U19NS118284,NINDS,U19,Interaction of external inputs with internal dynamics: influence of brain states on neural computation and behavior,-0.8299,2468
+10601439,R21CA264383,NCI,R21,Predicting transcriptional signatures and tumor subtypes from circulating tumor DNA,-0.8368,2482
+10596266,K23MH126781,NIMH,K23,Development and Feasibility Testing of a Multi-Component Intervention to Increase HIV Testing and Linkage to Services among MSM in Peru,-0.8437,2493
+10406832,P01AI100148,NIAID,P01,Enhancement of the HIV Antibody Database tool for Open Science,-0.8783,2521
+10129429,P50MH115846,NIMH,P50,Laboratory for Early Psychosis Research (LEAP),-0.9100,2547
+10183251,U2CES030164,NIEHS,U2C,Michigan Compound Identification Development Cores (MCIDC),-0.9121,2552
+10219322,U41HG010972,NHGRI,U41,The WashU-UCSC-EBI Human Genome Reference Center,-0.9504,2585
+10399337,R24GM137200,NIGMS,R24,"The National Center for Microscopy and Imaging Research, a Community-wide Scientific Resource",-1.0570,2669
+10180997,U41HG006627,NHGRI,U41,Online Mendelian Inheritance in Man (OMIM),-1.0796,2690
+10170329,R01DA049878,NIDA,R01,Modified Use of E-cigarettes and Marketing on YouTube,-1.0811,2691
+10225988,P50CA244690,NCI,P50,Advancing the Quality of Cancer Care through Behavioral Economics and Implementation Science,-1.0940,2708
+10194529,P41GM118302,NIGMS,P41,Center on Macromolecular Dynamics by NMR Spectroscopy,-1.0944,2709
+10506411,R01HD098105,NICHD,R01,Mobile WACh NEO: Mobile Solutions for Neonatal Health and Maternal Support,-1.1170,2724
+10261436,P30AG038070,NIA,P30,Nathan Shock Center for Excellence in Basic Biology of Aging,-1.1221,2729
+10486418,R01MD015716,NIMHD,R01,Risk and strength: determining the impact of area-level racial bias and protective factors on birth outcomes.,-1.1238,2731
+10643244,R01GM129512,NIGMS,R01,Joint Analysis of Microbiome and Other Genomic Data Types,-1.1474,2752
+10338542,UL1TR003015,NCATS,UL1,Pilot Study to Determine Health Effects of e-cigarette in Healthy Young Adults,-1.1482,2754
+10242052,P50NS108676,NINDS,P50,Morris K. Udall Center at the University of Rochester (UR-Udall Center),-1.1552,2760
+10244890,P30EY003790,NEI,P30,Core Grant for Vision Research,-1.1600,2763
+10204275,T32DC013017,NIDCD,T32,Advanced Research Training in Communication Sciences and Disorders,-1.1672,2765
+10144435,P30ES019776,NIEHS,P30,HERCULES: Exposome Research Center,-1.2059,2799
+10294800,U19NS123719,NINDS,U19,Astrocyte Modulation of Neural Circuit Function and Behavior,-1.2171,2804
+10263154,R35GM124952,NIGMS,R35,Unraveling molecular and system-level mechanisms of human disease-associated protein mutations,-1.2502,2832
+10619108,U01OD033247,OD,U01,Appalachian STAR Trial,-1.2673,2851
+10274370,P30AG073104,NIA,P30,Utilizing Technology and AI Approaches to Facilitate Independence and Resilience in Older Adults,-1.2852,2867
+10247567,U19NS104648,NINDS,U19,Mechanisms of neural circuit dynamics in working memory anddecision-making,-1.2916,2873
+10115075,R01GM127627,NIGMS,R01,Calculating Dynamic Ensembles of Intrinsically Disordered Proteins,-1.2920,2874
+10810168,R21CA256575,NCI,R21,Characterization of extrachromosomal DNAs in tumors through computational analysis of single-cell and bulk sequencing data,-1.2967,2878
+10539401,R01GM140564,NIGMS,R01,Merging machine learning and mechanistic models to improve prediction and inference in emerging epidemics,-1.3354,2925
+10601394,R01CA263144,NCI,R01,SALSA - Study of Active Lifestyle Activation,-1.3405,2931
+10270392,P01CA254849,NCI,P01,Integrated Immune Engineering for Poor Prognosis Cancers,-1.3896,2971
+10554951,K99HD103912,NICHD,K99,Leveraging artificial intelligence to develop novel tools for studying infant brain development,-1.3943,2974
+10259704,R01GM132675,NIGMS,R01,High-Throughput De Novo Glycan Sequencing,-1.4014,2980
+10282433,P30GM138441,NIGMS,P30,Biological Soft X-ray Tomography at the Advanced Light Source,-1.4413,3015
+10208993,U24TR002260,NCATS,U24,CTSA Coordinating Center for Leading Innovation and Collaboration (CLIC),-1.4550,3024
+10222681,P30EY022589,NEI,P30,NEI Center Core Grant for Vision Research,-1.4608,3031
+10618604,R21TW011752,FIC,R21,Preparing for pre-exposure prophylaxis implementation in Central-Eastern European Countries with low access to biomedical prevention,-1.4900,3069
+10222676,R42ES032642,NIEHS,R42,Develop and Commercialize the Bayesian Dose-Response Modeling System and Services,-1.5022,3080
+10281470,P30AR070155,NIAMS,P30,RESOURCE-BASED CENTER FOR THE ADVANCEMENT OF PRECISION MEDICINE IN RHEUMATOLOGY,-1.5441,3128
+10200812,U2CES030857,NIEHS,U2C,Human Health Exposure Analysis Resource Core: Untargeted Analysis,-1.5491,3135
+10260476,P30AG013280,NIA,P30,Nathan Shock Center of Excellence in Basic Biology of Aging,-1.5721,3148
+10116298,U10CA180794,NCI,U10,ECOG-ACRIN Network Group Statistics and Data Management Center,-1.5917,3176
+10236314,P30AR076312,NIAMS,P30,CORE CENTER FOR CLINICAL RESEACH IN TOTAL JOINT ARTHROPLASTY (CORE-TJA),-1.5945,3182
+10233794,F32GM137543,NIGMS,F32,Developing Cyclopentadiene as a Reagent in Bioorthogonal Chemistry,-1.5952,3184
+10281309,P30AR070254,NIAMS,P30,Johns Hopkins Rheumatic Diseases Resource-based Core Center (Johns Hopkins RDRCC),-1.6025,3195
+10216259,U2CES030158,NIEHS,U2C,West Coast Metabolomics Center for Compound Identification,-1.6144,3212
+10198985,T32HL079896,NHLBI,T32,Integrated Biostatistical Training for CVD Research,-1.6189,3216
+10382896,UL1TR001445,NCATS,UL1,Clinical and Translational Science Award,-1.6326,3238
+10200162,U19NS112953,NINDS,U19,Cracking the Olfactory Code,-1.6385,3248
+10498663,R35GM142539,NIGMS,R35,Single Cell Mosaic Mutation Atlas of Human Organ,-1.6468,3259
+10460884,CO20030001-,NCI,Y01,COVID supplement: Clinical Reporting and Research Informatics Support Services,-1.6682,3290
+10264869,R01GM109045,NIGMS,R01,Computational and Theoretical Characterization of Ligand-protein Binding Mechanism,-1.6739,3300
+10215407,P01CA180945,NCI,P01,Optimized Chronic Care for Smokers: Developing and Implementing Integrated Clinical and Systems Interventions in Primary Care,-1.6773,3304
+10297015,R01GM071896,NIGMS,R01,A Web-Based Automatic Virtual Screening System,-1.6775,3305
+10460883,CO20030001-,NCI,Y01,Clinical Reporting and Research Informatics Support Services,-1.6824,3311
+10213815,U2CHL138346,NHLBI,U2C,Innovation through collaboration at the intersection of childhood development and cancer: a platform for the Gabriella Miller Kids First Pediatric DataResource Center,-1.6900,3320
+10218233,U41HG007823,NHGRI,U41,Establishing the GWAS Catalog as a resource for large-scale association studies,-1.7013,3333
+10251982,P30AG064105,NIA,P30,Transforming residential palliative care for persons with dementia through behavioral economics and data science,-1.7066,3340
+10744868,R56HL158803,NHLBI,R56,Peripheral Artery Disease: Long-term Survival & Outcomes Study (PEARLS),-1.7241,3359
+10304503,P01AA029545,NIAAA,P01,The HIV and Alcohol Research center focused on Polypharmacy (HARP),-1.7283,3367
+10386725,R35GM130289,NIGMS,R35,Transmembrane signaling mechanisms of plexin - Supplement,-1.7462,3395
+10181006,P01HL040962,NHLBI,P01,Biobehavioral Studies of Cardiovascular Disease,-1.7475,3396
+10200729,P30DA048742,NIDA,P30,Center for Neural Circuits in Addiction,-1.7505,3399
+10138531,R44GM123820,NIGMS,R44,A Comprehensive 5K Plus Glycan Microarray,-1.7526,3407
+10085452,R35GM139482,NIGMS,R35,"Advanced NMR, computational, and hybrid methods for metabolomics",-1.7557,3412
+10092168,R01GM065372,NIGMS,R01,Mapping Protein Surfaces in Computational Drug Design,-1.7575,3415
+10173844,P30GM133894,NIGMS,P30,A Synchrotron Radiation Structural Biology Resource,-1.7615,3417
+10559361,R01CA233873,NCI,R01,Multimodal Biomarkers For Oropharyngeal Cancer,-1.7718,3429
+10232285,P30AR072571,NIAMS,P30,Boston University CCCR,-1.7814,3438
+10220047,P41GM103493,NIGMS,P41,A Research Resource for Ultra-sensitive High Throughput Proteomics,-1.7819,3439
+10205659,P50MH126283,NIMH,P50,ALACRITY for Early Screening and Treatment of High Risk Youth (eSToRY),-1.8122,3490
+10247682,P50CA244693,NCI,P50,iDAPT: Implementation and Informatics - Developing Adaptable Processes and Technologies for Cancer Control,-1.8206,3507
+10224011,U19AI135990,NIAID,U19,HPMI: Host Pathogen Mapping Initiative,-1.8299,3519
+10453911,U19AI135990,NIAID,U19,HPMI: Host Pathogen Mapping Initiative,-1.8299,3520
+10147083,P01GM063210,NIGMS,P01,Phenix: Integrated algorithms for high quality models from crystallographic and cryo-EM data,-1.8576,3552
+10180905,U01CA164920,NCI,U01,Breast Cancer Family Registry Cohort,-1.8643,3556
+10221005,R01GM140462,NIGMS,R01,Mathametical modeling of cell fate transitions regulated by ultra-feedbacks,-1.8735,3568
+10251223,U2CCA233285,NCI,U2C,Center for pediatric tumor cell atlas,-1.8915,3595
+10457674,UM2AI117870,NIAID,UM2,"Rho Federal Systems Division, Inc. NIAID DAIT SACCC",-1.8958,3600
+10642136,R01GM140476,NIGMS,R01,Adaptive Frequency Band Estimation and Analysis,-1.8982,3603
+10260829,UG4LM013732,NLM,UG4,"Region 4, Regional Medical Library and Network of the National Library of Medicine Training Office",-1.9021,3608
+10451045,R01MH119132,NIMH,R01,Computational Biases of Learning and Decision-Making in PTSD,-1.9049,3611
+10150742,UM2AI117870,NIAID,UM2,"Rho Federal Systems Division, Inc. NIAID DAIT SACCC",-1.9056,3612
+10454557,UM2AI117870,NIAID,UM2,"Rho Federal Systems Division, Inc. NIAID DAIT SACCC",-1.9056,3613
+10093067,R01GM125878,NIGMS,R01,Advanced correlation analyses to infer sequence and structural determinants of protein function,-1.9227,3637
+10224727,U19NS104649,NINDS,U19,Computational and circuit mechanisms underlying motor control,-1.9335,3650
+10603102,R50CA221836,NCI,R50,Advanced statistical modeling and analytics for prostate cancer interventions,-1.9365,3655
+10249249,P30EY001583,NEI,P30,P30 Core Grant for Vision Research,-1.9583,3689
+10250557,R01GM140476,NIGMS,R01,Adaptive Frequency Band Estimation and Analysis,-1.9674,3702
+10251998,P30GM138396,NIGMS,P30,GM/CA@APS: A Macromolecular Crystallography Resource,-1.9816,3729
+10190909,P30DK089503,NIDDK,P30,Michigan Nutrition Obesity Research Center,-1.9871,3736
+10256812,P20GM125498,NIGMS,P20,"Translational Research to Prevent and Control Global Infectious Diseases (Translational Global Infectious Diseases Research Center, TGIR).",-1.9872,3737
+10232728,R21DA054818,NIDA,R21,"Racial disparities in biomarkers, tobacco cessation, and smoking relapse in association with electronic cigarette use",-2.0000,3751
+10316777,UM1AI068634,NIAID,UM1,"Statistical and Data Management Center (SDMC), AIDS Clinical Trials Group (ACTG)",-2.0017,3755
+10531789,R01NS107550,NINDS,R01,An Implantable Wireless Tactile Feedback System,-2.0023,3758
+10236395,P30AR072579,NIAMS,P30,Core Center for Clinical Research at Northwestern University,-2.0033,3759
+10097970,U19AI135964,NIAID,U19,Successful Clinical Response In Pneumonia Therapy (SCRIPT) Systems Biology Center,-2.0287,3794
+10612243,R44DA044905,NIDA,R44,BioMote for Opioid Use Disorder (OUD) Recovery,-2.0303,3803
+10272387,U54CA261719,NCI,U54,Evolutionary dynamics and microenvironmental determinants of metastatic breast cancer,-2.0355,3807
+10388644,R01GM124621,NIGMS,R01,Administrative Supplement: Free Energy Sampling of Long-Timescale Biomolecular Dynamics,-2.0364,3809
+10835577,UF1NS122123,NINDS,UF1,Coordinating structure and function for neuronal computations mediating context-dependent behavior,-2.0675,3852
+10385184,U54AG076040,NIA,U54,A Multi-scale Atlas of Senescence in Diverse Tissue Types,-2.0783,3863
+10696434,R15DC019229,NIDCD,R15,Muscle Control Mechanism of Voice Production in Vocal Fold Paralysis,-2.1049,3907
+10137936,P42ES027704,NIEHS,P42,Comprehensive tools and models for addressing exposure to mixtures during environmental emergency-related contamination events,-2.1145,3924
+10169412,P30DK079312,NIDDK,P30,Center for Advanced Renal Microscopic Analysis,-2.1162,3927
+10251353,U54OD030187,OD,U54,The Jackson Laboratory Center for Precision Genetics,-2.1215,3935
+10160921,R01GM124621,NIGMS,R01,Free Energy Sampling of Long-Timescale Biomolecular Dynamics,-2.1289,3944
+10520293,R43TR003535,NCATS,R43,Software for Predicting Liver Injury from Biologics Drug Candidates Using Data from a Human Liver Microphysiology System,-2.1313,3951
+10147165,P50MH115837,NIMH,P50,UW ALACRITY Center for Psychosocial Interventions Research,-2.1368,3954
+10991966,R01DK085516,NIDDK,R01,Integrated Approaches to Close the Loop in Type 1 Diabetes,-2.1747,4013
+10199070,U19NS107466,NINDS,U19,Reverse Engineering the Brain Stem Circuits that Govern Exploratory Behavior,-2.1878,4031
+10539220,R01GM108583,NIGMS,R01,Investigation of DNA Modifying Enzymes by Computational Simulations: Development and Applications,-2.1894,4036
+10531662,R21ES032762,NIEHS,R21,The External Exposome and COVID-19 Severity,-2.1897,4038
+10310799,UL1TR001445,NCATS,UL1,Clinical and Translational Science Award,-2.1926,4044
+10317650,UL1TR001445,NCATS,UL1,Clinical and Translational Science Award,-2.1926,4045
+10553953,R35GM127131,NIGMS,R35,"The origin, the function and the phenotypic impact of human alleles",-2.1974,4056
+10145231,U42OD010983,OD,U42,"Informatics, Coordination and Service Center for the Mutant Mouse Resource and Research Centers",-2.2069,4074
+10188433,P30AR075043,NIAMS,P30,University of Michigan Skin Biology and Diseases Resource-based Center,-2.2172,4097
+10399188,F32GM128351,NIGMS,F32,Development of Statistical Models to Identify Structural Features and Noncovalent Interactions Influencing Asymmetric Catalysis,-2.2273,4109
+10294462,U2CCA252979,NCI,U2C,OPTimIzing engageMent in discovery of molecular evolution of low grade glioma (OPTIMUM),-2.2309,4113
+10253378,UG4LM013725,NLM,UG4,NNLM Region 5:  Reaching More People in More Ways,-2.2352,4122
+10206191,R01GM130641,NIGMS,R01,Modeling Transition Metal Ion Binding to Proteins,-2.2396,4132
+10387132,R01GM130641,NIGMS,R01,Modeling Transition Metal Ion Binding to Proteins,-2.2396,4133
+10032571,P30GM138395,NIGMS,P30,The Biophysics Collaborative Access Team,-2.2399,4134
+10169892,P41HD064556,NICHD,P41,Xenbase:  a Xenopus Model Organism Knowledgebase,-2.2491,4151
+10310895,P50CA210964,NCI,P50,Mayo Clinic Hepatobiliary SPORE Diversity Supplement Dr. Musa Gabere,-2.2539,4156
+10244913,P20GM121342,NIGMS,P20,SC COBRE for Translational Research Improving Musculoskeletal Health (SC-TRIMH),-2.2798,4184
+10233518,F32GM134709,NIGMS,F32,Computational Investigations of Asymmetric Carbon-Carbon Bond Formation,-2.2805,4188
+10259732,U2CCA233195,NCI,U2C,The Cellular Geography of Therapeutic Resistance in Cancer,-2.3003,4207
+10520302,R34DA053999,NIDA,R34,Piloting an App-Based Just-in-Time Adaptive Ecological Momentary Intervention to Reduce Substance Use among HIV-Positive Sexual MinorityMen,-2.3054,4212
+10189586,P30ES013508,NIEHS,P30,Center of Excellence in Environmental Toxicology,-2.3062,4214
+10201646,P30GM124169,NIGMS,P30,ALS Efficiently Networking Advanced Beam Line Experiments (ALS-ENABLE),-2.3186,4241
+10399882,P30GM124169,NIGMS,P30,ALS Efficiently Networking Advanced Beam Line Experiments (ALS-ENABLE),-2.3186,4242
+10205742,U19AI118608,NIAID,U19,"IMPACC convalescent data collection, including Patient Reported Outcomes (PROs) and home visit sampling",-2.3211,4245
+10290547,U19AI118608,NIAID,U19,"IMPACC convalescent data collection, including Patient Reported Outcomes (PROs) and home visit sampling",-2.3211,4246
+10128464,P30GM124165,NIGMS,P30,NE-CAT: A Resource for Advanced Macromolecular Crystallography,-2.3223,4250
+10178009,T32EB009383,NIBIB,T32,Integrative Program  in  Complex  Biological System (ipCBS),-2.3327,4261
+10261915,UL1TR003142,NCATS,UL1,Stanford Center for Clinical & Translational Education and Research (Spectrum),-2.3474,4286
+10089598,P41GM136463,NIGMS,P41,"NMR Technologies for Integrating Structure, Function and Disease",-2.3539,4300
+10294750,P50MH127511,NIMH,P50,Penn Innovation in Suicide Prevention Implementation Research (INSPIRE) Center,-2.3592,4311
+10240701,R01GM133836,NIGMS,R01,Ultra-large library docking for ligand discovery,-2.3628,4318
+10261978,UG4LM012345,NLM,UG4,"Regional Medical Library for Region 3 of the Network of the National Library of Medicine (AR, KS, LA, MO, NE, OK, TX) and National Public Health Coordination Office",-2.3657,4323
+10273978,P30EY006360,NEI,P30,P30-Core Grant for Vision Research,-2.3728,4334
+10601364,UH3CA218909,NCI,UH3,ReCAPSE: Recurrence from Claims And PROs for SEER Enhancement,-2.3879,4359
+10135956,P41EB015908,NIBIB,P41,National Center for In Vivo Metabolism,-2.4027,4381
+10258889,UG4LM013729,NLM,UG4,NNLM Region 6 Regional Medical Library,-2.4118,4388
+10531478,F32HD106687,NICHD,F32,Defining the Natural History and Drivers of Surgical Referral of Pediatric Umbilical Hernias to Reduce Unnecessary Surgery,-2.4294,4417
+10294668,U19NS123716,NINDS,U19,State-dependent Decision-making in Brainwide Neural Circuits,-2.4356,4422
+10241290,P41HD095831,NICHD,P41,Enhanced Echinobase: A Community Genome Resource for the Future,-2.4364,4423
+10128453,P42ES017198,NIEHS,P42,Puerto Rico Testsite for Exploring Contamination Threats (PROTECT),-2.4472,4441
+10170369,P20GM121325,NIGMS,P20,Personalized Medicine in Nevada COBRE,-2.4585,4457
+10402976,UL1TR002535,NCATS,UL1,Colorado Clinical and Transational Sciences Institute,-2.4681,4469
+10173820,P30GM122734,NIGMS,P30,Phase III COBRE:  Multimodal Imaging of Neuropsychiatric Disorders (MIND),-2.4712,4476
+10264493,P30AG072975,NIA,P30,Rush Alzheimer's Disease Research Center,-2.4744,4482
+10581417,R01DK115534,NIDDK,R01,Medication Use and Adverse Events in CKD,-2.4749,4484
+10241465,P50DK114786,NIDDK,P50,CHOP Pediatric Center of Excellence in Nephrology,-2.4882,4501
+10207524,U54CA209978,NCI,U54,Combating Subclonal Evolution of Resistant Cancer Phenotypes,-2.5107,4545
+10601285,R01CA253975,NCI,R01,Quit2Heal: Rigorous Randomized Trial of a Smartphone Application to Help Cancer Patients Stop Smoking,-2.5216,4570
+10597811,R01DK120814,NIDDK,R01,Putting Telehealth to the Test: An Evaluation of the Use of Telehealth to Increase the Population-Level Impact of an Employer-Based Diabetes Prevention Program,-2.5230,4575
+10218998,R01CA260459,NCI,R01,Evaluating the impact of e-cigarette social media marketing on e-cigarette use among underage youth.,-2.5246,4576
+10203969,P30EY002162,NEI,P30,P30 - Core Grant for Vision Research,-2.5247,4577
+10265439,U54NS117170,NINDS,U54,Epilepsy Multiplatform Variant Prediction (EpiMVP),-2.5311,4587
+10240640,R01GM124160,NIGMS,R01,Understanding and Designing Cyclic Peptides,-2.5407,4604
+10342493,UL1TR002535,NCATS,UL1,Implementation and Real-World Effectiveness of Monoclonal Antibodies to Treat High-Risk Outpatients with COVID-19,-2.5427,4606
+10132348,P20GM130418,NIGMS,P20,Center for Population Health Research,-2.5452,4610
+10224848,P41EB030006,NIBIB,P41,Center for Mesoscale Mapping,-2.5484,4621
+10831646,R01EB031083,NIBIB,R01,Rapid Structure-Function MRI of the Lung for Post-COVID-19 Management,-2.5633,4641
+10167727,R01GM125856,NIGMS,R01,Translation of Hot Loops into Macrocyclic Inhibitors of Protein-Protein Interactions,-2.5678,4645
+10281515,U54GM115428,NIGMS,U54,Mississippi Center for Clinical and Translational Research,-2.5736,4655
+10201586,U54DK120058,NIDDK,U54,Vanderbilt University Biomolecular Multimodal Imaging Center for 3-Dimensional Tissue Mapping,-2.5741,4657
+10151542,U54CA217297,NCI,U54,Systems Analysis of Epigenomic Architecture in Cancer Progression,-2.5793,4662
+10616295,R35GM119774,NIGMS,R35,Real-time tracking of virus evolution for vaccine strain selection and epidemiological investigation,-2.5839,4674
+10309155,P30HD106451,NICHD,P30,"The Indiana University-Ohio State University Maternal and Pediatric Precision in Therapeutics Data, Model, Knowledge, and Research Coordination Center (IU-OSU MPRINT DMKRCC)",-2.5866,4678
+10174930,T32ES007329,NIEHS,T32,Graduate training in Bioinformatics,-2.5892,4685
+10261939,UG4LM013736,NLM,UG4,"Region 2  Regional Medical Library, NNLM",-2.5931,4695
+10738681,R01CA229542,NCI,R01,Developing Methodology to examine causal mediation of Time-Varying Effects in Smoking Cessation Treatments,-2.5956,4701
+10385161,U54AG076041,NIA,U54,Minnesota Tissue Mapping Center for Senescent Cells,-2.6180,4738
+10265506,R24GM137782,NIGMS,R24,A National Glycoscience Resource - CCRC Service and Training,-2.6265,4750
+10272810,P30EY003039,NEI,P30,UAB Core Grant for Vision Research,-2.6277,4752
+10220918,P50DA046351,NIDA,P50,Center to Advance Research Excellence (OPTIC)Center to Advance Research Excellence (OPTIC).,-2.6319,4763
+10220839,P20AG068053,NIA,P20,Nevada Exploratory Alzheimer's Disease Research Center (NVEADRC),-2.6390,4780
+10473106,U10CA180899,NCI,U10,Children's Oncology Group Statistics and Data Center,-2.6474,4796
+10386663,R01GM136976,NIGMS,R01,Structural and Functional Analyses of the Full-length Insulin Receptor (IR) and Type 1 Insulin-like Growth Factor Receptor (IGF1R) in the Liganded Active State,-2.6738,4852
+10202757,U19NS104655,NINDS,U19,A Brain Circuit Program for Understanding the Sensorimotor Basis of Behavior,-2.6871,4872
+10165552,U10CA180822,NCI,U10,NRG Oncology - Statistical and Data Management Center,-2.6875,4873
+10241477,U19NS104653,NINDS,U19,"Sensorimotor processing, decision making, and internal states: towards a realistic multiscale circuit model of the larval zebrafish brain",-2.6909,4874
+10245129,P30AR076316,NIAMS,P30,Pediatric musculOskeletal & RheumaTology Innovation COre center (PORTICO),-2.6968,4885
+10282956,P50NS123109,NINDS,P50,Circuit-based deep brain stimulation for Parkinson's disease,-2.7014,4894
+10439043,UG4LM012342,NLM,UG4,National Network of Libraries of Medicine MidAtlantic (Region 1) and Web Services Office,-2.7056,4902
+10201676,R35GM137797,NIGMS,R35,Merging Computation and Experiment to Understand and Develop Asymmetric Open-Shell Radical Cross-Couplings,-2.7154,4911
+10580445,R35GM137797,NIGMS,R35,Merging Computation and Experiment to Understand and Develop Asymmetric Open-Shell Radical Cross- Couplings,-2.7154,4912
+10598344,R21MH125285,NIMH,R21,Determining structure and organization of neurofilaments in situ using cryo- electron tomography,-2.7261,4930
+10254369,U54EY032442,NEI,U54,Biomolecular Multimodal Imaging Center: 3-Dimensional Tissue Mapping of the Human Pancreas and Eye,-2.7306,4939
+10378449,UL1TR001442,NCATS,UL1,UC San Diego Clinical and Translational Research Institute,-2.7429,4958
+10225399,U19NS118246,NINDS,U19,"Neural basis of causal inference: representations, circuits, and dynamics",-2.7505,4967
+10614762,U01HL142099,NHLBI,U01,Assess and Adapt to the Impact of COVID-19 on CVD Self Management and Prevention Care in Adults Living with HIV (AAIM-High),-2.7580,4986
+10248402,P30AR072581,NIAMS,P30,Indiana Core Center for Clinical Research in Musculoskeletal Health,-2.7637,5001
+10488283,U24HL147012,NHLBI,U24,2/2 Ganciclovir to Prevent Reactivation of Cytomegalovirus in Patients with Acute Respiratory Failure and Sepsis,-2.7765,5027
+10207344,U19AI133524,NIAID,U19,Defining regulators of immunity to acute infection using CRISPR screens,-2.7795,5032
+10246477,P20GM103645,NIGMS,P20,Center for Central Nervous System Function,-2.7869,5044
+10601423,R37CA246703,NCI,R37,Planning Advance Care Together (PACT) to Improve Engagement in Advance Care Planning among Advanced Cancer Patients,-2.7969,5074
+10242181,U2CCA233303,NCI,U2C,Washington University Human Tumor Atlas Research Center,-2.8107,5106
+10176341,P30AG066515,NIA,P30,Stanford Alzheimer's Disease Research Center,-2.8275,5135
+10112669,P40OD011102,OD,P40,Special Mouse Strains Resource,-2.8414,5153
+10080700,U19AI135972,NIAID,U19,Fluomics: The Next Generation,-2.8449,5162
+10265790,U19AI135972,NIAID,U19,Fluomics: The Next Generation,-2.8449,5163
+10261703,UL1TR001420,NCATS,UL1,Administrative Supplement for Quality Assurance/Quality Control,-2.8556,5172
+10273965,P30EY019007,NEI,P30,Core Facilities for Vision Research,-2.8580,5174
+10090891,U54AG052427,NIA,U54,Genome Center for Alzheimer's Disease (GCAD),-2.8587,5177
+10260845,U19AI162130,NIAID,U19,Evaluating Modes of Influenza Transmission (EMIT-2) using Innovative Technologies and Designs in Controlled Environments,-2.8595,5178
+10545491,R50CA243786,NCI,R50,"Core-based scientist specializing in high throughput screening for early drug discovery, target identification and systems biology analysis of cancer",-2.8628,5185
+10531781,R01MH121605,NIMH,R01,Investigating quantitative signatures of autism in toddlers,-2.8670,5201
+10587824,U01HL142099,NHLBI,U01,A nurse-led intervention to extend the HIV treatment cascade for cardiovascular disease prevention (EXTRA-CVD),-2.8675,5208
+10596414,U01HL142099,NHLBI,U01,A nurse-led intervention to extend the HIV treatment cascade for cardiovascular disease prevention (EXTRA-CVD),-2.8675,5209
+10437392,P50MD017351,NIMHD,P50,ACHIEVE GreatER: Addressing Cardiometabolic Health Inequities by Early PreVEntion in the Great LakEs Region,-2.8792,5229
+10236868,P30AR079200,NIAMS,P30,Skin Biology and Diseases Resource-based Center at Mount Sinai,-2.9106,5291
+10163230,P2CHD101895,NICHD,P2C,LeaRRN: the Learning Health Systems Rehabilitation Research Network,-2.9114,5292
+10159992,UL1TR003096,NCATS,UL1,Center for Clinical and Translational Science,-2.9175,5307
+10436433,UL1TR003096,NCATS,UL1,Center for Clinical and Translational Science,-2.9175,5308
+10476772,R01GM133198,NIGMS,R01,PDB MANAGEMENT BY THE RESEARCH COLLABORATORY FOR STRUCTURAL BIOINFORMATICS,-2.9230,5319
+10275296,R35GM142772,NIGMS,R35,Exploiting Water Network Perturbations in Protein Binding Sites,-2.9239,5322
+10376523,U54AG075934,NIA,U54,Washington University Senescence Tissue Mapping Center (WU-SN-TMC),-2.9280,5326
+10413517,U54GM115677,NIGMS,U54,RI-Center for Clinical and Translational Science,-2.9464,5372
+10265431,P01AG066605,NIA,P01,DEploying High ValuE LOngitudinal Population-Based dAta in Dementia Research (DEVELOP AD Research),-2.9577,5396
+10267740,U54AR078664,NIAMS,U54,High resolution 3D mapping of cellular heterogeneity within multiple types of mineralized tissues,-2.9665,5408
+10260113,UL1TR001427,NCATS,UL1,CTSA Program: Admin Supplements for Quality Assurance/Quality Control Position,-2.9687,5417
+10180966,U2CES030167,NIEHS,U2C,Genetics and quantum chemistry as tools for unknown metabolite identification,-2.9690,5418
+10249469,UG4LM013724,NLM,UG4,Network of the National Library of Medicine Region 1,-2.9709,5424
+10478410,UL1TR001436,NCATS,UL1,Clinical and Translational Science Award,-2.9957,5471
+10198948,R01GM129286,NIGMS,R01,Stereoselective Reactions of Oxocarbenium Ions and Related Intermediates,-3.0020,5482
+10340118,P50DC019900,NIDCD,P50,Next-generation clinical phenotyping and pathophysiology of laryngeal dystonia and voice tremor,-3.0050,5488
+10270723,P30AG066546,NIA,P30,South Texas Alzheimer's Disease Center,-3.0060,5491
+10201601,U2CES030163,NIEHS,U2C,Mega-scale Identification tools for xenobiotic metabolism,-3.0151,5502
+10374660,U24AG061340,NIA,U24,Data Coordination for the AMP Autoimmune and Related (AR) Knowledge Portal,-3.0181,5510
+10283063,U19AG073585,NIA,U19,VULNERABILITY AND RESILIENCY IN THE AGING ADULT BRAIN CONNECTOME (AABC),-3.0345,5547
+10761845,RF1NS120947,NINDS,RF1,Establishing a Brain Health Index,-3.0360,5550
+10232588,P30AR069620,NIAMS,P30,Michigan Integrative Musculoskeletal Health Core Center (Overall Application),-3.0449,5571
+10085267,U42OD010924,OD,U42,A Carolina Center to Characterize and Maintain Mutant Mice,-3.0457,5572
+10457061,U42OD010924,OD,U42,A Carolina Center to Characterize and Maintain Mutant Mice,-3.0457,5573
+10459680,K08AR073933,NIAMS,K08,Personal Surgical Planning to Avoid Hip Dislocation after Total Hip Arthroplasty: Concept of Functional Safe Zone.,-3.0632,5613
+10155540,P2CHD101899,NICHD,P2C,Center for Smart Use of Technology to Assess Real-world Outcomes (C-STAR),-3.0782,5647
+10229461,R01DA048428,NIDA,R01,Randomized trial of low nicotine cigarettes plus electronic cigarettes in smokers with a mental health condition,-3.0800,5653
+10603027,R01CA204378,NCI,R01,Improving treatment of cardiovascular risk factors in childhood cancer survivors,-3.0885,5676
+10136606,R01GM102515,NIGMS,R01,"Identification, Discovery, and Public Archiving of RNA Structural Motifs",-3.0959,5698
+10206284,R24OD024624,OD,R24,A COMPREHENSIVE RESOURCE FOR HIGH-THROUGHPUT PROFILING OF WORM AND ZEBRAFISH METABOLOMES,-3.0988,5702
+10237122,U54HL145608,NHLBI,U54,"KULMAP: Human Kidney, urinary tract and lung mapping center",-3.0995,5703
+10409999,R01DA049644,NIDA,R01,"Ethno-epidemiology of HCV, HIV and Overdose associated with Drug Markets and Drug Tourism",-3.1066,5718
+10223007,R25EY029124,NEI,R25,"Interactive, Self-Paced Training Modules for Cryo-EM and Cryo-ET Novices",-3.1066,5719
+10289793,U2CDK129670,NIDDK,U2C,Dietary Biomarkers Development Center at Harvard University,-3.1086,5726
+10155524,P41GM136508,NIGMS,P41,MEDIC - MicroED Imaging Center at UCLA,-3.1086,5727
+10192745,P41GM128577,NIGMS,P41,Resource for Native Mass Spectrometry Guided Structural Biology,-3.1157,5740
+10239776,P50HD105353,NICHD,P50,Waisman Center Intellectual and Developmental Disabilities Research Center,-3.1179,5745
+10251258,U19AG063744,NIA,U19,Alzheimer's Gut Microbiome Project,-3.1246,5761
+10213637,U2CAG060408,NIA,U2C,Ambulatory Methods for Measuring Cognitive Change,-3.1310,5773
+10126891,T32HL007111,NHLBI,T32,Cardiovasology,-3.1312,5774
+10246384,P20GM121312,NIGMS,P20,The Center for Neuroscience-based Mental Health Assessment and Prediction (NEUROMAP),-3.1419,5787
+10124299,U10CA180820,NCI,U10,ECOG-ACRIN Network Group Operations Center,-3.1430,5790
+10136664,U41HG000739,NHGRI,U41,FLYBASE: A DROSOPHILA GENOMIC AND GENETIC DATABASE,-3.1436,5793
+10505106,R03HD106123,NICHD,R03,Capturing and characterizing variability of cognition and behavior in Down syndrome,-3.1454,5798
+10216145,P30AG012810,NIA,P30,NBER Center for Aging and Health Research,-3.1460,5801
+10437368,P50MD017349,NIMHD,P50,Chicago Chronic Condition Equity Network (C3EN),-3.1480,5805
+10254241,P30AR072582,NIAMS,P30,Improving Minority Health in Rheumatic Diseases,-3.1560,5825
+10451974,U10CA180820,NCI,U10,ECOG-ACRIN Network Group Operations Center,-3.1571,5828
+10132994,P30CA034196,NCI,P30,Cancer Center Support (CORE) Grant,-3.1639,5846
+10217207,F32GM134613,NIGMS,F32,Mechanistic Investigations of Doubly Axially Chiral Phosphoric Acid Catalysts for the Synthesis of Enantioenriched Heterocycles,-3.1686,5858
+10268239,U54HD104393,NICHD,U54,Female Reproductive Tissue Mapping Center,-3.1690,5861
+10141316,UL1TR001439,NCATS,UL1,UTMB Clinical and Translational Science Award,-3.1840,5899
+10218144,U2CDK114886,NIDDK,U2C,Central Hub for Kidney Precision Medicine,-3.1875,5902
+10403751,U54GM115677,NIGMS,U54,RI-Center for Clinical and Translational Science,-3.1911,5908
+10166872,R01GM130794,NIGMS,R01,Revealing the Ligand Binding Landscape with Advanced Molecular Simulation Methods,-3.1966,5923
+10140362,P41GM109824,NIGMS,P41,National Center for Dynamic Interactome Research,-3.1975,5925
+10228076,U45ES006167,NIEHS,U45,IAFF HazMat Worker Health & Safety Training,-3.1976,5926
+10168628,U19MH114830,NIMH,U19,A comprehensive whole-brain atlas of cell types in the mouse,-3.2077,5951
+10138933,P01AG019783,NIA,P01,Causes and Consequences of Healthcare Efficiency,-3.2084,5954
+10147114,R35GM132090,NIGMS,R35,Mapping Fitness and Free Energy Landscapes of Proteins,-3.2103,5960
+10232350,U19NS107609,NINDS,U19,Computational and Circuit Mechanisms Underlying Rapid Learning,-3.2119,5966
+10281523,U54GM115677,NIGMS,U54,Advance Clinical and Translational Research (Advance-CTR),-3.2151,5972
+10468390,U54GM115677,NIGMS,U54,Advance Clinical and Translational Research (Advance-CTR),-3.2151,5973
+10264813,P30AG068635,NIA,P30,San Diego Nathan Shock Center,-3.2167,5976
+10224235,R35GM124661,NIGMS,R35,Fluoroalkylethers and Fluorinated Ethermimetics,-3.2183,5978
+10134460,UL1TR001425,NCATS,UL1,Center for Clinical and Translational Science and Training,-3.2205,5989
+10290745,P30DK092924,NIDDK,P30,the Diabetes Research for Equity through Advanced Multilevel Science Center for Diabetes Translational Research (DREAMS-CDTR),-3.2230,5993
+10059253,R01GM130745,NIGMS,R01,A Bayesian nonparametric approach to superresolved tracking of multiple molecules inside living cells,-3.2251,5997
+10583098,R43EB031763,NIBIB,R43,Inline RF Warmer Using RF Technology,-3.2278,6001
+10237259,U2CCA252974,NCI,U2C,Count Me In: Partnering with patients to define the clinical and genomic landscape of rare aggressive sarcomas in children and adults,-3.2321,6009
+10453458,R01HL151152,NHLBI,R01,Polygenic Risk Scores for Diverse Populations - Bridging Research and Clinical Care,-3.2395,6034
+10207331,P01AA019072,NIAAA,P01,Addressing alcohol misuse in HIV prevention and care: The Brown University Alcohol Research Center on HIV (ARCH),-3.2480,6057
+10221548,P30AG034532,NIA,P30,NBER Roybal Center for Behavior Change in Health,-3.2482,6059
+10169332,P01CA154292,NCI,P01,Risk-based Breast Cancer Screening and Surveillance in Community Practice,-3.2509,6073
+10061613,R01GM126170,NIGMS,R01,An integrated pipeline for next-generation protein interactomics,-3.2523,6078
+10403758,R01MD013769,NIMHD,R01,Bridging the evidence-to-practice gap: Evaluating practice facilitation as a strategy to accelerate translation of a systems-level adherence intervention into safety net practices,-3.2526,6079
+10533176,R01AI156866,NIAID,R01,Spillover of Ebola and other filoviruses at ecological boundaries,-3.2585,6092
+10469823,U54AG063546,NIA,U54,NIA AD/ADRD Health Care Systems Research Collaboratory,-3.2612,6097
+10254441,U54AT008909,NCCIH,U54,Natural Product-Drug Interaction Research: The Roadmap to Best Practices,-3.2629,6103
+10240519,R24GM137786,NIGMS,R24,IDeA National Resource for Quantitative Proteomics,-3.2646,6110
+10231133,P30GM124166,NIGMS,P30,MacCHESS Synchrotron Source for Structural Biology,-3.2712,6128
+10227709,P50HD093074,NICHD,P50,"Co-occurring ADHD in young children with ASD: Precursors, detection, neural signatures, and early treatment",-3.2731,6133
+10257874,U54MD000502,NIMHD,U54,Obesity Health Disparities Research Center (OHDRC) - COVID-19 Testing Model among Vulnerable Populations: From Community Engagement to Follow-Up,-3.2740,6134
+10239062,P41EB018783,NIBIB,P41,Center for Adaptive Neurotechnologies,-3.2765,6144
+10399312,R24GM137786,NIGMS,R24,Admin Supplement to IDeA National Resource for Quantitative Proteomics,-3.2769,6145
+10207105,T32EB019944,NIBIB,T32,Tissue microenvironment (TIMe) training program,-3.2787,6151
+10090612,R35GM130327,NIGMS,R35,Origins of Cell Geometry,-3.2840,6161
+10198775,P30CA046592,NCI,P30,Cancer Center Support Grant 2018-2023,-3.2850,6163
+10090065,P20GM139745,NIGMS,P20,Center of Biomedical Research Excellence in Acute Care Research and Rural Disparities,-3.2970,6194
+10403857,R01ES028615,NIEHS,R01,Community-Engaged Covid-19 Interventions to Protect and Monitor Children,-3.2973,6195
+10242793,P30AG024978,NIA,P30,ORCASTRAIT Oregon Roybal Center for Care Support Translational Research Advantaged by Integrating Technology,-3.3027,6206
+10613767,R01DK118354,NIDDK,R01,Robust Statistical Methods to Identify and Use Surrogate Markers in Diabetes,-3.3108,6228
+10207707,U54HG007480,NHGRI,U54,Genomic Characterization and Surveillance of Microbial Threats in West Africa,-3.3134,6234
+10224045,P01AG005842,NIA,P01,Improving Health Outcomes for an Aging Population,-3.3199,6247
+10224832,U54DA049115,NIDA,U54,Omics Data Generation Center (ODGC) for the Acute to Chronic Pain Signatures (A2CPS) Program,-3.3295,6269
+10194512,P20GM103650,NIGMS,P20,Center for Integrative Neuroscience,-3.3315,6276
+10294709,U19NS123717,NINDS,U19,Local neuronal drive and neuromodulatory control of activity in the pial neurovascular circuit,-3.3373,6287
+10231062,U19NS107464,NINDS,U19,Readout and control of spatiotemporal neuronal codes for behavior,-3.3408,6297
+10601440,R01CA223498,NCI,R01,Methods for Analyzing Cancer Somatic Mutation Data,-3.3419,6302
+10063423,P50DC000242,NIDCD,P50,Iowa Cochlear Implant Clinical Research Center VII,-3.3523,6325
+10249143,P01HL141084,NHLBI,P01,Elucidating Electro-Mechanical Dysfunction in Heart Failure with Human Stem Cell Models,-3.3556,6336
+10310982,U54CA242646,NCI,U54,"Cervical Cancer, Aging, and Psychological Distress among HIV-positive Women in Mexico and Puerto Rico: An exploratory sub-study of the CAMPO Consortium Clinical Trials Program",-3.3601,6347
+10117080,P20GM130461,NIGMS,P20,Rural Drug Addiction Research Center,-3.3620,6354
+10419373,P50CA244690,NCI,P50,Advancing the Quality of Cancer Care through Behavioral Economics and Implementation Science,-3.3620,6355
+10523580,K01HL153797,NHLBI,K01,Hypertensive Disorders of Pregnancy and Early Risk of Maternal CVD: Influence of the External Exposome,-3.3662,6365
+10077312,R35GM134881,NIGMS,R35,Studies on Enzyme Activation and Novel Modes of Inhibition,-3.3682,6372
+10409203,R24GM137786,NIGMS,R24,IDeA National Resource for Quantitative Proteomics - Google/STRIDES Admin Supplement,-3.3785,6398
+10250427,U54AG065187,NIA,U54,Open Drug Discovery Center for Alzheimer's Disease,-3.3842,6418
+10271490,U24MD016258,NIMHD,U24,RADx-UP CDCC,-3.3849,6422
+10116965,U10CA180863,NCI,U10,Canadian Cancer Trials Group - Canadian Collaborating Clinical Trials Network,-3.3851,6425
+10136609,P20GM109023,NIGMS,P20,CENTER FOR PERCEPTION AND COMMUNICATION IN CHILDREN,-3.3853,6427
+10197917,U2CDK119889,NIDDK,U2C,Metabolomics Consortium Coordinating Center (M3C),-3.3883,6436
+10237368,R35GM137959,NIGMS,R35,Deciphering the Mechanisms and Cellular Roles of Monomer-Driven Actin Dynamics,-3.3903,6442
+10226223,U54CA242646,NCI,U54,California-Mexico-Puerto Rico Partnership (CAMPO) Center for Prevention of HPV-related Cancer in HIV+ Populations,-3.3949,6456
+10411453,U54CA242646,NCI,U54,California-Mexico-Puerto Rico Partnership (CAMPO) Center for Prevention of HPV-related Cancer in HIV+ Populations,-3.3949,6457
+10173772,U2CES026561,NIEHS,U2C,Mount Sinai HHEAR Network Targeted Lab Hub,-3.4112,6504
+10223321,P20GM103466,NIGMS,P20,INBRE IV - Hawaii Statewide Research and Education Partnership (HiSREP),-3.4148,6511
+10206159,P41GM103521,NIGMS,P41,National Biomedical Center for Advanced ESR Technology (ACERT),-3.4220,6527
+10271792,P20GM109025,NIGMS,P20,Renewal of Centers of Biomedical Research Excellence (COBRE) (Phase 2) CNTN - Resubmission,-3.4334,6548
+10273642,P30EY001792,NEI,P30,P30 Core Grant for Vision Research,-3.4339,6551
+10165183,R35GM119462,NIGMS,R35,Deciphering dynamic signals in control of cell fate decisions,-3.4364,6557
+10249153,P01CA210961,NCI,P01,"I-SPY2 +: Evolving the I-SPY 2 TRIAL to include MRI-directed, adaptive sequential treatment to optimize breast cancer outcomes",-3.4398,6562
+10229546,R25TW011215,FIC,R25,Partnership in Education Training and Research Advancement (PETRA),-3.4449,6575
+10197626,R25GM141520,NIGMS,R25,Curriculum in Experimental Design and Statistics for Biomedical Researchers,-3.4501,6585
+10665463,R21AG065526,NIA,R21,The Effect of Patient Dementia on Outpatient Clinicians' Performance on Cost Outcomes Under Medicare,-3.4504,6586
+10251870,UH4ES009759,NIEHS,UH4,IAFF HazMat Training at DOE Nuclear Weapons Complex,-3.4537,6598
+10209779,R01GM079190,NIGMS,R01,Understanding Protein Radicals,-3.4590,6615
+10261552,U2COD023375,OD,U2C,ECHO Coordinating Center,-3.4617,6623
+10263161,P41EB022544,NIBIB,P41,Center for Molecular Imaging Technology and Translation (CMITT),-3.4622,6625
+10197737,P30AG012839,NIA,P30,Center on the Economics and Demography of Aging,-3.4635,6630
+10260017,U19CA203654,NCI,U19,Administrative Supplement: Integrative analysis of lung cancer etiology and risk,-3.4704,6652
+10180922,P30DA018310,NIDA,P30,The Neuroproteomics and Neurometabolomics Center on Cell-Cell Signaling,-3.4710,6655
+10601444,R01CA242735,NCI,R01,Modeling to Minimize Detection Bias in Cancer Risk Prediction Studies,-3.4711,6657
+10273133,R35GM142595,NIGMS,R35,Understanding Geometric and Electronic Structure Contributions to Ground and Excited State Cu- and Ni-Catalyzed Cross-Coupling Reactions,-3.4743,6670
+10137277,P2CHD065563,NICHD,P2C,Duke Population Research Center,-3.4805,6690
+10269925,U54HD104392,NICHD,U54,Penn Center for Multi-scale Molecular Mapping of the Female Reproductive System,-3.4820,6693
+10266084,U54NS115052,NINDS,U54,The Global Leukodystrophy Initiative Clinical Trials Network (GLIA-CTN),-3.4841,6699
+10136536,U54CA217378,NCI,U54,"Complexity, Cooperation and Community in Cancer",-3.5044,6753
+10200038,T32ES027801,NIEHS,T32,Training in Precision Environmental Health Sciences,-3.5059,6759
+10224755,P41EB015871,NIBIB,P41,MIT Laser Biomedical Research Center,-3.5139,6778
+10169439,P30ES030284,NIEHS,P30,UCSF Environmental Research and Translation for Health Center (EaRTH Center),-3.5146,6779
+10133101,R43GM137724,NIGMS,R43,Expanding the Glycomics toolbox: Chemo-enzymatic synthesis of well-defined N-glycan standards,-3.5157,6782
+10259877,P30EY002520,NEI,P30,P30 - Core Grant for Vision Research,-3.5159,6784
+10396924,U2CES030170,NIEHS,U2C,Label-free polar metabolite quantification for untargeted metabolomics,-3.5161,6787
+10270187,U19AG065169,NIA,U19,Precision Aging Network: Closing the Gap Between Cognitive Healthspan andHuman Lifespan,-3.5229,6806
+10175032,P50MH109429,NIMH,P50,Neurobiology and dynamics of Active Sensing,-3.5233,6809
+10058271,R01GM079440,NIGMS,R01,Membrane Protein Stability,-3.5282,6821
+10548017,R01EY030650,NEI,R01,DISCOVERING THE RULES FOR THE ORGANIZATION OF MACAQUE INFEROTEMPORAL CORTEX.,-3.5291,6826
+10137339,P40OD010949,OD,P40,DROSOPHILA GENOMICS RESOURCE CENTER,-3.5341,6839
+10085994,F32GM136042,NIGMS,F32,Asymmetric Nucleophilic Aromatic Substitution Enabled by Hydrogen-Bonding Catalysis,-3.5352,6841
+10251877,P01CA225597,NCI,P01,ASPiRE: Advancing Science & Practice in the Retail Environment,-3.5362,6842
+10199932,P30AR075047,NIAMS,P30,Skin Biology Resource-Based Center at UCI,-3.5422,6862
+10223197,P30CA023168,NCI,P30,Cancer Center Support Grant,-3.5561,6897
+10478302,U54MD007598,NIMHD,U54,Mobile Phone Enabled HIV Prevention and Treatment Interventions for Health Disparity Populations in South Los Angeles,-3.5618,6925
+10113608,P41EB023833,NIBIB,P41,Center for Engineering Complex Tissues,-3.5625,6930
+10263683,P30AG072958,NIA,P30,Duke/UNC Alzheimer's Disease Research Center,-3.5653,6935
+10089007,P41GM139687,NIGMS,P41,Structural Dynamics at LCLS,-3.5681,6945
+10163262,P50MH113662,NIMH,P50,"Accelerator Strategies for States to Improve System Transformations Affecting Children, Youth and Families",-3.5693,6949
+10612663,R01DC014021,NIDCD,R01,Brain Connectivity Supporting Language Recovery in Aphasia,-3.5721,6957
+10136884,R01GM117923,NIGMS,R01,Structural dynamics underlying GPCR-G protein selectivity,-3.5733,6961
+10578002,R03HD097729,NICHD,R03,Medication Adherence After Stroke,-3.5772,6974
+10234000,R21TR003191,NCATS,R21,SMART IACUC: A path to harmonized veterinary multi-site trial review,-3.5807,6985
+10190694,P20GM103440,NIGMS,P20,Nevada IDeA Networks of Biomedical Research Excellence (INBRE),-3.5814,6988
+10654892,K23MH112841,NIMH,K23,Early Intervention for Suicide Risk among Immigrant Youth,-3.5816,6993
+10480133,R21EB030851,NIBIB,R21,Personalized 3D avatar tool development for measurement of body perception across gender identities,-3.5822,6996
+10840225,UH3AA026214,NIAAA,UH3,Mobile Combined Alcohol and HIV Prevention Including PrEP Uptake/Adherence for High-Risk Young Men,-3.5833,7002
+10231092,U54DA049113,NIDA,U54,Integrated Omics Analysis of Pain: Omics Data Generation Center,-3.5875,7016
+10250513,P30EY003176,NEI,P30,NEI Center Core Grants for Vision Research,-3.5883,7021
+10185529,R01GM141340,NIGMS,R01,Visible Light-Enabled Synthesis of Heterocycles through Energy Transfer,-3.5894,7024
+10242804,R01CA246605,NCI,R01,The E-Cigarette Population Paradox: Testing Effects of Youth-Targeted Population Warnings for E-Cigarettes among Two Key Populations,-3.5908,7028
+10205106,P30GM133893,NIGMS,P30,The Center for Biomolecular Structure at NSLS-II,-3.6017,7058
+10135063,P42ES016465,NIEHS,P42,PAHs: New Technologies and Emerging Health Risks,-3.6085,7082
+10140219,R43GM140605,NIGMS,R43,UltraFISH+ for Single-cell Spatial Cell Type Analysis,-3.6159,7098
+10186825,U19MH113135,NIMH,U19,Collaborative Hub to Reduce the Burden of Suicide among Urban American Indian and Alaska Native Youth,-3.6196,7113
+10216306,R01GM127698,NIGMS,R01,Structural and Dynamic Mechanisms in Classical Protein Allostery,-3.6209,7116
+10234170,P20GM104316,NIGMS,P20,"Discovery of Chemical Probes and Therapeutic Leads, Phase II",-3.6295,7144
+10601357,R01CA236558,NCI,R01,Statistical Methods for Prospective Evaluation of Biomarkers,-3.6328,7158
+10807341,R15HD101841,NICHD,R15,Technological timescales: Identifying the impact of digital media on the mechanisms of word learning,-3.6358,7166
+10188529,T32ES007018,NIEHS,T32,Biostatistics for Research in Environmental Health,-3.6448,7200
+10172883,R01DA049155,NIDA,R01,Impact of e-cigarette prevention messages on adolescents,-3.6459,7207
+10237219,U54NS105541,NINDS,U54,Cornell ME/CFS Collaborative Research Center,-3.6486,7218
+10601377,U01CA182883,NCI,U01,PCPT and SELECT Cohorts: Core Infrastructure Support for Cancer Research,-3.6508,7223
+10251843,T32EB009380,NIBIB,T32,Training in Multi-scale Analysis of Biological Structure and Function,-3.6531,7237
+10223674,S06GM142123,NIGMS,S06,FY21 ITCA NARCH XI,-3.6542,7244
+10600582,R01CA237133,NCI,R01,Precision Management of Cystic Precursors to Pancreatic Cancer,-3.6545,7246
+10265451,R35GM130339,NIGMS,R35,Understanding the molecular basis of transmembrane protein association,-3.6552,7249
+10216256,T32EB002101,NIBIB,T32,Physics and Biology in Medicine Research Training,-3.6573,7256
+10063915,P30NS047101,NINDS,P30,University of California San Diego Neuroscience Microscopy Imaging Core,-3.6585,7262
+10825704,R21AG072418,NIA,R21,Helping the helpers: User-centered technology to aid caregiver management of medications for people with ADRD,-3.6601,7272
