@@ -1,0 +1,450 @@
+{
+ "backtest_id": "task1-backtest-vs-reported-v1",
+ "benchmarks": {
+  "human_sr_screening_kappa": {
+   "ref": "BMJ Open 2024;14(3):e076912",
+   "value": 0.72
+  },
+  "mateen_2013_kappa": {
+   "ref": "Clin Epidemiol 2013;5:89-95, doi:10.2147/CLEP.S43118",
+   "value": 0.56,
+   "what": "titles vs titles+abstracts screening, 96-97% agreement"
+  },
+  "neves_2023_kappa": {
+   "ref": "J Biomed Semant 2023;14(1):13, doi:10.1186/s13326-023-00292-w",
+   "value": 0.62,
+   "what": "automatic classification of experimental models"
+  },
+  "nih_peer_review_icc": {
+   "ref": "Pier et al., PNAS 2018;115(12):2952-2957",
+   "value": 0.0
+  },
+  "use": "interpreted against, not tested against (pre-registration section 6 item 7)"
+ },
+ "count_trend": {
+  "fy2026_count_forecast": 3325.7,
+  "fy2026_forecast_prevalence": 0.05885,
+  "fy2026_forecast_vs_trend_pct": -12.03,
+  "fy2026_reported": null,
+  "fy2026_universe": 56508,
+  "linear_trend_fy2022_2025": {
+   "fy2026_extrapolated": 3780.5,
+   "slope_per_year": 148.2
+  },
+  "note": "FY2026 reported count is not yet public (daily zero-count check); the forecast is scored against it at the Tier 1 reveal. Prevalence differs by universe size: FY2026 universe is a mid-year snapshot.",
+  "reported_prevalence": {
+   "2021": 0.04323,
+   "2022": 0.04843,
+   "2023": 0.05212,
+   "2024": 0.05557,
+   "2025": 0.06063
+  },
+  "reported_universe_nitrd": {
+   "2021": 2727,
+   "2022": 3115,
+   "2023": 3407,
+   "2024": 3560,
+   "2025": 3558
+  }
+ },
+ "fingerprint_id": "task1-fingerprint-v1",
+ "framing": "high-recall triage at ~12% review burden; kappa is context only",
+ "fy2021_reference": {
+  "label": "training year (exposed); reference only",
+  "nitrd": 2727,
+  "u2021_frozen": 0.07345340393823128,
+  "u2021_recomputed": 0.07345340393823128,
+  "universe": 63074
+ },
+ "listing": "RePORTER spending category 329, per award",
+ "metrics_id": "task1-reveal-metrics-v1",
+ "model_sha256": "b703083d8a122015071bdf9c7035f2b5e3375b6dae3fdcc42e847f46b49049ce",
+ "regime_note": "NITRD category definitions before FY2019 are a different regime and are not comparable; no point before FY2022 is evaluated (FY2021 = training-year reference only).",
+ "shortlist_fraction": 0.11548340045026477,
+ "universe_rule": "task1-universe-qvr-recon-v1",
+ "years": {
+  "2022": {
+   "all": {
+    "bootstrap": {
+     "resamples": 2000,
+     "seeds": {
+      "kappa_primary": 20313126,
+      "kappa_sensitivity": 20313127,
+      "recall": 20313125
+     },
+     "unit": "core project"
+    },
+    "kappa_primary": 0.5831372559430285,
+    "kappa_primary_ci95": [
+     0.5716807827712852,
+     0.5946975147238743
+    ],
+    "kappa_sensitivity": 0.5509724032215942,
+    "kappa_sensitivity_ci95": [
+     0.5391400937777658,
+     0.5624677575974272
+    ],
+    "n": 64313,
+    "nitrd": 3115,
+    "precision_primary": 0.44518658341803397,
+    "precision_sensitivity": 0.41276252019386106,
+    "recall": 0.9842696629213483,
+    "recall_ci95_core_bootstrap": [
+     0.9793734657741713,
+     0.9887604367373154
+    ],
+    "share_of_scope_shortlisted": 0.11549764433318303,
+    "shortlisted": 7428,
+    "shortlisted_uncategorized": 541,
+    "tp": 3066,
+    "uncategorized": 4586
+   },
+   "blind": false,
+   "count_forecast": 3405.1,
+   "count_forecast_error": 290.1,
+   "count_forecast_error_pct": 9.31,
+   "curve": [
+    {
+     "fraction": 0.05,
+     "k": 3216,
+     "recall": 0.8693418940609952
+    },
+    {
+     "fraction": 0.1,
+     "k": 6432,
+     "recall": 0.977207062600321
+    },
+    {
+     "fraction": 0.11548340045026477,
+     "k": 7428,
+     "recall": 0.9842696629213483
+    },
+    {
+     "fraction": 0.15,
+     "k": 9647,
+     "recall": 0.9906902086677367
+    },
+    {
+     "fraction": 0.2,
+     "k": 12863,
+     "recall": 0.9948635634028893
+    },
+    {
+     "fraction": 0.3,
+     "k": 19294,
+     "recall": 0.9987158908507223
+    }
+   ],
+   "k": 7428,
+   "label": "exposed (labels read 2026-10-25)",
+   "new_core_awards": 16462,
+   "new_cores": {
+    "bootstrap": {
+     "resamples": 2000,
+     "seeds": {
+      "kappa_primary": 20313127,
+      "kappa_sensitivity": 20313128,
+      "recall": 20313126
+     },
+     "unit": "core project"
+    },
+    "kappa_primary": 0.5535175599985974,
+    "kappa_primary_ci95": [
+     0.5331172675418582,
+     0.574292257732999
+    ],
+    "kappa_sensitivity": 0.5354760809701155,
+    "kappa_sensitivity_ci95": [
+     0.5156107879614581,
+     0.5560883406351718
+    ],
+    "n": 16462,
+    "nitrd": 1018,
+    "precision_primary": 0.42727665084160554,
+    "precision_sensitivity": 0.4090909090909091,
+    "recall": 0.9724950884086444,
+    "recall_ci95_core_bootstrap": [
+     0.9614614976366685,
+     0.9822177933860684
+    ],
+    "share_of_scope_shortlisted": 0.14700522415259384,
+    "shortlisted": 2420,
+    "shortlisted_uncategorized": 103,
+    "tp": 990,
+    "uncategorized": 746
+   },
+   "reported_nitrd": 3115,
+   "reported_uncategorized": 4586,
+   "sum_scores": 2987.4866322216676,
+   "universe": 64313
+  },
+  "2023": {
+   "all": {
+    "bootstrap": {
+     "resamples": 2000,
+     "seeds": {
+      "kappa_primary": 20313127,
+      "kappa_sensitivity": 20313128,
+      "recall": 20313126
+     },
+     "unit": "core project"
+    },
+    "kappa_primary": 0.6012979562687698,
+    "kappa_primary_ci95": [
+     0.589864139671824,
+     0.6136589379942299
+    ],
+    "kappa_sensitivity": 0.571189582273987,
+    "kappa_sensitivity_ci95": [
+     0.5598440816808973,
+     0.5823200738212001
+    ],
+    "n": 65369,
+    "nitrd": 3407,
+    "precision_primary": 0.4688655103781632,
+    "precision_sensitivity": 0.43682119205298015,
+    "recall": 0.9680070443205165,
+    "recall_ci95_core_bootstrap": [
+     0.9617684344631651,
+     0.9738699156887319
+    ],
+    "share_of_scope_shortlisted": 0.11549817191635178,
+    "shortlisted": 7550,
+    "shortlisted_uncategorized": 516,
+    "tp": 3298,
+    "uncategorized": 5247
+   },
+   "blind": false,
+   "count_forecast": 3550.8,
+   "count_forecast_error": 143.8,
+   "count_forecast_error_pct": 4.22,
+   "curve": [
+    {
+     "fraction": 0.05,
+     "k": 3269,
+     "recall": 0.7842676841796302
+    },
+    {
+     "fraction": 0.1,
+     "k": 6537,
+     "recall": 0.9521573231582037
+    },
+    {
+     "fraction": 0.11548340045026477,
+     "k": 7550,
+     "recall": 0.9680070443205165
+    },
+    {
+     "fraction": 0.15,
+     "k": 9806,
+     "recall": 0.9815086586439683
+    },
+    {
+     "fraction": 0.2,
+     "k": 13074,
+     "recall": 0.99002054593484
+    },
+    {
+     "fraction": 0.3,
+     "k": 19611,
+     "recall": 0.9973583798062812
+    }
+   ],
+   "k": 7550,
+   "label": "exposed (labels read 2026-10-25)",
+   "new_core_awards": 16366,
+   "new_cores": {
+    "bootstrap": {
+     "resamples": 2000,
+     "seeds": {
+      "kappa_primary": 20313128,
+      "kappa_sensitivity": 20313129,
+      "recall": 20313127
+     },
+     "unit": "core project"
+    },
+    "kappa_primary": 0.5572712170123998,
+    "kappa_primary_ci95": [
+     0.535457262812535,
+     0.5779618546291705
+    ],
+    "kappa_sensitivity": 0.5409622111173962,
+    "kappa_sensitivity_ci95": [
+     0.5188915523955455,
+     0.5624388210481387
+    ],
+    "n": 16366,
+    "nitrd": 939,
+    "precision_primary": 0.431391429947039,
+    "precision_sensitivity": 0.41423948220064727,
+    "recall": 0.9542066027689031,
+    "recall_ci95_core_bootstrap": [
+     0.9405824628139364,
+     0.9673567086152245
+    ],
+    "share_of_scope_shortlisted": 0.13216424294268606,
+    "shortlisted": 2163,
+    "shortlisted_uncategorized": 86,
+    "tp": 896,
+    "uncategorized": 846
+   },
+   "reported_nitrd": 3407,
+   "reported_uncategorized": 5247,
+   "sum_scores": 3115.298996138631,
+   "universe": 65369
+  },
+  "2024": {
+   "all_awards_mixed": {
+    "label": "pools blind Tier 2 with exposed Tier 2x (File A); comparable in scope to the other years",
+    "nitrd": 3560,
+    "recall": 0.9575842696629213,
+    "tp": 3409
+   },
+   "blind": true,
+   "count_forecast": 3507.6,
+   "count_forecast_error": -52.4,
+   "count_forecast_error_pct": -1.47,
+   "k": 7399,
+   "label": "blind (Tier 2, non-File-A; sealed key opened once 2026-11-04T19:39:35Z)",
+   "reported_nitrd": 3560,
+   "reported_uncategorized": 4794,
+   "source": "build/task1_fy2024_score_v1/report.json (sha 2fc574fe), build/task1_fy2024_ranking_v1/ranking.csv.gz (sha e49e844d)",
+   "sum_scores": 3077.459346,
+   "tier2_blind": {
+    "nitrd": 1479,
+    "precision_primary": 0.28713899854560565,
+    "recall": 0.9344151453684922,
+    "recall_ci95_core_bootstrap": [
+     0.9212947108066971,
+     0.9476946441990375
+    ],
+    "tp": 1382
+   },
+   "tier2_new_cores_blind": {
+    "nitrd": 364,
+    "recall": 0.8928571428571429,
+    "recall_ci95_core_bootstrap": [
+     0.8601583113456465,
+     0.9241255038600806
+    ],
+    "tp": 325
+   },
+   "universe": 64065
+  },
+  "2025": {
+   "all": {
+    "bootstrap": {
+     "resamples": 2000,
+     "seeds": {
+      "kappa_primary": 20313129,
+      "kappa_sensitivity": 20313130,
+      "recall": 20313128
+     },
+     "unit": "core project"
+    },
+    "kappa_primary": 0.6416650936512619,
+    "kappa_primary_ci95": [
+     0.6291641188915281,
+     0.6537477823584847
+    ],
+    "kappa_sensitivity": 0.6172009523380908,
+    "kappa_sensitivity_ci95": [
+     0.6050405779656215,
+     0.6290363273448658
+    ],
+    "n": 58686,
+    "nitrd": 3558,
+    "precision_primary": 0.5223158551810237,
+    "precision_sensitivity": 0.493803481853054,
+    "recall": 0.9406970207982013,
+    "recall_ci95_core_bootstrap": [
+     0.9323839475083713,
+     0.9486599083852781
+    ],
+    "share_of_scope_shortlisted": 0.11549602971747946,
+    "shortlisted": 6778,
+    "shortlisted_uncategorized": 370,
+    "tp": 3347,
+    "uncategorized": 4068
+   },
+   "blind": false,
+   "count_forecast": 3391.3,
+   "count_forecast_error": -166.7,
+   "count_forecast_error_pct": -4.69,
+   "curve": [
+    {
+     "fraction": 0.05,
+     "k": 2935,
+     "recall": 0.6734120292299044
+    },
+    {
+     "fraction": 0.1,
+     "k": 5869,
+     "recall": 0.9114671163575042
+    },
+    {
+     "fraction": 0.11548340045026477,
+     "k": 6778,
+     "recall": 0.9406970207982013
+    },
+    {
+     "fraction": 0.15,
+     "k": 8803,
+     "recall": 0.9713322091062394
+    },
+    {
+     "fraction": 0.2,
+     "k": 11738,
+     "recall": 0.9862282181000562
+    },
+    {
+     "fraction": 0.3,
+     "k": 17606,
+     "recall": 0.9955030916245081
+    }
+   ],
+   "k": 6778,
+   "label": "exposed (FY2025 NITRD awards read by Task 2, 2026-10); not blind",
+   "new_core_awards": 12803,
+   "new_cores": {
+    "bootstrap": {
+     "resamples": 2000,
+     "seeds": {
+      "kappa_primary": 20313130,
+      "kappa_sensitivity": 20313131,
+      "recall": 20313129
+     },
+     "unit": "core project"
+    },
+    "kappa_primary": 0.632006630469941,
+    "kappa_primary_ci95": [
+     0.6076578770141228,
+     0.6545488361568444
+    ],
+    "kappa_sensitivity": 0.6174412143884841,
+    "kappa_sensitivity_ci95": [
+     0.5945636074312036,
+     0.6407672903776811
+    ],
+    "n": 12803,
+    "nitrd": 890,
+    "precision_primary": 0.5205566097406704,
+    "precision_sensitivity": 0.5033639143730887,
+    "recall": 0.9247191011235955,
+    "recall_ci95_core_bootstrap": [
+     0.9058940392300417,
+     0.9415082509258368
+    ],
+    "share_of_scope_shortlisted": 0.12770444427087402,
+    "shortlisted": 1635,
+    "shortlisted_uncategorized": 54,
+    "tp": 823,
+    "uncategorized": 520
+   },
+   "reported_nitrd": 3558,
+   "reported_uncategorized": 4068,
+   "sum_scores": 2975.400452912041,
+   "universe": 58686
+  }
+ }
+}

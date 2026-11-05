@@ -1,0 +1,24 @@
+{
+ "backtest_id": "task1-backtest-vs-reported-v1",
+ "reads": {
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_backtest_v1/fy2025/FETCH_SUMMARY.json": "9fe6746ff0891057c6b16888dfbe02ced8456d303f145b4211b01f3de2836e2f",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_backtest_v1/fy2025/fy2025.jsonl.gz": "1ad38239513e552f5a76c1dc784243245495310277cebcfc29ed49df3f722bf8",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2019/FETCH_SUMMARY.json": "77b895eb198aa69019345bc0c9fda0637d6905822533a97792dacf1868d1b81b",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2019/fy2019.jsonl.gz": "75a48b70b37151b0767dd3d143b04a5e65fdde5c38c0729f8a8bcf59cdc919e5",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2020/FETCH_SUMMARY.json": "dec18b8027ea0b03f808bcfc64b035f4e4a4474c39aef142c85b32954009054f",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2020/fy2020.jsonl.gz": "ae495e0d49096df45746cdeaa793f10bc743985acb6889b9660a966b085d38ed",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2021/FETCH_SUMMARY.json": "847f38d6b7d711df7b24f51f2e60e0d821e59cedf059e0c99f3a4627ccca4e9c",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_seed_v1/fy2021/fy2021.jsonl.gz": "5e561149f60ca252fcfce812a4e135b10f72fb94a8eaf2eb2e710982b344ce42",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_tier3_v1/fy2022/FETCH_SUMMARY.json": "6ceac6ee0ec3d163b6bf7c3da84a40d8434102f2c034cf9c3d8e6595dafb0b6c",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_tier3_v1/fy2022/fy2022.jsonl.gz": "07532a2ba2ebb0e7096d48eaeafafbfbe672ea805b6e10c94ee2aa6695a685c9",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_tier3_v1/fy2023/FETCH_SUMMARY.json": "c20f18b66f2cd5e33197ddf779e48969d0caa62b9dae218f90f5bc23482be1a3",
+  "/Volumes/users/conroyri/nitrd_hackathon_v1_raw/task1_tier3_v1/fy2023/fy2023.jsonl.gz": "586ca7eae82b0a752a0401a5fa6e738115a41be18d53cfe9925faa0527c9394c",
+  "/Workspace/Users/conroyri@nih.gov/entry2-uac-nitrd/build/task1_fingerprint_v1/model.json.gz": "b703083d8a122015071bdf9c7035f2b5e3375b6dae3fdcc42e847f46b49049ce",
+  "/Workspace/Users/conroyri@nih.gov/entry2-uac-nitrd/build/task1_fingerprint_v1/shortlist_rule.json": "122e400069c9bdc161624a9effce4d1768a751e29eaf0165ca422232643e9893",
+  "/Workspace/Users/conroyri@nih.gov/entry2-uac-nitrd/build/task1_forecast_fy2026/forecast_summary.json": "4ecb98bde969bf6830174212e49d04962d6cb83ecc0299f49ff0e5b4292ff4b1",
+  "/Workspace/Users/conroyri@nih.gov/entry2-uac-nitrd/build/task1_fy2024_ranking_v1/ranking.csv.gz": "e49e844d1ebf43691cf3d66ef70f7c415d7dd50f1deccac845709cd656ffa8dd",
+  "/Workspace/Users/conroyri@nih.gov/entry2-uac-nitrd/build/task1_fy2024_score_v1/report.json": "2fc574fe781fb2fedcc05319c97c3714ed7d3201ac1989ca5dd9480c5c891e11",
+  "/Workspace/Users/conroyri@nih.gov/entry2-uac-nitrd/build/universe/fy2024_identity.csv": "9d996db94774a9b7e4b450361d4d903182411cd346a3b810b99938a3ee10936c"
+ },
+ "sealed_volume_opened": false
+}
