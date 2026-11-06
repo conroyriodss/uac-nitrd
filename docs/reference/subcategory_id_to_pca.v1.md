@@ -39,8 +39,19 @@ Other checks:
 * The public RePORTER API does not expose these IDs, current or historical, in any year sampled.
 * The IDs are probably visible only in internal RCDC/QVR views. That is the owner's source, not verified
   here.
-* The only public NITRD-subcategory evidence remains the RCDC exports (File A = AI subcategories, B, C),
-  which carry category NAMES, not IDs.
+* **Correction (2026-11-06, owner decision).** This line used to call the RCDC exports "public". It mixed
+  up two layers:
+  * **Category layer: public.** Per-award membership of RCDC spending category 329 (NITRD) is public. It can
+    be exported from RePORT Categorical Spending (with Application IDs since the March 2025 redesign, per
+    the owner), and it is what this project's pipeline uses.
+  * **Sub-category layer: not public.**
+    * None of the 29 sub-category IDs returns a record from the public API (table above).
+    * The RCDC exports File A (NITRD AI sub-categories), B and C are RCDC Trend Analysis Project Listing
+      exports. They are not public. NIH describes multi-year trend analysis as an internal tool (DSCA
+      presentation, Cebotari & Praskievicz, January 2024). eRA describes RCDC custom-category and portfolio
+      functions as "for internal planning and analysis purposes". Both sources were cited by the owner and
+      not independently retrieved here.
+    * The exports carry sub-category NAMES, not IDs.
 * So a Task 2 subcategory key would need an internal export or a QVR pull. It cannot come from RePORTER.
 
 If the owner supplies an internal ID -> name listing, it gets recorded as v2 of this file with its
